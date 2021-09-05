@@ -1,0 +1,143 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.topbar{
+    background: black;
+    overflow: hidden;
+    margin-left:-8px ;
+    position: fixed;
+    margin-top: -10px;
+    width: 100%;
+    height: 10vh;
+}
+.topbar a{
+    float: left;
+    transition: 0.5s;
+    font-family: fantasy;
+    padding: 14px 16px;
+    margin: 3px 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+.topbar img{
+    float: left;
+    margin-top: -10px;
+    margin-left: 10px;
+}
+.topbar input{
+    margin-bottom: 20px;
+    border: none;
+    border-bottom:2px solid white;
+    float: right;
+    font-size: large;
+    background: transparent;
+    outline: none;
+    width: 190px;
+    margin-top: 20px;
+    margin-right: 10px;
+    color: white;
+}
+.topbar form a{
+    float: right;
+    margin-top: 10px;
+    text-align: center;
+    border: 4px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 120px;
+    background: black;
+    padding-top: 10px;
+    color: white;
+    height: 10px;
+}
+.topbar a:hover {
+    color: springgreen;
+}
+#rst{
+    transition: 0.5s;
+}
+.rg{
+    height: 70vh;
+    margin-left: -8px;
+    background: darkcyan;
+    width: 1233px;
+    padding: 10px 15px;
+}
+.rg p{
+    font-size:20px;
+    color: white;
+    font-family: monospace;
+}
+.rg h1{
+    font-family: sans-serif;
+    color: aqua;
+}
+.rg img{
+    margin-right: 50px;
+    border-radius: 10px;
+    border: 5px solid white;
+    float: right;
+    margin-top: -20px;
+}
+.rst{
+    height: 50vh;
+    height: 70vh;
+    margin-left: -8px;
+    background: rgb(21, 214, 53);
+    width: 1233px;
+    padding: 10px 15px;
+}
+.rst p{
+    font-size:20px;
+    color: white;
+    font-family: monospace;
+}
+.rst h1{
+    font-family: sans-serif;
+    color: rgb(179, 221, 28);
+}
+.rst img{
+    margin-right: 50px;
+    border-radius: 10px;
+    border: 5px solid white;
+    float: right;
+    margin-top: -20px;
+}
+.rs{
+    height: 50vh;
+    height: 70vh;
+    margin-left: -8px;
+    background: rgb(126, 16, 216);
+    width: 1233px;
+    padding: 10px 15px;
+}
+.rs p{
+    font-size:20px;
+    color: white;
+    font-family: monospace;
+}
+.rs h1{
+    font-family: sans-serif;
+    color: rgb(0, 47, 255);
+}
+.rs img{
+    margin-right: 50px;
+    border-radius: 10px;
+    border: 5px solid white;
+    float: right;
+    margin-top: -20px;
+}
+.coby{
+    height: 50px;
+    margin-left: -8px;
+    margin-top: -30px;
+    background: rgb(0, 0, 0);
+    width: 1263px;
+    text-align: center;
+    padding-top: 3px;
+}
+.coby h3{
+    font-family: cursive;
+    color:white
+}
