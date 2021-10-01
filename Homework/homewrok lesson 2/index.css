@@ -12,7 +12,7 @@
     justify-content: start;
     gap: 40px;
 }
-.item a{
+.item div{
     text-decoration: none;
     color: black;
 }
@@ -66,5 +66,5 @@ img{
     padding: 0 20px;
 }
 .sidenav ul li a:hover {
-    color: blue;
+    color: rgb(0, 183, 255);
 }
