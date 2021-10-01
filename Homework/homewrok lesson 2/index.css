@@ -1,31 +1,29 @@
-body{
+*{
+    padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
+/*price-box*/
 .price-box{
     display: flex;
-    padding-top: 50px;
-    margin-top: 20px;
     margin: auto;
-    width: 60%;
+    width: 75%;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 10px;
+    justify-content: start;
+    gap: 40px;
 }
 .item a{
     text-decoration: none;
     color: black;
 }
 .item {
-    width: 200px;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 200px;
-    display: flex;
+    width: 350px;
+    height: 500px;
 }
 img{
     height: 100%;
     width: 100%;
-    object-fit:scale-down;
+    object-fit:cover;
 }
 .box{
     display: flex;
@@ -40,4 +38,33 @@ img{
 }
 .sale{
     color:chartreuse
+}
+.price{
+    text-decoration-line:line-through;
+    color: #000;
+    color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+/*header*/
+.sidenav{
+    display: flex;
+    justify-content: center;
+    padding: 30px 10%;
+    align-items: center;
+
+}
+.sidenav ul li a{
+    list-style: none;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000;
+    font-family: fantasy;
+    transition: 0.5s;
+}
+.sidenav li {
+    display: inline-block;
+    padding: 0 20px;
+}
+.sidenav ul li a:hover {
+    color: blue;
 }
