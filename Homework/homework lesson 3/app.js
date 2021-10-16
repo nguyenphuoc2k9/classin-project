@@ -51,11 +51,11 @@ function task3(){
         if (answer < 0) {
             alert("the equation has no real root.")
         }
-        else if (answer != 0){
-            x1 =  double.dsqrt = Math.sqrt( -b + (b * b - 4 * a * c) / (2*a));
-            x2 =  double.dsqrt = Math.sqrt (- b - (b * b - 4 * a * c) / (2*a));
-            alert("roots 1 is " + x1)
-            alert("roots 2 is " + x2)
+        else{
+            x1 = double.dsqrt = Math.sqrt -b +((b * b) - (4 * a * c));
+            x2 = double.dsqrt = Math.sqrt  - b - ((b * b) - (4 * a * c));
+            alert(x1)
+            alert(x2)
         }
     }
 }
