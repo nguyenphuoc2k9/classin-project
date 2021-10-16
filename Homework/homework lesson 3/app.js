@@ -46,24 +46,16 @@ function task3(){
         x  = - c/b
         alert(x)
     }
-    if (a != 0 && b != 0 && c != 0){
+    if (a != 0 && b != 0 && c != 0) {
         var answer = b*b - 4*a*c
         if (answer < 0) {
             alert("the equation has no real root.")
         }
-<<<<<<< HEAD
         else{
             x1 = double.dsqrt = Math.sqrt -b +((b * b) - (4 * a * c));
             x2 = double.dsqrt = Math.sqrt  - b - ((b * b) - (4 * a * c));
             alert(x1)
             alert(x2)
-=======
-        else if (answer != 0){
-            var x1 = (-b + Math.sqrt(b * b - 4 * a * c))/2*a;
-            var x2 = (-b - Math.sqrt(b * b - 4 * a * c))/2*a;
-            alert("roots 1 is " + x1)
-            alert("roots 2 is " + x2)
->>>>>>> a87fca47179e87e45eedd67872624239c35d60b2
-        }
     }
+        }
 }
