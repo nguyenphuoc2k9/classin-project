@@ -32,5 +32,6 @@ function task2(){
     inventory.pocket = ['seashell','strange berry','lint']
     inventory.gold += 50;
     delete inventory.pound
+    inventory.backpack.splice(1,1)
     console.log(inventory)    
 }
