@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background:  url(imgbackground.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+.logo{
+    position: absolute;
+    background-size: cover;
+    top: 6%;
+    top: 1.5%;
+}
+.website-text{
+    color: white;
+    text-align: center;
+    padding-top: 250px;
+}
+.website-text p{
+    font-family:monospace;
+}
+.website-text h1{
+    font-size: xx-large;
+    font-family:fantasy;
+}
+.web-btn{
+    margin: 70px auto 0;
+}
+.web-btn a span{
+    background: #fff;
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0ea7ff;
+    z-index: -1;
+    transition: 0.5s;
+}
+.web-btn a{
+    border-radius: 40px;
+    font-family: fantasy;
+    width: 190px;
+    text-decoration: none;
+    display: inline-block;
+    border: 3px solid #fff;
+    margin: 0 10px;
+    padding: 12px 0;
+    color: #fff;
+    text-transform: uppercase;
+    overflow: hidden;
+    position: relative;   
+}
+.web-btn a:hover span{
+    width: 100%;
+    color: #0ea7ff;
+    background: #00e1ff;
+    box-shadow: 0 0  10px #00e1ff,0 0  40px #00e1ff,0 0  80px #00e1ff;
+}
+nav ul li {
+    list-style: none;
+    margin: 50px 20px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: #fff;
+}
+@media screen and (max-width:770px){
+    .website-text h1 {
+        font-size: x-large;
+    }
+    .website-text a{
+        display: block;
+        margin : 20px;
+    }
+}

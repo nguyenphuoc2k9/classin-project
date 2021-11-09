@@ -1,0 +1,86 @@
+
+#web2{
+    background: #130f0f;
+    margin: 0;
+    padding: 0;
+}
+/* top games */
+#topgames{
+    padding: 90px 49px;
+    text-align: center;
+}
+.gamebox{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 65%;
+}
+.games{
+    display: flex;
+    flex-basis: 48%;
+    text-align: center;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 16px;
+    height: 250px;
+}
+.games img{
+    width: 40%;
+    height: 40%;
+    border-radius: 10px;
+}
+.title-text{
+    font-family: monospace;
+    color: #fff;
+    font-size: large;
+}
+/* sidenav */
+.sidenav{
+    background: #000;
+    position: fixed;
+    margin-top: -1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+}
+.sidenav a{
+    float: left;
+    font-family: fantasy;
+    transition: 0.5s;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size: medium;
+}
+.sidenav input{
+    margin-bottom: 20px;
+    border: none;
+    border-bottom:2px solid white;
+    float: right;
+    font-size: large;
+    background: transparent;
+    outline: none;
+    width: 190px;
+    margin-top: 20px;
+    margin-right: 10px;
+    color: white;
+}
+.sidenav form a{
+    float: right;
+    margin-top: 10px;
+    text-align: center;
+    border: 4px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 120px;
+    background: black;
+    padding-top: 10px;
+    color: white;
+    height: 10px;
+}
+.sidenav a:hover{
+    color: rgb(46, 161, 202);
+}
