@@ -1,8 +1,9 @@
 
-#web2{
+body{
     background: #130f0f;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 /* top games */
 #topgames{
@@ -10,26 +11,35 @@
     text-align: center;
 }
 .gamebox{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
     margin: auto;
-    width: 65%;
+    position: relative;
+}
+.gamebox .games{
+    position: relative;
+    width: 300px;
+    padding: 20px;
+    margin: 20px;
+    background: #3f3f3f;
+    border-radius: 20px;
 }
 .games{
-    display: flex;
-    flex-basis: 48%;
-    text-align: center;
-    justify-content: space-around;
-    flex-direction: column;
-    width: 16px;
-    height: 250px;
+    width: 200px;
+    box-shadow: 0 10px 10px rgba(255, 255, 255, 0.103);
+    color: #fff;
 }
 .games img{
-    width: 40%;
-    height: 40%;
     border-radius: 10px;
+}
+.info a{
+    color: aqua;
+    font-family: monospace;
+    font-size: larger;
+}
+.info{
+    font-family: monospace;
+    font-size: large;
 }
 .title-text{
     font-family: monospace;
@@ -40,21 +50,28 @@
 .sidenav{
     background: #000;
     position: fixed;
+    position: absolute;
     margin-top: -1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 10vh;
+    z-index: 99;
+}
+.sidenav a.active{
+    color: turquoise;
 }
 .sidenav a{
     float: left;
     font-family: fantasy;
-    transition: 0.5s;
     text-decoration: none;
     color: white;
+    transition: 0.5s;
     text-align: center;
     font-size: medium;
+    display: block;
+    position: relative;
 }
 .sidenav input{
     margin-bottom: 20px;
@@ -69,18 +86,20 @@
     margin-right: 10px;
     color: white;
 }
-.sidenav form a{
-    float: right;
-    margin-top: 10px;
-    text-align: center;
-    border: 4px solid rgb(255, 255, 255);
-    border-radius: 10px;
-    width: 120px;
-    background: black;
-    padding-top: 10px;
-    color: white;
-    height: 10px;
+.search-box button{
+    border: solid #fff 5px ;
+    border-radius: 20px;
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    background: #000;
 }
-.sidenav a:hover{
-    color: rgb(46, 161, 202);
+.search-box{
+    align-items: center;
+    display: flex;
+    padding-left: 20px;
+}
+/*owner profile*/
+.owner img{
+    border-radius: 100;
 }
