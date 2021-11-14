@@ -134,6 +134,14 @@ body{
     transition: all .5s ease 0s;
     position: relative;
 }
+.sidenav a:hover{
+    border-radius: 8px;
+    background: rgb(0, 247, 255);
+    z-index: -1;
+    color:azure;
+    transition: all .5s ease 0s;
+    position: relative;
+}
 .sidenav a{
     float: left;
     padding: 20px;
