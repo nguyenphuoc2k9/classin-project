@@ -6,14 +6,6 @@ for(let i = 0;i<menuItem.length;i++){
         menuItem[i].className = "active"
     }
 }
-
-// read more
-let more = document.querySelectorAll(".more")
-    for(let i = 0;i< more.length;i++){
-        more[i].addEventListener("click" , function(){
-            more[i].parentNode.classList.toggle("active")
-        })
-    }
 //Searh
 var topgames = document.getElementsByClassName('gamebox')[0]
 var inputSearch = document.getElementById('inputSea')
@@ -38,6 +30,9 @@ btnSearch.addEventListener('click', function(){
             generateContent(searchResult)
         }
     }
+    else if(keyword == ""){
+        alert("cannot empty the sreach")
+    }
 })
 
 function generateContent(data) {
@@ -54,8 +49,16 @@ function generateContent(data) {
                 <p>${game.visits}</p>
                 <p>${game.update}</p>
             </div>
-            <a class="more"></a>
+            <a class="more"><span></span></a>
         </div>`
         topgames.insertAdjacentHTML("beforeend", html)
     }
 }
+// read more
+let more = document.querySelectorAll(".more")
+for(let i = 0;i< more.length;i++){
+    more[i].addEventListener("click" , function(){
+        more[i].parentNode.classList.toggle("active")
+    })
+}
+

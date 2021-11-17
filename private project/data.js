@@ -206,8 +206,3 @@ var data2 =
         ,update:"Newest update : 11/6/2021"
     }
 ]
-var news = [
-    {   
-        
-    }
-]

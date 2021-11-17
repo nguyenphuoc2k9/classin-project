@@ -5,6 +5,45 @@ body{
     padding: 0;
     box-sizing: border-box;
 }
+/*news*/
+#news{
+    margin: auto;
+    text-align:left;
+}
+#newsbox{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+#newsbox .newscard{
+    position: relative;
+    width: 80%;
+    background: #3f3f3f;
+    border-radius: 20px;
+}
+.newscard img{
+    width: 200px;
+    margin: 18px 44px;
+    height: 200px;
+    border-radius: 20px;
+}
+.newscard .info h3:hover{
+    color: aqua;
+}
+.info h3{
+    font-family: sans-serif;
+    transition:0.5s ;
+    text-transform: uppercase;
+}
+.newscard{
+    width: 200px;
+    margin:20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+}
 /* home */
 #topgames{
     padding: 90px 49px;
@@ -99,18 +138,24 @@ body{
 .games img{
     border-radius: 10px;
 }
+.info a:hover{
+    color: red;
+}
 .info a{
     color: aqua;
     font-family: monospace;
     font-size: 26px;
+    transition:0.5s ;
     text-decoration: none;
 }
 .info{
+    color: #fff;
     font-family: monospace;
     font-size: large;
 }
 .title-text{
     font-family: monospace;
+    text-align: center;
     color: #fff;
     font-size: large;
 }
@@ -248,6 +293,9 @@ body{
 .owner{
     padding: 90px 49px;
     text-align: left;
+}
+.owner-information a{
+    color: aqua;
 }
 .owner-information{
     background: #3f3f3f;

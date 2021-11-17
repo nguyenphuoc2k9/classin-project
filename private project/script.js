@@ -1,21 +1,3 @@
-//sidenav
-const page = location.href
-const menuItem = document.querySelectorAll("#nav")
-for(let i = 0;i<menuItem.length;i++){
-    if(menuItem[i].href === page){
-        menuItem[i].className = "active"
-    }
-}
-
-//read more
-function readmore(){
-let more = document.querySelectorAll(".more")
-    for(let i = 0;i< more.length;i++){
-        more[i].addEventListener("click" , function(){
-            more[i].parentNode.classList.toggle("active")
-        })
-    }
-}
 //search
 var topgames = document.getElementsByClassName('gamebox')[0]
 var inputSearch = document.getElementById('inputSea')
@@ -56,8 +38,23 @@ function generateContent(data) {
                 <p>${game.visits}</p>
                 <p>${game.update}</p>
             </div>
-            <button class="more" onclick="readmore()"></button>
+            <a class="more"><span></span></a>
         </div>`
         topgames.insertAdjacentHTML("beforeend", html)
+    }
+}
+// read more
+let more = document.querySelectorAll(".more")
+for(let i = 0;i< more.length;i++){
+    more[i].addEventListener("click" , function(){
+        more[i].parentNode.classList.toggle("active")
+    })
+}
+//sidenav
+const page = location.href
+const menuItem = document.querySelectorAll("#nav")
+for(let i = 0;i<menuItem.length;i++){
+    if(menuItem[i].href === page){
+        menuItem[i].className = "active"
     }
 }
