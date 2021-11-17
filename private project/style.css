@@ -50,6 +50,7 @@ body{
     position: relative;
     padding: 10px 15px;
     background: #17e78c;
+    border: none;
     margin-top: 15px;
     display: inline-block;
     text-transform: uppercase;
@@ -181,10 +182,6 @@ body{
     display: flex;
     padding-left: 20px;
 }
-/*owner profile*/
-.owner img{
-    border-radius: 100;
-}
 /*features*/
 .feature{
     padding: 90px 49px;
@@ -246,4 +243,25 @@ body{
     margin-top: -18px;
     font-family: monospace;
     font-size: large;
+}
+/*Owner*/
+.owner{
+    padding: 90px 49px;
+    text-align: left;
+}
+.owner-information{
+    background: #3f3f3f;
+    border-radius: 20px;
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    color: #fff;
+    font-family:monospace;
+    padding: 50px;
+    font-weight: bold;
+}
+.owner-information img{
+    border-radius: 40px;
+    border: 5px solid #fff;
+    box-shadow: 0 10px 10px rgba(255, 255, 255, 0.103);
 }

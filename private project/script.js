@@ -7,19 +7,21 @@ for(let i = 0;i<menuItem.length;i++){
     }
 }
 
-// read more
+//read more
+function readmore(){
 let more = document.querySelectorAll(".more")
     for(let i = 0;i< more.length;i++){
         more[i].addEventListener("click" , function(){
             more[i].parentNode.classList.toggle("active")
         })
     }
-//Searh
+}
+//search
 var topgames = document.getElementsByClassName('gamebox')[0]
 var inputSearch = document.getElementById('inputSea')
 var btnSearch = document.getElementById('btnSearch')
 
-generateContent(games)
+generateContent(data2)
 
 
 btnSearch.addEventListener('click', function(){
@@ -27,9 +29,9 @@ btnSearch.addEventListener('click', function(){
     if(keyword != "") {
         var searchResult = []
 
-        for(var i = 0; i < games.length; i++){
-            if(games[i].name.toLocaleLowerCase().includes(keyword)){
-                searchResult.push(games[i])
+        for(var i = 0; i < data2.length; i++){
+            if(data2[i].name.toLocaleLowerCase().includes(keyword)){
+                searchResult.push(data2[i])
             }
         }
         if(searchResult.length == 0) {
@@ -54,7 +56,7 @@ function generateContent(data) {
                 <p>${game.visits}</p>
                 <p>${game.update}</p>
             </div>
-            <a class="more"></a>
+            <button class="more" onclick="readmore()"></button>
         </div>`
         topgames.insertAdjacentHTML("beforeend", html)
     }
