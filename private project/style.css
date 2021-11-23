@@ -201,7 +201,7 @@ body{
     display: block;
 
 }
-.sidenav input{
+/* .sidenav input{
     margin-bottom: 20px;
     border: none;
     border-bottom:2px solid white;
@@ -226,7 +226,7 @@ body{
     align-items: center;
     display: flex;
     padding-left: 20px;
-}
+} */
 /*features*/
 .feature{
     padding: 90px 49px;
@@ -312,4 +312,91 @@ body{
     border-radius: 40px;
     border: 5px solid #fff;
     box-shadow: 0 10px 10px rgba(255, 255, 255, 0.103);
+}
+/*Search*/
+#search{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.search{
+    display: grid;
+    height: 100%;
+    padding: 90px 49px;
+    place-items: center;
+}
+.search-box{
+    position: relative;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 30px rgba(0,0,0,.2);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .search-box.active{
+    width: 350px;
+  }
+.search-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search .search-box{
+    height: 60px;
+    width: 60px;
+    position: relative;
+}
+.search-box.active{
+    width: 350px;
+}
+.search .search-box input{
+    height: 100%;
+    width: 100%;
+    font-family:monospace;
+    font-size: medium;
+    border: none;
+    border-radius: 50px;
+    padding: 0 60px 0 20px;
+    opacity: 0;
+}
+.search .search-box input.active{
+    opacity: 1;
+}
+.search-box .search-icon{
+    height: 60px;
+    position: absolute;
+    z-index: 1;
+    width: 60px;
+    background: #fff;
+    color: #130f0f;
+    transform: translate(-50%);
+    right: 0px;
+    font-size: 22px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.search-box .search-icon.active{
+    height: 50px;
+    width: 50px;
+    right: -20px;
+    transform: translate(-50%) rotate(360deg); 
+    color: #fff;
+    background: #130f0f;
+    line-height: 50px;
+    font-size: 20px;
+}
+.search-box .cancel-icon{
+    position: absolute;
+    color: #fff;
+    right: 30px;
+    transform: translate(-50%);
+    cursor: pointer;
+    font-size: 25px;
+    transition: all 0.5s  0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.search-box .cancel-icon.active{
+    right: -55px;
+    transform: translate(-50%) rotate(360deg); 
 }

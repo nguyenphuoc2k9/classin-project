@@ -4,26 +4,6 @@ var inputSearch = document.getElementById('inputSea')
 var btnSearch = document.getElementById('btnSearch')
 
 generateContent(data2)
-
-
-btnSearch.addEventListener('click', function(){
-    var keyword = inputSearch.value
-    if(keyword != "") {
-        var searchResult = []
-
-        for(var i = 0; i < data2.length; i++){
-            if(data2[i].name.toLocaleLowerCase().includes(keyword)){
-                searchResult.push(data2[i])
-            }
-        }
-        if(searchResult.length == 0) {
-            alert("No name game match: " + keyword)
-        } else {
-            generateContent(searchResult)
-        }
-    }
-})
-
 function generateContent(data) {
     topgames.innerHTML = ''
     for(var i = 0; i < data.length; i++){

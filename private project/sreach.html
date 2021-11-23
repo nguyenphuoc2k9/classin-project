@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>More</title>
-    <link rel="icon" href="./logo-removebg-preview.png"/>
     <link rel="stylesheet" href="./style.css"/>
+    <link rel="icon" href="./logo-removebg-preview.png"/>
+    <script src="https://kit.fontawesome.com/99b158e995.js" crossorigin="anonymous"></script>
+    <title>Search</title>
 </head>
 <body>
     <div class="sidenav">
@@ -17,28 +18,23 @@
             <a href="./owner project.html" id="nav">Ower Profile</a>
             <p class="slide"></p>
     </div>
+    <div class="search">
+        <div class="search-box">
+                <input type="text" placeholder="Tybe to Search ....">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="cancel-icon">
+                    <i class="fas fa-times"></i>
+                </div>
+        </div>
+    </div>
     <div id = "topgames">
-        <div class="title-text">
-            <h1>Popular Games</h1>
-        </div>
         <div class="gamebox" >
-
+                
         </div>
     </div>
-    <div id="news">
-        
-    </div>
+    <script src="./app2.js"></script>
     <script src="./data.js"></script>
-    <script src="./script.js"></script>
-    <script>
-    //sidenav
-    const page = location.href
-    const menuItem = document.querySelectorAll("#nav")
-    for(let i = 0;i<menuItem.length;i++){
-    if(menuItem[i].href === page){
-        menuItem[i].className = "active"
-    }
-    }
-    </script>
 </body>
 </html>
