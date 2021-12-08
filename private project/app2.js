@@ -31,11 +31,13 @@ const searchBox = document.querySelector(".search-box");
         }
     // read more
 let more = document.querySelectorAll(".more")
+var info = document.querySelectorAll(".info")
 for(let i = 0;i< more.length;i++){
     more[i].addEventListener("click" , function(){
+        info[i].classList.toggle("show-more")
         more[i].parentNode.classList.toggle("active")
     })
-}   
+}
     function generateContent(data) {
         topgames.innerHTML = ''
         for(var i = 0; i < data.length; i++){
