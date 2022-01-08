@@ -11,4 +11,4 @@ function checksonguyento(input){
     } else {
         console.log("đây không phải là số nguyên tố")
     }
-}
+} 
