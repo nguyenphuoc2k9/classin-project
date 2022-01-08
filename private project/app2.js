@@ -46,7 +46,7 @@ for(let i = 0;i< more.length;i++){
             <div class="games" >
                 <img src="${game.img}" >
                 <div class="info">
-                    <h1><a href="${game.src}">${game.name}</a></h1>
+                     <h1><a href="${game.src}">${game.name}</a></h1>
                     <hr/>
                     <p>${game.desc}</p>
                     <p>${game.visits}</p>
