@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* start-page */
+.start-page{
+    background-image: url(./drive-download-20220109T064108Z-001/hero.jpg);
+    background-size: cover;
+    height: 90vh;
+    position: relative;
+    color: #fff;
+    z-index: 1;
+}
+.bl{
+    opacity: 0.7;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    z-index: -99;
+}
+#top-bar img{
+    width: 80px;
+    height: 80px;
+}
+#top-bar{
+    display: flex;
+    margin-left: 20%;
+    justify-content: space-around;
+    align-items: center;
+    width: 70%;
+    height: 200px;
+    color: #fff;
+    z-index: 3;
+}
+#top-bar a{
+    text-decoration: none;
+    font-size: larger;
+    position: relative;
+    padding: 10px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-family: 'Commissioner', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: 0.5s;
+}
+#top-bar a:hover{
+    color: orange;
+}
+#top-bar a:hover:after{
+    width: 100%;
+}
+#top-bar a::after{
+    content: "";
+    display: block;
+    transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #ffe800;
+}
+#start-content{
+    z-index: 9;
+    margin-top: 162px;
+    margin-left: 10%;
+}
+#start-content p{
+    font-family: 'Montserrat', sans-serif;
+    font-size:xx-large;
+    font-weight: 50px;
+    line-height: 60px;
+}
+#start-content #btn-1{
+    width: 160px;
+    height: 40px;
+    border: orange 3px solid;
+    border-radius: 40px;
+    color: #fff;
+    font-family: arial;
+    font-size: 13px;
+    background: orange;
+}
+#start-content #btn-2{
+    width: 160px;
+    margin-left: 20px;
+    height: 40px;
+    border: orange 3px solid;
+    border-radius: 40px;
+    color: orange;
+    font-family: arial;
+    font-size: 13px;
+    background: none;
+}
+/* feature */
+.feature-page{
+    width: 70%;
+    margin: auto;
+    height: 50vh;
+}
+.feature-title h1{
+    text-align: center;
+    font-weight: 40px;
+    text-transform: uppercase;
+}
