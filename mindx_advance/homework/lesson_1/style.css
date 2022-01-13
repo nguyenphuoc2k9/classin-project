@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -70,9 +73,9 @@
 }
 #start-content p{
     font-family: 'Montserrat', sans-serif;
-    font-size:xx-large;
-    font-weight: 50px;
-    line-height: 60px;
+    font-size: 290%;
+    margin-bottom: 50px;
+    font-weight: lighter;
 }
 #start-content #btn-1{
     width: 160px;
@@ -97,12 +100,68 @@
 }
 /* feature */
 .feature-page{
-    width: 70%;
-    margin: auto;
-    height: 50vh;
+    padding: 50px;
+    margin:  0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1300px;
+}
+.feature-title{
+    text-align: center;
 }
 .feature-title h1{
-    text-align: center;
-    font-weight: 40px;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
+    font-weight: 100;
+    font-size: 40px;
+}
+.orange-bar{
+    width: 100px;
+    height: 2px;
+    margin-top: 50px;
+    background: orange;
+    text-align: center;
+}
+.feature-desc{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    margin-top: 40px;
+}
+.feature-box{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 1100px;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+.feature-card{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    margin-left: 30px;
+}
+.feature-card i{
+    color: orange;
+    font-size: 50px;
+    font-weight: lighter;
+}
+.feature-card h3{
+    font-weight: lighter;
+    font-size: larger;
+    line-height: 40px;
+    margin-top: 10px;
+}
+.feature-card p{
+    line-height: 30px;
+}
+/*img-grid*/
+.img-grid{
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto auto auto;
+}
+.img-grid img{
+    width: 395.8px;
+    height: 267px;
 }
