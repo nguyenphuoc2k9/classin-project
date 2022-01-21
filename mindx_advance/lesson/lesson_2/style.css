@@ -1,0 +1,88 @@
+/* ca1 */
+.ca1{
+    display: flex;
+    line-height: 30px;
+    flex-direction: column;
+}
+a:link{
+    color: red;
+    background-color: black;
+}
+a:visited{
+    color: cadetblue;
+    background-color:darkcyan ;
+}
+a:active{
+    color: #fff;
+    background: brown;
+}
+a:hover{
+    color: darkkhaki;
+    border:  10px solid #000;
+    border-radius: 40px;
+}
+a{
+    transition: all 2s cubic-bezier(0.19, 1, 0.22, 1);
+    font-size: x-large;
+    text-decoration: none;
+}
+/* ca2 */
+.ca2{
+    width:  100%;
+    height: 1000px;
+}
+.ca2 .object{
+    width: 200px;
+    height: 200px;
+    background: cyan;
+    animation-name: sike;
+    position: relative;
+    top: 500px;
+    left: 0;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate-reverse;
+}
+@keyframes sike {
+    0%{
+        opacity: 0.2;
+        top: 500px;
+        left: 200px;
+        background: darkcyan;
+    }
+    25%{
+        opacity: 0.4;
+        top: 250px;
+        left: 200px;
+    }
+    50%{
+        opacity: 0.6;
+        top: 250px;
+        left: 0;
+        background: darkgreen;
+    }
+    75%{
+        opacity: 0.8;
+        left: 0;
+        top: 500px;
+    }
+    100%{
+        opacity: 1;
+        left: 200px;
+        top: 500px;
+        background: cyan;
+    }
+}
+/* ca3 */
+    /* /* width: 300px;
+    transform: value;
+    translate(x,y): di chuyển phần tử theo trục x và y */
+    /* translateX(n): di chuyển một phần tử theo trục x
+    translateY(n): di chuyển một phần tử theo trục Y
+    scale(x,y): thay đổi kích thước phần tử theo trục x và y
+    scaleX(n): thay đổi kích thước của một phần tử theo trục X
+    scaleY(n): thay đổi kích thước của một phần tử theo trục Y
+    rotate(angel):xoay phần tử theo một góc (angel)
+    skew(x-angel, y-angel):định dạng một phần tử nghiêng theo theo một góc theo trục x và trục y
+    skewX(angel):định dạng một phần tử nghiêng một góc theo trục X
+    skewY(angel):định dạng một phần tử nghiêng một góc theo trục Y */
