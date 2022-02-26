@@ -7,11 +7,11 @@ body{
     margin: 15% auto;
     width: 533px;
     background-color: #fff;
-    height: 200px;
     padding: 70px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 .title{
     display: flex;
@@ -47,13 +47,20 @@ body{
     margin-left: 4px;
     border: none;
     background-color: rgba(4, 187, 187, 0.652);
+    cursor: pointer;
+}
+.todoinput i{
+    color: #fff;
+    font-size: 20px;
 }
 .detal{
     margin-top: 53px;
     width: 533px;
-    height: 200px;
+    height: 17px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 #demo {
     width: 268px;
@@ -63,30 +70,56 @@ body{
 .detal button{
     width: 150px;
     height: 47px;
-    margin-top: 16px;
     margin-left: 110px;
     border: none;
     background-color: rgba(4, 187, 187, 0.652);
     color: #fff;
+    cursor: pointer;
+}
+.detal p{
+    color: rgba(5, 204, 204, 0.652);
+    font-size: larger;
+    font-family: monospace;
+    
 }
 .work{
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 533px;
+    height: 50px;
+    border: rgba(5, 204, 204, 0.652) solid 5px;
+    border-radius: 40px;
+    margin-top: 10px;
+    justify-content: space-between;
 }
-.work input{
-    border-radius: 2px;
-    border: solid #fff 5px;
+#edit-btn{
+    margin-left: 389px;
 }
 .work p{
-    padding-left: 20px;
-    font-size: large;
+    font-size: 20px;
+    color: rgba(5, 204, 204, 0.652);
     font-family: monospace;
-    color: 
-    rgba(5, 204, 204, 0.652);
+    padding-left: 20px;
 }
-.work button{
-    border-radius: 40px;
-    background-color: #fff;
-    opacity: 2;
+.work i{
+    color: rgba(5, 204, 204, 0.652);
+    font-size:  20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.work-content{
+    display: flex;
+    align-items: center;
+}
+.work .btn{
+   display: flex;
+   align-items: flex-end;
+   justify-content: space-around;
+}
+
+/*hover*/
+.work button:hover{
+    background: rgb(8, 238, 92);
+    color: #fff;
 }

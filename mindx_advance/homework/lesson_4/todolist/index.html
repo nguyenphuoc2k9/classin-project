@@ -7,31 +7,24 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7fc1a76c95.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="to-do-list">
         <div class="title">
-            <h1>To do list</h1>
+            <h1>To do list<i class="fa-light fa-circle-x"></i></h1>
         </div>
         <div class="box">
             <div class="todoinput">
                 <input type="text" placeholder="Work to do" id="enter">
-                <button id="input-btn"></button>
+                <button id="input-btn"><i class="fa-solid fa-plus"></i></button>
             </div>
             <div class="work-to-do">
-                <hr>
-                <div class="work">
-                    <input type="checkbox" name="" id="check">
-                    <p>Call my parent</p>
-                    <button id="edit-btn">Edit</button>
-                    <button id="delete-btn">Delete</button>
-                </div>
-                <hr>
                 
             </div>
             <div class="detal">
-                <p id="demo"></p>
-                <button>Remove checked <i class="fas fa-xmark"></i></button>
+                <p>You have <span id="pendingnumbers"></span> pending work</p>
+                <button onclick="clearall()">Clear all <i class="fa-solid fa-xmark"></i></button>
                 
             </div>
         </div>
