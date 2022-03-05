@@ -1,0 +1,125 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color:rgba(4, 187, 187, 0.652);
+}
+.to-do-list{
+    margin: 15% auto;
+    width: 533px;
+    background-color: #fff;
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -84px;
+}
+.title h1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 35px;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    width: 533px;
+}
+.todoinput{
+    display: flex;
+    width: 533px;
+}
+.box .todoinput input {
+    height: 40px;
+    width: 100%;
+    border: solid rgb(216, 216, 6) 2px;
+    font-family: monospace;
+    color: rgba(4, 187, 187, 0.652);
+    font-weight: bolder;
+    font-size: large;
+}
+.todoinput button {
+    width: 58px;
+    font-style: italic;
+    margin-left: 4px;
+    border: none;
+    background-color: rgba(4, 187, 187, 0.652);
+    cursor: pointer;
+}
+.todoinput i{
+    color: #fff;
+    font-size: 20px;
+}
+.detal{
+    margin-top: 53px;
+    width: 533px;
+    height: 17px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#demo {
+    width: 268px;
+    height: 37px;
+    border: solid 3px yellowgreen;
+}
+.detal button{
+    width: 150px;
+    height: 47px;
+    margin-left: 110px;
+    border: none;
+    background-color: rgba(4, 187, 187, 0.652);
+    color: #fff;
+    cursor: pointer;
+}
+.detal p{
+    color: rgba(5, 204, 204, 0.652);
+    font-size: larger;
+    font-family: monospace;
+    
+}
+.work{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 533px;
+    height: 50px;
+    border: rgba(5, 204, 204, 0.652) solid 5px;
+    border-radius: 40px;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+#edit-btn{
+    margin-left: 389px;
+}
+.work p{
+    font-size: 20px;
+    color: rgba(5, 204, 204, 0.652);
+    font-family: monospace;
+    padding-left: 20px;
+}
+.work i{
+    color: rgba(5, 204, 204, 0.652);
+    font-size:  20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.work-content{
+    display: flex;
+    align-items: center;
+}
+.work .btn{
+   display: flex;
+   align-items: flex-end;
+   justify-content: space-around;
+}
+
+/*hover*/
+.work button:hover{
+    background: rgb(8, 238, 92);
+    color: #fff;
+}

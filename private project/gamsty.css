@@ -79,9 +79,13 @@ nav ul li a{
 }
 .feature{
     padding: 90px 49px;
+    margin-top: 384px;
     background: #130f0f;
-    width: 80%;
+}
+.feature-box{
     margin: auto;
+    width: 80%;
+    padding-top: 87px;
     display: grid;
     grid-template-columns: auto 400px;
     grid-template-rows: auto auto auto;
@@ -135,7 +139,7 @@ nav ul li a{
 }
 .feature-text{
     padding-left: 20px;
-    margin-top: -18px;
+    margin-top: -2px;
     font-family: monospace;
     font-size: large;
 }

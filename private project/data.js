@@ -16,7 +16,7 @@ var games = [
     ,
     {
         id:2,
-        name:"Anime Fighter Simulators",
+        name:"Anime Fighter<span class='dots'>...</span> <span class='readmore'> Simulators</span>",
         img:"./game2.jpg",
         src:"https://www.roblox.com/games/6299805723/UPDATE-14-Anime-Fighters-Simulator",
         update:"Newest update : 11/8/2021"
@@ -88,7 +88,7 @@ var data2 =
     ,
     {
         id:9,
-        name:"Build A Boat For Treasure"
+        name:"Build A Boat <span class='dots'>...</span> <span class='readmore'>For Treasure</span>"
         ,img:"./game9.jpg"
         ,src:"https://www.roblox.com/games/537413528/Build-A-Boat-For-Treasure"
         ,desc:"Build A Boat For Treasure is a game that created in 11/2/2016 by Chillz Studios group.In the game , you will have to build a boat to the end of the map cross lands in the map The further you go, the more coins you get to upgrade your boat to go futher"
@@ -119,7 +119,7 @@ var data2 =
     {
         id:12,
         name:"Arsenal"
-        ,img:"./game13.jpg"
+        ,img:"./game12.jpg"
         ,src:"https://www.roblox.com/games/286090429/Arsenal"
         ,desc:"Arsenal is a game that created in 8/18/2015 by ROLVe Community group.In the game , you will be in a guns fight and you get points by killings people , the first players reach 32 points is winner , beside there is more diffrent gamemode and the goal is also change to . You can also buy melee skins or chacrater and more things"
         ,visits:"Visits : over 3.4 billions"
@@ -138,7 +138,7 @@ var data2 =
     ,
     {
         id:14,
-        name:"DUNGEONS!🏯 Anime Fighting Simulator"
+        name:"DUNGEONS!🏯<span class='dots'>...</span> <span class='readmore'> Anime Fighting Simulator</span>"
         ,img:"./game14.jpg"
         ,src:"https://www.roblox.com/games/4042427666/DUNGEONS-Anime-Fighting-Simulator"
         ,desc:"Anime Fighting Simulator is a game taht created in 10/4/2019 by BlockZone groups.In the game you will have to training all of the stats like :strength,speed,agilty,... to complete the quest and unlock new power  , more powerful you can afore to unlock more area . You can also fight boss at all of the map to unlock more power."
@@ -158,7 +158,7 @@ var data2 =
     ,
     {
         id:16,
-        name:"Your Bizarre Adventure"
+        name:"Your Bizarre<span class='dots'>...</span> <span class='readmore'> Adventure</span>"
         ,img:"./game16.jpg"
         ,src:"https://www.roblox.com/games/2809202155/Your-Bizarre-Adventure"
         ,desc:"Your Bizarre Adventure is a game that created in 2/2/2019 by Bizarre Studios® group.In the game,you will have to complete quest by deffeat npc and level up to unlock new quest and hunting stand by using arrows across the map , level up at max limit you can prestige and level up faster again"
@@ -178,8 +178,8 @@ var data2 =
     ,
     {
         id:18,
-        name:"Tower Deffend Simulator"
-        ,img:"./game19.jpg"
+        name:"Tower Deffend<span class='dots'>...</span> <span class='readmore'> Simulator</span>"
+        ,img:"./game18.jpg"
         ,src:"https://www.roblox.com/games/3260590327/Tower-Defense-Simulator"
         ,desc:"Tower Deffend Simulator is a gme that created in 6/5/2019 by Paradoxum Games.In the game you will have yo deffend the base from monster spawn after 1 round , diffrent mode have diffrent round and monster.After you deffeat the boss of the gamemode you will recives money to buy skins or new tower to make you stronger"
         ,visits:"Visits : over 1.2 billions"
@@ -188,7 +188,7 @@ var data2 =
     ,
     {
         id:19,
-        name:"All Star Tower Defense"
+        name:"All Star Tower<span class='dots'>...</span> <span class='readmore'> Defense</span>"
         ,img:"./game19.jpg"
         ,src:"https://www.roblox.com/games/4996049426/UPDATE-All-Star-Tower-Defense"
         ,desc:"All Star Tower Deffense is a game that created in 5/7/2020 by Top Down Games group.In the game,you will have to deffend the base from diffrent enemy from diffrent anime to collect coins to buy new chacrater"
@@ -219,7 +219,7 @@ var searchdata = [
     ,
     {
         id:2,
-        name:"Anime Fighter Simulators",
+        name:"Anime Fighter<span class='dots'>...</span> <span class='readmore'> Simulators</span>",
         img:"./game2.jpg",
         src:"https://www.roblox.com/games/6299805723/UPDATE-14-Anime-Fighters-Simulator",
         update:"Newest update : 11/8/2021"
@@ -289,7 +289,7 @@ var searchdata = [
     ,
     {
         id:9,
-        name:"Build A Boat For Treasure"
+        name:"Build A Boat <span class='dots'>...</span> <span class='readmore'>For Treasure</span>"
         ,img:"./game9.jpg"
         ,src:"https://www.roblox.com/games/537413528/Build-A-Boat-For-Treasure"
         ,desc:"Build A Boat For Treasure is a game that created in 11/2/2016 by Chillz Studios group.In the game , you will have to build a boat to the end of the map cross lands in the map The further you go, the more coins you get to upgrade your boat to go futher"
@@ -320,7 +320,7 @@ var searchdata = [
     {
         id:12,
         name:"Arsenal"
-        ,img:"./game13.jpg"
+        ,img:"./game12.jpg"
         ,src:"https://www.roblox.com/games/286090429/Arsenal"
         ,desc:"Arsenal is a game that created in 8/18/2015 by ROLVe Community group.In the game , you will be in a guns fight and you get points by killings people , the first players reach 32 points is winner , beside there is more diffrent gamemode and the goal is also change to . You can also buy melee skins or chacrater and more things"
         ,visits:"Visits : over 3.4 billions"
@@ -339,7 +339,7 @@ var searchdata = [
     ,
     {
         id:14,
-        name:"DUNGEONS!🏯 Anime Fighting Simulator"
+        name:"DUNGEONS!🏯<span class='dots'>...</span> <span class='readmore'> Anime Fighting Simulator</span>"
         ,img:"./game14.jpg"
         ,src:"https://www.roblox.com/games/4042427666/DUNGEONS-Anime-Fighting-Simulator"
         ,desc:"Anime Fighting Simulator is a game taht created in 10/4/2019 by BlockZone groups.In the game you will have to training all of the stats like :strength,speed,agilty,... to complete the quest and unlock new power  , more powerful you can afore to unlock more area . You can also fight boss at all of the map to unlock more power."
@@ -359,7 +359,7 @@ var searchdata = [
     ,
     {
         id:16,
-        name:"Your Bizarre Adventure"
+        name:"Your Bizarre<span class='dots'>...</span> <span class='readmore'> Adventure</span>"
         ,img:"./game16.jpg"
         ,src:"https://www.roblox.com/games/2809202155/Your-Bizarre-Adventure"
         ,desc:"Your Bizarre Adventure is a game that created in 2/2/2019 by Bizarre Studios® group.In the game,you will have to complete quest by deffeat npc and level up to unlock new quest and hunting stand by using arrows across the map , level up at max limit you can prestige and level up faster again"
@@ -379,8 +379,8 @@ var searchdata = [
     ,
     {
         id:18,
-        name:"Tower Deffend Simulator"
-        ,img:"./game19.jpg"
+        name:"Tower Deffend<span class='dots'>...</span> <span class='readmore'> Simulator</span>"
+        ,img:"./game18.jpg"
         ,src:"https://www.roblox.com/games/3260590327/Tower-Defense-Simulator"
         ,desc:"Tower Deffend Simulator is a gme that created in 6/5/2019 by Paradoxum Games.In the game you will have yo deffend the base from monster spawn after 1 round , diffrent mode have diffrent round and monster.After you deffeat the boss of the gamemode you will recives money to buy skins or new tower to make you stronger"
         ,visits:"Visits : over 1.2 billions"
@@ -389,7 +389,7 @@ var searchdata = [
     ,
     {
         id:19,
-        name:"All Star Tower Defense"
+        name:"All Star Tower<span class='dots'>...</span> <span class='readmore'> Defense</span>"
         ,img:"./game19.jpg"
         ,src:"https://www.roblox.com/games/4996049426/UPDATE-All-Star-Tower-Defense"
         ,desc:"All Star Tower Deffense is a game that created in 5/7/2020 by Top Down Games group.In the game,you will have to deffend the base from diffrent enemy from diffrent anime to collect coins to buy new chacrater"

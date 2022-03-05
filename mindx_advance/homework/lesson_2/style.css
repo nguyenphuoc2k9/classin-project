@@ -1,0 +1,37 @@
+.title{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 10px;
+    font-weight: 10px;
+
+}
+.title h1{
+    font-size: 40px;
+}
+.title h4{
+    font-size: 30px;
+}
+/*ND*/
+.box{
+    width: 400px;
+    margin: auto;
+    margin-top: 100px;
+}
+.box h3{
+    background: rgb(255, 225, 0);
+    padding: 14px 22px;
+    color: #fff;
+    font-size:25px ;
+    margin-top: -15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.box .lorem{
+    border: solid 1px rgb(162, 162, 162);
+    padding: 10px;
+    font-size: 15px;
+    line-height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.box h3.active{
+    background: lightblue;
+}

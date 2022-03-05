@@ -76,6 +76,15 @@ body{
     color: #fff;
     transition: 0.5s;
 }
+.readmore{
+    display: none;
+}
+.info.show-more .readmore{
+    display: inline;
+}
+.info.show-more .dots{
+    display: none;
+}
 .gamebox .games::before{
     content: "";
     position: absolute;
