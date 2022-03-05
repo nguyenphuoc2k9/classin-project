@@ -13,28 +13,6 @@ var btnSearch = document.getElementById('btnSearch')
 
 generateContent(games)
 
-
-btnSearch.addEventListener('click', function(){
-    var keyword = inputSearch.value
-    if(keyword != "") {
-        var searchResult = []
-
-        for(var i = 0; i < games.length; i++){
-            if(games[i].name.toLocaleLowerCase().includes(keyword)){
-                searchResult.push(games[i])
-            }
-        }
-        if(searchResult.length == 0) {
-            alert("No name game match: " + keyword)
-        } else {
-            generateContent(searchResult)
-        }
-    }
-    else if(keyword == ""){
-        alert("cannot empty the sreach")
-    }
-})
-
 function generateContent(data) {
     topgames.innerHTML = ''
     for(var i = 0; i < data.length; i++){
