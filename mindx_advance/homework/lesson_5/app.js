@@ -1,4 +1,3 @@
-
 //todoinput
 var todoinputmain = document.getElementsByClassName("work-to-do")[0]
 var inputbtn = document.getElementById("input-btn").onclick =()=>{
@@ -48,4 +47,3 @@ function clearall(){
     localStorage.setItem("userinput", JSON.stringify(data)) 
     showwork();
 }
-
