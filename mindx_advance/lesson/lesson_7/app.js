@@ -26,7 +26,7 @@ fetch(API)
               <td>${element.age}</td>
               <td>
                   <button type="button" class="btn btn-primary">Update</button>
-                  <button type="button" class="btn btn-secondary" onclick="deleteuser()" id="delete-btn">Delete</button></td>
+                  <button type="button" class="btn btn-secondary" onclick="deleteuser(${element.id})" id="delete-btn">Delete</button></td>
             </tr>
           `
         }
