@@ -8,8 +8,12 @@ body{
 }
 .sighin{
     margin-top: 20px;
+    width: 60%;
+    height: 70%;
     display: flex;
-    margin-left: 20px;
+    margin:  50px auto;
+    border-radius: 20px;
+    border: solid 5px #000;
 }
 
 .sighin-pic{
@@ -23,36 +27,51 @@ body{
 .sighin-pic img{
     width: 30%;
 }
-.sighin-input{
+.sighin-box{
     display: flex;
+    width: 50%;
     flex-direction: column;
 }
-.sighin input:focus-visible{
+/* .sighin input:focus-visible{
     outline: none;
-}
+} */
 .sighin-input-card{
+    position: relative;
     display: flex;
     margin-top: 20px;
     padding: 0 30px;
     flex-direction: column;
 }
-.sighin-input-card label{
-    color: #000;
+.sighin-input-card .sighin-label{
+    color: rgb(91, 91, 91);
+    position: absolute;
+    top: 12px;
+    user-select: none;
+    pointer-events: none;
+    cursor: pointer;
+    left: 43px;
+    transition:  .5s all cubic-bezier(0.55, 0.055, 0.675, 0.19);
     font-size: larger;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.sighin-input input{
-    border: none;
+.sighin-box .sighin-input{
     height: 40px;
+    outline: none;
+    padding-left: 10px;
     color: rgb(0, 0, 0);
     font-size: 15px;
     font-weight: bolder;
     font-family:monospace;
     background: none;
-    border-bottom: solid rgb(0, 175, 238) 2px;
+    border: solid rgb(0, 175, 238) 2px;
+    border-radius: 5px;
 }
 .sighin-input-card p{
     color: rgb(172, 172, 172);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 15px;
+    font-size: 13px;
+}
+.sighin-label:focus{
+    top: -20px;
+    padding: 20px;
 }
