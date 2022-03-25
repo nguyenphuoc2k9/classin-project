@@ -9,13 +9,19 @@ body{
 .sighin{
     margin-top: 20px;
     width: 60%;
-    height: 70%;
+    height: 100%;
     display: flex;
     margin:  50px auto;
+    padding: 30px;
     border-radius: 20px;
-    border: solid 5px #000;
+    border: solid 3px #000;
+    flex-direction: column;
 }
-
+.sighin-title h1{
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding:20px 0 0 10px;
+}
 .sighin-pic{
     width:60%;
     height: 100%;
@@ -29,8 +35,8 @@ body{
 }
 .sighin-box{
     display: flex;
-    width: 50%;
     flex-direction: column;
+    
 }
 /* .sighin input:focus-visible{
     outline: none;
@@ -42,14 +48,11 @@ body{
     padding: 0 30px;
     flex-direction: column;
 }
-.sighin-input-card .sighin-label{
+.sighin-label{
     color: rgb(91, 91, 91);
     position: absolute;
     top: 12px;
-    user-select: none;
-    pointer-events: none;
-    cursor: pointer;
-    left: 43px;
+    left: 44px;
     transition:  .5s all cubic-bezier(0.55, 0.055, 0.675, 0.19);
     font-size: larger;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -71,7 +74,49 @@ body{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 13px;
 }
-.sighin-label:focus{
+.sighin-input-btn{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    padding: 30px;
+}
+.sighin-input-btn button{
+    width: 200px;
+    position: relative;
+    display: inline-block;
+    border-radius: 40px;
+    background-image: linear-gradient(to right, #00c8ff, #00cfff, #08d6ff, #1cddff, #2ee4ff);
+    border: none;
+    height: 40px;
+    color: #000;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    font-weight: 30px;
+    cursor: pointer;
+}
+span{
+    position: absolute;
+    border-radius: 50%;
+    background: rgb(252, 13, 13);
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    animation: animate 1s linear infinite;
+}
+@keyframes animate
+{
+    0%{
+        width: 0px;
+        height: 0px;
+        opacity: 0.5s;
+    }
+    100%{
+        width: 400px;
+        height: 400px;
+        opacity: 0;
+    }
+}
+.sighin-input:focus + .sighin-label{
     top: -20px;
     padding: 20px;
 }
