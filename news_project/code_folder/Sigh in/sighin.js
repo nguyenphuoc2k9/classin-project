@@ -1,5 +1,6 @@
 //sighin-btn effect
 const sighinbtn = document.getElementById("sighin-btn")
+const rolebtn = document.querySelectorAll(".role-btn")
 sighinbtn.addEventListener("click",function(e){
     let ripple = document.createElement("span")
     this.appendChild(ripple)
@@ -11,3 +12,4 @@ sighinbtn.addEventListener("click",function(e){
         ripple.remove()
    },1000)
 })
+rolebtn.

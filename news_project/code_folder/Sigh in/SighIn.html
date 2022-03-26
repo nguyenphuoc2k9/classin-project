@@ -8,44 +8,60 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="sighin">
-        <div class="sighin-title">
-            <h1>Sigh In</h1>
+        <div class="sighin">
+            <div class="sighin-pic">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOi1KXq3Z1jHalpErV8Y1X3xJZft5hUMOqtg&usqp=CAU" alt="sighin-pic"/>
+            </div>
+            <div class="sighin-box">
+                <div class="sighin-title">
+                    <h1>Sigh In</h1>
+                </div>
+                <div class="sighin-input-card">
+                    <label for="sighin-email" class="sighin-label">Email </label>
+                    <input type="text" id="sighin-email" class="sighin-input">
+                    <p id="sighin-desc-email">Email must have @ and dots</p>
+                </div>
+                <div class="sighin-input-card">
+                    <label for="sighin-pn" class="sighin-label">Phone number </label>
+                    <input type="text" id="sighin-pn" class="sighin-input">
+                    <p  id="sighin-desc-pn">Phone number must have 10 number</p>
+                </div>
+                <div class="sighin-input-card">
+                    <label for="sighin-name" class="sighin-label">Name </label>
+                    <input type="text" id="sighin-name" class="sighin-input">
+                    <p id="sighin-desc-name">Name must have above 5 letters and below 16 letters</p>
+                </div>
+                <div class="sighin-input-card">
+                    <label for="sighin-password" class="sighin-label">Password </label>
+                    <input type="password" id="sighin-password" class="sighin-input">
+                    <p id="sighin-desc-password">Create your password(note:password must have above 5 letter and include numbers and letters)</p>
+                </div>
+                <div class="sighin-input-card">
+                    <label for="sighin-confirm" class="sighin-label">Confirm password</label>
+                <input type="password" id="signin-confirm" class="sighin-input">
+                <p id="sighin-desc-confirm">Confirm the password you entered in the password input</p>
+                <div class="sighin-input-btn">
+                    <button id="sighin-btn">Sigh In</button>
+                </div>
+            </div>
+            <div class="roleselect">
+                <div class="role-title">
+                    <h1>Select your role</h1>
+                </div>
+                <div class="role-box">
+                    <div class="role-card">
+                        <button id="admin-role" class="role-btn">Admin</button>
+                    </div>
+                    <div class="role-card">
+                        <button id="teacher-role" class="role-btn">Teacher</button>
+                        <p></p>
+                    </div>
+                    <div class="role-card">
+                        <button id="student-role"class="role-btn">Student</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- <div class="sighin-pic">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOi1KXq3Z1jHalpErV8Y1X3xJZft5hUMOqtg&usqp=CAU" alt="sighin-pic"/>
-        </div> -->
-        <div class="sighin-box">
-            <div class="sighin-input-card">
-                <label for="sighin-email" class="sighin-label">Email </label>
-                <input type="text" id="sighin-email" class="sighin-input">
-                <p id="sighin-desc-email">Email must have @ and dots</p>
-            </div>
-            <div class="sighin-input-card">
-                <label for="sighin-pn" class="sighin-label">Phone number </label>
-                <input type="text" id="sighin-pn" class="sighin-input">
-                <p  id="sighin-desc-pn">Phone number must have 10 number</p>
-            </div>
-            <div class="sighin-input-card">
-                <label for="sighin-name" class="sighin-label">Name </label>
-                <input type="text" id="sighin-name" class="sighin-input">
-                <p id="sighin-desc-name">Name must have above 5 letters and below 16 letters</p>
-            </div>
-            <div class="sighin-input-card">
-                <label for="sighin-password" class="sighin-label">Password </label>
-            <input type="password" id="sighin-password" class="sighin-input">
-            <p id="sighin-desc-password">Create your password(note:password must have above 5 letter and include numbers and letters)</p>
-            </div>
-            <div class="sighin-input-card">
-                <label for="sighin-confirm" class="sighin-label">Confirm password</label>
-            <input type="password" id="signin-confirm" class="sighin-input">
-            <p id="sighin-desc-confirm">Confirm the password you entered in the password input</p>
-            <div class="sighin-input-btn">
-                <button id="sighin-btn">Sigh In</button>
-            </div>
-            </div>
-        </div>
-    </div>
     <script src="./sighin.js"></script>
 </body>
 </html>

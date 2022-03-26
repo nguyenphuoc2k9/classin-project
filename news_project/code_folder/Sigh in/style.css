@@ -15,7 +15,7 @@ body{
     padding: 30px;
     border-radius: 20px;
     border: solid 3px #000;
-    flex-direction: column;
+    flex-direction: row-reverse;
 }
 .sighin-title h1{
     font-size: 25px;
@@ -23,18 +23,19 @@ body{
     padding:20px 0 0 10px;
 }
 .sighin-pic{
-    width:60%;
-    height: 100%;
+    width:40%;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
     justify-content: center;
 }
 .sighin-pic img{
-    width: 30%;
+    margin: 20px auto;
+    width: 90%;
+    height: 76%;
+    border-radius: 5px;
 }
 .sighin-box{
     display: flex;
+    width: 60%;
     flex-direction: column;
     
 }
@@ -60,6 +61,7 @@ body{
 .sighin-box .sighin-input{
     height: 40px;
     outline: none;
+    width: 95%;
     padding-left: 10px;
     color: rgb(0, 0, 0);
     font-size: 15px;
@@ -72,33 +74,34 @@ body{
 .sighin-input-card p{
     color: rgb(172, 172, 172);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 13px;
+    font-size: 11px;
 }
 .sighin-input-btn{
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
     position: relative;
     align-items: center;
-    padding: 30px;
+    padding: 50px 0;
 }
 .sighin-input-btn button{
     width: 200px;
     position: relative;
     display: inline-block;
-    border-radius: 40px;
+    border-radius: 10px;
     background-image: linear-gradient(to right, #00c8ff, #00cfff, #08d6ff, #1cddff, #2ee4ff);
     border: none;
-    height: 40px;
+    height: 50px;
     color: #000;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: large;
     font-weight: 30px;
     cursor: pointer;
+    overflow: hidden;
 }
 span{
     position: absolute;
     border-radius: 50%;
-    background: rgb(252, 13, 13);
+    background: rgb(255, 255, 255);
     transform: translate(-50%,-50%);
     pointer-events: none;
     animation: animate 1s linear infinite;
@@ -119,4 +122,44 @@ span{
 .sighin-input:focus + .sighin-label{
     top: -20px;
     padding: 20px;
+}
+.roleselect{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.role-title{
+    padding: 30px 0;
+}
+.role-title h1{
+    color: rgb(0, 0, 0);
+    padding-left: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+}
+.role-box{
+    display: flex;
+    justify-content: space-between;
+}
+.role-card button{
+    width: 120px;
+    position: relative;
+    height: 40px;
+    margin-left: 25px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 15px;
+    font-family:monospace;
+    overflow: hidden;
+}
+.role-card #admin-role{
+    background: red;
+}
+.role-card #teacher-role{
+    background: #00c8ff;
+}
+.role-card #student-role{
+    background-color: green;
 }
