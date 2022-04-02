@@ -119,7 +119,7 @@ span{
         opacity: 0;
     }
 }
-.sighin-input:focus + .sighin-label{
+.sighin-input:focus{
     top: -20px;
     padding: 20px;
 }
