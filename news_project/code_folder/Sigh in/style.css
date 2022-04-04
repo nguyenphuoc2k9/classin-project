@@ -39,9 +39,6 @@ body{
     flex-direction: column;
     
 }
-/* .sighin input:focus-visible{
-    outline: none;
-} */
 .sighin-input-card{
     position: relative;
     display: flex;
@@ -50,11 +47,11 @@ body{
     flex-direction: column;
 }
 .sighin-label{
-    color: rgb(91, 91, 91);
+    color: #000;
     position: absolute;
     top: 12px;
     left: 44px;
-    transition:  .5s all cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: 0.5s;
     font-size: larger;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -119,9 +116,12 @@ span{
         opacity: 0;
     }
 }
-.sighin-input:focus{
+.sighin-input:focus + .sighin-label{
     top: -20px;
-    padding: 20px;
+    left: 30px;
+}
+.sighin-input:focus-visible{
+    border: #08d6ff solid 2px;
 }
 .roleselect{
     margin-top: 20px;

@@ -6,24 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="https://kit.fontawesome.com/7fc1a76c95.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Header -->
 
     <div class="header">
         <div class="header-box">
-            <a href="#"><i class="fa-solid fa-house"></i><span></span>Home</a>
-            <a href="#"><i class="fa-solid fa-newspaper"></i><span></span>News</a>
-            <a href="#"><i class="fa-solid fa-list-check"></i></i><span></span>About</a>
+            <a href="#"><i class="fa-solid fa-house"></i>Home</a>
+            <a href="../News/news.html"><i class="fa-solid fa-newspaper"></i>News</a>
+            <a href="#"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+            <a href="#"><i class="fa-solid fa-list-check"></i></i>About</a>
         </div>
-    </div>
-
-    <!-- Seach -->
-
-    <div class="search">
-        <button id="seach-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <input type="text" placeholder="Enter the news that you want to search...">
     </div>
 
     <!-- Home-container -->
@@ -33,24 +27,76 @@
             <h1>Welcome to our website</h1>
         </div>
         <div class="home-box">
-            <div class="class-news">
-                <h3>Class News</h3>
-
+            <div class="news-section">
+                <div class="news-title">
+                    <h3>Class News</h3>
+                </div>
+                <div class="news-box" id="class-news">
+                    <div class="news">
+                        <h1>Title</h1>
+                        <p>Có lẽ phụ huynh nào cũng từng xuất hiện trong bài văn của con mình với vẻ ngoài và tính tình hoàn toàn không giống mình nhưng lại rất giống nhau.
+    
+                            Ngày mới ra trường, khi chấm bài kiểm tra tập làm văn lớp sáu với đề bài "kể lại một việc tốt em đã làm", tôi đã ngạc nhiên khi hầu như cả lớp chỉ làm có hai việc tốt, một là dẫn bà cụ qua đường, hai là nhặt được chiếc ví và trả lại người mất.
+                            
+                            Điều khiến tôi không biết nên cười hay nên khóc là bà cụ trong bài nào cũng đứng ở ngã tư, cũng "tóc bạc phơ, dáng người gầy gầy, lưng cong cong, đôi mắt hiền từ". Chiếc ví nào cũng nhặt được trên đường đi học về, cũng "màu nâu đậm, hình vuông, bên trong có chứa nhiều giấy tờ quan trọng và một số tiền lớn".</p>
+                    </div>
+                    
+                    <div class="news">
+                        <h1>Title</h1>
+                        <p>Có lẽ phụ huynh nào cũng từng xuất hiện trong bài văn của con mình với vẻ ngoài và tính tình hoàn toàn không giống mình nhưng lại rất giống nhau.
+    
+                            Ngày mới ra trường, khi chấm bài kiểm tra tập làm văn lớp sáu với đề bài "kể lại một việc tốt em đã làm", tôi đã ngạc nhiên khi hầu như cả lớp chỉ làm có hai việc tốt, một là dẫn bà cụ qua đường, hai là nhặt được chiếc ví và trả lại người mất.
+                            
+                            Điều khiến tôi không biết nên cười hay nên khóc là bà cụ trong bài nào cũng đứng ở ngã tư, cũng "tóc bạc phơ, dáng người gầy gầy, lưng cong cong, đôi mắt hiền từ". Chiếc ví nào cũng nhặt được trên đường đi học về, cũng "màu nâu đậm, hình vuông, bên trong có chứa nhiều giấy tờ quan trọng và một số tiền lớn".</p>
+                    </div>
+                    <div class="news">
+                        <h1>Title</h1>
+                        <p>Có lẽ phụ huynh nào cũng từng xuất hiện trong bài văn của con mình với vẻ ngoài và tính tình hoàn toàn không giống mình nhưng lại rất giống nhau.
+    
+                            Ngày mới ra trường, khi chấm bài kiểm tra tập làm văn lớp sáu với đề bài "kể lại một việc tốt em đã làm", tôi đã ngạc nhiên khi hầu như cả lớp chỉ làm có hai việc tốt, một là dẫn bà cụ qua đường, hai là nhặt được chiếc ví và trả lại người mất.
+                            
+                            Điều khiến tôi không biết nên cười hay nên khóc là bà cụ trong bài nào cũng đứng ở ngã tư, cũng "tóc bạc phơ, dáng người gầy gầy, lưng cong cong, đôi mắt hiền từ". Chiếc ví nào cũng nhặt được trên đường đi học về, cũng "màu nâu đậm, hình vuông, bên trong có chứa nhiều giấy tờ quan trọng và một số tiền lớn".</p>
+                            <a class="more"></a>
+                    </div>
+                </div>
             </div>
-            <div class="student-report">
-                <h3>Student Report</h3>
+            <div id="student-report" class="news-section">
+                <div class="news-title">
+                    <h3>Student Report</h3>
+                </div>
+                <div class="news-box" id="outsider-news">
 
+                </div>
             </div>
-            <div class="outsider-news">
-                <h3>Outsider News</h3>
+            <div id="outsider-news" class="news-section">
+                <div class="news-title">
+                    <h3>Outsider News</h3>
+                </div>
+                <div class="news-box" id="outsider-news">
 
+                </div>
             </div>
         </div>
     </div>
 
+    <div class="update-news">
+        <div class="update-title">
+            <h1>Update news</h1>
+        </div>
+        <div class="update-box">
+            <div class="update">
+                <h1>Our website just release</h1>
+                <p>This is my first project in MindX Advance, so this website is about news,i always wonder that what if a day the teacher can noicte us in the website instead saying at class.So i deicied to make this website.This Website is the place where student can read teacher or school message easier,imaging how tired are you when the there is a message of the teacher taht need to be noitce, if the teacher is busy he can't report us so they can upload on my website and the student can ready it.</p>
+            </div>
+            <a href="#" class="more"></a>
+        </div>
+    </div>
     <!-- footer -->
 
     <div class="footer">
+        <div class="footer-title">
+            <h1>You can contact us on</h1>
+        </div>
         <div class="footer-icon">
             <i class="fa-brands fa-facebook-square"></i>
             <i class="fa-brands fa-instagram-square"></i>

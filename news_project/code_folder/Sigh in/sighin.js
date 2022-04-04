@@ -12,3 +12,13 @@ sighinbtn.addEventListener("click",function(e){
         ripple.remove()
    },1000)
 })
+//sighin-in role effect
+const roleadmin = document.getElementById("admin-role")
+const roleteacher = document.getElementById("teacher-role")
+const studentrole = document.getElementById("student-role")
+roleadmin.addEventListener("click", function(){
+    var adminid = prompt("Enter Admin Id","#000")
+})
+roleteacher.addEventListener("click", function(){
+    var teacherid = prompt("Enter Teacher Id","#000")
+})

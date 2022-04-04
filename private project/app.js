@@ -11,7 +11,6 @@ var topgames = document.getElementsByClassName('gamebox')[0]
 var inputSearch = document.getElementById('inputSea')
 var btnSearch = document.getElementById('btnSearch')
 
-<<<<<<< HEAD
 generateContent(games)
 
 function generateContent(data) {
@@ -33,7 +32,6 @@ function generateContent(data) {
         topgames.insertAdjacentHTML("beforeend", html)
     }
 }
-=======
 // generateContent(games)
 // function generateContent(data) {
 //     topgames.innerHTML = ''
@@ -54,7 +52,6 @@ function generateContent(data) {
 //         topgames.insertAdjacentHTML("beforeend", html)
 //     }
 // }
->>>>>>> af03aae1f5bbb315e875a02ce96e80cb3bad5554
 // read more
 let more = document.querySelectorAll(".more")
 // for(let i = 0;i< more.length;i++){
