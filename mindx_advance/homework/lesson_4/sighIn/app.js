@@ -23,6 +23,7 @@ document.getElementById("sighin-btn").onclick =()=>{
         for(let user of datauser){
             if(user.email === email){
                 checkemail = true;
+                
 
                 if(user.password === pass){
                     let usercurrent = user;
