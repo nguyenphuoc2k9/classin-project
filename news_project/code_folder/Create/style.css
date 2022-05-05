@@ -153,6 +153,21 @@ body{
     border: solid #c7d3ec 5px ;
     background-color: rgb(59, 213, 244);
 }
+.create button {
+    width: 200px;
+    height: 50px;
+    margin-top: 40px;
+    border-radius: 3px;
+    border: solid #c7d3ec 5px ;
+    background-color: rgb(59, 213, 244);
+    color: #fff;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.create button:hover{
+    border: solid #30e6fe 5px;
+}
 .input-topic label{
     position: absolute;
     top: 14px;
@@ -214,4 +229,28 @@ body{
 .area-topic textarea:focus{
     border: solid #30e6fe 5px;
     outline: none;
+}
+.image-topic {
+    position: relative;
+    padding-bottom: 50px;
+}
+.image-topic label{
+    position: relative;
+    color: #fff;
+    transition: top 200ms ease-in,left 200ms ease-in,font-size 200ms ease-in;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.image-topic input{
+    position: relative;
+    width: 91px;
+    height: 50px;
+    border-radius: 4px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.image-topic p{
+    color: rgb(239, 239, 239);
+    font-size: small;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-bottom: 4px;
 }
