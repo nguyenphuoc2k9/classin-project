@@ -161,6 +161,7 @@ body{
     border: solid #c7d3ec 5px ;
     background-color: rgb(59, 213, 244);
     color: #fff;
+    cursor: pointer;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: large;
     transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -178,6 +179,10 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .input-topic input:focus + .title-label{
+    top: -19px !important;
+    left: 1px !important;
+}
+.input-topic input.active + .title-label{
     top: -19px !important;
     left: 1px !important;
 }
@@ -199,6 +204,9 @@ body{
 .area-topic textarea{
     width: 308px;
     height: 200px;
+    color: #fff;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
     padding: 10px 0 0 10px;
     border-radius: 4px;
     border: solid #c7d3ec 5px;
@@ -223,6 +231,10 @@ body{
     padding-bottom: 4px;
 }
 .area-topic textarea:focus + label{
+    top: -19px !important;
+    left: 1px !important;
+}
+.area-topic textarea.active + label{
     top: -19px !important;
     left: 1px !important;
 }

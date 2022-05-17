@@ -142,7 +142,6 @@ body{
     display: flex;
     flex-direction:row;
     gap: 20px;
-    margin-left: 20px;
 }
 .home-box .news-section .news{
     border-radius: 10px;
@@ -150,14 +149,14 @@ body{
     height: 40%;
     background-color: #c7d3ec;
     overflow: hidden;
-    width: 20%;
+    margin: 0 20px;
+    width: 25%;
 }
 .home-box .news-section .news:hover{
     padding: 25px;
 }
 .news .news-btn{
     display: flex;
-    justify-content: flex-end;
     align-items: center;
 }
 .news .news-btn button{
@@ -165,11 +164,14 @@ body{
     border-radius: 4px;
     height: 40px;
     margin-right: 10px;
+    margin-left: 10px;
     width: 40%;
     border-style: none;
     position: relative;
     overflow: hidden;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #fff;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: large;
@@ -192,8 +194,13 @@ p.text-read-more {
     color: white !important;
     position: absolute;
     top: 15%;
-    left: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transform: translate(0%, 0%);
+    margin-left: 20px;
+    color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     z-index: 2;
 }
 
@@ -219,9 +226,12 @@ p.text-read-more {
     color: #000;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.news p{
+.news .info .class_desc{
     margin-left: 20px;
+    overflow: hidden;
+    height: 100px;
     color: #000;
+    word-wrap: break-word;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 /* update-news */

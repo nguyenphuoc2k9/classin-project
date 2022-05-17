@@ -29,37 +29,37 @@ const outsider_news_data = "https://621a354481d4074e85bc4294.mockapi.io/api/v1/o
 //class print
 fetch(class_news_data)
 .then(function(repose){
-    return repose.json;
+    return repose.json();
 })
 .then(function(data){
-    class_print(data)
+    class_print(data)   
 })
 .catch(function(err){
     console.log(err);
 })
-
-const class_print = (data) =>{
-    let html = ""
-    for(element of data){
-        html += `<div class="news">
-        <img src="${element.image}" alt="img">
-        <div class="info">
-            <h1>${element.title}</h1>
-            <p> ${element.desc}</p>
-            <div class="news-btn">
-            <button><span></span><p class="text-read-more" onclick="editnewscl(${element.id})">Edit news</p></button>
-            <button><span></span><p class="text-read-more" onclick="deletenewscl(${element.id})">Delete news</p></button>
-            <button><span></span><p class="text-read-more">Read more</p></button>
-        </div>
-        </div>
-    </div>`
+    function class_print(data){
+        let html = ""
+        for(element of data){
+            html += `<div class="news">
+            <img src="${element.image}" alt="img">
+            <div class="info">
+                <h1>${element.title}</h1>
+                <p class="class_desc> ${element.desc}</p>
+                <div class="news-btn">
+                <button><span></span><p class="text-read-more" onclick="editnewscl(${element.id})">Edit news</p></button>
+                <button><span></span><p class="text-read-more" onclick="deletenewscl(${element.id})">Delete news</p></button>
+                <button><span></span><p class="text-read-more">Read more</p></button>
+            </div>
+            </div>
+        </div>`
+        }
+        document.getElementById("class-news").innerHTML = html;
     }
-    document.getElementById("class-news").innerHTML = html;
-}
+
 //student print
 fetch(student_report_data)
 .then(function(repose){
-    return repose.json;
+    return repose.json();
 })
 .then(function(data){
     student_print(data)
@@ -75,7 +75,7 @@ const student_print = (data) =>{
         <img src="${element.image}" alt="img">
         <div class="info">
             <h1>${element.title}</h1>
-            <p> ${element.desc}</p>
+            <p class="class_desc> ${element.desc}</p>
             <div class="news-btn">
             <button><span></span><p class="text-read-more" onclick="editnewstr(${element.id})">Edit news</p></button>
             <button><span></span><p class="text-read-more" onclick="deletenewstr(${element.id})">Delete news</p></button>
@@ -89,7 +89,7 @@ const student_print = (data) =>{
 //outider print
 fetch(class_news_data)
 .then(function(repose){
-    return repose.json;
+    return repose.json();
 })
 .then(function(data){
     out_print(data)
@@ -105,7 +105,7 @@ const out_print = (data) =>{
         <img src="${element.image}" alt="img">
         <div class="info">
             <h1>${element.title}</h1>
-            <p> ${element.desc}</p>
+            <p class="class_desc"> ${element.desc}</p>
             <div class="news-btn">
             <button><span></span><p class="text-read-more" onclick="editnewsot(${element.id})">Edit news</p></button>
             <button><span></span><p class="text-read-more" onclick="deletenewsot(${element.id})">Delete news</p></button>
@@ -130,8 +130,8 @@ const deletenewscl =(id)=>{
 }
 //delete student report
 const deletenewstr =(id)=>{
-    fetch(student_report_data + "/" + id,{
-        method: " delete"
+    fetch(student_report_data + '/' + id,{
+        method: "DELETE"
     })
     .then(()=>{
         alert("removed news that has id" + id)

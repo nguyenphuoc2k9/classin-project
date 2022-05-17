@@ -96,9 +96,19 @@ document.getElementById("sighin-btn").onclick =()=>{
         let checkemail = false;
         console.log('pn.value: ',pn.value)
         for(user of datauser){
-            if(user.email === email){
-                document.getElementById("sighin-desc-email").innerHTML = "Invalid email"
+            if(user.email === email.value){
+                document.getElementById("sighin-desc-email").innerHTML = "This email already exits"
                 document.getElementById("sighin-desc-email").style.color = "red"
+                checkemail = true;
+            }
+            if(user.name === name.value){
+                document.getElementById("sighin-desc-name").innerHTML = "This name already exits"
+                document.getElementById("sighin-desc-name").style.color = "red"
+                checkemail = true;
+            }
+            if(user.pn === pn.value){
+                document.getElementById("sighin-desc-pn").innerHTML = "This phone number already exits"
+                document.getElementById("sighin-desc-pn").style.color = "red"
                 checkemail = true;
             }
         }
