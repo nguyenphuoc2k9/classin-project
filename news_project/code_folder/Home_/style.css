@@ -152,9 +152,6 @@ body{
     margin: 0 20px;
     width: 25%;
 }
-.home-box .news-section .news:hover{
-    padding: 25px;
-}
 .news .news-btn{
     display: flex;
     align-items: center;
@@ -188,8 +185,10 @@ body{
     transition: all .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 1;
 }
-
-p.text-read-more {
+.home-box .news-section .news:hover{
+    padding: 25px;
+}
+.text-read-more {
     margin: auto !important;
     color: white !important;
     position: absolute;
@@ -202,6 +201,7 @@ p.text-read-more {
     color: #000;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     z-index: 2;
+    text-decoration: none;
 }
 
 .news-btn button:hover span{

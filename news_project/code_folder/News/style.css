@@ -188,7 +188,7 @@ body{
     z-index: 1;
 }
 
-p.text-read-more {
+.text-read-more {
     margin: auto !important;
     color: white !important;
     position: absolute;
@@ -201,7 +201,9 @@ p.text-read-more {
     color: #000;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     z-index: 2;
+    text-decoration: none;
 }
+
 
 .news-btn button:hover span{
     width: 100% !important;

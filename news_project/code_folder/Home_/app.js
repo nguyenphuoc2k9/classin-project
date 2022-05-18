@@ -40,18 +40,20 @@ fetch(class_news_data)
     function class_print(data){
         let html = ""
         for(element of data){
-            html += `<div class="news">
-            <img src="${element.image}" alt="img">
-            <div class="info">
-                <h1>${element.title}</h1>
-                <p class="class_desc> ${element.desc}</p>
-                <div class="news-btn">
-                <button><span></span><p class="text-read-more" onclick="editnewscl(${element.id})">Edit news</p></button>
-                <button><span></span><p class="text-read-more" onclick="deletenewscl(${element.id})">Delete news</p></button>
-                <button><span></span><p class="text-read-more">Read more</p></button>
+            html += `
+            <div class="news">
+                <img src="${element.image}" alt="img">
+                <div class="info">
+                    <h1>${element.title}</h1>
+                    <p class="class_desc"> ${element.desc}</p>
+                        <div class="news-btn">
+                            <button><span></span><p class="text-read-more" onclick="editnewscl(${element.id})">Edit news</p></button>
+                            <button><span></span><p class="text-read-more" onclick="deletenewscl(${element.id})">Delete news</p></button>
+                            <button><span></span><a href="../Show more/show-more.html?id=${element.id}&topic=class_news" class="text-read-more">Read more</a></button>
+                        </div>
+                </div>
             </div>
-            </div>
-        </div>`
+                `
         }
         document.getElementById("class-news").innerHTML = html;
     }
@@ -71,23 +73,25 @@ fetch(student_report_data)
 const student_print = (data) =>{
     let html = ""
     for(element of data){
-        html += `<div class="news">
-        <img src="${element.image}" alt="img">
-        <div class="info">
-            <h1>${element.title}</h1>
-            <p class="class_desc> ${element.desc}</p>
-            <div class="news-btn">
-            <button><span></span><p class="text-read-more" onclick="editnewstr(${element.id})">Edit news</p></button>
-            <button><span></span><p class="text-read-more" onclick="deletenewstr(${element.id})">Delete news</p></button>
-            <button><span></span><p class="text-read-more">Read more</p></button>
+        html +=`
+        <div class="news">
+            <img src="${element.image}" alt="img">
+            <div class="info">
+                <h1>${element.title}</h1>
+                <p class="class_desc"> ${element.desc}</p>
+                    <div class="news-btn">
+                        <button><span></span><p class="text-read-more" onclick="editnewstr(${element.id})">Edit news</p></button>
+                        <button><span></span><p class="text-read-more" onclick="deletenewstr(${element.id})">Delete news</p></button>
+                        <button><span></span><a href="../Show more/show-more.html?id=${element.id}&topic=student_report" class="text-read-more">Read more</a></button>
+                    </div>
+            </div>
         </div>
-        </div>
-    </div>`
+            `
     }
-    document.getElementById("class-news").innerHTML = html;
+    document.getElementById("student-report").innerHTML = html;
 }
 //outider print
-fetch(class_news_data)
+fetch(outsider_news_data)
 .then(function(repose){
     return repose.json();
 })
@@ -101,25 +105,28 @@ fetch(class_news_data)
 const out_print = (data) =>{
     let html = ""
     for(element of data){
-        html += `<div class="news">
-        <img src="${element.image}" alt="img">
-        <div class="info">
-            <h1>${element.title}</h1>
-            <p class="class_desc"> ${element.desc}</p>
-            <div class="news-btn">
-            <button><span></span><p class="text-read-more" onclick="editnewsot(${element.id})">Edit news</p></button>
-            <button><span></span><p class="text-read-more" onclick="deletenewsot(${element.id})">Delete news</p></button>
-            <button><span></span><p class="text-read-more">Read more</p></button>
+        html += `
+        <div class="news">
+            <img src="${element.image}" alt="img">
+            <div class="info">
+                <h1>${element.title}</h1>
+                <p class="class_desc"> ${element.desc}</p>
+                    <div class="news-btn">
+                        <button><span></span><p class="text-read-more" onclick="editnewsot(${element.id})">Edit news</p></button>
+                        <button><span></span><p class="text-read-more" onclick="deletenewsot(${element.id})">Delete news</p></button>
+                        <button><span></span><a href="../Show more/show-more.html?id=${element.id}&topic=outsider_news" class="text-read-more">Read more</a></button>
+                    </div>
+            </div>
         </div>
-        </div>
-    </div>`
+            `
     }
-    document.getElementById("class-news").innerHTML = html;
+    document.getElementById("outsider-news").innerHTML = html;
 }
 //delete class
+
 const deletenewscl =(id)=>{
-    fetch(class_news_data + "/" + id,{
-        method: " delete"
+    fetch(cla + '/' + id,{
+        method: "DELETE"
     })
     .then(()=>{
         alert("removed news that has id" + id)
@@ -141,6 +148,7 @@ const deletenewstr =(id)=>{
     })
 }
 //delete outsider news
+
 const deletenewsot =(id)=>{
     fetch(outsider_news_data + "/" + id ,{
         method:"delete"

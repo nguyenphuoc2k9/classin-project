@@ -121,8 +121,14 @@ document.getElementById("sighin-btn").onclick =()=>{
             }
             datauser.push(user)
             localStorage.setItem("user",JSON.stringify(datauser))
-            alert("Sign in sucesed")
-            window.location.href = "../Login/Login.html"
+            document.getElementById("pop-up").classList.add("haiz")
         }
+        
     }
+    
+}
+function closepop(){
+    document.getElementById("pop-up").classList.remove("haiz")
+
+    window.location.href = "../Login/Login.html"
 }

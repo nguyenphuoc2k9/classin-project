@@ -41,7 +41,7 @@
                 <div class="area-topic">
                     <textarea type="text" id="area-class"></textarea>
                     <label for="area-class" class="area-lable">Desc</label>
-                    <p id="area-desc-class">Descritpion must lower than 100 letters</p>
+                    <p id="area-desc-class">Descritpion must lower than 10 letters</p>
                 </div>
                 <button id="class-add"><i class="fa-solid fa-plus"></i>Create</button>
             </div>
@@ -54,10 +54,10 @@
                     <p id="input-desc-re">Title length must higher than 6 and lower than 20</p>
                 </div>
                 <div class="image-topic">
-                    <label for="image-class" class="title-label">Image :</label>
-                    <input type="file" id="image-class">
+                    <label for="image-re" class="title-label">Image :</label>
+                    <input type="file" id="image-re">
                     <br>
-                    <p id="image-desc-class">Upload your image</p>
+                    <p id="image-desc-re">Upload your image</p>
                 </div>
                 <div class="area-topic">
                     <textarea  id="area-re" cols="30" rows="15"></textarea>
@@ -74,8 +74,8 @@
                     <p id="input-desc-out">Title length must higher than 6 and lower than 20</p>
                 </div>
                 <div class="image-topic">
-                    <label for="image-class" class="title-label">Image :</label>
-                    <input type="file" id="image-class">
+                    <label for="image-out" class="title-label">Image :</label>
+                    <input type="file" id="image-out">
                     <br>
                     <p id="image-desc-class">Upload your image</p>
                 </div>
@@ -116,6 +116,31 @@
           </div>  
         </div>
     </div>
+    <div class="pop-overlay"  id="pop-up-class">
+        <div class="pop-up">
+            <img src="../404-tick.png" alt="">
+            <h1>Thank you</h1>
+            <p>You have sucssess create a class news</p>
+            <button onclick="classpop()">OK</button>
+        </div>
+    </div>
+    <div class="pop-overlay"  id="pop-up-student">
+        <div class="pop-up">
+            <img src="../404-tick.png" alt="">
+            <h1>Thank you</h1>
+            <p>You have sucsess create a student report</p>
+            <button onclick="studentpop()">OK</button>
+        </div>
+    </div>
+    <div class="pop-overlay"  id="pop-up-out">
+        <div class="pop-up">
+            <img src="../404-tick.png" alt="">
+            <h1>Thank you</h1>
+            <p>You have sucsess create a outsider news</p>
+            <button onclick="outpop()">OK</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./app.js"></script>
 </body>
 </html>
