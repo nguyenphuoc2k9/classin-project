@@ -289,6 +289,11 @@ p.text-read-more {
     cursor: pointer;
 }
 .search-input input:focus+.label-search{
+    top: -20px ;
+    font-size: 1.2rem ;
+    left: 3rem ;
+}
+.search-input input.active + .label-search{
     top: -20px !important;
     font-size: 1.2rem !important;
     left: 3rem !important;

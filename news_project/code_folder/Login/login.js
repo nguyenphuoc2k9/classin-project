@@ -41,8 +41,7 @@ document.getElementById("login-btn").onclick =()=>{
             if(user.password === password){
                let usercurrent = user;
                localStorage.setItem("usercurrent", JSON.stringify(usercurrent))
-               alert("Login sucesed")
-               window.location.href = "../Home_/home.html"
+               document.getElementById("pop-up").classList.add("haiz")
             } else {
                document.getElementById("input-desc-password").innerHTML = "Invalid password"
                document.getElementById("input-desc-password").style.color =  "red"
@@ -54,4 +53,8 @@ document.getElementById("login-btn").onclick =()=>{
          document.getElementById("input-desc-name").style.color = "red"
       }
    }
+}
+function closepop(){
+   document.getElementById("pop-up").classList.remove("haiz")
+   window.location.href = "../Home_/home.html"
 }

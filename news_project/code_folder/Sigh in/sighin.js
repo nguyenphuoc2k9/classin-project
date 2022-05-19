@@ -96,9 +96,19 @@ document.getElementById("sighin-btn").onclick =()=>{
         let checkemail = false;
         console.log('pn.value: ',pn.value)
         for(user of datauser){
-            if(user.email === email){
-                document.getElementById("sighin-desc-email").innerHTML = "Invalid email"
+            if(user.email === email.value){
+                document.getElementById("sighin-desc-email").innerHTML = "This email already exits"
                 document.getElementById("sighin-desc-email").style.color = "red"
+                checkemail = true;
+            }
+            if(user.name === name.value){
+                document.getElementById("sighin-desc-name").innerHTML = "This name already exits"
+                document.getElementById("sighin-desc-name").style.color = "red"
+                checkemail = true;
+            }
+            if(user.pn === pn.value){
+                document.getElementById("sighin-desc-pn").innerHTML = "This phone number already exits"
+                document.getElementById("sighin-desc-pn").style.color = "red"
                 checkemail = true;
             }
         }
@@ -111,8 +121,14 @@ document.getElementById("sighin-btn").onclick =()=>{
             }
             datauser.push(user)
             localStorage.setItem("user",JSON.stringify(datauser))
-            alert("Sign in sucesed")
-            window.location.href = "../Login/Login.html"
+            document.getElementById("pop-up").classList.add("haiz")
         }
+        
     }
+    
+}
+function closepop(){
+    document.getElementById("pop-up").classList.remove("haiz")
+
+    window.location.href = "../Login/Login.html"
 }
