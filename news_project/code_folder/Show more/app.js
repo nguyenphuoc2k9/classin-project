@@ -48,7 +48,30 @@ const show_class = (data)=>{
     document.getElementById("show-more-box").innerHTML = html
 }
 }else if(topic == "student_report"){
-
+    fetch(class_news_data +"/"+ id)
+.then(function(repose){
+    return repose.json();
+})
+.then(function(data){
+    show_student(data)
+    console.log(data);
+})
+.catch(function(err){
+    console.log(err);
+})
+    const show_student = (data)=>{    
+        let html = ""
+        html +=`<div class="show-news">
+        <div class="show-more-title">
+            <h1>${data.title}</h1>
+        </div>
+        <div class="show-more-info">
+            <img src="${data.image}" alt="">
+            <p>${data.desc}</p>
+        </div>
+        </div>`
+        document.getElementById("show-more-box").innerHTML = html
+    } 
 }else if(topic == "outsider_news"){
 
 }
