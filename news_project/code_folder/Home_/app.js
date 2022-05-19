@@ -152,3 +152,4 @@ const deletenewsot =(id)=>{
         console.log(err);
     })
 }
+//
