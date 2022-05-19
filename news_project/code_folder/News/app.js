@@ -22,6 +22,10 @@ if(localStorage.getItem("usercurrent") == null){
     usercurrent = JSON.parse(localStorage.getItem("usercurrent"))
     console.log(usercurrent);
 }
+//username
+let html = ""
+html+=`<p class="head-text"><i class="fa-solid fa-user"></i>Welcome ${usercurrent.name}</p>`
+document.getElementsByClassName("header-box")[0].insertAdjacentHTML("beforeend", html)
 //api link
 const class_news_data = "https://621a354481d4074e85bc4294.mockapi.io/api/v1/class-news-data";
 const student_report_data = "https://621a354481d4074e85bc4294.mockapi.io/api/v1/student-report-data";

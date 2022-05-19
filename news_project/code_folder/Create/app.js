@@ -7,6 +7,10 @@ if(localStorage.getItem("usercurrent") == null){
     usercurrent = JSON.parse(localStorage.getItem("usercurrent"))
     console.log(usercurrent);
 }
+//username
+let html = ""
+html+=`<p class="head-text"><i class="fa-solid fa-user"></i>Welcome ${usercurrent.name}</p>`
+document.getElementsByClassName("header-box")[0].insertAdjacentHTML("beforeend", html)
 //input check value
 const title_class = document.getElementById("input-class")
 const desc_class = document.getElementById("area-class")
@@ -72,12 +76,12 @@ document.getElementById("class-add").onclick =()=>{
         alert("class input cannot be plank")
         check = true;
     }
-    if(title.length > 15){
+    if(6 >title.length > 30){
         document.getElementById("input-desc-class").innerHTML = "Invalid title"
         document.getElementById("input-desc-class").style.color = "red"
         check = true;
     }
-    if(desc.length > 100){
+    if( 20 >desc.length > 200){
         document.getElementById("area-desc-class").innerHTML = "Invalid descirtpion"
         document.getElementById("area-desc-class").style.color = "red"
         check = true;

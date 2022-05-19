@@ -96,7 +96,6 @@ body{
 }
 .footer-info{
     padding: 30px;
-    margin-left: -131px;
     width: 50%;
     display: flex;
     justify-content: space-around;
@@ -143,9 +142,11 @@ body{
 }
 .show-more-info p{
     color: #fff;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
     letter-spacing: 1.5px;
     font-size: larger;
     line-height: 30px;
-    margin-left: 40px;
     font-family :sans-serif;
 }

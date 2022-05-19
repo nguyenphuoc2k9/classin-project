@@ -96,7 +96,6 @@ body{
 }
 .footer-info{
     padding: 30px;
-    margin-left: -131px;
     width: 50%;
     display: flex;
     justify-content: space-around;
@@ -230,7 +229,7 @@ body{
 .news .info .class_desc{
     margin-left: 20px;
     overflow: hidden;
-    height: 100px;
+    height: 90px;
     color: #000;
     word-wrap: break-word;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
