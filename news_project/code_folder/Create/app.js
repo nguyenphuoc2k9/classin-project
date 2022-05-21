@@ -64,10 +64,16 @@ desc_out.addEventListener("change", function(){
 const class_news_data = "https://621a354481d4074e85bc4294.mockapi.io/api/v1/class-news-data";
 const student_report_data = "https://621a354481d4074e85bc4294.mockapi.io/api/v1/student-report-data";
 const outsider_news_data = "https://621a354481d4074e85bc4294.mockapi.io/api/v1/outsider-news-data";
+const class_image = "https://6285efd696bccbf32d6b52a3.mockapi.io/image_class"
+const student_image = "https://6285efd696bccbf32d6b52a3.mockapi.io/image_student"
+const outsider_image = "https://6285efd696bccbf32d6b52a3.mockapi.io/image_outsider"
+//image dom
+const image_class = document.getElementById("image-class")
+const image_re = document.getElementById("image-re")
+const image_outsider = document.getElementById("image-out")
 //class_add
-document.getElementById("class-add").onclick =()=>{
-    //class_image_add
 
+document.getElementById("class-add").onclick =()=>{
     //title_desc_add
     const title =document.getElementById("input-class").value
     const desc = document.getElementById("area-class").value
@@ -100,7 +106,7 @@ document.getElementById("class-add").onclick =()=>{
             body: JSON.stringify(class_news)
         })
         .then(function(repose){
-            return repose.json;
+            return repose.json();
         })
         .then(function(post){
             console.log(post);
@@ -208,44 +214,132 @@ document.getElementById("outsider-add").onclick =()=>{
 function outpop(){
     document.getElementById("pop-up-out").classList.remove("haiz")
 }
-//upload image
+//cloudinary
 const CLOUNDINARY_URL = "https://api.cloudinary.com/v1_1/dgum7tw8v/image/upload"
 const CLOUDINARY_UPLOAD_PRESET = "ml_default"
-var image_class = document.getElementById("image-class")
-
+//upload class image
 image_class.addEventListener("change", function(event){
     var file = event.target.files[0]
     var formdata = new FormData();
     formdata.append("file", file)
     formdata.append("upload_preset", CLOUDINARY_UPLOAD_PRESET)
-    // document.getElementById("class-add").onclick=()=>{
+        if(image_class.value != null){
+            fetch(CLOUNDINARY_URL,{
+                method:"POST",
+                body: formdata
+            }).then((response) => {
+                return response.text();
+            }).then((data) => {
+                 let body = JSON.parse(data)
+                link(body.secure_url)
+              })
+            .catch(function(err){
+                console.log(err);
+            })
+            const link =(data)=>{
+                console.log(data);
+                const image = {
+                    image:data
+                }
+                fetch(class_image,{
+                    method:"POST",
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body:JSON.stringify(image)
+                }).then((repose)=>{
+                    return repose.json();
+                }).then((data)=>{
+                    console.log(data);
+                }).catch((err)=>{
+                    console.log(err);
+                })
+                
+            }
+
+    }
+})
+//upload student image
+image_re.addEventListener("change", function(event){
+    var file = event.target.files[0]
+    var formdata = new FormData();
+    formdata.append("file", file)
+    formdata.append("upload_preset", CLOUDINARY_UPLOAD_PRESET)
+        if(image_re.value != null){
         fetch(CLOUNDINARY_URL,{
-            method:"POST",
-            body: formdata
-        }).then((response) => {
-            return response.text();
-        }).then((data) => {
-             let body = JSON.parse(data)
-            link(body.secure_url)
-          })
-        .catch(function(err){
-            console.log(err);
-        })
-        const link =(data)=>{
-            console.log(data);
-            fetch(class_news_data,{
-            method:"PUT",
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
-               },
-            body: JSON.stringify({image: data})
-        }).then(function(res){
-            res.json();
-        }).then(function(data){
-            console.log(data);
-        }).catch(function(err){
-            console.log(err);
-        })
-        }
-    // }
+                method:"POST",
+                body: formdata
+            }).then((response) => {
+                return response.text();
+            }).then((data) => {
+                let body = JSON.parse(data)
+                link(body.secure_url)
+            })
+            .catch(function(err){
+                console.log(err);
+            })
+            const link =(data)=>{
+                console.log(data);
+                const image = {
+                    image:data
+                }
+                fetch(student_image,{
+                    method:"POST",
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body:JSON.stringify(image)
+                }).then((repose)=>{
+                    return repose.json();
+                }).then((data)=>{
+                    console.log(data);
+                }).catch((err)=>{
+                    console.log(err);
+                })
+                
+            }
+
+    }
+})
+//upload outsider image
+image_outsider.addEventListener("change", function(event){
+    var file = event.target.files[0]
+    var formdata = new FormData();
+    formdata.append("file", file)
+    formdata.append("upload_preset", CLOUDINARY_UPLOAD_PRESET)
+        if(image_outsider.value != null){
+            fetch(CLOUNDINARY_URL,{
+                method:"POST",
+                body: formdata
+            }).then((response) => {
+                return response.text();
+            }).then((data) => {
+                 let body = JSON.parse(data)
+                link(body.secure_url)
+              })
+            .catch(function(err){
+                console.log(err);
+            })
+            const link =(data)=>{
+                console.log(data);
+                const image = {
+                    image:data
+                }
+                fetch(outsider_image,{
+                    method:"POST",
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body:JSON.stringify(image)
+                }).then((repose)=>{
+                    return repose.json();
+                }).then((data)=>{
+                    console.log(data);
+                }).catch((err)=>{
+                    console.log(err);
+                })
+                
+            }
+
+    }
 })
