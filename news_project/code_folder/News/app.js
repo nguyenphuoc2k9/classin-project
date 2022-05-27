@@ -133,8 +133,8 @@ fetch(student_image)
     const student_print_image=(data)=>{
         for(let i = 0;i<data.length;i++){
             let html = `<img src="${data[i].image}" alt="img">`
-            console.log(news_student[i]);
-            console.log(html);
+            // console.log(news_student[i]);
+            // console.log(html);
             news_student[i].insertAdjacentHTML("afterbegin",html)
         }
         
@@ -191,13 +191,18 @@ fetch(outsider_image)
 //delete class
 
 const deletenewscl =(id)=>{
-    fetch(cla + '/' + id,{
+    fetch(class_news_data + '/' + id,{
         method: "DELETE"
     })
     .then(()=>{
         alert("removed news that has id" + id)
     })
     .catch((err)=>{
+        console.log(err);
+    })
+    fetch(class_image + "/" + id,{
+        method:"delete"
+    }).catch((err)=>{
         console.log(err);
     })
 }
@@ -212,6 +217,9 @@ const deletenewstr =(id)=>{
     .catch((err)=>{
         console.log(err);
     })
+    fetch(student_image + "/" + id,{
+        method:"delete"
+    })
 }
 //delete outsider news
 
@@ -225,4 +233,53 @@ const deletenewsot =(id)=>{
     .catch((err)=>{
         console.log(err);
     })
+    fetch(outsider_image + "/" + id,{
+        method:"delete"
+    })
+}
+//footer check
+fetch(class_news_data)
+.then((repose)=>{
+    return repose.json()
+}).then((data)=>{
+    checkclassdata(data)
+}).then((err)=>{
+    console.log(err);
+})
+const checkclassdata =(data)=>{
+    if(data.length ==0){
+        document.getElementById("footer").style.position = "absolute"
+    } else {
+        document.getElementById("footer").style.position = "relative"
+    }
+}
+fetch(student_report_data)
+.then((repose)=>{
+    return repose.json()
+}).then((data)=>{
+    checkstudentdata(data)
+}).then((err)=>{
+    console.log(err);
+})
+const checkstudentdata =(data)=>{
+    if(data.length ==0){
+        document.getElementById("footer").style.position = "absolute"
+    } else {
+        document.getElementById("footer").style.position = "relative"
+    }
+}
+fetch(outsider_news_data)
+.then((repose)=>{
+    return repose.json()
+}).then((data)=>{
+    checkoutdata(data)
+}).then((err)=>{
+    console.log(err);
+})
+const checkoutdata =(data)=>{
+    if(data.length ==0){
+        document.getElementById("footer").style.position = "absolute"
+    } else {
+        document.getElementById("footer").style.position = "relative"
+    }
 }

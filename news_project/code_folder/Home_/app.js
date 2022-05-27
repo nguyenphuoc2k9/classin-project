@@ -221,4 +221,3 @@ const deletenewsot =(id)=>{
         method:"delete"
     })
 }
-//
