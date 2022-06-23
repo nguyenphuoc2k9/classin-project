@@ -1,0 +1,186 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.order{
+    display: flex;
+    justify-content: space-around;
+    margin: 30px auto 0 auto;
+    width: 90%;
+}
+.produce{
+    width: 60%;
+    border-radius: 3px;
+    border: solid rgb(189, 189, 189) 1px;
+}
+.produce-title{
+    border: none;
+    border-bottom: solid 1px rgb(189, 189, 189);
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.produce-title h2{
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.produce-title h2:nth-child(1){
+    width: 20%;
+}
+.produce-title h2:nth-child(2){
+    width: 40%;
+}
+.produce-title h2:nth-child(3){
+    width: 20%;
+}
+.produce-title h2:nth-child(4){
+    width: 20%;
+}
+.produce-card{
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.produce-img {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.produce-img img{
+    width: 60%;
+    height: 100%;
+    border-radius: 5px;
+}
+.produce-card h2{
+    width: 40%;
+    color: #000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.produce-card .price{
+    width: 20%;
+}
+.price{
+    display: flex;
+}
+.price p:nth-child(1){
+    padding-right: 5px;
+    color: red;
+}
+.price p{
+    color: #000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.produce-card .number {
+    display: flex;
+    justify-content:flex-start;
+}
+.produce-card .number input{
+    width: 60%;
+    border-radius: 4px;
+}
+.produce-card .number input:focus-visible{
+    outline: none;
+}
+.total{
+    width: 35%;
+    border-radius: 3px;
+    border: solid rgb(189, 189, 189) 1px;
+}
+.total-title{
+    border: none;
+    border-bottom: solid rgb(189, 189, 189) 1px;
+    padding: 30px 0 30px 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #000;
+    margin-bottom: 20px;
+}
+.total-detail{
+    display: flex;
+    flex-direction: column;
+}
+.total-detail .total-move{
+    padding:0 20px;
+    margin-bottom: 10px;
+    display: flex;
+    font-size: small;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.total-move h2:nth-child(2){
+    padding-left: 10px;
+    color: rgb(88, 88, 88);
+}
+.total-inform{
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.total-inform h2{
+    margin-bottom: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.total-inform input{
+    width: 75%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.total-inform input:focus-visible{
+    outline: none;
+}
+.total-finish{
+    border: none;
+    border-top: rgb(88, 88, 88) solid 1px;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.total-finish-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+}
+.total-finish h2{
+    margin: 20px 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.total-price{
+    display: flex;
+    width: 70%;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.total-price p{
+    color: #000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.total-price p:nth-child(1){
+    color: red;
+    padding-right: 5px;
+}
+.total-finish-btn{
+    display: flex;
+    width: 100%;
+    margin: 10px 0;
+    justify-content: center;
+    align-items: center;
+}
+.total-finish-btn button{
+    width: 80%;
+    padding: 10px;
+    background-color: rgb(51, 51, 51);
+    color: #fff;
+    border-radius: 40px;
+    border: none;
+    padding:10px 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.itemtotal{
+    visibility: hidden;
+    position: absolute;
+}
