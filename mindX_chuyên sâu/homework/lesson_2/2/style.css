@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.contain{
+    width: 40%;
+    margin: 40px auto;
+    border: solid #000 1px;
+}
+.display{
+    padding: 20% 8px;
+    line-height: 70px;
+    text-align: right;
+    height: 100%;
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #000;
+}
+.btn-con{
+    display: grid;
+    grid-template-columns: 1fr 1fr  1fr 1fr;
+}
+.btn-con button{
+    border: solid #000 1px;
+    line-height: 100px;
+    text-align: center;
+    font-size:25px  ;
+    cursor: pointer;
+}
+#fin{
+    background-color: #555ff5;
+    color: #fff;
+}
