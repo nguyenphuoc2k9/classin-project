@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.sidebar{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar-a{
+    padding-left: 5%;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+.sidebar-a img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+.sidebar-a form{
+    padding: 0 20px;
+    width: 100%;
+}
+.sidebar-a .input-filter{
+    border: rgb(0, 0, 0) 5px solid;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 100%;
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+.input-filter select{
+    border: none;
+    padding: 5px 0;
+    border-right: #000 solid 1px;
+}
+.input-filter input{
+    border: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: normal;
+    font-size: large;
+    width: 64%;
+}
+.input-filter input:focus-visible{
+    outline: none;
+}
+.input-filter button{
+    padding: 10px 0;
+    width: 7%;
+    margin-left: 23px;
+    border: none;
+    background-color: #000;
+    color:#fff;
+    margin-left: 23px;
+}   

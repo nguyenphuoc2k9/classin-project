@@ -25,21 +25,23 @@
             <th>Tác vụ</th>
         </tr>
         <?php
-            while($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
-                $id = $row['id'];
-                $username = $row['username'];
-                $pass = $row['password'];
-            }
-        ?>
-        <tr>
-            <td><?php echo $id ?></td>
-            <td><?php echo $username ?></td>
-            <td><?php echo $pass ?></td>
-            <td><a href="edit.php?id=<?php echo $id; ?>">Sửa</a></td>
-            <td><a href="delete.php?id=<?php echo $id; ?>">Xóa</a></td>        
-        </tr>
+	while($row = mysqli_fetch_array($querry, MYSQLI_ASSOC))
+   {
+   	$id = $row['id'];
+   	$user = $row['username'];
+   	$pass = $row['password'];
+	?>
+	<tr>
+			<td><?php echo $id ?></td>
+			<td><?php echo $user ?></td>
+			<td><?php echo $pass ?></td>
+			<td><a href="admin/sua.php?id=<?php echo $id ;?>">Sua</a></td>
+			<td><a href="admin/xoa.php?id=<?php echo $id ;?>">Xoa</a></td>
+		</tr>
+		<?php } 
+		 ?>
     </table>
-    <button type="submit" onclick="hienthiadmin()" id="btn" name="btn">Thêm mới</button>
+    <a href="./add.php" id="btn" name="btn">Thêm mới</a>
     <h3>================================================================</h3>
     <!-- <h3>Danh sách sản phẩm</h3>
     <table>
@@ -62,7 +64,7 @@
     </table> -->
     <script>
         function hienthiadmin(){
-            location.replace("admin/them.php")
+            location.replace("./add.php")
         }
     </script>
     <?php mysqli_close($con)?>
