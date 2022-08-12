@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    $con = mysqli_connect("localhost","root","","teen-project-database");
+    $query = mysqli_query($con, "SELECT * FROM webpost");
+    if(!isset($_SESSION['username'])){
+        header("Location:../Login/login.php");
+    }
+    if($_SESSION['username'] == null){
+        echo "<script type='text/javascript'>";
+        echo "document.getElementById('head-btn').insertAdjacentHTML('beforeend',`<button id='sigh-in'><a href='../Sigh in/SighIn.html'>Sigh In</a></button>
+        <button id='log-in'> <a href='../Login/Login.php'>Log In</a></button>`)";
+        echo "</script>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,55 +64,31 @@
             <button id="close"><i class="fa-solid fa-bars"></i></button>
         </div>
     </div>
-    <!--Create-->
-
-    <div class="create">
-        <div class="create-box">
-            <div class="create-title">
-                <h1>Create your post!</h1>
-            </div>
-            <div class="create-input">
-                <form action="./create.php" method="POST" enctype="multipart/form-data">
-                    <label for="title">Title :</label>
-                    <input type="text" class="input"name="title" id="title">
-                    <label for="desc">Desc :</label>
-                    <input type="text" name="desc" class="input"id="desc">
-                    <label for="file">File :</label>
-                    <input type="file" name="file" id="file">
-                    <button type="submit" name="btn">Create</button>
-                </form>
+    <!--main news-->
+    
+    <div class="home">
+        <div class="home-title">
+            <h1>Main news</h1>
+        </div>
+        <div class="home-box">
+            <div class="home-container">
+                <div class="extra">
+                    <div class="main-img">
+                        <img src="../dảk image.png" alt="imgae">
+                    </div>
+                    <div class="main-info">
+                        <div class="main-title">
+                            <h1>hi</h1>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.il eveniet! Blanditiis vel facere laudantium consequatur vitae voluptate enim. <a href="#">Read more</a></p>
+                    </div>
+                </div>
+                <?php
+                    while($row = mysqli_fetch_array($query, MYSQLI_ASSOC))
+                ?>
             </div>
         </div>
     </div>
-
-    <!-- footer -->
-
-    <div class="footer">
-        <div class="footer-title">
-            <h1>You can contact us on</h1>
-        </div>
-        <div class="footer-icon">
-            <i class="fa-brands fa-facebook-square"></i>
-            <i class="fa-brands fa-instagram-square"></i>
-            <i class="fa-brands fa-youtube-square"></i>
-            <i class="fa-brands fa-telegram"></i>
-        </div>
-        <div class="footer-info">
-          <div class="info-card">
-              <h5>Email:</h5>
-              <p>Phuochuunguyen2009@gmail.com</p>
-          </div>
-          <div class="info-card">
-              <h5>Phone number:</h5>
-              <p>0905332540</p>
-          </div>
-          <div class="info-card">
-              <h5>Facebook:</h5>
-              <p>nguyễn Phước</p>
-          </div>  
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./app.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./detail.css">
     <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -19,16 +19,14 @@
                     <input type="text" placeholder="Enter your ideas...">
                     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
-                <div class="head-btn">
-                    <button id="sigh-in">Sigh In</button>
-                    <button id="log-in">Log In</button>
+                <div class="head-btn" id="head-btn">
+                    
                 </div>
             </div>
             <div class="head-con">
-                <a class="head-text" href="../Home_/home.html"><i class="fa-solid fa-house"></i>Home</a>
-                <a class="head-text" href="../News/news.html"><i class="fa-solid fa-newspaper"></i>News</a>
-                <a class="head-text" href="../Search/search.html"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
-                <a href="../Create/index.html" class="head-text"><i class="fa-solid fa-plus"></i>Create</a>
+                <a class="head-text" href="../Home_/home.php"><i class="fa-solid fa-house"></i>Home</a>
+                <a class="head-text" href="../News/new.php"><i class="fa-solid fa-newspaper"></i>News</a>
+                <a href="../Create/create.php" class="head-text"><i class="fa-solid fa-plus"></i>Create</a>
             </div>
         </div>
     </div>
@@ -44,50 +42,29 @@
             </div>
             <hr/>
             <div class="userinfo">
-                <h1>Welcome Phuoc</h1>
-                <button id="log-out">Log out</button>
+                <h1><a href="../profile/profile.php"><img src="<?php echo $_SESSION['img']?>"></a> lol<?php echo $_SESSION['username']; ?></h1>
+                <button id="log-out"> <a href = "../Login/logout.php">Log Out</a></button>
             </div>
         </div>
         <div class="sidenav-close-btn" id="close-">
             <button id="close"><i class="fa-solid fa-bars"></i></button>
         </div>
     </div>
-    <!-- Home-container -->
 
-    <!-- <div class="home">
-        <div class="home-box">
-            <div class="home-title">
-                <h1>Home</h1>
+    <!--Detail-->
+    <div class="detail">
+        <div class="detail-box">
+            <div class="detail-title">
+                <h1>demo</h1>
             </div>
-            <div class="home-container">
-                <div class="card">
-                    <div class="card-title">
-                        <h1>My hello to everyone</h1>
-                    </div>
-                    <div class="card-box">
-                        <p>Welcome to our website we are news to scical network</p>
-                    </div>
-                    <div class="card-image">
-                        <img src="../dảk image.png" alt="">
-                    </div>
-                </div>
+            <div class="detail-desc">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id iusto amet soluta at veniam illum, fuga doloremque officiis itaque placeat, cumque quam repellat laudantium. Ut deleniti officiis animi voluptatibus ullam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi necessitatibus cupiditate ex ad iure, illum autem itaque optio excepturi similique eum accusantium veritatis ut atque ipsa sit accusamus maxime saepe!</p>
+            </div>
+            <div class="detail-img">
+                <img src="../dảk image.png" alt="">
             </div>
         </div>
-    </div> -->
-
-    <!--UPDATE-->
-    <!-- <div class="update-news">
-        <div class="update-title">
-            <h1>Update news</h1>
-        </div>
-        <div class="update-box">
-            <div class="update">
-                <h1>Our website just release</h1>
-                <p>This is my first project in MindX Advance, so this website is about news,i always wonder that what if a day the teacher can noicte us in the website instead saying at class.So i deicied to make this website.This Website is the place where student can read teacher or school message easier,imaging how tired are you when the there is a message of the teacher taht need to be noitce, if the teacher is busy he can't report us so they can upload on my website and the student can ready it.</p>
-            </div>
-            <a href="#" class="more"></a>
-        </div>
-    </div> -->
+    </div>
     <!-- footer -->
 
     <!-- <div class="footer" id="footer">
@@ -115,6 +92,24 @@
           </div>  
         </div>
     </div> -->
-    <script src="./app.js"></script>
+    <script type="text/javascript">
+        var menubtn = document.getElementById("close")
+var btn = document.getElementById("close-")
+var sidenav = document.getElementById("sidenav-box")
+    sidenav.style.left = "-30%"
+    btn.style.left = "3%"
+menubtn.onclick=()=>{
+    if(sidenav.style.left == "0%"){
+        sidenav.style.left = "-30%"
+        menubtn.innerHTML = `<i class="fa-solid fa-bars"></i>`
+        btn.style.left = "3%"
+    } else {
+        sidenav.style.left = "0%"
+        menubtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`
+        btn.style.left = "21%"
+    }
+
+}
+    </script>
 </body>
 </html>

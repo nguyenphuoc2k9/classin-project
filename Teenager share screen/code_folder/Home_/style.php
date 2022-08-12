@@ -1,3 +1,4 @@
+<style>
 *{
     margin: 0;
     padding: 0;
@@ -17,7 +18,6 @@ body{
 .head-logo{
     width: 100%;
     display: flex;
-    position: relative;
     background-color: rgb(68, 68, 68);
     justify-content: space-around;
     align-items: center;
@@ -37,7 +37,7 @@ body{
 .head-logo form button{
     width: 5%;
     padding: 1%;
-    margin-left: 12.54%;
+    margin-left: 14.54%;
     cursor: pointer;
     background-color: #000;
     color: #fff;
@@ -56,8 +56,15 @@ body{
     border-radius: 5px;
     color: #fff;
     background-color:rgb(68, 68, 68);
+    font-size: larger;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding: 5%;
+    padding: 4%;
+    width: 50%;
+    cursor: pointer;
+}
+.head-btn button a{
+    color: #fff;
+    text-decoration: none;
 }
 .head-logo .head-btn button:nth-child(2){
     background-color: rgb(78, 125, 255);
@@ -172,18 +179,18 @@ body{
 }
 /* sidenav */
 .sidenav{
-    margin-top: 3%;
-    height: 100%;
-    width: 30%;
+    position: fixed;
+    z-index: 99;
 }
-.sidenav-box{   
-    background-color: rgba(119, 133, 255, 0.644);
+.sidenav-box{
+    z-index: 99;   
+    background-color: rgba(119, 133, 255);
     position: fixed;
     display: flex;
     width: 20%;
     left: 0%;
     height: 100%;
-    margin-top: -1px;
+    margin-top: -5.1%;
     flex-direction: column;
     transition: 0.5s ease ;
 }
@@ -203,7 +210,8 @@ body{
     color: #fff;
 }
 .sidenav-box .option a:hover{
-    background-color: #dae5ef;
+    border-left: rgb(0, 202, 169) solid 15px;
+    background-color: #b3d6ffe3;
 }
 .sidenav-box hr{
     border-radius: 10px;
@@ -220,6 +228,9 @@ body{
     font-size: larger;
     margin-bottom: 10%;
     color: #fff;
+    gap: 10px;
+    display: flex;
+    align-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .sidenav-box .userinfo button{
@@ -231,6 +242,15 @@ body{
     cursor: pointer;
     padding: 5%;
 }
+.userinfo button a{
+    text-decoration:none;
+    color:#fff;
+}
+.userinfo img{
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
+}
 .sidenav-close-btn{
     left: 21%;
     margin-top: 1%;
@@ -239,14 +259,16 @@ body{
     justify-content: center;
     align-items: center;
     position: fixed;
+    z-index: 99;
 }
 .sidenav-close-btn button{
     border-radius: 10px;
     border: none;
-    background-color: rgba(119, 133, 255, 0.644);
+    background-color: rgba(119, 133, 255);
     width: 50px;
     cursor: pointer;
     height: 50px;
+    z-index: 99;
 }
 .sidenav-close-btn i{
     color: #fff;
@@ -256,7 +278,7 @@ body{
 .home{
     display: flex;
     overflow: hidden;
-    margin-top: 20px;
+    margin-top: 5%;
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -268,7 +290,110 @@ body{
     padding-left: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+.home-box{
+    margin-left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.home-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.home-box .main{
+    width: 82%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(49, 49, 49);
+    color: #fff;
+    border-radius: 10px;
+}
+.home-box .main .main-img{
+    height: 100%;
+    width: 40%;
+    border-right: 1px solid rgb(216, 213, 213);
+}
+.home-box .main .main-img img{
+    height: 100%;
+    width: 100%;
+}
+.home-box .main-info{
+    display: flex;
+    padding-right: 10%;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 3%;
+}
+.main-info a{
+    text-decoration: none;
+    color: rgb(0, 194, 253);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+.main-info a:hover{
+    text-decoration: underline;
+}
+.main-info p{
+    padding-right: 10px;
+    font-size : large;
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.main-info h1{
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.home-box .extra{
+    width: 40%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    color: #fff;
+    border-radius: 10px;
+}
+.home-box .extra .main-img{
+    height: 100%;
+    width: 50%;
+    border-right: 1px solid rgb(0, 0, 0);
+}
+.home-box .extra .main-img img{
+    height: 100%;
+    width: 100%;
+}
+.home-box .extra .main-info{
+    display: flex;
+    padding-right: 5%;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 3%;
+}
+.main-info a{
+    text-decoration: none;
+    color: rgb(0, 194, 253);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+}
+.main-info a:hover{
+    text-decoration: underline;
+}
+.extra .main-info p{
+    padding-right: 10px;
+    font-size : medium;
+    color: rgb(0, 0, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.extra .main-info h1{
+    color: rgb(0, 0, 0);
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.extra:nth-child(3){
+    margin-left: 2%;
+}
 /* update-news */
 .update-news{
     display: flex;
@@ -310,5 +435,5 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 20px 0 20px 10px;
 }
-#more {display: none;}
 
+</style>

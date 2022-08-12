@@ -120,7 +120,7 @@ span{
     top: -20px;
     left: 30px;
 }
-.sighin-input.active + .sighin-label{
+.sighin-input.active + label{
     top: -20px;
     left: 30px;
 }

@@ -1,4 +1,5 @@
-*{
+<style>
+    *{
     margin: 0;
     padding: 0;
 }
@@ -17,7 +18,6 @@ body{
 .head-logo{
     width: 100%;
     display: flex;
-    position: relative;
     background-color: rgb(68, 68, 68);
     justify-content: space-around;
     align-items: center;
@@ -179,6 +179,7 @@ body{
 }
 /* sidenav */
 .sidenav{
+    position: fixed;
     z-index: 99;
 }
 .sidenav-box{
@@ -241,14 +242,14 @@ body{
     cursor: pointer;
     padding: 5%;
 }
-.userinfo button a{
-    text-decoration:none;
-    color:#fff;
-}
 .userinfo img{
     width: 50px;
     border-radius: 50%;
     height: 50px;
+}
+.userinfo button a{
+    text-decoration:none;
+    color:#fff;
 }
 .sidenav-close-btn{
     left: 21%;
@@ -273,49 +274,143 @@ body{
     color: #fff;
     font-size: larger;
 }
-/*Create*/
-.create{
-   margin: 50px auto 0 auto;
-   overflow: hidden;
-   width: 100%;
+.pop-up{
+    position:absolute;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(119, 133, 255);
+    width: 410px;
+    padding: 30px;
+    box-shadow: 0 0 8px rgb(0, 0, 0,0.1);
 }
-.create-box{
-    gap: 10px;
-    display: flex;
-    padding: 50px;
-    flex-direction: column;
+.pop-box{
+    position: relative;
 }
-.create-title{
-    font-size: larger;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #000;
-}
-.create-input form{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-}
-.create-input label{
-    color: #000;
-    font-size: large;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-.create-input .input{
-    width: 20%;
-    border: solid #000 1px;
-    border-radius: 20px;
-    padding: 10px;
-    background-color: #fff;
-}
-.create-input button{
-    width: 20%;
-    border-radius: 20px;
+.pop-box .closepop{
+    position: absolute;
+    right: -2%;
+    background: none;
     border: none;
-    background-color: #2011f0;
-    padding: 10px;
+    top: -5%;
+    cursor: pointer;
+    color: #fff;
+    font-size: large;
+}
+.pop-box h1{
+    text-align: center;
     color: #fff;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.pop-box form{
+    position: relative;
+    margin-top: 21px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.pop-box form .pop-card {
+    height: 50px;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+
+}
+.pop-box form .pop-card label {
+    font-size: large;
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.pop-box form .pop-card input {
+    height: 100%;
+    width: 100%;
+    padding-left: 10px;
+    font-size:17px;
+    border: 1px solid lightgray;
+}
+.pop-box form .pop-btn{
+    width: 100%;
+    position: relative;
+}
+.pop-btn button{
+    width: 103%;
+    padding: 10px;
+    background-color: rgb(0, 17, 112);
+    border: none;
+    border-radius: 5px;
     font-size: larger;
+    color: #fff;
     cursor: pointer;
 }
+.profile{
+    margin: 3% auto;
+    width: 100%;
+}
+.profile-box{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    border-radius: 10px;
+    background-color: rgb(247, 247, 247);
+}
+.profile-img img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.profile-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.profile-info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.profile-info h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 3% 0;
+}
+.profile-info .card{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.profile-info h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.profile-info .card button{
+    border: none;
+    background: none;
+    font-size: medium;
+    cursor: pointer;
+    transition: .5s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.profile-info .card button:hover{
+    text-decoration: underline;
+}
+.card-btn button{
+    background-color: rgba(119, 133, 255);
+    color: #fff;
+    padding: 10px;
+    font-size: larger;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.profile-info button i{
+    font-size: small;
+}
+#file{
+    border: none;
+}
+
+</style>

@@ -1,3 +1,6 @@
+<?php
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -50,55 +53,43 @@
             <button id="close"><i class="fa-solid fa-bars"></i></button>
         </div>
     </div>
-    <!--Create-->
-
-    <div class="create">
-        <div class="create-box">
-            <div class="create-title">
-                <h1>Create your post!</h1>
+    <div class="profile">
+        <div class="profile-box">
+        <?php
+        while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+            $gmail = $row['gmail'];
+                        $hobby = $row['hobby'];
+                        $pn = $row['Phone_number'];
+                        $img = "../user upload/" . $row['img'];
+                        
+            ?>
+            <div class="profile-img">
+                <img src="<?php echo $img;?>">
+                <h1><?php echo $_SESSION['username'];?></h1>
             </div>
-            <div class="create-input">
-                <form action="./create.php" method="POST" enctype="multipart/form-data">
-                    <label for="title">Title :</label>
-                    <input type="text" class="input"name="title" id="title">
-                    <label for="desc">Desc :</label>
-                    <input type="text" name="desc" class="input"id="desc">
-                    <label for="file">File :</label>
-                    <input type="file" name="file" id="file">
-                    <button type="submit" name="btn">Create</button>
-                </form>
+            <div class="profile-info">
+                
+                    
+                        
+                        
+                        <h1>About</h1>
+                    <div class="card">
+                        <h1>Gmail :</h1>
+                        <h2><?php echo $gmail?></h2>
+                    </div>
+                    <div class="card">
+                        <h1>Hobby :</h1>
+                        <h2><?php echo $hobby?></h2>
+                    </div>
+                    <div class="card">
+                        <h1>Phone number:</h1>
+                        <h2><?php echo $pn;?></h2>
+                    </div>
+                    <hr/>
+                    <?php }?>
             </div>
         </div>
-    </div>
-
-    <!-- footer -->
-
-    <div class="footer">
-        <div class="footer-title">
-            <h1>You can contact us on</h1>
         </div>
-        <div class="footer-icon">
-            <i class="fa-brands fa-facebook-square"></i>
-            <i class="fa-brands fa-instagram-square"></i>
-            <i class="fa-brands fa-youtube-square"></i>
-            <i class="fa-brands fa-telegram"></i>
-        </div>
-        <div class="footer-info">
-          <div class="info-card">
-              <h5>Email:</h5>
-              <p>Phuochuunguyen2009@gmail.com</p>
-          </div>
-          <div class="info-card">
-              <h5>Phone number:</h5>
-              <p>0905332540</p>
-          </div>
-          <div class="info-card">
-              <h5>Facebook:</h5>
-              <p>nguyễn Phước</p>
-          </div>  
-        </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./app.js"></script>
 </body>
 </html>

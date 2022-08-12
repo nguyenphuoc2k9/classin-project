@@ -1,4 +1,3 @@
-//sidenav
 var menubtn = document.getElementById("close")
 var btn = document.getElementById("close-")
 var sidenav = document.getElementById("sidenav-box")
@@ -14,5 +13,16 @@ menubtn.onclick=()=>{
         menubtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`
         btn.style.left = "21%"
     }
-
+}
+//pop-up
+for(let i = 0;i< document.getElementsByClassName("popup").length;i++){
+    console.log(i);
+    document.getElementsByClassName("popup")[i].addEventListener("click",function(){
+        document.getElementsByClassName("pop-up")[i].style.display = "block"
+    })
+}
+for(let i =0;i< document.getElementsByClassName("closepop").length;i++){
+    document.getElementsByClassName("closepop")[i].addEventListener("click",function(){
+        document.getElementsByClassName("pop-up")[i].style.display = "none"
+    })
 }

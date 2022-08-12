@@ -1,3 +1,4 @@
+<style>
 *{
     margin: 0;
     padding: 0;
@@ -273,49 +274,201 @@ body{
     color: #fff;
     font-size: larger;
 }
-/*Create*/
-.create{
-   margin: 50px auto 0 auto;
-   overflow: hidden;
-   width: 100%;
-}
-.create-box{
-    gap: 10px;
-    display: flex;
-    padding: 50px;
-    flex-direction: column;
-}
-.create-title{
-    font-size: larger;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #000;
-}
-.create-input form{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+/* footer */
+
+.footer{
+    overflow: hidden;
+    position: relative;
+    bottom: 0;
     width: 100%;
+    background-color: rgb(39, 39, 39);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.create-input label{
-    color: #000;
+.footer-title{
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-title h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+}
+.footer-icon{
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-icon i{
+    padding-left: 20px;
+    font-size: 30px;
+    transition: 0.5s
+}
+.footer-info{
+    padding: 30px;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.info-card{
+    padding: 30px;
     font-size: large;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
-.create-input .input{
-    width: 20%;
-    border: solid #000 1px;
-    border-radius: 20px;
-    padding: 10px;
-    background-color: #fff;
+.footer-icon i:hover{
+    color: aqua;
 }
-.create-input button{
+.home{
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 4%;
+    height: 100%;
+    position: relative;
+}
+.home-title{
+    color: #000;
+    font-size: larger;
+    padding-left: 20%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.home-box{
+    display: flex;
+    flex-direction: column;
+}
+.home-box .news-section{
+    width: 100%;
+    padding: 50px;
+}
+.home-box .news-section h3{
+    font-size: large;
+    margin-bottom: 25px;
+    position: relative;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.news-box {
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.home-box .news-section .news{
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: all .5s cubic-bezier(0.86, 0, 0.07, 1);
+    background-color: #f2f2f2;
+    overflow: hidden;
+    margin: 0 10px;
+    width:  60%;
+}
+.owner{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-left: 3px;
+    margin-bottom: 10px;
+}
+.owner img{
+    width: 50px !important;
+    border-radius: 50%;
+    height: 50px !important;
+}
+.news .news-btn{
+    display: flex;
+    align-items: center;
+}
+.news .news-btn button{
+    margin-top: 20px;
+    border-radius: 4px;
+    height: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
     width: 20%;
-    border-radius: 20px;
-    border: none;
-    background-color: #2011f0;
-    padding: 10px;
+    border-style: none;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #fff;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: larger;
+    font-size: large;
     cursor: pointer;
+    background-color: rgb(0, 174, 255);
 }
+.news .news-btn button span{
+    background: #fff;
+    height: 100%;
+    width: 0%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1;
+}
+
+.text-read-more {
+    margin: auto !important;
+    color: white !important;
+    position: absolute;
+    top: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(0%, 0%);
+    margin-left: 20px;
+    color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 2;
+    text-decoration: none;
+}
+
+
+.news-btn button:hover span{
+    width: 100% !important;
+    background-color: #2EE0F7 !important;
+    color: #000 !important;
+}
+.news .info{
+    padding: 40px 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: rgba(255, 255, 255, 0);
+    flex-direction: column;
+    justify-content: space-between;
+}
+.news img{
+    top: 0px;
+    width: 50%;
+    height: 100%;
+}
+.news h1{
+    margin-left: 10px;
+    font-size: larger;
+    color: #000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.news .info .class_desc{
+    margin-left: 20px;
+    overflow: hidden;
+    height: 90px;
+    color: #000;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+</style>
