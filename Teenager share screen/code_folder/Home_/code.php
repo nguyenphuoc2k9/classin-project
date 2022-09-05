@@ -13,4 +13,5 @@
         echo "</script>";
     }
     $query2 = mysqli_query($con, "SELECT * FROM webpost");
+    $count = mysqli_query($con, "SELECT COUNT(*) AS count FROM webpost");
 ?>

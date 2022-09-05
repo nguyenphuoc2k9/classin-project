@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Posts</title>
     <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -16,9 +15,16 @@
         <div class="header-box">
             <div class="head-logo">
                 <a  class ="logo-image" href="#"><img src="../d.png" alt="logo"></a>
-                <form action="" method="get">
-                    <input type="text" placeholder="Enter your ideas...">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <?php
+                    if(isset($_POST['search-btn'])){
+                        $_SESSION['k'] = $_POST['k'];
+                    } else {
+                        $_SESSION['k'] = null;
+                    }
+                ?>
+                <form action = "../search_result/search.php?k=<?php echo $_SESSION['k']?>">
+                    <input type="text" name = "k" placeholder="Enter the things that you want to search">
+                    <button type="submit" name="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
                 <div class="head-btn">
 
@@ -35,11 +41,9 @@
 
     <div class="sidenav">
         <div class="sidenav-box" id="sidenav-box">
-            <div class="option">
-                <a href="#">Main news</a>
-                <a href="#">Personal news</a>
-                <a href="#">Update</a>
-                <a href="#">About</a>
+        <div class="option">
+                <a href="../Home_/home.php">Main news</a>
+                <a href="../News/new.php">Personal news</a>
             </div>
             <hr/>
             <div class="userinfo">
@@ -57,7 +61,7 @@
     <div class="home">
         <div class="home-box">
             <div class="home-title">
-                <h1>Welcome to News</h1>
+                <h1>Welcome to Posts</h1>
             </div>
             <div class="news-section">
                 <div class="news-box">
@@ -94,15 +98,17 @@
                             <h1><?php echo $title?></h1>
                             <p class="class_desc"><?php echo $desc?></p>
                             <div class="news-btn">
-                               <button><span></span><p class="text-read-more">Read more</p></button>
+                               <a href="../detail/detail.php?id=<?php echo $id?>&&tt=pe-post"><span></span><p class="text-read-more" >Read more</p></a>
                             </div>
                         </div>
+                        <div class="img">
                         <img src="<?php echo $img?>" alt="img">
+                        </div>
                     </div>
                         <?php }
                     ?>
                     
-                    <div class="news">
+                    <!-- <div class="news">
                         <div class="info">
                             <div class="owner">
                                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Fgray-user-management%2F512%2Frounded-512.png&f=1&nofb=1">
@@ -115,7 +121,7 @@
                             </div>
                         </div>
                         <img src="../dảk image.png" alt="img">
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -127,10 +133,10 @@
             <h1>You can contact us on</h1>
         </div>
         <div class="footer-icon">
-            <i class="fa-brands fa-facebook-square"></i>
-            <i class="fa-brands fa-instagram-square"></i>
-            <i class="fa-brands fa-youtube-square"></i>
-            <i class="fa-brands fa-telegram"></i>
+            <a href="https://www.facebook.com/Teenager-Blog-109466681887056"><i class="fa-brands fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/teenblog2009/"><i class="fa-brands fa-instagram-square"></i></a>
+            <a href="https://www.youtube.com/channel/UCC_Q2OmoQP0vEwVF3nr87Tg"><i class="fa-brands fa-youtube-square"></i></a>
+            <a href="https://web.telegram.org/z/#777000"><i class="fa-brands fa-telegram"></i></a>
         </div>
         <div class="footer-info">
           <div class="info-card">
@@ -147,6 +153,5 @@
           </div>  
         </div>
     </div>
-    <script src="./app.js"></script>
 </body>
 </html>

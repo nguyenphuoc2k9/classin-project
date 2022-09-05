@@ -7,9 +7,13 @@ session_start();
 
     // }
     if(isset($_POST['btn'])){
-        $name = $_POST['login-name'];
-        $password = $_POST['login-password'];
+        $name = mysqli_real_escape_string($con,$_POST['login-name']); 
+        $password = mysqli_real_escape_string($con,$_POST['login-password']);
+        $password = md5($password);
+        echo $password;
         $query= "SELECT * from users where username = '$name' && password='$password'";
+        
+        
         $result = mysqli_query($con,$query);
         $num = mysqli_num_rows($result);
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -18,8 +22,8 @@ session_start();
             $_SESSION['id'] = $row['id'];
             header("Location:../Home_/home.php");
         } else {
-            header('Location:./Login/login.php');
+            header('Location:./login.php');
         }
     }
-    include("./Login.html");
+    include("./index.php");
 ?>

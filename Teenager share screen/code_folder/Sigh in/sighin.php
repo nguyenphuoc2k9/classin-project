@@ -1,16 +1,16 @@
 
 <?php
 session_start();
-include("./SighIn.html");
+include("./index.php");
     $con =mysqli_connect("localhost","root","","teen-project-database") or die("khong the ket noi toi database");
     $check = false;
     // if($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
 
     // }
     if(isset($_POST['btn'])){
-        $name = $_POST['sighin-name'];
-        $email = $_POST['sighin-email'];
-        $password = $_POST['sighin-password'];
+        $name = mysqli_real_escape_string($con,$_POST['sighin-name']); 
+        $email = mysqli_real_escape_string($con, $_POST['sighin-email']);
+        $password = mysqli_real_escape_string($con,$_POST['sighin-password']);
         $query= "SELECT * from users where username = '$name'";
         $result = mysqli_query($con,$query);
         $num = mysqli_num_rows($result);
@@ -19,6 +19,7 @@ include("./SighIn.html");
             echo 'alert("Account already ecxits")';  
             echo '</script>'; 
         } else {
+            $password = md5($password);
             $req = "INSERT INTO users(username,password,gmail) VALUES ('$name','$password','$email')";
             mysqli_query($con,$req);
             echo '<script type ="text/JavaScript">';  

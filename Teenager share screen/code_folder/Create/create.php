@@ -10,7 +10,8 @@ ob_start();
         <button id='log-in'> <a href='../Login/Login.php'>Log In</a></button>`)";
         echo "</script>";
     }
-    include("./index.html");
+    include("./index.php");
+    include("./style.php");
     $con = mysqli_connect("localhost","root","","teen-project-database")or die("khong the ket noi toi database");
     if(isset($_POST['btn'])){
         $title = $_POST['title'];

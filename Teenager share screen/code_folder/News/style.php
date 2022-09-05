@@ -26,19 +26,21 @@ body{
 .head-logo form{
     width: 55%;
     margin-left: 10px;
+    display: flex;
+    align-items: center;
     overflow: hidden;
     border-radius: 10px;
     background-color: #fff;
 }
 .head-logo input{
-    width: 80%;
+    width: 100%;
     padding: 1%;
     border: none;
 }
 .head-logo form button{
     width: 5%;
     padding: 1%;
-    margin-left: 12.54%;
+    margin-left: 14.54%;
     cursor: pointer;
     background-color: #000;
     color: #fff;
@@ -177,6 +179,9 @@ body{
 }
 .footer-icon i:hover{
     color: aqua;
+}
+.footer a{
+    color: #fff;
 }
 /* sidenav */
 .sidenav{
@@ -371,7 +376,7 @@ body{
     background-color: #f2f2f2;
     overflow: hidden;
     margin: 0 10px;
-    width:  60%;
+    width:  50%;
 }
 .owner{
     display: flex;
@@ -389,7 +394,7 @@ body{
     display: flex;
     align-items: center;
 }
-.news .news-btn button{
+.news .news-btn a{
     margin-top: 20px;
     border-radius: 4px;
     height: 40px;
@@ -408,7 +413,7 @@ body{
     cursor: pointer;
     background-color: rgb(0, 174, 255);
 }
-.news .news-btn button span{
+.news .news-btn a span{
     background: #fff;
     height: 100%;
     width: 0%;
@@ -424,6 +429,7 @@ body{
     color: white !important;
     position: absolute;
     top: 15%;
+    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -436,7 +442,7 @@ body{
 }
 
 
-.news-btn button:hover span{
+.news-btn a:hover span{
     width: 100% !important;
     background-color: #2EE0F7 !important;
     color: #000 !important;
@@ -453,7 +459,7 @@ body{
 }
 .news img{
     top: 0px;
-    width: 50%;
+    width: 100%;
     height: 100%;
 }
 .news h1{
@@ -469,6 +475,10 @@ body{
     color: #000;
     word-wrap: break-word;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.class_desc.show{
+    overflow: unset !important;
+    height: unset !important;
 }
 
 </style>

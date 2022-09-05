@@ -1,4 +1,5 @@
 <?php
+ob_start();
     include("./code.php");
     include("./style.php");
     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -9,6 +10,8 @@
             $_SESSION['img'] = $img;
         }
     }
+    
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +19,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Home</title>
     <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -27,9 +29,16 @@
         <div class="header-box">
             <div class="head-logo">
                 <a  class ="logo-image" href="#"><img src="../d.png" alt="logo"></a>
-                <form action="" method="get">
-                    <input type="text" placeholder="Enter your ideas...">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <?php
+                    if(isset($_POST['search-btn'])){
+                        $_SESSION['k'] = $_POST['k'];
+                    } else {
+                        $_SESSION['k'] = null;
+                    }
+                ?>
+                <form action = "../search_result/search.php?k=<?php echo $_SESSION['k']?>">
+                    <input type="text" name = "k" placeholder="Enter the things that you want to search">
+                    <button type="submit" name="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
                 <div class="head-btn" id="head-btn">
                     
@@ -47,10 +56,8 @@
     <div class="sidenav">
         <div class="sidenav-box" id="sidenav-box">
             <div class="option">
-                <a href="#">Main news</a>
-                <a href="#">Personal news</a>
-                <a href="#">Update</a>
-                <a href="#">About</a>
+                <a href="../Home_/home.php">Main news</a>
+                <a href="../News/new.php">Personal news</a>
             </div>
             <hr/>
             <div class="userinfo">
@@ -71,36 +78,70 @@
             </div>
             <div class="home-container">
                 <?php
-                    while($row = mysqli_fetch_array($query2, MYSQLI_ASSOC)){
-                        $title = $row['title'];
-                        $desc = $row['descrition'];
-                        $img = $row['img'];
-                        $id = $row['id'];
-                    }
+                    while($length = mysqli_fetch_assoc($count)){
+                        $l = $length['count'];
+                            while($row = mysqli_fetch_assoc($query2)){
+                                if($l >= 1){
+                                    $title = $row['title'];
+                                    $desc = $row['descrition'];
+                                    $id = $row['id'];
+                                    $img = "../web img/" . $row['img'];
+                                }
+                                $l--;
+                            }
+                            
+                        }
+                        mysqli_data_seek($query2, 0);
+
+                    
                 ?>
                 <div class="main">
                     <div class="main-img">
-                        <img src="../dảk image.png" alt="image">
+                        <img src="<?php echo $img?>" alt="image">
                     </div>
                     <div class="main-info">
                         <div class="main-title">
                             <h1><?php echo $title;?></h1>
                         </div>
-                        <p><?php echo $desc?></p><a href="../detail/detail.php?id=<?php echo $id?>">Read more</a></p>
+                        <p><?php echo $desc?></p><a href="../detail/detail.php?id=<?php echo $id?>&&tt=webpost">Read more</a>
                     </div>
                 </div>
-                <div class="extra">
+                <?php
+                    $n =0;
+                    while($row2 = mysqli_fetch_assoc($query2)){
+                        if($n >= 0 && $n < 2){
+                            $title_ext = $row2['title'];
+                            $desc_ext = $row2['descrition'];
+                            $id = $row2['id'];
+                            $img = "../web img/" . $row2['img'];
+                        } else {
+                            $title_ext = null;
+                            $desc_ext = null;
+                        }
+                    $n++;
+                ?>
+                    <script type="text/javascript">
+                        var html = `<div class="extra">
                     <div class="main-img">
-                        <img src="../dảk image.png" alt="imgae">
+                        <img src="<?php echo $img?>" alt="imgae">
                     </div>
                     <div class="main-info">
                         <div class="main-title">
-                            <h1>hi</h1>
+                            <h1><?php echo $title_ext?></h1>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.il eveniet! Blanditiis vel facere laudantium consequatur vitae voluptate enim. <a href="#">Read more</a></p>
+                        <p><?php echo $desc_ext?></p><a href="../detail/detail.php?id=<?php echo $id?>&&tt=webpost">Read more</a>
                     </div>
-                </div>
-                <div class="extra">
+                    </div>`
+                    var title = new String("<?php echo $title_ext?>")
+                    if(title != ""){
+                        document.getElementsByClassName("home-container")[0].insertAdjacentHTML("beforeend",html)
+                    }
+                    </script>
+                <?php
+                    }
+                    
+                ?>
+                <!-- <div class="extra">
                     <div class="main-img">
                         <img src="../dảk image.png" alt="imgae">
                     </div>
@@ -110,13 +151,13 @@
                         </div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.  repudiandae tempora, nihil eveniet! Blanditiis vel facere laudantium consequatur vitae voluptate enim. <a href="#">Read more</a></p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 
     <!-- UPDATE-->
-    <div class="update-news">
+    <div class="update-news" id="update">
         <div class="update-title">
             <h1>Update news</h1>
         </div>
@@ -135,10 +176,10 @@
             <h1>You can contact us on</h1>
         </div>
         <div class="footer-icon">
-            <i class="fa-brands fa-facebook-square"></i>
-            <i class="fa-brands fa-instagram-square"></i>
-            <i class="fa-brands fa-youtube-square"></i>
-            <i class="fa-brands fa-telegram"></i>
+            <a href="https://www.facebook.com/Teenager-Blog-109466681887056"><i class="fa-brands fa-facebook-square"></i></a>
+            <a href="https://www.instagram.com/teenblog2009/"><i class="fa-brands fa-instagram-square"></i></a>
+            <a href="https://www.youtube.com/channel/UCC_Q2OmoQP0vEwVF3nr87Tg"><i class="fa-brands fa-youtube-square"></i></a>
+            <a href="https://web.telegram.org/z/#777000"><i class="fa-brands fa-telegram"></i></a>
         </div>
         <div class="footer-info">
           <div class="info-card">

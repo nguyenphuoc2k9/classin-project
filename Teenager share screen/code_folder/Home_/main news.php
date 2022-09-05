@@ -29,9 +29,14 @@
         <div class="header-box">
             <div class="head-logo">
                 <a  class ="logo-image" href="#"><img src="../d.png" alt="logo"></a>
-                <form action="" method="get">
-                    <input type="text" placeholder="Enter your ideas...">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <?php
+                    if(isset($_POST['search-btn'])){
+                        $_SESSION['k'] = $_POST['k'];
+                    }
+                ?>
+                <form action = "../search_result/search.php?k=<?php echo $_SESSION['k']?>" class="form">
+                    <input type="text" name = "k" placeholder="Enter your ideas...">
+                    <button type="submit" name="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
                 <div class="head-btn" id="head-btn">
                     

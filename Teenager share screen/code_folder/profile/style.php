@@ -25,19 +25,21 @@ body{
 .head-logo form{
     width: 55%;
     margin-left: 10px;
+    display: flex;
+    align-items: center;
     overflow: hidden;
     border-radius: 10px;
     background-color: #fff;
 }
 .head-logo input{
-    width: 80%;
+    width: 100%;
     padding: 1%;
     border: none;
 }
 .head-logo form button{
     width: 5%;
     padding: 1%;
-    margin-left: 12.54%;
+    margin-left: 14.54%;
     cursor: pointer;
     background-color: #000;
     color: #fff;
@@ -176,6 +178,9 @@ body{
 }
 .footer-icon i:hover{
     color: aqua;
+}
+.footer a{
+    color: #fff;
 }
 /* sidenav */
 .sidenav{
@@ -378,6 +383,14 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 3% 0;
 }
+.profile-img button{
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+.profile-img button:hover{
+    text-decoration: underline;
+}
 .profile-info .card{
     display: flex;
     align-items: center;
@@ -411,6 +424,144 @@ body{
 }
 #file{
     border: none;
+}
+.profile hr{
+    border: #000 solid;
+    border-radius: 5px;
+    margin: 20px 5px;
+    background-color: #000;
+    padding: 3px;
+}
+.profile-new{
+    width: 100%;
+    border-radius: 10px;
+}
+.profile-title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 10px 0 0 20px ;
+}
+.new-box{
+    width: 70%;
+    margin: auto;
+    padding-top: 1%;
+}
+ .news{
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: all .5s cubic-bezier(0.86, 0, 0.07, 1);
+    background-color: #cfcfcf;
+    overflow: hidden;
+    margin: 20px 10px;
+}
+.owner{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-left: 3px;
+    margin-bottom: 10px;
+}
+.owner img{
+    width: 50px !important;
+    border-radius: 50%;
+    height: 50px !important;
+}
+.news .news-btn{
+    display: flex;
+    align-items: center;
+}
+.news .news-btn a{
+    margin-top: 20px;
+    border-radius: 4px;
+    height: 40px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 20%;
+    border-style: none;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    cursor: pointer;
+    background-color: rgb(0, 174, 255);
+}
+.news .news-btn a span{
+    background: #fff;
+    height: 100%;
+    width: 0%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1;
+}
+
+.text-read-more {
+    margin: auto !important;
+    color: white !important;
+    position: absolute;
+    top: 15%;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(0%, 0%);
+    margin-left: 20px;
+    color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    z-index: 2;
+    text-decoration: none;
+}
+
+
+.news-btn a:hover span{
+    width: 100% !important;
+    background-color: #2EE0F7 !important;
+    color: #000 !important;
+}
+.news .info .owner a{
+    padding-left: 82%;
+    color: red;
+    cursor: pointer;
+    font-size: larger;
+}
+.news .info{
+    padding: 18px 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: rgba(255, 255, 255, 0);
+    flex-direction: column;
+    justify-content: space-between;
+}
+.news img{
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+.news h1{
+    margin-left: 10px;
+    font-size: larger;
+    color: #000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.news .info .class_desc{
+    margin-left: 20px;
+    overflow: hidden;
+    height: 90px;
+    color: #000;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.class_desc.show{
+    overflow: unset !important;
+    height: unset !important;
 }
 
 </style>

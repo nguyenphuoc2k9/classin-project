@@ -16,6 +16,16 @@
     $query = "SELECT * FROM users WHERE id = '$id'";
     $result = mysqli_query($con,$query);
     include("./index.php");
+    if(isset($_POST['name-btn'])){
+        $name = $_POST['name'];
+        $query = "UPDATE users SET username ='$name' WHERE username ='$username'";
+        if(mysqli_query($con, $query)){
+            header("Location:./profile.php");
+            $_SESSION['username'] = $name;
+        } else {
+            $re = "loi them moi" . mysqli_errno($con);
+        }
+    }
     if(isset($_POST['email-btn'])){
         $email = $_POST['email'];
         $query = "UPDATE users SET gmail = '$email' where username = '$username'";
@@ -44,7 +54,6 @@
         }
     }
     if(isset($_POST['file-btn'])){
-        
         $file_name = $_FILES['file-up']['name'];
         $file_tmpname = $_FILES['file-up']['tmp_name'];
         $file_size = $_FILES['file-up']['size'];

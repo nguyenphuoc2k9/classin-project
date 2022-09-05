@@ -1,7 +1,7 @@
 <?php
     session_start();
     $con = mysqli_connect("localhost","root","","teen-project-database") or die("khong the ket noi toi database");
-    $querry = mysqli_query($con,"SELECT * FROM post_pre");
+    $querry = mysqli_query($con,"SELECT * FROM post");
     
     if(!isset($_SESSION['username'])){
         header("Location:../Login/login.php");
@@ -13,5 +13,6 @@
         echo "</script>";
     }
     include "./news.php";
-    include "./style.php"
+    include "./style.php";
+    include "./app.php";
 ?>
