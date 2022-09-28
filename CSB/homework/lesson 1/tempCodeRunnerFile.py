@@ -1,5 +1,0 @@
-t.backward(100)
-# t.right(45)
-# t.backward(100)
-# t.right(90)
-# t.backward(100)

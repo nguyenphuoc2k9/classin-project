@@ -1,0 +1,32 @@
+from turtle import Turtle
+from turtle import *
+
+t = Turtle()
+t.pensize(10)
+t.pencolor("#cf8f03")
+t.left(45)
+t.backward(120)
+t.left(90)
+t.backward(120)
+t.left(90)
+t.backward(120)
+t.left(90)
+t.backward(120)
+t.left(180)
+t.backward(20)
+t.right(90)
+t.penup()
+t.pendown()
+t.pencolor("#0b2c3c")
+t.backward(100)
+t.left(90)
+t.backward(120)
+t.left(90)
+t.backward(120)
+t.left(90)
+t.backward(120)
+t.left(90)
+t.backward(20)
+
+
+done()
