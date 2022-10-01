@@ -18,22 +18,27 @@
                 </div>
                 <form action="./sighin.php" method="post">
                     <div class="sighin-input-card">
-                        <input type="text" id="sighin-name" name="sighin-name" class="sighin-input">
+                        <input type="text" id="sighin-name" name="sighin-name" class="sighin-input" required>
                         <label for="sighin-name" class="sighin-label">Name </label>
                         <p id="sighin-desc-name">Name must have above 5 letters and below 16 letters</p>
                     </div>
                     <div class="sighin-input-card">
-                        <input type="text" id="sighin-email" name ="sighin-email"class="sighin-input">
+                        <input type="password" id="sighin-pn" name ="sighin-pn"class="sighin-input" required>
+                        <label for="sighin-password" class="sighin-label">Phone Number </label>
+                        <p id="sighin-desc-pn">Phone number must have 10 numbers</p>
+                    </div>
+                    <div class="sighin-input-card">
+                        <input type="text" id="sighin-email" name ="sighin-email"class="sighin-input" required>
                         <label for="sighin-email" class="sighin-label">Email </label>
                         <p id="sighin-desc-email">Email must have @ and dots</p>
                     </div>
                     <div class="sighin-input-card">
-                        <input type="password" id="sighin-password" name ="sighin-password"class="sighin-input">
+                        <input type="password" id="sighin-password" name ="sighin-password"class="sighin-input" required>
                         <label for="sighin-password" class="sighin-label">Password </label>
                         <p id="sighin-desc-password">Create your password(note:password must have above 5 letter and include numbers and letters)</p>
                     </div>
                     <div class="sighin-input-card">
-                    <input type="password" id="signin-confirm" name ="sighin-confirm"class="sighin-input">
+                    <input type="password" id="signin-confirm" name ="sighin-confirm"class="sighin-input" required>
                     <label for="sighin-confirm" class="sighin-label">Confirm password</label>
                     <p id="sighin-desc-confirm">Confirm the password you entered in the password input</p>
                     <div class="sighin-input-btn">

@@ -3,6 +3,7 @@ const name = document.getElementById("sighin-name")
 const email = document.getElementById("sighin-email")
 const password = document.getElementById("sighin-password")
 const re_pass = document.getElementById("signin-confirm")
+const pn = document.getElementById("sighin-pn")
 //sighin-btn effect
 const sighinbtn = document.getElementById("sighin-btn")
 const rolebtn = document.querySelectorAll(".role-btn")
@@ -37,6 +38,13 @@ sighinbtn.addEventListener("click",function(e){
             password.classList.add("active")
         } else {
             password.classList.remove("active")
+        }
+    })
+    pn.addEventListener("change",function(){
+        if(pn.value.length > 0){
+            pn.classList.add("active")
+        } else {
+            pn.classList.remove("active")
         }
     })
     re_pass.addEventListener("change", function(){
