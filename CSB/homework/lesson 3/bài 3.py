@@ -1,4 +1,4 @@
-from pickle import TRUE
+
 
 
 x = input("Your character :")
