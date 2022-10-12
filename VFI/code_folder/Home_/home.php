@@ -28,7 +28,7 @@ ob_start();
     <div class="header">
         <div class="header-box">
             <div class="head-logo">
-                <a  class ="logo-image" href="#"><img src="../d.png" alt="logo"></a>
+                <a  class ="logo-image" href="#"><img src="../VFI__3_-removebg-preview.png" alt="logo"></a>
                 <?php
                     if(isset($_POST['search-btn'])){
                         $_SESSION['k'] = $_POST['k'];
@@ -40,13 +40,19 @@ ob_start();
                     <input type="text" name = "k" placeholder="Enter the things that you want to search">
                     <button type="submit" name="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
-                <div class="head-btn" id="head-btn">
-                    
+                <div class="userinfo">
+                    <h1><a href="../profile/profile.php?id=<?php echo $_SESSION['id'];?>"><img src="<?php echo $_SESSION['img'] ?>"></a> <?php echo $_SESSION['username']; ?></h1>
+                    <div class="dropdown">
+                        <i onclick="drop()"id='dropbtn'class="fa-solid fa-angle-down"></i>
+                        <div class="dropdown-content" id="dropdown">
+                        <a href="./logout.php">Sigh Out</a>
+                    </div>
+                </div>
                 </div>
             </div>
             <div class="head-con">
                 <a class="head-text" href="../Home_/home.php"><i class="fa-solid fa-house"></i>Home</a>
-                <a class="head-text" href="../News/new.php"><i class="fa-solid fa-newspaper"></i>News</a>
+                <a class="head-text" href="../Virus Forecast/Virus dictionary/"><i class="fa-solid fa-newspaper"></i>News</a>
                 <a href="../Create/create.php" class="head-text"><i class="fa-solid fa-plus"></i>Create</a>
             </div>
         </div>
@@ -56,13 +62,8 @@ ob_start();
     <div class="sidenav">
         <div class="sidenav-box" id="sidenav-box">
             <div class="option">
-                <a href="../Home_/home.php">Main news</a>
-                <a href="../News/new.php">Personal news</a>
-            </div>
-            <hr/>
-            <div class="userinfo">
-                <h1><a href="../profile/profile.php?id=<?php echo $_SESSION['id'];?>"><img src="<?php echo $_SESSION['img'] ?>"></a> <?php echo $_SESSION['username']; ?></h1>
-                <button id="log-out"> <a href = "../Login/logout.php">Log Out</a></button>
+                <a href="../Home_/home.php">Forums</a>
+                <a href="../News/new.php">Virus Forecast</a>
             </div>
         </div>
         <div class="sidenav-close-btn" id="close-">

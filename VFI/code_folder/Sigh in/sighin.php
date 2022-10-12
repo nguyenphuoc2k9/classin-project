@@ -37,7 +37,7 @@ include("./index.php");
             $check = false;
             exit;
         }
-        if(strlen($password) < 6){
+        if(strlen($password) < 6 ){
             echo "<script type='text/javascript'>";
             echo "alert('Invalid Password')";
             echo "</script>";

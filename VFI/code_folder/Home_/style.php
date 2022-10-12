@@ -21,7 +21,7 @@ body{
 .head-logo{
     width: 100%;
     display: flex;
-    background-color: rgb(68, 68, 68);
+    background-color: #c7c7c7;
     justify-content: space-around;
     align-items: center;
 }
@@ -34,14 +34,56 @@ body{
     border-radius: 10px;
     background-color: #fff;
 }
+.dropdown{
+    float: right;
+    position: relative;
+    display: inline;
+    margin-top: -10%;
+}
+.dropdown i{
+    color: #fff;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #579cf1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    z-index: 1;
+    transition: all .5s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+.userinfo {
+    width: 11%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.dropdown-content a{
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    display: block;
+    transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.dropdown-content a:hover {
+    background-color: #2687fd;
+}
+.dropdown-content.show{
+    display: block;
+}
 .head-logo input{
     width: 100%;
-    padding: 1%;
+    padding-left: 1%;
     border: none;
 }
 .head-logo form button{
     width: 5%;
-    padding: 1%;
+    padding: 2% 0 ;
     margin-left: 14.54%;
     cursor: pointer;
     background-color: #000;
@@ -60,7 +102,7 @@ body{
     border: #fff solid 1px;
     border-radius: 5px;
     color: #fff;
-    background-color:rgb(68, 68, 68);
+    background-color: rgb(68, 68, 68);
     font-size: larger;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 4%;
@@ -286,7 +328,7 @@ body{
 .home{
     display: flex;
     overflow: hidden;
-    margin-top: 5%;
+    margin-top: 10%;
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -428,10 +470,11 @@ body{
     flex-direction: column;
     width: 100%;
     overflow: hidden;
+    margin-left: 10%;
 }
 .update-news .update-title{
     width: 100%;
-    padding: 50px;
+    padding: 20px;
     font-size: larger;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -441,7 +484,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: center;
+
 }
 .update-box .update{
     border-radius: 4px;
