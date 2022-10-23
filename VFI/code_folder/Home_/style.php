@@ -21,7 +21,7 @@ body{
 .head-logo{
     width: 100%;
     display: flex;
-    background-color: #c7c7c7;
+    background-color: #7984d3;
     justify-content: space-around;
     align-items: center;
 }
@@ -38,7 +38,6 @@ body{
     float: right;
     position: relative;
     display: inline;
-    margin-top: -10%;
 }
 .dropdown i{
     color: #fff;
@@ -276,7 +275,6 @@ body{
 }
 .userinfo h1{
     font-size: larger;
-    margin-bottom: 10%;
     color: #fff;
     gap: 10px;
     display: flex;
@@ -470,17 +468,18 @@ body{
     flex-direction: column;
     width: 100%;
     overflow: hidden;
-    margin-left: 10%;
 }
 .update-news .update-title{
     width: 100%;
     padding: 20px;
+    margin-left: 10%;
     font-size: larger;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .update-news .update-box{
     width: 100%;
     padding: 30px;
+    margin-left: 10%;
     display: flex;
     flex-direction: column;
     gap: 10px;

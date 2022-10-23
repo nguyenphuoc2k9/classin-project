@@ -1,5 +1,9 @@
 <style>
-    *{
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+    html{
+    scroll-behavior: smooth;
+}
+*{
     margin: 0;
     padding: 0;
 }
@@ -18,7 +22,7 @@ body{
 .head-logo{
     width: 100%;
     display: flex;
-    background-color: rgb(68, 68, 68);
+    background-color: #7984d3;
     justify-content: space-around;
     align-items: center;
 }
@@ -31,14 +35,55 @@ body{
     border-radius: 10px;
     background-color: #fff;
 }
+.dropdown{
+    float: right;
+    position: relative;
+    display: inline;
+}
+.dropdown i{
+    color: #fff;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #579cf1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    z-index: 1;
+    transition: all .5s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+.userinfo {
+    width: 11%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.dropdown-content a{
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    display: block;
+    transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.dropdown-content a:hover {
+    background-color: #2687fd;
+}
+.dropdown-content.show{
+    display: block;
+}
 .head-logo input{
     width: 100%;
-    padding: 1%;
+    padding-left: 1%;
     border: none;
 }
 .head-logo form button{
     width: 5%;
-    padding: 1%;
+    padding: 2% 0 ;
     margin-left: 14.54%;
     cursor: pointer;
     background-color: #000;
@@ -57,7 +102,7 @@ body{
     border: #fff solid 1px;
     border-radius: 5px;
     color: #fff;
-    background-color:rgb(68, 68, 68);
+    background-color: rgb(68, 68, 68);
     font-size: larger;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 4%;
@@ -124,7 +169,7 @@ body{
     height: 3px;
     background: #fff;
 }
-.header-con .head-text:hover:after{
+.head-text:hover:after{
     width: 100%;
 }
 /* footer */
@@ -231,7 +276,6 @@ body{
 }
 .userinfo h1{
     font-size: larger;
-    margin-bottom: 10%;
     color: #fff;
     gap: 10px;
     display: flex;
@@ -247,14 +291,14 @@ body{
     cursor: pointer;
     padding: 5%;
 }
+.userinfo button a{
+    text-decoration:none;
+    color:#fff;
+}
 .userinfo img{
     width: 50px;
     border-radius: 50%;
     height: 50px;
-}
-.userinfo button a{
-    text-decoration:none;
-    color:#fff;
 }
 .sidenav-close-btn{
     left: 21%;
@@ -349,7 +393,7 @@ body{
     color: #fff;
     cursor: pointer;
 }
-.profile{
+/* .profile{
     margin: 3% auto;
     width: 100%;
 }
@@ -439,9 +483,100 @@ body{
 .profile-title{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 10px 0 0 20px ;
+} */
+
+.profile{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.new-box{
+.profile-box{
+    border-radius: 10px;
     width: 70%;
+    overflow: hidden;
+    margin-top: 10%;
+    border: none;
+    background-color: #fff;
+}
+.profile-img{
+    background-color: #000;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: flex-end;
+    padding: 5% 0 0 5%;
+}
+.profile-img img{
+    width: 100px;
+    height: 100px;
+    margin-top: 1%;
+    position: absolute;
+    border-radius: 50%;
+    border: none;
+}
+.profile-img h1{
+    color: #fff;
+    margin: 0 0 1% 10%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.profile-class{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+.profile-class button{
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    background: none;
+    border-radius: 5px;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    border:#233be7 solid 3px;
+}
+.profile-class-btn{
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+}
+.profile-num{
+    width: 10%;
+    font-weight: lighter;
+    padding: 5px 10px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-info{
+    display: flex;
+    margin-left: 5%;
+    font-family: 'Montserrat', sans-serif;
+
+    flex-direction: column;
+}
+.profile-info .info-title{
+    padding-bottom: 10px;
+}
+.profile-info .card{
+    padding-left: 30px;
+    padding-bottom: 10px;
+    font-size: medium;
+
+    font-weight: 100;
+    display: flex;
+}
+.profile-new{
+    margin-left: 5%;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+
+.new-box{
+    width: 90%;
     margin: auto;
     padding-top: 1%;
 }
@@ -457,9 +592,9 @@ body{
 }
 .owner{
     display: flex;
-    gap: 5px;
+
     align-items: center;
-    margin-left: 3px;
+    margin: 0 3px;
     margin-bottom: 10px;
 }
 .owner img{

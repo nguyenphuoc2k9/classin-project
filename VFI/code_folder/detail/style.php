@@ -1,4 +1,7 @@
 <style>
+*html{
+    scroll-behavior: smooth;
+}
 *{
     margin: 0;
     padding: 0;
@@ -18,7 +21,7 @@ body{
 .head-logo{
     width: 100%;
     display: flex;
-    background-color: rgb(68, 68, 68);
+    background-color: #7984d3;
     justify-content: space-around;
     align-items: center;
 }
@@ -31,14 +34,55 @@ body{
     border-radius: 10px;
     background-color: #fff;
 }
+.dropdown{
+    float: right;
+    position: relative;
+    display: inline;
+}
+.dropdown i{
+    color: #fff;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #579cf1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    z-index: 1;
+    transition: all .5s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+.userinfo {
+    width: 11%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.dropdown-content a{
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    display: block;
+    transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.dropdown-content a:hover {
+    background-color: #2687fd;
+}
+.dropdown-content.show{
+    display: block;
+}
 .head-logo input{
     width: 100%;
-    padding: 1%;
+    padding-left: 1%;
     border: none;
 }
 .head-logo form button{
     width: 5%;
-    padding: 1%;
+    padding: 2% 0 ;
     margin-left: 14.54%;
     cursor: pointer;
     background-color: #000;
@@ -57,7 +101,7 @@ body{
     border: #fff solid 1px;
     border-radius: 5px;
     color: #fff;
-    background-color:rgb(68, 68, 68);
+    background-color: rgb(68, 68, 68);
     font-size: larger;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 4%;
@@ -90,7 +134,6 @@ body{
 .header-box .head-text{
     font-size: 20px;
     position: relative;
-    z-index: 99;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #fff;
     text-decoration: none;
@@ -115,7 +158,6 @@ body{
 .header-box .head-text::after{
     top: 30px;
     bottom: 0;
-    z-index: 99;
     content: "";
     display: block;
     justify-content: center;
@@ -126,7 +168,7 @@ body{
     height: 3px;
     background: #fff;
 }
-.header-con .head-text:hover:after{
+.head-text:hover:after{
     width: 100%;
 }
 /* footer */
@@ -233,7 +275,6 @@ body{
 }
 .userinfo h1{
     font-size: larger;
-    margin-bottom: 10%;
     color: #fff;
     gap: 10px;
     display: flex;
@@ -286,7 +327,7 @@ body{
     width: 80%;
     display: flex;
     justify-content: center;
-    margin: 5% auto 5% auto;
+    margin: 10% auto 5% auto;
 }
 .detail-box{
     display: flex;

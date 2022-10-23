@@ -10,6 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,7 +21,7 @@
     <div class="header">
         <div class="header-box">
             <div class="head-logo">
-                <a  class ="logo-image" href="#"><img src="../d.png" alt="logo"></a>
+                <a  class ="logo-image" href="#"><img src="../VFI__3_-removebg-preview.png" alt="logo"></a>
                 <?php
                     if(isset($_POST['search-btn'])){
                         $_SESSION['k'] = $_POST['k'];
@@ -30,8 +33,14 @@
                     <input type="text" name = "k" placeholder="Enter the things that you want to search">
                     <button type="submit" name="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
-                <div class="head-btn" id="head-btn">
-                    
+                <div class="userinfo">
+                    <h1><a href="../profile/profile.php?id=<?php echo $_SESSION['id'];?>"><img src="<?php echo $_SESSION['img'] ?>"></a> <?php echo $_SESSION['username']; ?></h1>
+                    <div class="dropdown">
+                        <i onclick="drop()"id='dropbtn'class="fa-solid fa-angle-down"></i>
+                        <div class="dropdown-content" id="dropdown">
+                        <a href="../Login/logout.php">Sigh Out</a>
+                    </div>
+                </div>
                 </div>
             </div>
             <div class="head-con">
@@ -45,14 +54,9 @@
 
     <div class="sidenav">
         <div class="sidenav-box" id="sidenav-box">
-        <div class="option">
-                <a href="../Home_/home.php">Main news</a>
-                <a href="../News/new.php">Personal news</a>
-            </div>
-            <hr/>
-            <div class="userinfo">
-                <h1><a href="../profile/profile.php"><img src="<?php echo $_SESSION['img']?>"></a> <?php echo $_SESSION['username']; ?></h1>
-                <button id="log-out"> <a href = "../Login/logout.php">Log Out</a></button>
+            <div class="option">
+                <a href="../Home_/home.php">Forums</a>
+                <a href="../News/new.php">Virus Forecast</a>
             </div>
         </div>
         <div class="sidenav-close-btn" id="close-">
@@ -73,32 +77,30 @@
             <div class="profile-img">
                 <img src="<?php echo $_SESSION['img'];?>">
                 <h1><?php echo $_SESSION['username'];?></h1>
-                <button class="popup"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
+            </div>
+            <div class="profile-class">
+                <div class="profile-class-btn">
+                    <button>Edit Profile</button>
+                </div>
+                <div class="profile-num">
+                    <h3>Post</h3>
+                    <h3><?php echo mysqli_num_rows($query2)?></h3>
+                </div>
             </div>
             <div class="profile-info">
-                        <h1>About</h1>
+                        <h1 class="info-title">About</h1>
                     <div class="card">
-                        <h1>Gmail :</h1>
                         <h2><?php echo $gmail?></h2>
-                        <button class="popup"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
                     </div>
                     <div class="card">
-                        <h1>Hobby :</h1>
                         <h2><?php echo $hobby?></h2>
-                        <button class="popup"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
                     </div>
                     <div class="card">
-                        <h1>Phone number:</h1>
                         <h2><?php echo $pn;?></h2>
-                        <button class="popup"><i class="fa-solid fa-pen-to-square"></i>Edit</button>
-                    </div>
-                    <div class="card-btn">
-                        <button class="popup">Edit profile image</button>
                     </div>
                     <?php }?>
             </div>
             <div class="profile-new">
-            <hr>
                 <div class="profile-title">
                     <h1><?php echo $_SESSION['username'];?>'s Posts</h1>
                 </div>
@@ -150,7 +152,7 @@
             </div>
         </div>
     </div>
-    <div class="footer" id="footer">
+    <!-- <div class="footer" id="footer">
         <div class="footer-title">
             <h1>You can contact us on</h1>
         </div>
@@ -174,7 +176,7 @@
               <p>nguyễn Phước</p>
           </div>  
         </div>
-    </div>
+    </div> -->
     <div class="pop-up">
         <div class="pop-box">
             <button class="closepop" ><i class="fa-solid fa-xmark"></i></button>

@@ -1,4 +1,7 @@
 <style>
+html{
+    scroll-behavior: smooth;
+}
 *{
     margin: 0;
     padding: 0;
@@ -18,7 +21,7 @@ body{
 .head-logo{
     width: 100%;
     display: flex;
-    background-color: rgb(68, 68, 68);
+    background-color: #7984d3;
     justify-content: space-around;
     align-items: center;
 }
@@ -31,14 +34,55 @@ body{
     border-radius: 10px;
     background-color: #fff;
 }
+.dropdown{
+    float: right;
+    position: relative;
+    display: inline;
+}
+.dropdown i{
+    color: #fff;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #579cf1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    z-index: 1;
+    transition: all .5s cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+.userinfo {
+    width: 11%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.dropdown-content a{
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: none;
+    display: block;
+    transition: all .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.dropdown-content a:hover {
+    background-color: #2687fd;
+}
+.dropdown-content.show{
+    display: block;
+}
 .head-logo input{
     width: 100%;
-    padding: 1%;
+    padding-left: 1%;
     border: none;
 }
 .head-logo form button{
     width: 5%;
-    padding: 1%;
+    padding: 2% 0 ;
     margin-left: 14.54%;
     cursor: pointer;
     background-color: #000;
@@ -57,7 +101,7 @@ body{
     border: #fff solid 1px;
     border-radius: 5px;
     color: #fff;
-    background-color:rgb(68, 68, 68);
+    background-color: rgb(68, 68, 68);
     font-size: larger;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 4%;
@@ -124,7 +168,7 @@ body{
     height: 3px;
     background: #fff;
 }
-.header-con .head-text:hover:after{
+.head-text:hover:after{
     width: 100%;
 }
 /* footer */
@@ -224,21 +268,22 @@ body{
     margin: 0 9%;
     border: rgb(255, 255, 255) solid 3px;
 }
-.sidenav-box .userinfo{
+.head-userinfo {
+    width: 11%;
     display: flex;
-    margin: 10%;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
-.userinfo h1{
+.head-userinfo h1{
     font-size: larger;
-    margin-bottom: 10%;
     color: #fff;
     gap: 10px;
     display: flex;
     align-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.sidenav-box .userinfo button{
+ .head-userinfo button{
     border: none;
     border-radius: 10px;
     background-color:rgb(0, 114, 129);
@@ -247,11 +292,11 @@ body{
     cursor: pointer;
     padding: 5%;
 }
-.userinfo button a{
+.head-userinfo button a{
     text-decoration:none;
     color:#fff;
 }
-.userinfo img{
+.head-userinfo img{
     width: 50px;
     border-radius: 50%;
     height: 50px;
@@ -283,6 +328,7 @@ body{
 /*search*/
 .search-result{
     width: 100%;
+    margin-top:10%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -371,6 +417,7 @@ body{
 .userinfo{
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     justify-content: space-around;
 }
 .userinfo .infocard{

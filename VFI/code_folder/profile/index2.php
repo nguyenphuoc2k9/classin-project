@@ -14,10 +14,12 @@
 <body>
     <!-- Header -->
 
+    <!-- Header -->
+
     <div class="header">
         <div class="header-box">
             <div class="head-logo">
-                <a  class ="logo-image" href="#"><img src="../d.png" alt="logo"></a>
+                <a  class ="logo-image" href="#"><img src="../VFI__3_-removebg-preview.png" alt="logo"></a>
                 <?php
                     if(isset($_POST['search-btn'])){
                         $_SESSION['k'] = $_POST['k'];
@@ -29,8 +31,14 @@
                     <input type="text" name = "k" placeholder="Enter the things that you want to search">
                     <button type="submit" name="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
-                <div class="head-btn" id="head-btn">
-                    
+                <div class="userinfo">
+                    <h1><a href="../profile/profile.php?id=<?php echo $_SESSION['id'];?>"><img src="<?php echo $_SESSION['img'] ?>"></a> <?php echo $_SESSION['username']; ?></h1>
+                    <div class="dropdown">
+                        <i onclick="drop()"id='dropbtn'class="fa-solid fa-angle-down"></i>
+                        <div class="dropdown-content" id="dropdown">
+                        <a href="../Login/logout.php">Sigh Out</a>
+                    </div>
+                </div>
                 </div>
             </div>
             <div class="head-con">
@@ -44,14 +52,9 @@
 
     <div class="sidenav">
         <div class="sidenav-box" id="sidenav-box">
-        <div class="option">
-                <a href="../Home_/home.php">Main news</a>
-                <a href="../News/new.php">Personal news</a>
-            </div>
-            <hr/>
-            <div class="userinfo">
-                <h1><a href="../profile/profile.php"><img src="<?php echo $_SESSION['img']?>"></a> <?php echo $_SESSION['username']; ?></h1>
-                <button id="log-out"> <a href = "../Login/logout.php">Log Out</a></button>
+            <div class="option">
+                <a href="../Home_/home.php">Forums</a>
+                <a href="../News/new.php">Virus Forecast</a>
             </div>
         </div>
         <div class="sidenav-close-btn" id="close-">
@@ -65,42 +68,37 @@
             $gmail = $row['gmail'];
                         $hobby = $row['hobby'];
                         $pn = $row['Phone_number'];
-                        if($row['img']==null){
-                            $img2 = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Fgray-user-management%2F512%2Frounded-512.png&f=1&nofb=1";
-                        } else {
-                            $img2 = "../user upload/" . $row['img'];
-                        }
-                        $username = $row['username'];
+                        $img = "../user upload/" . $row['img'];
+                        $_SESSION['user-id'] = $row['id'];
                         
             ?>
             <div class="profile-img">
-                <img src="<?php echo $img2;?>">
-                <h1><?php echo $row['username'];?></h1>
+                <img src="<?php echo $_SESSION['img'];?>">
+                <h1><?php echo $_SESSION['username'];?></h1>
+            </div>
+            <div class="profile-class">
+                <div class="profile-class-btn">
+                    <button>Edit Profile</button>
+                </div>
+                <div class="profile-num">
+                    <h3>Post</h3>
+                    <h3><?php echo mysqli_num_rows($query2)?></h3>
+                </div>
             </div>
             <div class="profile-info">
-                
-                    
-                        
-                        
-                        <h1>About</h1>
+                        <h1 class="info-title">About</h1>
                     <div class="card">
-                        <h1>Gmail :</h1>
                         <h2><?php echo $gmail?></h2>
                     </div>
                     <div class="card">
-                        <h1>Hobby :</h1>
                         <h2><?php echo $hobby?></h2>
                     </div>
                     <div class="card">
-                        <h1>Phone number:</h1>
                         <h2><?php echo $pn;?></h2>
                     </div>
-                    <?php }
-                        mysqli_data_seek($result, 0);
-                    ?>
+                    <?php }?>
             </div>
             <div class="profile-new">
-            <hr>
                 <div class="profile-title">
                     <h1><?php echo $_SESSION['username'];?>'s Posts</h1>
                 </div>
@@ -116,8 +114,9 @@
                     <div class="news">
                         <div class="info">
                             <div class="owner">
-                                <img src="<?php echo $img2;?>">
-                                <h1><?php echo $username?></h1>
+                                <img src="<?php echo $_SESSION['img'];?>">
+                                <h1><?php echo $_SESSION['username']?></h1>
+                                <a href="./delete-pe-post.php?id=<?php echo $id?>"><i class="fa-solid fa-trash"></i></a>
                             </div>
                             <h1><?php echo $title?></h1>
                             <p class="class_desc"><?php echo $desc?></p>
@@ -125,7 +124,9 @@
                             <a href="../detail/detail.php?id=<?php echo $id?>&&tt=pe-post"><span></span><p class="text-read-more" >Read more</p></a>
                             </div>
                         </div>
+                        <div class="img">
                         <img src="<?php echo $img?>" alt="img">
+                        </div>
                     </div>
                     <?php
                         }

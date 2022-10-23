@@ -33,7 +33,7 @@ while y < count :
                     print("Invalid password")
                     while i < count2 :
                         p = input("Password :")
-                        if len(p) >= 8 and p.find("[0-9]+") != "":
+                        if len(p) >= 8 and p.find("[0-9]+") != 0:
                     
                             print("Registration successfuly")
                             break

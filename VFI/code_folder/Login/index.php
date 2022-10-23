@@ -15,7 +15,6 @@
             </div>
             <form action="login.php" method="POST">
                 <div class="login-input">
-                
                     <label for="login-inputname">Name :</label>
                     <input type="text" name = "login-name" id="login-name"placeholder="Enter your account name..." id="login-inputname">
                     <p class="input-desc" id="input-desc-name"></p>

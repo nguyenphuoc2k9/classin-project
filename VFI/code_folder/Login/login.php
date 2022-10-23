@@ -12,7 +12,7 @@ session_start();
         // $password = md5($password);
         // echo $password;
         $check = false;
-        $query= "SELECT * from users where username = '$name' && password='$password'";
+        
         
         
         if(strlen($name) > 10 || strlen($name) < 4){
@@ -31,7 +31,7 @@ session_start();
         }
         if($check == false){
             $password = md5($password);
-            echo $password;
+            $query= "SELECT * from users where username = '$name' && password='$password'";
             $result = mysqli_query($con,$query);
             $num = mysqli_num_rows($result);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);

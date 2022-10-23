@@ -37,15 +37,21 @@ ob_start();
             if(in_array($fileactualext, $allow)){
                 if($fileerror === 0){
                     if($filesize > 1000000){
-                        echo "Your file is too big";
+                        echo "<script type='text/javascript'>";
+                        echo "alerr('Your file is too big')";
+                        echo "</script>";
                         $check = true;
                     }
                 } else {
-                    echo"There was an error uploading your file";
+                    echo "<script type='text/javascript>";
+                    echo "alert('There was an error uploading your file')";
+                    echo "</script>";
                     $check = true;
                 }
             } else {
-                echo"you cannot upload files of this type";
+                echo "<script type='text/javascript'>";
+                echo "alert('You cannot upload this type of file')";
+                echo "</script>";
                 $check = true;
             }
         }

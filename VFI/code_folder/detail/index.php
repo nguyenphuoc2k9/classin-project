@@ -18,7 +18,7 @@
     <div class="header">
         <div class="header-box">
             <div class="head-logo">
-                <a  class ="logo-image" href="#"><img src="../d.png" alt="logo"></a>
+                <a  class ="logo-image" href="#"><img src="../VFI__3_-removebg-preview.png" alt="logo"></a>
                 <?php
                     if(isset($_POST['search-btn'])){
                         $_SESSION['k'] = $_POST['k'];
@@ -30,8 +30,14 @@
                     <input type="text" name = "k" placeholder="Enter the things that you want to search">
                     <button type="submit" name="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
-                <div class="head-btn" id="head-btn">
-                    
+                <div class="userinfo">
+                    <h1><a href="../profile/profile.php?id=<?php echo $_SESSION['id'];?>"><img src="<?php echo $_SESSION['img'] ?>"></a> <?php echo $_SESSION['username']; ?></h1>
+                    <div class="dropdown">
+                        <i onclick="drop()"id='dropbtn'class="fa-solid fa-angle-down"></i>
+                        <div class="dropdown-content" id="dropdown">
+                        <a href="../Login/logout.php">Sigh Out</a>
+                    </div>
+                </div>
                 </div>
             </div>
             <div class="head-con">
@@ -45,14 +51,9 @@
 
     <div class="sidenav">
         <div class="sidenav-box" id="sidenav-box">
-        <div class="option">
-                <a href="../Home_/home.php">Main news</a>
-                <a href="../News/new.php">Personal news</a>
-            </div>
-            <hr/>
-            <div class="userinfo">
-                <h1><a href="../profile/profile.php"><img src="<?php echo $_SESSION['img']?>"></a> <?php echo $_SESSION['username']; ?></h1>
-                <button id="log-out"> <a href = "../Login/logout.php">Log Out</a></button>
+            <div class="option">
+                <a href="../Home_/home.php">Forums</a>
+                <a href="../News/new.php">Virus Forecast</a>
             </div>
         </div>
         <div class="sidenav-close-btn" id="close-">
@@ -107,25 +108,6 @@
           </div>  
         </div>
     </div>
-    <script src="./app.js"></script>
-    <script type="text/javascript">
-        var menubtn = document.getElementById("close")
-var btn = document.getElementById("close-")
-var sidenav = document.getElementById("sidenav-box")
-    sidenav.style.left = "-30%"
-    btn.style.left = "3%"
-menubtn.onclick=()=>{
-    if(sidenav.style.left == "0%"){
-        sidenav.style.left = "-30%"
-        menubtn.innerHTML = `<i class="fa-solid fa-bars"></i>`
-        btn.style.left = "3%"
-    } else {
-        sidenav.style.left = "0%"
-        menubtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`
-        btn.style.left = "21%"
-    }
-
-}
-    </script>
+    <script src="./detail.js"></script>
 </body>
 </html>

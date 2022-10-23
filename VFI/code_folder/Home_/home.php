@@ -5,7 +5,7 @@ ob_start();
     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
         $img = "../user upload/" . $row['img'];
         if($row['img'] == null){
-            $_SESSION['img'] = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Fgray-user-management%2F512%2Frounded-512.png&f=1&nofb=1";
+            $_SESSION['img'] = "data:image/png;base64,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";
         } else {
             $_SESSION['img'] = $img;
         }
@@ -45,14 +45,14 @@ ob_start();
                     <div class="dropdown">
                         <i onclick="drop()"id='dropbtn'class="fa-solid fa-angle-down"></i>
                         <div class="dropdown-content" id="dropdown">
-                        <a href="./logout.php">Sigh Out</a>
+                        <a href="../Login/logout.php">Sigh Out</a>
                     </div>
                 </div>
                 </div>
             </div>
             <div class="head-con">
                 <a class="head-text" href="../Home_/home.php"><i class="fa-solid fa-house"></i>Home</a>
-                <a class="head-text" href="../Virus Forecast/Virus dictionary/"><i class="fa-solid fa-newspaper"></i>News</a>
+                <a class="head-text" href="../News/new.php"><i class="fa-solid fa-newspaper"></i>News</a>
                 <a href="../Create/create.php" class="head-text"><i class="fa-solid fa-plus"></i>Create</a>
             </div>
         </div>
