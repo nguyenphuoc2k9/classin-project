@@ -42,27 +42,38 @@ function printcountry(e) {
 
 }
 function handleClick(dataList, e, datacountry, type) {
-    
-    console.log(type);
-    if (type == 'single') {
-        select_btn.firstElementChild.innerText = dataList.innerText
-        if (dataList.innerText == "World") {
-            document.getElementById("con-total").innerText = e.Global.TotalConfirmed
-            document.getElementById("con-today").innerText = e.Global.NewConfirmed
-            document.getElementById("dea-total").innerText = e.Global.TotalDeaths
-            document.getElementById("dea-today").innerText = e.Global.NewDeaths
+        
+        console.log(type);
+        if (type == 'single' ) {
+            select_btn.firstElementChild.innerText = dataList.innerText
+            if (dataList.innerText == "World") {
+                document.getElementById("con-total").innerText = e.Global.TotalConfirmed
+                document.getElementById("con-today").innerText = e.Global.NewConfirmed
+                document.getElementById("dea-total").innerText = e.Global.TotalDeaths
+                document.getElementById("dea-today").innerText = e.Global.NewDeaths
+            } else {
+                document.getElementById("con-total").innerText = datacountry.TotalConfirmed
+                document.getElementById("con-today").innerText = datacountry.NewConfirmed
+                document.getElementById("dea-total").innerText = datacountry.TotalDeaths
+                document.getElementById("dea-today").innerText = datacountry.NewDeaths
+            }
         } else {
-            document.getElementById("con-total").innerText = datacountry.TotalConfirmed
-            document.getElementById("con-today").innerText = datacountry.NewConfirmed
-            document.getElementById("dea-total").innerText = datacountry.TotalDeaths
-            document.getElementById("dea-today").innerText = datacountry.NewDeaths
-        }
-    }else {
-        for(let i = 0; i < dataList.length;i++){
+            for (let i = 0; i < dataList.length; i++){
             data = e.Countries[i - 1]
             console.log(data);
-            option[i].addEventListener("click", function(){
-                handleClick(option[i], e, data, 'single')
+            option[i].addEventListener("click", function () {
+                if (option[i].innerText == "World") {
+                    document.getElementById("con-total").innerText = e.Global.TotalConfirmed
+                    document.getElementById("con-today").innerText = e.Global.NewConfirmed
+                    document.getElementById("dea-total").innerText = e.Global.TotalDeaths
+                    document.getElementById("dea-today").innerText = e.Global.NewDeaths
+                } else {
+                    document.getElementById("con-total").innerText = data.TotalConfirmed
+                    document.getElementById("con-today").innerText = data.NewConfirmed
+                    document.getElementById("dea-total").innerText = data.TotalDeaths
+                    document.getElementById("dea-today").innerText = data.NewDeaths
+                }
+                handleClick(dataList, e, data, 'array')
             })
         }
     }
