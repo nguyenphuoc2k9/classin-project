@@ -7,8 +7,11 @@
     margin: 0;
     padding: 0;
 }
+* h1{
+    color:#fff;
+}
 body{
-    background-image: linear-gradient(to left, #e4e7eb, #dfe6ed, #dae5ef, #d4e4f1, #cde4f2);
+    background-image: linear-gradient(to right, #bc9cef, #c1a4ef, #c6abf0, #cab3f0, #cfbaf0)
 }
 /* header */
 .header{
@@ -260,7 +263,7 @@ body{
     color: #fff;
 }
 .sidenav-box .option a:hover{
-    border-left: rgb(0, 202, 169) solid 15px;
+    border-left: rgb(0, 118, 202) solid 15px;
     background-color: #b3d6ffe3;
 }
 .sidenav-box hr{
@@ -393,100 +396,9 @@ body{
     color: #fff;
     cursor: pointer;
 }
-/* .profile{
-    margin: 3% auto;
-    width: 100%;
-}
-.profile-box{
-    display: flex;
-    margin: auto;
-    flex-direction: column;
-    align-items: center;
-    width: 70%;
-    border-radius: 10px;
-    background-color: rgb(247, 247, 247);
-}
-.profile-img img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-.profile-img{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: larger;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-.profile-info{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-.profile-info h1{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 3% 0;
-}
-.profile-img button{
-    border: none;
-    cursor: pointer;
-    background: none;
-}
-.profile-img button:hover{
-    text-decoration: underline;
-}
-.profile-info .card{
-    display: flex;
-    align-items: center;
-    gap: 7px;
-}
-.profile-info h2{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-.profile-info .card button{
-    border: none;
-    background: none;
-    font-size: medium;
-    cursor: pointer;
-    transition: .5s;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.profile-info .card button:hover{
-    text-decoration: underline;
-}
-.card-btn button{
-    background-color: rgba(119, 133, 255);
-    color: #fff;
-    padding: 10px;
-    font-size: larger;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-}
-.profile-info button i{
-    font-size: small;
-}
-#file{
-    border: none;
-}
-.profile hr{
-    border: #000 solid;
-    border-radius: 5px;
-    margin: 20px 5px;
-    background-color: #000;
-    padding: 3px;
-}
-.profile-new{
-    width: 100%;
-    border-radius: 10px;
-}
-.profile-title{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin: 10px 0 0 20px ;
-} */
-
 .profile{
     width: 100%;
+    margin-bottom: 5%;
     display: flex;
     justify-content: center;
     align-items: center;

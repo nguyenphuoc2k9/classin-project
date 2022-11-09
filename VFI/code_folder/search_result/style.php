@@ -6,8 +6,11 @@ html{
     margin: 0;
     padding: 0;
 }
+* h1{
+    color:#fff;
+}
 body{
-    background-image: linear-gradient(to left, #e4e7eb, #dfe6ed, #dae5ef, #d4e4f1, #cde4f2);
+    background-image: linear-gradient(to right, #bc9cef, #c1a4ef, #c6abf0, #cab3f0, #cfbaf0)
 }
 /* header */
 .header{
@@ -259,7 +262,7 @@ body{
     color: #fff;
 }
 .sidenav-box .option a:hover{
-    border-left: rgb(0, 202, 169) solid 15px;
+    border-left: rgb(0, 118, 202) solid 15px;
     background-color: #b3d6ffe3;
 }
 .sidenav-box hr{
@@ -268,14 +271,12 @@ body{
     margin: 0 9%;
     border: rgb(255, 255, 255) solid 3px;
 }
-.head-userinfo {
-    width: 11%;
+.sidenav-box .userinfo{
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    margin: 10%;
+    flex-direction: column;
 }
-.head-userinfo h1{
+.userinfo h1{
     font-size: larger;
     color: #fff;
     gap: 10px;
@@ -283,7 +284,7 @@ body{
     align-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
- .head-userinfo button{
+.sidenav-box .userinfo button{
     border: none;
     border-radius: 10px;
     background-color:rgb(0, 114, 129);
@@ -292,11 +293,11 @@ body{
     cursor: pointer;
     padding: 5%;
 }
-.head-userinfo button a{
+.userinfo button a{
     text-decoration:none;
     color:#fff;
 }
-.head-userinfo img{
+.userinfo img{
     width: 50px;
     border-radius: 50%;
     height: 50px;
@@ -324,7 +325,6 @@ body{
     color: #fff;
     font-size: larger;
 }
-
 /*search*/
 .search-result{
     width: 100%;

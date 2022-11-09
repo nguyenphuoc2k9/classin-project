@@ -6,8 +6,11 @@ html{
     margin: 0;
     padding: 0;
 }
+* h1{
+    color:#fff;
+}
 body{
-    background-image: linear-gradient(to left, #e4e7eb, #dfe6ed, #dae5ef, #d4e4f1, #cde4f2);
+    background-image: linear-gradient(to right, #bc9cef, #c1a4ef, #c6abf0, #cab3f0, #cfbaf0)
 }
 /* header */
 .header{
@@ -125,6 +128,7 @@ body{
     align-items: center;
     z-index: 99;
 }
+
 .logo-image{
     width: 10%;
 }
@@ -233,13 +237,13 @@ body{
 }
 .sidenav-box{
     z-index: 99;   
-    background-color: rgba(119, 133, 255);
+    background-color: rgba(91,104,199);
     position: fixed;
     display: flex;
     width: 20%;
     left: 0%;
     height: 100%;
-    margin-top: -5.1%;
+    margin-top: -4.1%;
     flex-direction: column;
     transition: 0.5s ease ;
 }
@@ -250,18 +254,34 @@ body{
     flex-direction: column;
     justify-content: space-around;
 }
+.sidenav-box .option .card{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+.sidenav-box .option .card i{
+    color: #fff;
+    font-size: large;
+}
 .sidenav-box .option a{
     text-decoration: none;
     padding: 10%;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: larger;
-    transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     color: #fff;
 }
-.sidenav-box .option a:hover{
-    border-left: rgb(0, 202, 169) solid 15px;
+.sidenav-box .option a i{
+    padding-left: 70%;
+    font-size: larger;
+}
+.sidenav-box .option .card:hover{
+    border-left: rgb(0, 118, 202) solid 15px;
     background-color: #b3d6ffe3;
 }
+
 .sidenav-box hr{
     border-radius: 10px;
     width: 80%;
@@ -284,7 +304,7 @@ body{
 .sidenav-box .userinfo button{
     border: none;
     border-radius: 10px;
-    background-color:rgb(0, 114, 129);
+    background-color:rgba(91,104,199);
     color: #fff;
     width: 50%;
     cursor: pointer;
@@ -312,7 +332,7 @@ body{
 .sidenav-close-btn button{
     border-radius: 10px;
     border: none;
-    background-color: rgba(119, 133, 255);
+    background-color: rgba(91,104,199);
     width: 50px;
     cursor: pointer;
     height: 50px;
@@ -329,7 +349,6 @@ body{
     margin-top: 10%;
     flex-direction: column;
     width: 100%;
-    height: 100%;
     position: relative;
 }
 .home-title{
@@ -478,7 +497,7 @@ body{
 }
 .update-news .update-box{
     width: 100%;
-    padding: 30px;
+    padding: 0 0 5% 0;
     margin-left: 10%;
     display: flex;
     flex-direction: column;

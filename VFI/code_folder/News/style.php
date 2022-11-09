@@ -6,8 +6,11 @@ html{
     margin: 0;
     padding: 0;
 }
+* h1{
+    color:#fff;
+}
 body{
-    background-image: linear-gradient(to left, #e4e7eb, #dfe6ed, #dae5ef, #d4e4f1, #cde4f2);
+    background-image: linear-gradient(to right, #bc9cef, #c1a4ef, #c6abf0, #cab3f0, #cfbaf0)
 }
 /* header */
 .header{
@@ -259,7 +262,7 @@ body{
     color: #fff;
 }
 .sidenav-box .option a:hover{
-    border-left: rgb(0, 202, 169) solid 15px;
+    border-left: rgb(0, 118, 202) solid 15px;
     background-color: #b3d6ffe3;
 }
 .sidenav-box hr{
@@ -321,58 +324,6 @@ body{
 .sidenav-close-btn i{
     color: #fff;
     font-size: larger;
-}
-/* footer */
-
-.footer{
-    overflow: hidden;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(39, 39, 39);
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.footer-title{
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.footer-title h1{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: larger;
-}
-.footer-icon{
-    width: 100%;
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.footer-icon i{
-    padding-left: 20px;
-    font-size: 30px;
-    transition: 0.5s
-}
-.footer-info{
-    padding: 30px;
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-}
-.info-card{
-    padding: 30px;
-    font-size: large;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-.footer-icon i:hover{
-    color: aqua;
 }
 .home{
     display: flex;

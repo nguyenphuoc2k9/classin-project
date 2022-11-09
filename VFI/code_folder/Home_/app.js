@@ -1,3 +1,4 @@
+
 var menubtn = document.getElementById("close")
 var btn = document.getElementById("close-")
 var sidenav = document.getElementById("sidenav-box")
@@ -31,3 +32,9 @@ window.onclick = function(event) {
       }
     }
   }
+// var sidenav = document.getElementsByClassName('i');
+// for(let i = 0;i < sidenav.length;i++) {
+//   document.getElementsByClassName("card")[i].addEventListener('mouseover', ()=>{
+//       sidenav[i].style.display = 'block';
+//   })
+// }

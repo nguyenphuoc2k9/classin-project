@@ -62,8 +62,14 @@ ob_start();
     <div class="sidenav">
         <div class="sidenav-box" id="sidenav-box">
             <div class="option">
-                <a href="../Home_/home.php">Forums</a>
-                <a href="../News/new.php">Virus Forecast</a>
+                <div class="card">
+                    <i  id = 'i'class="fa-solid fa-arrow-right"></i>
+                    <a href="../Home_/home.php">Forums</a>
+                </div>
+                <div class="card">
+                <i id = 'i'class="fa-solid fa-arrow-right"></i>
+                <a href="../Virus Forecast/Virus dictionary/home/index.html">Virus Forecast</a>
+                </div>
             </div>
         </div>
         <div class="sidenav-close-btn" id="close-">

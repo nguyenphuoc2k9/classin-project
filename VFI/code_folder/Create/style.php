@@ -6,8 +6,11 @@ html{
     margin: 0;
     padding: 0;
 }
+* h1{
+    color:#fff;
+}
 body{
-    background-image: linear-gradient(to left, #e4e7eb, #dfe6ed, #dae5ef, #d4e4f1, #cde4f2);
+    background-image: linear-gradient(to right, #bc9cef, #c1a4ef, #c6abf0, #cab3f0, #cfbaf0)
 }
 /* header */
 .header{
@@ -259,7 +262,7 @@ body{
     color: #fff;
 }
 .sidenav-box .option a:hover{
-    border-left: rgb(0, 202, 169) solid 15px;
+    border-left: rgb(0, 118, 202) solid 15px;
     background-color: #b3d6ffe3;
 }
 .sidenav-box hr{

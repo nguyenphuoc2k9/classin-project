@@ -127,7 +127,19 @@
                             </div>
                         </div>
                         <div class="img">
-                        <img src="<?php echo $img?>" alt="img">
+                            <img src="<?php echo $img?>" alt="img">
+                        </div>
+                        <div class="comment">
+                            <h1>Comments</h1>
+                            <div class="user-comment">
+                                <div class="user-img">
+                                    <img src="" alt="XD">
+                                </div>
+                                <div class="user-name">
+                                    <h1>Phuoc</h1>
+                                    <p>TEXT SUS</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <?php
@@ -152,7 +164,7 @@
             </div>
         </div>
     </div>
-    <!-- <div class="footer" id="footer">
+    <div class="footer" id="footer">
         <div class="footer-title">
             <h1>You can contact us on</h1>
         </div>
@@ -176,7 +188,7 @@
               <p>nguyễn Phước</p>
           </div>  
         </div>
-    </div> -->
+    </div>
     <div class="pop-up">
         <div class="pop-box">
             <button class="closepop" ><i class="fa-solid fa-xmark"></i></button>
