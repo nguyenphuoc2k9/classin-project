@@ -79,9 +79,9 @@ class Heart:
 
 
         point_list = list(self._points)
-        for _ in range(1):
+        for _ in range(4000):
             x, y = random.choice(point_list)
-            x, y = scatter_inside(x, y, 17)
+            x, y = scatter_inside(x, y, 0.17)
             self._center_diffusion_points.add((x, y))
 
     @staticmethod
