@@ -3,6 +3,21 @@
 body{
     background-image: linear-gradient(to right, #bc9cef, #c1a4ef, #c6abf0, #cab3f0, #cfbaf0);
 }
+  
+  .section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #Fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+  }
+  
+  .error {
+    display: none;
+  }
+  
 *{
     margin: 0;
     padding: 0;
@@ -125,10 +140,11 @@ body{
     align-items: center;
 }
 .select.active .content{
-    display: none;
+    display: none !important;
 }
 .select.active .select-btn i{
     transform: rotate(-180deg);
+
 }
 .select-btn i{
     transition: transform 0.3s linear;

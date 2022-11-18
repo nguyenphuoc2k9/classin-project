@@ -474,5 +474,48 @@ body{
     overflow: unset !important;
     height: unset !important;
 }
+.home hr{
+    width: 95%;
+    height: 50px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #000;
 
+    color: #000;
+}
+.comment{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.comment img{
+    width: 50px;
+    height: 50px;
+}
+.com-input{
+    padding: 20px 0;
+    align-items: center;
+    padding-left: 20px;
+    width: 100%;
+}
+.com-input input{
+    width: 73%;
+    padding: 5px;
+    height: 30px;
+    border-radius: 10px;
+    border: solid #000 3px;
+    background-color: #fff;
+}
+.com-input button{
+    width: 20%;
+    color: #Fff;
+    cursor: pointer;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    height: 45px;
+    background-color: #bc9cef;
+    border: none;
+    border-radius: 5px;
+}
 </style>

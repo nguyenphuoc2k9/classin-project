@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid</title>
+    <style>
+        body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #18191a;
+  color: #e4e6ea;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+.error {
+  display: none;
+}
+
+.countries {
+  width: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.countries button {
+  display: block;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 10px 0;
+  cursor: pointer;
+}
+    </style>
+  </head>
+  <body>
+    <div class="section loading">Loading data...</div>
+    <div class="section error">Failed to load data</div>
+    <div class="main">
+      <div class="content"></div>
+      <input type="text" placeholder="Search..." />
+      <div class="countries"></div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
