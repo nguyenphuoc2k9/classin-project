@@ -1,5 +1,6 @@
 <?php
     session_start();
+    ob_start();
     $con = mysqli_connect("localhost","root","","teen-project-database") or die("khong the ket noi toi database");
     $querry = mysqli_query($con,"SELECT * FROM post");
     
@@ -12,6 +13,7 @@
         <button id='log-in'> <a href='../Login/Login.php'>Log In</a></button>`)";
         echo "</script>";
     }
+        
     include "./news.php";
     include "./style.php";
     include "./app.php";

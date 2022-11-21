@@ -488,6 +488,12 @@ body{
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: 10px;
+}
+.com-info{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
 }
 .comment img{
     width: 50px;
@@ -517,5 +523,27 @@ body{
     background-color: #bc9cef;
     border: none;
     border-radius: 5px;
+}
+.com-card{
+    gap: 10px;
+    display: flex;
+}
+.com-info{
+    padding-left: 20px;
+}
+.contain{
+    padding: 10px;
+    border-radius: 10px;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    background-color: #c1c1c1;
+}
+.contain h5{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+.contain p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 </style>
