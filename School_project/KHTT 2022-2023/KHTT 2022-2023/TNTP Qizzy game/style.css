@@ -250,6 +250,7 @@ footer .total-quiz span p{
     font-weight: 500;
 }
 footer .next-btn{
+    display: none;
     height: 40px;
     padding:0 13px; 
     font-size:18px;

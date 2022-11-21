@@ -7,6 +7,12 @@ const que_text = document.querySelector(".que-text")
     const option_list = document.querySelector(".option-list")
 const timecount = quiz_box.querySelector(".timer .timer-sec")
 const time_line = quiz_box.querySelector("header .time-line")
+const cheersound  = new Audio("../School_project/cheering-sound-effect-free-copyright.mp3")
+const wrongsound = new Audio("../School_project/buzzer2-6109.mp3")
+const start_question  = new Audio("../School_project/mixkit-arcade-game-complete-or-approved-mission-205.wav")
+cheersound.currentTime= 0
+wrongsound.currentTime= 0
+start_question.currentTime= 0
 console.log(time_line);
 
 //start
@@ -38,6 +44,11 @@ const next_btn = document.querySelector(".next-btn")
 
 next_btn.addEventListener("click",()=>{
     if(que_count < questions.length -1){
+        cheersound.pause()
+        wrongsound.pause()
+        cheersound.currentTime= 0
+        wrongsound.currentTime= 0
+        start_question.currentTime= 0
         que_count++
         que_num++
         getcouter(que_num)
@@ -52,7 +63,8 @@ next_btn.addEventListener("click",()=>{
 })
 //show ques
 function showquestions(index){
-    
+    start_question.play()
+    next_btn.style.display = "none"
     let option_tag = `<div class='option'> ${questions[index].options[0]}</div>
     <div class='option'> ${questions[index].options[1]}</div>
     <div class='option'> ${questions[index].options[2]}</div>
@@ -75,7 +87,9 @@ function getcouter(index){
 let tick = `<div class="icon tick"><i class="fa-solid fa-check"></i></div>`
 let cross = `<div class="icon cross"><i class="fa-solid fa-times"></i></div>`
 function optionselect(answer){
+    next_btn.style.display = "block"
     clearInterval(counter)
+    clearInterval(counterline)
     let userans = answer.textContent.trim()
     let correct = questions[que_count].answer
     let alloption = option_list.children.length
@@ -83,8 +97,10 @@ function optionselect(answer){
     console.log(userans);
     if(userans == correct){
         answer.classList.add("correct")
+        cheersound.play()
         answer.insertAdjacentHTML("beforeend", tick)
     }else {
+        wrongsound.play()
         answer.classList.add("incorrect")
         answer.insertAdjacentHTML("beforeend", cross)
         for(let i = 0;i < alloption;i++){
@@ -115,11 +131,13 @@ function starttimer(time){
 }
 
 function starttimerline(time){
-    counterline = setInterval(timer,29)
+    counterline = setInterval(timer,1000)
+    limitwidth = document.body.clientWidth*(50/100)
+    console.log(limitwidth);
     function timer(){
-        time++;
-        time_line.style.width = time + "px"
-        if(time > 549){
+        time+= 10;
+        time_line.style.width = time + "%"
+        if(time > 100){
             clearInterval(counterline);
         }
     }
