@@ -22,13 +22,19 @@ body{
     align-items: center;
     flex-direction:column ;
     background-color: #0e509b;
+    z-index: 999999;
+}
+.tags{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
 }
 .sidenav a{
     text-decoration: none;
     width: 100%;
-    padding: 5% 0;
     border: #fff;
-    transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 .sidenav-desc{
     display: flex;
@@ -45,10 +51,11 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #fff;
     font-size: 25px;
+    padding: 5% 0;
     text-align: center;
 }
-.sidenav a:hover{
-    border-radius: 20px;
+.sidenav h1:hover{
+    transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
     background-color: rgb(131, 196, 218);
 }
 .sidenav-btn {
@@ -75,6 +82,39 @@ body{
 .sidenav img {
     width: 100px;
     height: 100px;
+}
+.dropdown-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.dropdown-box h1{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    color: #fff;
+    margin-bottom: 1%;
+    cursor: pointer;
+}
+.dropdown{
+    display: none;
+    background-color: #aed4e7;
+}
+.dropdown.active{
+    display: block;
+
+}
+.dropdown ul{
+    list-style: none;
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:space-around;
+}
+.dropdown-box h1.active{
+    background-color: rgb(131, 196, 218);
+}
+.dropdown li{
+    font-size: medium;
+    width: 100%;
 }
 /* home */
 .home{
@@ -157,17 +197,6 @@ body{
     font-size: 20px;
 }
 .mem-card .img{
-    position: relative;
     flex-basis: 48%;
     text-align: center;
-}
-.mem-card .log{
-    background: linear-gradient(rgba(0,0,0,0.5), #2faccb);
-    z-index: 99;
-    
-    top: 0;
-    opacity: 0.7;
-    width: 100%;
-    position: absolute;
-    height: 100%;
 }
