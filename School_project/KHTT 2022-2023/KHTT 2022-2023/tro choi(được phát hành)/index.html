@@ -1,22 +1,48 @@
 <!DOCTYPE html>
-<!-- Created with iSpring --><!-- 1304 744 --><!--version 9.1.0.25298 --><!--type html --><!--mainFolder ./ -->
-<html style=background-color:#60a7d6;>
+<!-- Created with iSpring -->
+<!-- 1304 744 -->
+<!--version 9.1.0.25298 -->
+<!--type html -->
+<!--mainFolder ./ -->
+<html style="background-image: linear-gradient(to right, #297af4, #0088f5, #0094f4, #009ff0, #12a9eb);">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/><meta name="format-detection" content="telephone=no"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="msapplication-tap-highlight" content="no"/><title>tro choi</title><link rel="apple-touch-icon-precomposed" href="data/apple-touch-icon.png"/><link rel="shortcut icon" type="image/ico" href="data/favicon.ico"/><style>body {background-color:#60a7d6;}#spr0_b4d50d {display:none;}</style>
-    
-    
-    <style>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<title>tro choi</title>
+	<link rel="apple-touch-icon-precomposed" href="data/apple-touch-icon.png" />
+	<link rel="shortcut icon" type="image/ico" href="data/favicon.ico" />
+	<style>
+		body {
+			background-image: linear-gradient(to right, #297af4, #0088f5, #0094f4, #009ff0, #12a9eb);
+		}
+
+		#spr0_b4d50d {
+			display: none;
+		}
+	</style>
+
+
+	<style>
 		#playerView {
-			position:relative;
-			-webkit-tap-highlight-color:rgba(0,0,0,0);
-			-webkit-user-select:none;
-			-moz-user-select:none;
-			-webkit-touch-callout:none;
-			-webkit-user-drag:none;
+			position: relative;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-webkit-touch-callout: none;
+			-webkit-user-drag: none;
 		}
+
 		#playerView * {
-			position:absolute;
+			position: absolute;
 		}
+
 		#preloader {
 			width: 50px;
 			height: 50px;
@@ -43,24 +69,155 @@
 			-webkit-animation: preloader_spin 1s infinite linear;
 		}
 
-		@keyframes preloader_spin { 0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);} }
-		@-webkit-keyframes preloader_spin { 0% {-webkit-transform: rotate(0deg);} 100% {-webkit-transform: rotate(360deg);}}
-    </style>
+		.sidenav {
+			position: fixed;
+			display: flex;
+			z-index: 999999;
+		}
+
+		.sidenav-box {
+			position: fixed;
+			width: 300px;
+			height: 100%;
+			padding: 10px;
+			overflow: hidden;
+			left: 0%;
+			display: flex;
+			gap: 10px;
+			transition: all .4s cubic-bezier(0.215, 0.610, 0.355, 1);
+			align-items: center;
+			flex-direction: column;
+			background-color: #0e509b;
+			z-index: 99;
+		}
+
+		.sidenav a {
+			text-decoration: none;
+			width: 100%;
+			padding: 5% 0;
+			border: #fff;
+			transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+		}
+
+		.sidenav-desc {
+			display: flex;
+			padding-bottom: 20px;
+		}
+
+		.sidenav hr {
+			width: 100%;
+			height: 20px;
+			border-radius: 10px;
+			border: solid 2px rgb(7, 151, 223);
+			background-color: #fff;
+		}
+
+		.sidenav h1 {
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			color: #fff;
+			font-size: 25px;
+			text-align: center;
+		}
+
+		.sidenav a:hover {
+			border-radius: 20px;
+			background-color: rgb(131, 196, 218);
+		}
+
+		.sidenav-btn {
+			display: flex;
+			left: 17%;
+			transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			position: fixed;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.sidenav-btn button {
+			border-radius: 10px;
+			width: 50px;
+			color: #Fff;
+			border: none;
+			cursor: pointer;
+			margin: 20px 0 0 10px;
+			background-color: #0e509b;
+			height: 50px;
+		}
+
+		.sidenav-btn i {
+			font-size: larger;
+		}
+
+		.sidenav img {
+			width: 100px;
+			height: 100px;
+		}
+
+		@keyframes preloader_spin {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		@-webkit-keyframes preloader_spin {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+	</style>
 </head>
+
 <body>
+	<div class="sidenav">
+		<div class="sidenav-box" id="sidenav">
+			<div class="sidenav-desc">
+				<img src="../Thumbnails25312011013150-removebg-preview.png" alt="logo">
+			</div>
+			<hr>
+			<a href="../Lich su(được phát hành)/index.html">
+				<h1>Lịch sử Đội TNTP</h1>
+			</a>
+			<a href="../Dieu le(được phát hành)/index.html">
+				<h1>Điều lệ Đội TNTP</h1>
+			</a>
+			<a href="../Nghi thuc(được phát hành)/index.html">
+				<h1>Nghi thức Đội TNTP</h1>
+			</a>
+			<a href="../ky nang(được phát hành)/index.html">
+				<h1>Kỹ năng Đội TNTP</h1>
+			</a>
+			<a href="../tro choi(được phát hành)/index.html"><h1>Trò chơi sinh hoạt Đội</h1></a>
+			<a href="../bai hat(được phát hành)/index.html">
+				<h1>Bài hát sinh hoạt Đội</h1>
+			</a>
+			<a href="../Guong anh hung(được phát hành)/index.html">
+				<h1>Gương sáng anh hùng</h1>
+			</a>
+			<a href="../tntp QUIZ GAME/index.html"><h1>TNTP's Quiz game</h1></a>
+		</div>
+		<div class="sidenav-btn">
+			<button id="btn"><i class="fa-solid fa-bars"></i></button>
+		</div>
+	</div>
 	<div id="preloader"></div>
 	<script src="data/browsersupport.js?EEB66DFC"></script>
 	<script src="data/player.js?EEB66DFC"></script>
-    <div id="content"></div>
-    <div id="spr0_b4d50d"></div>
-    <script>
-		(function(startup){
-			function start(savedPresentationState)
-			{
+	<div id="content"></div>
+	<div id="spr0_b4d50d"></div>
+	<script>
+		(function (startup) {
+			function start(savedPresentationState) {
 				var presInfo = "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";
 				PresentationPlayer.start(presInfo, "content", "playerView", onPlayerInit, savedPresentationState);
-				function onPlayerInit(player)
-				{
+				function onPlayerInit(player) {
 					(player);
 
 					var preloader = document.getElementById("preloader");
@@ -73,6 +230,23 @@
 			else
 				start();
 		})();
-    </script>
+		var sidenav = document.getElementById("sidenav")
+		var btn = document.getElementById("btn")
+		var btn_div = document.getElementsByClassName("sidenav-btn")[0]
+		sidenav.style.left = "-100%"
+		btn_div.style.left = "3%"
+		btn.addEventListener("click", function () {
+			if (sidenav.style.left == "-100%") {
+				sidenav.style.left = "0"
+				btn_div.style.left = "27%"
+				btn.innerHTML = `<i id='btn'class="fa-solid fa-xmark"></i>`
+			} else {
+				btn_div.style.left = "3%"
+				sidenav.style.left = "-100%"
+				btn.innerHTML = `<i id = "btn"class="fa-solid fa-bars"></i>`
+			}
+		})
+	</script>
 </body>
+
 </html>

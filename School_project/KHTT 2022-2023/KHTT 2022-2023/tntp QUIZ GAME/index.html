@@ -9,85 +9,106 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="sidenav">
+        <div class="sidenav-box" id="sidenav">
+            <div class="sidenav-desc">
+                <img src="../Thumbnails25312011013150-removebg-preview.png" alt="logo">
+            </div>
+            <hr>
+                <a href="../Lich su(được phát hành)/index.html"><h1>Lịch sử Đội TNTP</h1></a>
+                <a href="../Dieu le(được phát hành)/index.html"><h1>Điều lệ Đội TNTP</h1></a>
+                <a href="../Nghi thuc(được phát hành)/index.html"><h1>Nghi thức Đội TNTP</h1></a>
+                <a href="../ky nang(được phát hành)/index.html"><h1>Kỹ năng Đội TNTP</h1></a>
+                <a href="../tro choi(được phát hành)/index.html"><h1>Trò chơi sinh hoạt Đội</h1></a>
+                <a href="../bai hat(được phát hành)/index.html"><h1>Bài hát sinh hoạt Đội</h1></a>
+                <a href="../Guong anh hung(được phát hành)/index.html"><h1>Gương sáng anh hùng</h1></a>
+                <a href="../tntp QUIZ GAME/index.html"><h1>TNTP's Quiz game</h1></a>
+        </div>
+        <div class="sidenav-btn">
+            <button id="btn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+    <div class="quizz-game">
+        <div class="start-btn">
+            <button>Start Quiz</button>
+        </div>
+        <!-- info box -->
+        <div class="info-box">
+            <div class="info-title">
+                <span>Some Rules of this Quiz</span>
+            </div>
+            <div class="info-list">
+                <div class="info">RULES</div>
+                <div class="info">RULES</div>
+                <div class="info">RULES</div>
+                <div class="info">RULES</div>
+                <div class="info">RULES</div>
+            </div>
+            <div class="buttons">
+                <button class="quit">Exit quiz</button>
+                <button class="restart"> Continue</button>
+            </div>
+        </div>
+    
+        <!-- quiz box -->
+        <div class="quiz-box">
+            <header>
+                <div class="title">
+                    Awesome Quiz
+                </div>
+                <div class="timer">
+                    <div class="timer-text">Time Left</div>
+                    <div class="timer-sec">15</div>
+                </div>
+                <div class="time-line"></div>
+            </header>
+            <section>
+                <div class="que-text">
+                    <span>What does ... stand for?</span>
+                </div>
+                <div class="option-list">
+                    <div class="option">
+                        <span>A</span>
+                        <div class="icon tick"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="option">
+                        <span>B</span>
+                        <div class="icon cross"><i class="fa-solid fa-times"></i></div>
+                    </div>
+                    <div class="option">
+                        <span>C</span>
+                    </div>
+                    <div class="option">
+                        <span>D</span>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- quiz footer -->
+            <footer>
+                <div class="total-quiz">
+                    <span><p>2</p>of <p>5 </p>question</span>
+                </div>
+                <button class="next-btn">Next Que</button>
+            </footer>
+        </div>
+        <div class="result-box">
+            <div class="icon">
+                <i class="fa-solid fa-crown"></i>
+            </div>
+            <div class="complete-text">
+                You've completed the Quiz!
+            </div>
+            <div class="score-text">
+                <span id="insert">and sorry, You got only <p>2</p> out of <p>5</p></span>
+            </div>
+            <div class="buttons">
+                <button class="restart">Replay Quiz</button>
+                <button class="quiz"> Quit quiz</button>
+            </div>
+        </div>
+    </div>
     <!-- quizzy start btn -->
-    <div class="start-btn">
-        <button>Start Quiz</button>
-    </div>
-    <!-- info box -->
-    <div class="info-box">
-        <div class="info-title">
-            <span>Some Rules of this Quiz</span>
-        </div>
-        <div class="info-list">
-            <div class="info">RULES</div>
-            <div class="info">RULES</div>
-            <div class="info">RULES</div>
-            <div class="info">RULES</div>
-            <div class="info">RULES</div>
-        </div>
-        <div class="buttons">
-            <button class="quit">Exit quiz</button>
-            <button class="restart"> Continue</button>
-        </div>
-    </div>
-
-    <!-- quiz box -->
-    <div class="quiz-box">
-        <header>
-            <div class="title">
-                Awesome Quiz
-            </div>
-            <div class="timer">
-                <div class="timer-text">Time Left</div>
-                <div class="timer-sec">15</div>
-            </div>
-            <div class="time-line"></div>
-        </header>
-        <section>
-            <div class="que-text">
-                <span>What does ... stand for?</span>
-            </div>
-            <div class="option-list">
-                <div class="option">
-                    <span>A</span>
-                    <div class="icon tick"><i class="fa-solid fa-check"></i></div>
-                </div>
-                <div class="option">
-                    <span>B</span>
-                    <div class="icon cross"><i class="fa-solid fa-times"></i></div>
-                </div>
-                <div class="option">
-                    <span>C</span>
-                </div>
-                <div class="option">
-                    <span>D</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- quiz footer -->
-        <footer>
-            <div class="total-quiz">
-                <span><p>2</p>of <p>5 </p>question</span>
-            </div>
-            <button class="next-btn">Next Que</button>
-        </footer>
-    </div>
-    <div class="result-box">
-        <div class="icon">
-            <i class="fa-duotone fa-crown"></i>
-        </div>
-        <div class="complete-text">
-            You've completed the Quiz!
-        </div>
-        <div class="score-text">
-            <span>and sorry, You got only <p>2</p> out of <p>5</p></span>
-        </div>
-        <div class="buttons">
-            <button class="restart">Replay Quiz</button>
-            <button class="quiz"> Quit quiz</button>
-        </div>
-    </div>
     <script src="./data.js"></script>
     <script src="./app.js"></script>
 </body>

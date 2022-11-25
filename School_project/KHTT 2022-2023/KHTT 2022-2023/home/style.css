@@ -3,7 +3,7 @@
     margin: 0;
 }
 body{
-    background-image: linear-gradient(to right, #599c64, #5ab064, #5cc363, #5fd75f, #64eb59);
+    background-image: linear-gradient(to right, #297af4, #0088f5, #0094f4, #009ff0, #12a9eb);
 }
 .sidenav{
     position: fixed;
@@ -21,7 +21,7 @@ body{
     transition: all .4s cubic-bezier(0.215, 0.610, 0.355, 1);
     align-items: center;
     flex-direction:column ;
-    background-color: #26552E;
+    background-color: #0e509b;
 }
 .sidenav a{
     text-decoration: none;
@@ -38,7 +38,7 @@ body{
     width: 100%;
     height: 20px;
     border-radius: 10px;
-    border: solid 2px rgb(70 223 7);
+    border: solid 2px rgb(7, 151, 223);
     background-color: #fff;
 }
 .sidenav h1 {
@@ -49,7 +49,7 @@ body{
 }
 .sidenav a:hover{
     border-radius: 20px;
-    background-color: rgb(102 195 106);
+    background-color: rgb(131, 196, 218);
 }
 .sidenav-btn {
     display: flex;
@@ -66,7 +66,7 @@ body{
     border: none;
     cursor: pointer;
     margin: 20px 0 0 10px;
-    background-color: #26552E;
+    background-color: #0e509b;
     height: 50px;
 }
 .sidenav-btn i{
@@ -142,7 +142,7 @@ body{
 .mem-card{
     display: flex;
     padding: 0 20px;
-    background-color: #5ab064;
+    background-color: #508bc6;
     flex-direction: column;
     align-items: center;
     border-radius: 40px;
@@ -162,7 +162,7 @@ body{
     text-align: center;
 }
 .mem-card .log{
-    background: linear-gradient(rgba(0,0,0,0.5), #009688);
+    background: linear-gradient(rgba(0,0,0,0.5), #2faccb);
     z-index: 99;
     
     top: 0;

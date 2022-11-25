@@ -1,22 +1,131 @@
 <!DOCTYPE html>
-<!-- Created with iSpring --><!-- 1304 744 --><!--version 9.1.0.25298 --><!--type html --><!--mainFolder ./ -->
-<html style=background-color:#60a7d6;>
+<!-- Created with iSpring -->
+<!-- 1304 744 -->
+<!--version 9.1.0.25298 -->
+<!--type html -->
+<!--mainFolder ./ -->
+<html style="background-image: linear-gradient(to right, #297af4, #0088f5, #0094f4, #009ff0, #12a9eb);">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/><meta name="format-detection" content="telephone=no"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="msapplication-tap-highlight" content="no"/><title>ky nang</title><link rel="apple-touch-icon-precomposed" href="data/apple-touch-icon.png"/><link rel="shortcut icon" type="image/ico" href="data/favicon.ico"/><style>body {background-color:#60a7d6;}#spr0_16534ec {display:none;}</style>
-    
-    
-    <style>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<title>ky nang</title>
+	<link rel="apple-touch-icon-precomposed" href="data/apple-touch-icon.png" />
+	<link rel="shortcut icon" type="image/ico" href="data/favicon.ico" />
+	<style>
+		body {
+			background-image: linear-gradient(to right, #297af4, #0088f5, #0094f4, #009ff0, #12a9eb);
+		}
+
+		#spr0_16534ec {
+			display: none;
+		}
+	</style>
+
+	<script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+	<style>
+		.sidenav {
+			position: fixed;
+			display: flex;
+			z-index: 999;
+		}
+
+		.sidenav-box {
+			position: fixed;
+			width: 300px;
+			height: 100%;
+			padding: 10px;
+			overflow: hidden;
+			left: 0%;
+			display: flex;
+			gap: 10px;
+			transition: all .4s cubic-bezier(0.215, 0.610, 0.355, 1);
+			align-items: center;
+			flex-direction: column;
+			background-color: #0e509b;
+		}
+
+		.sidenav a {
+			text-decoration: none;
+			width: 100%;
+			padding: 5% 0;
+			border: #fff;
+			transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+		}
+
+		.sidenav-desc {
+			display: flex;
+			padding-bottom: 20px;
+		}
+
+		.sidenav hr {
+			width: 100%;
+			height: 20px;
+			border-radius: 10px;
+			border: solid 2px rgb(7, 151, 223);
+			background-color: #fff;
+		}
+
+		.sidenav h1 {
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			color: #fff;
+			font-size: 25px;
+			text-align: center;
+		}
+
+		.sidenav a:hover {
+			border-radius: 20px;
+			background-color: rgb(131, 196, 218);
+		}
+
+		.sidenav-btn {
+			display: flex;
+			left: 17%;
+			transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			position: fixed;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.sidenav-btn button {
+			border-radius: 10px;
+			width: 50px;
+			color: #Fff;
+			border: none;
+			cursor: pointer;
+			margin: 20px 0 0 10px;
+			background-color: #0e509b;
+			height: 50px;
+		}
+
+		.sidenav-btn i {
+			font-size: larger;
+		}
+
+		.sidenav img {
+			width: 100px;
+			height: 100px;
+		}
+
 		#playerView {
-			position:relative;
-			-webkit-tap-highlight-color:rgba(0,0,0,0);
-			-webkit-user-select:none;
-			-moz-user-select:none;
-			-webkit-touch-callout:none;
-			-webkit-user-drag:none;
+			position: relative;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-webkit-touch-callout: none;
+			-webkit-user-drag: none;
 		}
+
 		#playerView * {
-			position:absolute;
+			position: absolute;
 		}
+
 		#preloader {
 			width: 50px;
 			height: 50px;
@@ -43,24 +152,59 @@
 			-webkit-animation: preloader_spin 1s infinite linear;
 		}
 
-		@keyframes preloader_spin { 0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);} }
-		@-webkit-keyframes preloader_spin { 0% {-webkit-transform: rotate(0deg);} 100% {-webkit-transform: rotate(360deg);}}
-    </style>
+		@keyframes preloader_spin {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		@-webkit-keyframes preloader_spin {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+	</style>
 </head>
+
 <body>
+	<div class="sidenav">
+        <div class="sidenav-box" id="sidenav">
+            <div class="sidenav-desc">
+                <img src="../Thumbnails25312011013150-removebg-preview.png" alt="logo">
+            </div>
+            <hr>
+                <a href="../Lich su(được phát hành)/index.html"><h1>Lịch sử Đội TNTP</h1></a>
+                <a href="../Dieu le(được phát hành)/index.html"><h1>Điều lệ Đội TNTP</h1></a>
+                <a href="../Nghi thuc(được phát hành)/index.html"><h1>Nghi thức Đội TNTP</h1></a>
+                <a href="../ky nang(được phát hành)/index.html"><h1>Kỹ năng Đội TNTP</h1></a>
+                <a href="../tro choi(được phát hành)/index.html"><h1>Trò chơi sinh hoạt Đội</h1></a>
+                <a href="../bai hat(được phát hành)/index.html"><h1>Bài hát sinh hoạt Đội</h1></a>
+                <a href="../Guong anh hung(được phát hành)/index.html"><h1>Gương sáng anh hùng</h1></a>
+				<a href="../tntp QUIZ GAME/index.html"><h1>TNTP's Quiz game</h1></a>
+        </div>
+        <div class="sidenav-btn">
+            <button id="btn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
 	<div id="preloader"></div>
 	<script src="data/browsersupport.js?436D3001"></script>
 	<script src="data/player.js?436D3001"></script>
-    <div id="content"></div>
-    <div id="spr0_16534ec"></div>
-    <script>
-		(function(startup){
-			function start(savedPresentationState)
-			{
+	<div id="content"></div>
+	<div id="spr0_16534ec"></div>
+	<script>
+		(function (startup) {
+			function start(savedPresentationState) {
 				var presInfo = "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";
 				PresentationPlayer.start(presInfo, "content", "playerView", onPlayerInit, savedPresentationState);
-				function onPlayerInit(player)
-				{
+				function onPlayerInit(player) {
 					(player);
 
 					var preloader = document.getElementById("preloader");
@@ -73,6 +217,23 @@
 			else
 				start();
 		})();
-    </script>
+		var sidenav = document.getElementById("sidenav")
+		var btn = document.getElementById("btn")
+		var btn_div = document.getElementsByClassName("sidenav-btn")[0]
+		sidenav.style.left = "-100%"
+		btn_div.style.left = "3%"
+		btn.addEventListener("click", function () {
+			if (sidenav.style.left == "-100%") {
+				sidenav.style.left = "0"
+				btn_div.style.left = "27%"
+				btn.innerHTML = `<i id='btn'class="fa-solid fa-xmark"></i>`
+			} else {
+				btn_div.style.left = "3%"
+				sidenav.style.left = "-100%"
+				btn.innerHTML = `<i id = "btn"class="fa-solid fa-bars"></i>`
+			}
+		})
+	</script>
 </body>
+
 </html>

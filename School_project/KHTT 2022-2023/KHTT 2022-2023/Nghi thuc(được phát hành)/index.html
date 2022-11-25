@@ -1,22 +1,48 @@
 <!DOCTYPE html>
-<!-- Created with iSpring --><!-- 1304 744 --><!--version 9.1.0.25298 --><!--type html --><!--mainFolder ./ -->
-<html style=background-color:#60a7d6;>
+<!-- Created with iSpring -->
+<!-- 1304 744 -->
+<!--version 9.1.0.25298 -->
+<!--type html -->
+<!--mainFolder ./ -->
+<html style="background-image: linear-gradient(to right, #297af4, #0088f5, #0094f4, #009ff0, #12a9eb);">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/><meta name="format-detection" content="telephone=no"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="msapplication-tap-highlight" content="no"/><title>Nghi thuc</title><link rel="apple-touch-icon-precomposed" href="data/apple-touch-icon.png"/><link rel="shortcut icon" type="image/ico" href="data/favicon.ico"/><style>body {background-color:#60a7d6;}#spr0_122966a {display:none;}</style>
-    
-    
-    <style>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<title>Nghi thuc</title>
+	<link rel="apple-touch-icon-precomposed" href="data/apple-touch-icon.png" />
+	<link rel="shortcut icon" type="image/ico" href="data/favicon.ico" />
+	<style>
+		body {
+			background-image: linear-gradient(to right, #297af4, #0088f5, #0094f4, #009ff0, #12a9eb);
+		}
+
+		#spr0_122966a {
+			display: none;
+		}
+	</style>
+
+	<script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+	<style>
 		#playerView {
-			position:relative;
-			-webkit-tap-highlight-color:rgba(0,0,0,0);
-			-webkit-user-select:none;
-			-moz-user-select:none;
-			-webkit-touch-callout:none;
-			-webkit-user-drag:none;
+			position: relative;
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-webkit-touch-callout: none;
+			-webkit-user-drag: none;
 		}
+
 		#playerView * {
-			position:absolute;
+			position: absolute;
 		}
+
 		#preloader {
 			width: 50px;
 			height: 50px;
@@ -43,24 +69,155 @@
 			-webkit-animation: preloader_spin 1s infinite linear;
 		}
 
-		@keyframes preloader_spin { 0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);} }
-		@-webkit-keyframes preloader_spin { 0% {-webkit-transform: rotate(0deg);} 100% {-webkit-transform: rotate(360deg);}}
-    </style>
+		.sidenav {
+			position: fixed;
+			display: flex;
+			z-index: 999999;
+		}
+
+		.sidenav-box {
+			position: fixed;
+			width: 300px;
+			height: 100%;
+			padding: 10px;
+			overflow: hidden;
+			left: 0%;
+			display: flex;
+			gap: 10px;
+			transition: all .4s cubic-bezier(0.215, 0.610, 0.355, 1);
+			align-items: center;
+			flex-direction: column;
+			background-color: #0e509b;
+			z-index: 99;
+		}
+
+		.sidenav a {
+			text-decoration: none;
+			width: 100%;
+			padding: 5% 0;
+			border: #fff;
+			transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+		}
+
+		.sidenav-desc {
+			display: flex;
+			padding-bottom: 20px;
+		}
+
+		.sidenav hr {
+			width: 100%;
+			height: 20px;
+			border-radius: 10px;
+			border: solid 2px rgb(7, 151, 223);
+			background-color: #fff;
+		}
+
+		.sidenav h1 {
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			color: #fff;
+			font-size: 25px;
+			text-align: center;
+		}
+
+		.sidenav a:hover {
+			border-radius: 20px;
+			background-color: rgb(131, 196, 218);
+		}
+
+		.sidenav-btn {
+			display: flex;
+			left: 17%;
+			transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			position: fixed;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.sidenav-btn button {
+			border-radius: 10px;
+			width: 50px;
+			color: #Fff;
+			border: none;
+			cursor: pointer;
+			margin: 20px 0 0 10px;
+			background-color: #0e509b;
+			height: 50px;
+		}
+
+		.sidenav-btn i {
+			font-size: larger;
+		}
+
+		.sidenav img {
+			width: 100px;
+			height: 100px;
+		}
+
+		@keyframes preloader_spin {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		@-webkit-keyframes preloader_spin {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+	</style>
 </head>
+
 <body>
+	<div class="sidenav">
+		<div class="sidenav-box" id="sidenav">
+			<div class="sidenav-desc">
+				<img src="../Thumbnails25312011013150-removebg-preview.png" alt="logo">
+			</div>
+			<hr>
+			<a href="../Lich su(được phát hành)/index.html">
+				<h1>Lịch sử Đội TNTP</h1>
+			</a>
+			<a href="../Dieu le(được phát hành)/index.html">
+				<h1>Điều lệ Đội TNTP</h1>
+			</a>
+			<a href="../Nghi thuc(được phát hành)/index.html">
+				<h1>Nghi thức Đội TNTP</h1>
+			</a>
+			<a href="../ky nang(được phát hành)/index.html">
+				<h1>Kỹ năng Đội TNTP</h1>
+			</a>
+			<a href="../tro choi(được phát hành)/index.html"><h1>Trò chơi sinh hoạt Đội</h1></a>
+			<a href="../bai hat(được phát hành)/index.html">
+				<h1>Bài hát sinh hoạt Đội</h1>
+			</a>
+			<a href="../Guong anh hung(được phát hành)/index.html">
+				<h1>Gương sáng anh hùng</h1>
+			</a>
+			<a href="../tntp QUIZ GAME/index.html"><h1>TNTP's Quiz game</h1></a>
+		</div>
+		<div class="sidenav-btn">
+			<button id="btn"><i class="fa-solid fa-bars"></i></button>
+		</div>
+	</div>
 	<div id="preloader"></div>
 	<script src="data/browsersupport.js?92573E72"></script>
 	<script src="data/player.js?92573E72"></script>
-    <div id="content"></div>
-    <div id="spr0_122966a"></div>
-    <script>
-		(function(startup){
-			function start(savedPresentationState)
-			{
+	<div id="content"></div>
+	<div id="spr0_122966a"></div>
+	<script>
+		(function (startup) {
+			function start(savedPresentationState) {
 				var presInfo = "eNq1WEtv48gR/isEgwUSwFYkWg/LOSSURNvE0KRWpMczmQyIFtmSek2RCh/yeA0BCfILcsxtF0GSS3LbSzyHHBzkfzi/JFXNh0RKtjyJY49tivXVq/ur6uq5E5l4It5JjUa71ZN6h91+v3XYVOTW4bHUlw87raYi9brtZrvbXIkHYgxgfTpjQjxLHPh8I540pOP6gTgTTzoS/HUA4AQhNRehLUntdrvbBdhiKZ5I9Ub7QEzQHYuihMXU7tYatbottaTu8c8QJZ58uBN9AFjh4/1ffOE8ePjOnwo682cg/gYEvYfv0Pe/vheWj59/K8Ts8fPvEuGfv3/8/AcmfKLC9ezhB9C4fvgbV6Gg4oN2PDuq1zu/mM4J82pOME+difVu86jZhNwlcfWRo7n7O/Eaf8HHOEzogUiKuBYL0Iz4R4AcSTzfCfEiyl/zp9XH1UGK9qMSuvk8elFGH+2xHW+iG3vQi+fRmOYaPCkH0ubgdCW2LXtlcOt58HITfPx8zNGuMJ5G0x1xPI2elNDdPehxCd15Hr1MSug9WS7dTXSz/jw6LsXdqe9ebYCL8xKDsWwjcbXitL9DQqfvvSoLDsQQ6SKuOOvvxElGjlXuNkJTDKJg/AHKnPnTmhlTTl+Wmme5MWDpSQO9YrW5JCa/+inz44VHbmnYqH0TZR0F/qjwR2q10/TW0BzlFoFCyHWeRp0XLISEz7V6vcFDbtY6zW6n2YKu1Gx1pI5EDxsNXJMDzCUr4+GpL3JLorGgvmASXqkJyDPPEz+u126CyUQEPRlyqNXbx8fNTrvVloBaA/QodaVu+7jT4m4rALcMmMLHfAvB93iv88YrOz8Qx9lGrqNge6OQXj0KthXFeH8YR/+vxVjHA7Z5y3fw17BUOl7+MMca8phLLTanHvOx4SzzfNYwzGt8ayIQUwkK4i42Kqwo2fRhWYBu8lefilffbvq4E8dJHAc+HGJ+TP245gfhnOD6/WjCv8BlBREsabhLPiEO3VBvScdjtyrOdZvjjuvgQQ5n54L4t1owDWpj4lxPwyDxXYScHuE3QGa3CxrC+lxnVnuDU9xiFsVqTOdlu0pDkRRpS7wIaRRRbrY7kCW5vYnwyJh668g6zeOmvC3fMHHKv7YhSxbBEMIh0CiOOk2cCsiUVhJr10nHbXOZD1qVrHPbqTCmn+JSVGmrqyhNmu7YJSgNFsniqXVchMEUk6jKO/i9KfcC4kITRuGgi9+bQgwADZQ2g9O4Ng5CN6NG5wgGIWzG5fhXnL93ONwVNVCwvMLhuKBphCra9hHjF0+losie8hpYcVN3WKMfxDkJr2loBQEfM0gcE2c2B1JH2A28bd0VP0ighHt237gYyvp7WzPODLunnkFa/ZS8ArL3xzCbfmq02j8Bu1W0eSFrWgUvcIVWvcDr1sjQbFBSNFtX3lk4tbLH+38shPjx85+cXTDj0tJUXcFmlz3tAA1HyltAaA9/Z4L3eP89y0CXo5GiW7apqQPFVk1bNywetaZYCnRB8X2QCDOypEIcCEtGb2BKpgIsFQupwPcbBdgTmJ/Q1ObAuJBV3R4ppjVS+5Zq6GDHDMLw9oBrkySeBSFYjQSXRWTsUZebBrJxOdYYeCAxC3wB/sUzBsgAhmy/lnu40jVDHtjycGhfKKYpn2H6VhEiKJSs3LB4BjKXBgdg6cZHbguTkFKBGaZAFguPOSkyGz2EIRA8czaSr1T9zLYMQzNtRR/kb8Cj4rvCICQY+k7wSDaVEeJCEkFNPAWxU2JwlCB73i7guXp2rsGPxQ2es+nMg594t9Whgms+pH4qhB1WRkAE07wyRgMeNygKRFiQKLqBei3t7ubKpfqq3jeAJ31r04aF0FwfFpz5cEELqRPnOuBT5tufsQvig42zrZTVSKx5EsUC9n6PxpT7ZhgYcfhWjOkEbnyCR8kypQY4SVtM6kGTL/X+ud2zdHjsKbiCGkl8Z1YSAxN3s2STEwms++bOZx4yJbtnvIPCwDuqsS0w3mDlvdkWvFdMzBN+c5Euv1XPZL4eUGd5dRRF5hAku3crEMeBDou7sGRBEsEbDBdqhOce1XZZM5WvL2GTVVl7qmRTZVhf/mnKljAW8Uad2YP+0FcGyKCvL9Vf2qeyqimDXVtGbgU/iAXiLonvUNgkh+Dq3YLMZS6XISu4m18n7FuBxFmj+CprMvpAeffVbrel7vMUYaBf0/ki3ucB08+ifNoZ8vlpTy9J5Dk3Zl/R5ZFqvNJyRmyeeGmbeuGiFgF88cLu9fWivL9gif87h2ba2hQ4cXgHxf+JqQrP0UZPNXjbdGlVrOqnKBqmXQ/aoupPgipIN3KcHgjPQ81zSDN1Z8IBM4ceVoW8hYjKPt9iH6rCrpSeqVrYs67oGIfKFMDJ+/KWyrm7r5duHNalHmaploYB6KA3zU7ISPDYnI+4uerlhZKHnbakclxXQeK5nNIeu+ZtCfJO5nT7tJ+EwZy/9UiUkyDtfj/f7ywLdZTaHm6dYgUrX752G6Tct4KmIo/guOnLep8fRX0kqleSAYkwfs0yiwML2DQnsTOD1jzho/gmPp3cBsqpDDp5oNbDX+fCNY6E8xK4ajl9LWSvT3Zg8WiEAlXWOh/0IKbRxyewGMAaaqbDH0z2Gd6SexVzZzMmOLOH+7U8G1ALxMXDDzDX3v8xQ6iwta8zNpK0i80DHOtruXkgSLaosmXJ/fML4JCZUiZIQoffrCvAC3n0BkqRj1UYML85CPnVoQLm6fNdjXfZ2hjUkzi76lcgL2pLGIylDm15MOA3C2QbDLDXaYd0Ya7L7tOCB1eMsk7/XNahtqtq1GXxbr2RohRXCZy508FXSy+H//7Nn1MY72h5SQHP088bLF/mDU6T30N2ME9iFcN6pT1nPaEWSl80o+62Wp5bC8vPTq67La3Htfx6U9TZ611s9rrmBfK/Oq6Uxmr1HzFI7r4=";
 				PresentationPlayer.start(presInfo, "content", "playerView", onPlayerInit, savedPresentationState);
-				function onPlayerInit(player)
-				{
+				function onPlayerInit(player) {
 					(player);
 
 					var preloader = document.getElementById("preloader");
@@ -73,6 +230,23 @@
 			else
 				start();
 		})();
-    </script>
+		var sidenav = document.getElementById("sidenav")
+		var btn = document.getElementById("btn")
+		var btn_div = document.getElementsByClassName("sidenav-btn")[0]
+		sidenav.style.left = "-100%"
+		btn_div.style.left = "3%"
+		btn.addEventListener("click", function () {
+			if (sidenav.style.left == "-100%") {
+				sidenav.style.left = "0"
+				btn_div.style.left = "27%"
+				btn.innerHTML = `<i id='btn'class="fa-solid fa-xmark"></i>`
+			} else {
+				btn_div.style.left = "3%"
+				sidenav.style.left = "-100%"
+				btn.innerHTML = `<i id = "btn"class="fa-solid fa-bars"></i>`
+			}
+		})
+	</script>
 </body>
+
 </html>

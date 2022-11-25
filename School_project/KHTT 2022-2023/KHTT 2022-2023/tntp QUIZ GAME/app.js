@@ -7,14 +7,41 @@ const que_text = document.querySelector(".que-text")
     const option_list = document.querySelector(".option-list")
 const timecount = quiz_box.querySelector(".timer .timer-sec")
 const time_line = quiz_box.querySelector("header .time-line")
-const cheersound  = new Audio("../School_project/cheering-sound-effect-free-copyright.mp3")
-const wrongsound = new Audio("../School_project/buzzer2-6109.mp3")
-const start_question  = new Audio("../School_project/mixkit-arcade-game-complete-or-approved-mission-205.wav")
+const cheersound  = new Audio("../cheering-sound-effect-free-copyright.mp3")
+const wrongsound = new Audio("../buzzer2-6109.mp3")
+const start_question  = new Audio("../mixkit-arcade-game-complete-or-approved-mission-205.wav")
+const result_box = document.querySelector(".result-box")
+const restart_quiz = result_box.querySelector(".buttons .restart")
+const quit_quiz = result_box.querySelector(".buttons .quiz")
 cheersound.currentTime= 0
 wrongsound.currentTime= 0
 start_question.currentTime= 0
+var point = 0 
 console.log(time_line);
-
+quit_quiz.onclick =()=>{
+    window.location.reload()
+}
+restart_quiz.onclick = ()=>{
+     que_num = 1
+     que_count = 0
+    counter;
+     timevalue = 15
+     widthvalue = 0;
+     counterline;
+    point = 0
+    
+    getcouter(que_num)
+        showquestions(que_count)
+        clearInterval(counter)
+        starttimer(timevalue)
+        clearInterval(counterline)
+        starttimerline(widthvalue) 
+    cheersound.currentTime= 0
+    wrongsound.currentTime= 0
+    start_question.currentTime= 0
+    result_box.classList.remove("activeresult")
+    quiz_box.classList.add("activequiz")
+}
 //start
 console.log(start_btn);
 start_btn.addEventListener("click", ()=>{
@@ -43,14 +70,17 @@ let counterline;
 const next_btn = document.querySelector(".next-btn")
 
 next_btn.addEventListener("click",()=>{
+    console.log(que_num);
     if(que_count < questions.length -1){
         cheersound.pause()
         wrongsound.pause()
         cheersound.currentTime= 0
+        console.log(que_num);
         wrongsound.currentTime= 0
         start_question.currentTime= 0
         que_count++
         que_num++
+        time_line.style.width = "0%"
         getcouter(que_num)
         showquestions(que_count)
         clearInterval(counter)
@@ -59,6 +89,10 @@ next_btn.addEventListener("click",()=>{
         starttimerline(widthvalue)
     }else {
         console.log('Questions completed');
+        cheersound.pause()
+        wrongsound.pause()
+        start_question.pause()
+        showresultbox()
     }
 })
 //show ques
@@ -98,6 +132,7 @@ function optionselect(answer){
     if(userans == correct){
         answer.classList.add("correct")
         cheersound.play()
+        point += 1
         answer.insertAdjacentHTML("beforeend", tick)
     }else {
         wrongsound.play()
@@ -126,19 +161,61 @@ function starttimer(time){
         if(time < 0){
             clearInterval(counter);
             timecount.textContent =  "00"
+            let correct = questions[que_count].answer
+            let alloption = option_list.children.length
+            for(let i = 0;i < alloption;i++){
+                if(option_list.children[i].textContent.trim() == correct){
+                    option_list.children[i].setAttribute("class", "option correct");
+                    option_list.children[i].insertAdjacentHTML("beforeend", tick)
+                }
+                wrongsound.play()
+            }
+            for(let i = 0;i < alloption;i++){
+                option_list.children[i].classList.add("dis")
+            }
+            next_btn.style.display = "block"
         }
+        
     }
 }
 
 function starttimerline(time){
     counterline = setInterval(timer,1000)
-    limitwidth = document.body.clientWidth*(50/100)
-    console.log(limitwidth);
+    timeplus = -(100/timevalue)
     function timer(){
-        time+= 10;
-        time_line.style.width = time + "%"
+            timeplus+= 100/timevalue;
+        time_line.style.width = timeplus + "%"
         if(time > 100){
             clearInterval(counterline);
         }
     }
 }
+function showresultbox(){
+    info_box.classList.remove("activeinfo")
+    quiz_box.classList.remove("activequiz")
+    result_box.classList.add("activeresult")
+    tag = "";
+    if(point <= 2){
+        tag = `<span>and sorry, You got only <p>${point}</p> out of <p>${que_num}</p>😥</span>`
+    }else {
+        tag = `<span>and congrants, You got <p>${point}</p> out of <p>${que_num}</p>😎</span>`
+    }
+    document.getElementById("insert").innerHTML = tag
+}
+// sidenav
+var sidenav = document.getElementById("sidenav")
+var btn  =document.getElementById("btn")
+var btn_div = document.getElementsByClassName("sidenav-btn")[0]
+sidenav.style.left = "-100%"
+btn_div.style.left = "3%"
+btn.addEventListener("click", function(){
+    if( sidenav.style.left == "-100%"){
+        sidenav.style.left = "0"
+        btn_div.style.left = "27%"
+        btn.innerHTML = `<i id='btn'class="fa-solid fa-xmark"></i>`
+    }else {
+        btn_div.style.left = "3%"
+        sidenav.style.left = "-100%"
+        btn.innerHTML = `<i id = "btn"class="fa-solid fa-bars"></i>`
+    }
+})
