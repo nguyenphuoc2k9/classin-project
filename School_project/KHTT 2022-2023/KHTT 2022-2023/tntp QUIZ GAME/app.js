@@ -163,13 +163,13 @@ function starttimer(time){
             timecount.textContent =  "00"
             let correct = questions[que_count].answer
             let alloption = option_list.children.length
-            for(let i = 0;i < alloption;i++){
-                if(option_list.children[i].textContent.trim() == correct){
-                    option_list.children[i].setAttribute("class", "option correct");
-                    option_list.children[i].insertAdjacentHTML("beforeend", tick)
-                }
-                wrongsound.play()
-            }
+            // for(let i = 0;i < alloption;i++){
+            //     if(option_list.children[i].textContent.trim() == correct){
+            //         option_list.children[i].setAttribute("class", "option correct");
+            //         option_list.children[i].insertAdjacentHTML("beforeend", tick)
+            //     }
+            //     wrongsound.play()
+            // }
             for(let i = 0;i < alloption;i++){
                 option_list.children[i].classList.add("dis")
             }
