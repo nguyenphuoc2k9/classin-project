@@ -9,7 +9,6 @@ body{
 .sidenav{
     position: fixed;
     display: flex;
-    z-index: 999999;
 }
 .sidenav-box{
     position: fixed;
@@ -24,14 +23,19 @@ body{
     align-items: center;
     flex-direction:column ;
     background-color: #0e509b;
-    z-index: 99;
+    z-index: 999999;
+}
+.tags{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
 }
 .sidenav a{
     text-decoration: none;
     width: 100%;
-    padding: 5% 0;
     border: #fff;
-    transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 .sidenav-desc{
     display: flex;
@@ -48,11 +52,12 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #fff;
     font-size: 25px;
+    padding: 5% 0;
     text-align: center;
 }
-.sidenav a:hover{
-    border-radius: 20px;
-    background-color: rgb(131, 196, 218);
+.sidenav h1:hover{
+    transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+    background-color: rgb(48 176 219);
 }
 .sidenav-btn {
     display: flex;
@@ -78,6 +83,39 @@ body{
 .sidenav img {
     width: 100px;
     height: 100px;
+}
+.dropdown-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.dropdown-box h1{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    color: #fff;
+    margin-bottom: 1%;
+    cursor: pointer;
+}
+.dropdown{
+    display: none;
+    background-color: #498d8d;
+}
+.dropdown.active{
+    display: block;
+
+}
+.dropdown ul{
+    list-style: none;
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:space-around;
+}
+.dropdown-box h1.active{
+    background-color: rgb(48 176 219);
+}
+.dropdown li{
+    font-size: medium;
+    width: 100%;
 }
 .quizz-game{
     width: 100%;
@@ -193,7 +231,9 @@ body{
     background-color: #007bff;
 }
 .quiz-box{
-    width: 50%;
+    width: 80%;
+    max-height: 95%;
+    height: 100%;
     opacity: 0;
     overflow: hidden;
     pointer-events: none;
@@ -263,7 +303,7 @@ body{
     background: #Fff;
 }
 .quiz-box section .que-text{
-    font-size: 25px;
+    font-size:large;
     font-weight: 600;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -277,7 +317,7 @@ body{
     border: 1px solid #84c5fe;
     font-family:monospace ;
     border-radius: 5px;
-    padding: 5% 15px;
+    padding: 2% 15px;
     font-weight: bolder;
     margin-bottom: 15px;
     font-size: 17px;

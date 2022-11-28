@@ -33,7 +33,7 @@
 		.sidenav {
 			position: fixed;
 			display: flex;
-			z-index: 999;
+			z-index: 99;
 		}
 
 		.sidenav-box {
@@ -49,14 +49,21 @@
 			align-items: center;
 			flex-direction: column;
 			background-color: #0e509b;
+			z-index: 999999;
+		}
+
+		.tags {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: space-around;
 		}
 
 		.sidenav a {
 			text-decoration: none;
 			width: 100%;
-			padding: 5% 0;
 			border: #fff;
-			transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
 		}
 
 		.sidenav-desc {
@@ -76,12 +83,13 @@
 			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 			color: #fff;
 			font-size: 25px;
+			padding: 5% 0;
 			text-align: center;
 		}
 
-		.sidenav a:hover {
-			border-radius: 20px;
-			background-color: rgb(131, 196, 218);
+		.sidenav h1:hover {
+			transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+			background-color: rgb(48 176 219);
 		}
 
 		.sidenav-btn {
@@ -111,6 +119,46 @@
 		.sidenav img {
 			width: 100px;
 			height: 100px;
+		}
+
+		.dropdown-box {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.dropdown-box h1 {
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			color: #fff;
+			margin-bottom: 1%;
+			cursor: pointer;
+		}
+
+		.dropdown {
+			display: none;
+			background-color: #498d8d;
+		}
+
+		.dropdown.active {
+			display: block;
+
+		}
+
+		.dropdown ul {
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: space-around;
+		}
+
+		.dropdown-box h1.active {
+			background-color: rgb(48 176 219);
+		}
+
+		.dropdown li {
+			font-size: medium;
+			width: 100%;
 		}
 
 		#playerView {
@@ -176,24 +224,61 @@
 
 <body>
 	<div class="sidenav">
-        <div class="sidenav-box" id="sidenav">
-            <div class="sidenav-desc">
-                <img src="../Thumbnails25312011013150-removebg-preview.png" alt="logo">
-            </div>
-            <hr>
-                <a href="../Lich su(được phát hành)/index.html"><h1>Lịch sử Đội TNTP</h1></a>
-                <a href="../Dieu le(được phát hành)/index.html"><h1>Điều lệ Đội TNTP</h1></a>
-                <a href="../Nghi thuc(được phát hành)/index.html"><h1>Nghi thức Đội TNTP</h1></a>
-                <a href="../ky nang(được phát hành)/index.html"><h1>Kỹ năng Đội TNTP</h1></a>
-                <a href="../tro choi(được phát hành)/index.html"><h1>Trò chơi sinh hoạt Đội</h1></a>
-                <a href="../bai hat(được phát hành)/index.html"><h1>Bài hát sinh hoạt Đội</h1></a>
-                <a href="../Guong anh hung(được phát hành)/index.html"><h1>Gương sáng anh hùng</h1></a>
-				<a href="../tntp QUIZ GAME/index.html"><h1>TNTP's Quiz game</h1></a>
-        </div>
-        <div class="sidenav-btn">
-            <button id="btn"><i class="fa-solid fa-bars"></i></button>
-        </div>
-    </div>
+		<div class="sidenav-box" id="sidenav">
+			<div class="sidenav-desc">
+				<img src="../Thumbnails25312011013150-removebg-preview.png" alt="logo">
+			</div>
+			<hr>
+			<div class="tags">
+				<a href="../home/index.html">
+					<h1>Home</h1>
+				</a>
+				<div class="dropdown-box">
+					<h1 onclick="dropdown(this)">Nghiên cứu về đội TNTP</h1>
+					<div class="dropdown">
+						<ul>
+							<li><a href="../Lich su(được phát hành)/index.html">
+									<h1>Lịch sử Đội TNTP</h1>
+								</a></li>
+							<li><a href="../Dieu le(được phát hành)/index.html">
+									<h1>Điều lệ Đội TNTP</h1>
+								</a></li>
+							<li><a href="../Nghi thuc(được phát hành)/index.html">
+									<h1>Nghi thức Đội TNTP</h1>
+								</a></li>
+							<li><a href="../ky nang(được phát hành)/index.html">
+									<h1>Kỹ năng Đội TNTP</h1>
+								</a></li>
+							<li><a href="../Guong anh hung(được phát hành)/index.html">
+									<h1>Gương sáng anh hùng</h1>
+								</a></li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="dropdown-box">
+					<h1 onclick="dropdown(this)">Các hoạt động của đội</h1>
+					<div class="dropdown">
+						<ul>
+							<li><a href="../tro choi(được phát hành)/index.html">
+									<h1>Trò chơi sinh hoạt Đội</h1>
+								</a></li>
+							<li><a href="../bai hat(được phát hành)/index.html">
+									<h1>Bài hát sinh hoạt Đội</h1>
+								</a></li>
+							<li><a href="../tntp QUIZ GAME/index.html">
+									<h1>Thử thách đội TNTP</h1>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="sidenav-btn">
+			<button id="btn"><i class="fa-solid fa-bars"></i></button>
+		</div>
+	</div>
 	<div id="preloader"></div>
 	<script src="data/browsersupport.js?AFF41D34"></script>
 	<script src="data/player.js?AFF41D34"></script>
@@ -233,6 +318,18 @@
 				btn.innerHTML = `<i id = "btn"class="fa-solid fa-bars"></i>`
 			}
 		})
+		function dropdown(e) {
+			var parent = e.parentElement
+			e.classList.toggle("active")
+			var dropdown = parent.getElementsByClassName("dropdown")[0]
+			dropdown.classList.toggle("active")
+		}
+		function dropdown(e){
+    var parent = e.parentElement
+    e.classList.toggle("active")
+    var dropdown = parent.getElementsByClassName("dropdown")[0]
+    dropdown.classList.toggle("active")
+}
 	</script>
 </body>
 
