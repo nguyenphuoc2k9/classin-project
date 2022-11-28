@@ -265,6 +265,7 @@ body{
 .quiz-box section .que-text{
     font-size: 25px;
     font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .quiz-box section .option-list{
     padding: 20px 0;
@@ -274,8 +275,10 @@ body{
 .quiz-box section .option-list .option{
     background: aliceblue;
     border: 1px solid #84c5fe;
+    font-family:monospace ;
     border-radius: 5px;
     padding: 5% 15px;
+    font-weight: bolder;
     margin-bottom: 15px;
     font-size: 17px;
     display: flex;
@@ -331,6 +334,7 @@ body{
 }
 .quiz-box footer .total-quiz span{
     display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     user-select: none;
 }
 footer .total-quiz span p{

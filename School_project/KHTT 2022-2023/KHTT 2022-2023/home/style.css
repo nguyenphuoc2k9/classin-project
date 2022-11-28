@@ -56,7 +56,7 @@ body{
 }
 .sidenav h1:hover{
     transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
-    background-color: rgb(131, 196, 218);
+    background-color: rgb(48 176 219);
 }
 .sidenav-btn {
     display: flex;
@@ -96,7 +96,7 @@ body{
 }
 .dropdown{
     display: none;
-    background-color: #aed4e7;
+    background-color: #498d8d;
 }
 .dropdown.active{
     display: block;
@@ -110,7 +110,7 @@ body{
     justify-content:space-around;
 }
 .dropdown-box h1.active{
-    background-color: rgb(131, 196, 218);
+    background-color: rgb(48 176 219);
 }
 .dropdown li{
     font-size: medium;
