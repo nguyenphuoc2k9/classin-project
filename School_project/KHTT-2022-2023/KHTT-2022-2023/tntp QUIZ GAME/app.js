@@ -196,9 +196,9 @@ function showresultbox(){
     result_box.classList.add("activeresult")
     tag = "";
     if(point <= 5){
-        tag = `<span>and sorry, You got only <p>${point}</p> out of <p>${que_num}</p>😥</span>`
+        tag = `<span>Bạn chỉ trả lời đúng <p>${point}</p>trong số <p>${que_num} câu hỏi</p>😥</span>`
     }else {
-        tag = `<span>and congrants, You got <p>${point}</p> out of <p>${que_num}</p>😎</span>`
+        tag = `<span>Chúc mừng, Bạn đã trả lời đúng<p>${point}</p>câu, trong số <p>${que_num} câu hỏi</p>😎</span>`
     }
     document.getElementById("insert").innerHTML = tag
 }
