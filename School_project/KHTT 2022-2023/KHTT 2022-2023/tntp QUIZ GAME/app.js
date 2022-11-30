@@ -219,3 +219,9 @@ btn.addEventListener("click", function(){
         btn.innerHTML = `<i id = "btn"class="fa-solid fa-bars"></i>`
     }
 })
+function dropdown(e){
+    var parent = e.parentElement
+    e.classList.toggle("active")
+    var dropdown = parent.getElementsByClassName("dropdown")[0]
+    dropdown.classList.toggle("active")
+}
