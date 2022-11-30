@@ -225,3 +225,14 @@ function dropdown(e){
     var dropdown = parent.getElementsByClassName("dropdown")[0]
     dropdown.classList.toggle("active")
 }
+function googleTranslateElementInit(){
+    new google.translate.TranslateElement(
+        {pageLanguage:"Vietnamese"},
+        "google_translate_element"
+    )
+    var translate = document.getElementById("google_translate_element")
+    translate.querySelector("span").style.display = "none"
+    console.log();
+    var child = translate.firstChild.removeChild(translate.firstChild.childNodes[1])
+    console.log();
+}

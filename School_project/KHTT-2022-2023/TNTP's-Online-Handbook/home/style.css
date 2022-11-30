@@ -208,3 +208,17 @@ body{
     flex-basis: 48%;
     text-align: center;
 }
+#google_translate_element{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+#google_translate_element select{
+    border-radius: 10px;
+    border: #0236ca 2px solid;
+    background-color: #0094f4;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+}

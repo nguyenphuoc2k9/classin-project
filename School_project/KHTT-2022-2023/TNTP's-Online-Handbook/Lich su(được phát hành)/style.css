@@ -146,6 +146,19 @@
     animation: preloader_spin 1s infinite linear;
     -webkit-animation: preloader_spin 1s infinite linear;
 }
-
+#google_translate_element{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+#google_translate_element select{
+    border-radius: 10px;
+    border: #0236ca 2px solid;
+    background-color: #0094f4;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+}
 @keyframes preloader_spin { 0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);} }
 @-webkit-keyframes preloader_spin { 0% {-webkit-transform: rotate(0deg);} 100% {-webkit-transform: rotate(360deg);}}
