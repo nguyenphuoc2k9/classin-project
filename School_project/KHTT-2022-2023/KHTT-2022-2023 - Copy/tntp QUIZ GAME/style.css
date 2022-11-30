@@ -151,8 +151,6 @@ body{
 }
 .start-btn button{
     font-size: 25px;
-    font-weight: 500;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding: 15px 30px;
     color: #007bff;
     border: none;
@@ -232,7 +230,6 @@ body{
 .quiz-box{
     width: 80%;
     max-height: 95%;
-    height: 100%;
     opacity: 0;
     overflow: hidden;
     pointer-events: none;
@@ -271,8 +268,9 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 145px;
-    height: 45px;
+    width: 20%;
+    font-family: cursive;
+    height: 60%;
     background:#cce5ff ;
     border: 1px solid #b8daff;
     border-radius: 5px;
