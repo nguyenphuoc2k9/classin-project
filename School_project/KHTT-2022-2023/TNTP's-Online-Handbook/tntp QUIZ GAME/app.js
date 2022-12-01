@@ -99,10 +99,10 @@ next_btn.addEventListener("click",()=>{
 function showquestions(index){
     start_question.play()
     next_btn.style.display = "none"
-    let option_tag = `<div class='option' value = "${questions[index].options[0]"> ${questions[index].options[0]}</div>
-    <div class='option' value = "${questions[index].options[1]"> ${questions[index].options[1]}</div>
-    <div class='option'value = "${questions[index].options[2]"> ${questions[index].options[2]}</div>
-    <div class='option'value = "${questions[index].options[3]"> ${questions[index].options[3]}</div>`
+    let option_tag = `<div class='option' value = "${questions[index].options[0]}"> ${questions[index].options[0]}</div>
+    <div class='option' value = "${questions[index].options[1]}"> ${questions[index].options[1]}</div>
+    <div class='option'value = "${questions[index].options[2]}"> ${questions[index].options[2]}</div>
+    <div class='option'value = "${questions[index].options[3]}"> ${questions[index].options[3]}</div>`
     let que_tag = `<span>${questions[index].id}. ${questions[index].question}</span>` 
     que_text.innerHTML = que_tag;
     option_list.innerHTML = option_tag;
