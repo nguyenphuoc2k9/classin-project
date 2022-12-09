@@ -1,0 +1,6 @@
+print("List of names :")
+file = open("homework\lesson 12\)bài 1\_ames.txt","r")
+file.flush()
+print(f"- {file.readline()}")
+print(f"- {file.readline()}")
+print(f"- {file.readline()}")
