@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TNTP's Qizzy game</title>
+    <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidenav">
+        <div class="sidenav-box" id="sidenav">
+            <div class="sidenav-desc">
+                <img src="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png" alt="logo">
+            </div>
+            <hr>
+            <div class="tags">
+                <a href="../home/index.html">
+                    <h1>Home</h1>
+                </a>
+                <div class="dropdown-box">
+                    <h1 onclick="dropdown(this)">Nghiên cứu về đội TNTP</h1>
+                    <div class="dropdown">
+                        <ul>
+                            <li><a href="../Lich su(được phát hành)/index.html">
+                                    <h1>Lịch sử Đội TNTP</h1>
+                                </a></li>
+                            <li><a href="../Dieu le(được phát hành)/index.html">
+                                    <h1>Điều lệ Đội TNTP</h1>
+                                </a></li>
+                            <li><a href="../Nghi thuc(được phát hành)/index.html">
+                                    <h1>Nghi thức Đội TNTP</h1>
+                                </a></li>
+                            <li><a href="../ky nang(được phát hành)/index.html">
+                                    <h1>Kỹ năng Đội TNTP</h1>
+                                </a></li>
+                            <li><a href="../Guong anh hung(được phát hành)/index.html">
+                                    <h1>Gương sáng anh hùng</h1>
+                                </a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="dropdown-box">
+                    <h1 onclick="dropdown(this)">Các hoạt động của đội</h1>
+                    <div class="dropdown">
+                        <ul>
+                            <li><a href="../tro choi(được phát hành)/index.html">
+                                    <h1>Trò chơi sinh hoạt Đội</h1>
+                                </a></li>
+                            <li><a href="../bai hat(được phát hành)/index.html">
+                                    <h1>Bài hát sinh hoạt Đội</h1>
+                                </a></li>
+                            <li><a href="../tntp QUIZ GAME/index.html">
+                                    <h1>Thử thách đội TNTP</h1>
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+            <div id="google_translate_element"></div>
+        </div>
+        <div class="sidenav-btn">
+            <button id="btn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </div>
+    <div class="quizz-game">
+        <div class="start-btn">
+            <button>Bắt đầu</button>
+        </div>
+        <!-- info box -->
+        <div class="info-box">
+            <div class="info-title">
+                <span>Các điều luật của thử thách</span>
+            </div>
+            <div class="info-list">
+                <div class="info">Có tổng cộng 10 câu hỏi</div>
+                <div class="info">Các bạn có 15 giây cho mỗi câu</div>
+                <div class="info">Các câu hỏi đều liên quan đến đội thiếu niên tiền phong</div>
+                <div class="info">Hãy hoàn thành thật xuất sắc nhé😁</div>
+            </div>
+            <div class="buttons">
+                <button class="quit">Thoát</button>
+                <button class="restart">Vào</button>
+            </div>
+        </div>
+
+        <!-- quiz box -->
+        <div class="quiz-box">
+            <header>
+                <div class="title">
+                    Thử thách đội TNTP's Hồ Chí Minh
+                </div>
+                <div class="timer">
+                    <div class="timer-text">Thời gian còn lại</div>
+                    <div class="timer-sec">15</div>
+                </div>
+                <div class="time-line"></div>
+            </header>
+            <section>
+                <div class="que-text">
+                    <span>What does ... stand for?</span>
+                </div>
+                <div class="option-list">
+                    <div class="option">
+                        <span>A</span>
+                        <div class="icon tick"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="option">
+                        <span>B</span>
+                        <div class="icon cross"><i class="fa-solid fa-times"></i></div>
+                    </div>
+                    <div class="option">
+                        <span>C</span>
+                    </div>
+                    <div class="option">
+                        <span>D</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- quiz footer -->
+            <footer>
+                <div class="total-quiz">
+                    <span>
+                        <p>2</p>trong số <p>5 </p>câu hỏi
+                    </span>
+                </div>
+                <button class="next-btn">Câu hỏi tiếp theo</button>
+            </footer>
+        </div>
+        <div class="result-box">
+            <div class="icon">
+                <i class="fa-solid fa-crown"></i>
+            </div>
+            <div class="complete-text">
+                Bạn đã hoàn thành trò chơi!
+            </div>
+            <div class="score-text">
+                <span id="insert">and sorry, You got only <p>2</p> out of <p>5</p></span>
+            </div>
+            <div class="buttons">
+                <button class="restart">Chơi lại</button>
+                <button class="quiz">Thoát</button>
+            </div>
+        </div>
+    </div>
+    <!-- quizzy start btn -->
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

@@ -9,6 +9,7 @@ body{
 .sidenav{
     position: fixed;
     display: flex;
+    z-index: 99999;
 }
 .sidenav-box{
     position: fixed;
@@ -134,7 +135,6 @@ body{
 }
 .info-box.activeinfo{
     opacity: 1;
-    z-index: 5;
     pointer-events: auto;
     transform: translate(-50%,-50%) scale(1);
 }
@@ -142,7 +142,6 @@ body{
     opacity: 1;
     z-index: 5;
     pointer-events: auto;
-    transform: translate(-50%,-50%) scale(1);
 }
 .result-box.activeresult{
     opacity: 1;
@@ -255,6 +254,7 @@ body{
 }
 .quiz-box header .title{
     font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: 600;
 }
 .quiz-box header .time-line{
@@ -308,7 +308,7 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .quiz-box section .option-list{
-    padding: 20px 0;
+    padding: 10px 0;
     display: block;
 }
 
