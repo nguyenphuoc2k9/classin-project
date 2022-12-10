@@ -15,8 +15,8 @@
     $con = mysqli_connect("localhost","root","","teen-project-database") or die("khong the ket noi toi database");
     $query = "SELECT * FROM users WHERE id = '$id'";
     $result = mysqli_query($con,$query);
-    include("./index.php");
-    include("./app.php");
+    include("./profile/index.php");
+    include("./profile/app.php");
     if(isset($_POST['file-btn'])){
         $name = $_POST['name'];
         $gmail = $_POST['gmail'];
@@ -53,5 +53,5 @@
         }
     }
     //file update
-    include("./style.php");
+    include("./profile/style.php");
 ?>

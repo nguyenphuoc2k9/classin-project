@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("./index.php");
-include("./style.php");
+include("./Sigh in/index.php");
+include("./Sigh in/style.php");
     $con =mysqli_connect("localhost","root","","teen-project-database") or die("khong the ket noi toi database");
     $check = false;
     // if($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
@@ -67,7 +67,7 @@ include("./style.php");
                 echo '<script type ="text/JavaScript">';  
                 echo 'alert("Sigh In succes")';  
                 echo '</script>'; 
-                header('Location:../Login/Login.php');
+                header('Location:./Login.php');
             }
         }
     }

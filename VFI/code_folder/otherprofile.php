@@ -5,7 +5,7 @@
     $id = $_GET['id'];
     $result = mysqli_query($con, "SELECT * FROM users WHERE id='$id'");
     
-    include("./index2.php");
-    include("./style.php");
-    include("./app.php");
+    include("./profile/index2.php");
+    include("./profile/style.php");
+    include("./profile/app.php");
 ?>

@@ -14,7 +14,7 @@
             header("Location:./admin-login.php");
         }
     }
-    include "./style.php";
+    include "./admin_page/style.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

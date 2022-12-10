@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="icon" href="../VFI__3_-removebg-preview.png">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="login">

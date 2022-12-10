@@ -1,5 +1,5 @@
 <?php
-    include "./conn.php";
+    include "./admin_page/conn.php";
     $query = mysqli_query($con, "SELECT * FROM users");
     if(!isset($_SESSION['admin-name'])){
         header("Location:./admin-login.php");
@@ -68,7 +68,7 @@
                                 if($row['img']==null){
                                     $img = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Fgray-user-management%2F512%2Frounded-512.png&f=1&nofb=1";
                                 } else {
-                                    $img = "../user upload/" . $row['img'];
+                                    $img = "./user upload/" . $row['img'];
                                 }
                         ?>
                             <tr>
@@ -76,7 +76,7 @@
                                 <td><p><?php echo $id?></p></td>
                                 <td><p><?php echo $username?></p></td>
                                 <td><p><?php echo $password?></p></td>
-                                <td><a href="./action/delete.php?id=<?php echo $id?>&&query=user" class="dele only">Delete<i class="fa-solid fa-trash-can"></i></a></td>
+                                <td><a href="./admin_page/action/delete.php?id=<?php echo $id?>&&query=user" class="dele only">Delete<i class="fa-solid fa-trash-can"></i></a></td>
                             </tr>
                             <?php
                             }

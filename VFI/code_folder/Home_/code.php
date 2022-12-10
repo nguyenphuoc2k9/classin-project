@@ -4,7 +4,7 @@
     $con = mysqli_connect("localhost","root","","teen-project-database") or die("khong the ket noi toi database");
     $query = mysqli_query($con, "SELECT * FROM users WHERE id='$id'");
     if(!isset($_SESSION['username'])){
-        header("Location:../Login/login.php");
+        header("Location:./login.php");
     }
     if($_SESSION['username'] == null){
         echo "<script type='text/javascript'>";

@@ -38,12 +38,13 @@ session_start();
             if($num == 1){
                 $_SESSION['username'] = $name;
                 $_SESSION['id'] = $row['id'];
-                header("Location:../Home_/home.php");
+                header("Location:./home.php");
             } else {
                 header('Location:./login.php');
             }
         
         }
     }
-    include("./index.php");
+    include("./Login/index.php");
+    include("./Login/style.php");
 ?>

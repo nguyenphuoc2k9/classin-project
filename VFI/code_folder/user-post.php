@@ -143,7 +143,7 @@
                             <td><p><?php echo $title_pre?></p></td>
                             <td><p><?php echo $desc_pre?></p></td>
                             <td><img src="<?php echo $img?>" alt=""></td>
-                            <td><a href="./action/deny.php?id=<?php echo $id_pre?>" class="deny">Deny<i class="fa-solid fa-xmark"></i></a><a href="./action/accept.php?id=<?php echo $id_pre?>" class="ap">Accept<i class="fa-solid fa-check"></i></a></td>
+                            <td><a href="./admin_page/action/deny.php?id=<?php echo $id_pre?>" class="deny">Deny<i class="fa-solid fa-xmark"></i></a><a href="./action/accept.php?id=<?php echo $id_pre?>" class="ap">Accept<i class="fa-solid fa-check"></i></a></td>
                         </tr>
                         <?php
                             }

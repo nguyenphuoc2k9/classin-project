@@ -1,5 +1,5 @@
 <?php
-        include "./include.php";  
+        include "./search_result/include.php";  
 ob_start();
     session_start();
     $con = mysqli_connect("localhost","root","","teen-project-database");
@@ -21,7 +21,7 @@ ob_start();
     $nums = mysqli_num_rows($result);
     $nums2 = mysqli_num_rows($result2);
     $nums3 = mysqli_num_rows($result3);
-    include "./index.php";
-    include "./app.php";
-    include "./style.php";
+    include "./search_result/index.php";
+    include "./search_result/app.php";
+    include "./search_result/style.php";
     ?>

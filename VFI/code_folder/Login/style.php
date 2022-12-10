@@ -1,3 +1,4 @@
+<style>
 *{
     margin: 0;
     padding: 0;
@@ -187,3 +188,4 @@ span{
     opacity: 1;
     z-index: 1;
 }
+</style>

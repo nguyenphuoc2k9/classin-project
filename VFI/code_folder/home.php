@@ -1,12 +1,12 @@
 <?php
 ob_start();
-    include("./code.php");
-    include("./style.php");
-    include ("./app.php");
+    include("./Home_/code.php");
+    include("./Home_/style.php");
+    include ("./Home_/app.php");
     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
-        $img = "../user upload/" . $row['img'];
+        $img = "./user upload/" . $row['img'];
         if($row['img'] == null){
-            $_SESSION['img'] = "../user upload/img.png";
+            $_SESSION['img'] = "./user upload/img.png";
         } else {
             $_SESSION['img'] = $img;
         }
@@ -19,7 +19,7 @@ ob_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="icon" href="../VFI__3_-removebg-preview.png">
+    <link rel="icon" href="./VFI__3_-removebg-preview.png">
     <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -28,7 +28,7 @@ ob_start();
     <div class="header">
         <div class="header-box">
             <div class="head-logo">
-                <a  class ="logo-image" href="#"><img src="../VFI__3_-removebg-preview.png" alt="logo"></a>
+                <a  class ="logo-image" href="#"><img src="./VFI__3_-removebg-preview.png" alt="logo"></a>
                 <?php
                     if(isset($_POST['search-btn'])){
                         $_SESSION['k'] = $_POST['k'];
@@ -36,25 +36,25 @@ ob_start();
                         $_SESSION['k'] = null;
                     }
                 ?>
-                <form action = "../search_result/search.php?k=<?php echo $_SESSION['k']?>">
+                <form action = "./search.php?k=<?php echo $_SESSION['k']?>">
                     <input type="text" name = "k" placeholder="Enter the things that you want to search">
                     <button type="submit" name="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
                 <div class="userinfo">
-                    <h1><a href="../profile/profile.php?id=<?php echo $_SESSION['id'];?>"><img src="<?php echo $_SESSION['img'] ?>"></a> <?php echo $_SESSION['username']; ?></h1>
+                    <h1><a href="./profile.php?id=<?php echo $_SESSION['id'];?>"><img src="<?php echo $_SESSION['img'] ?>"></a> <?php echo $_SESSION['username']; ?></h1>
                     <div class="dropdown">
                         <i onclick="drop()"id='dropbtn'class="fa-solid fa-angle-down"></i>
                         <div class="dropdown-content" id="dropdown">
-                        <a href="../Login/logout.php">Sigh Out</a>
+                        <a href="./logout.php">Sigh Out</a>
                     </div>
                 </div>
                 </div>
             </div>
             <div class="head-con">
-                <a class="head-text" href="../Home_/home.php"><i class="fa-solid fa-house"></i>Home</a>
-                <a class="head-text" href="../News/new.php"><i class="fa-solid fa-newspaper"></i>News</a>
-                <a href="../Create/create.php" class="head-text"><i class="fa-solid fa-plus"></i>Create</a>
-                <a href="../Virus Forecast/index.php" class="head-text"><i class="fa-solid fa-virus"></i>Covid-19 details</a>
+                <a class="head-text" href="./home.php"><i class="fa-solid fa-house"></i>Home</a>
+                <a class="head-text" href="./new.php" class="fa-solid fa-newspaper"></i>News</a>
+                <a href="./create.php" class="head-text"><i class="fa-solid fa-plus"></i>Create</a>
+                <a href="./virus.php" class="head-text"><i class="fa-solid fa-virus"></i>Covid-19 details</a>
             </div>
         </div>
     </div>
@@ -74,7 +74,7 @@ ob_start();
                                     $title = $row['title'];
                                     $desc = $row['descrition'];
                                     $id = $row['id'];
-                                    $img = "../web img/" . $row['img'];
+                                    $img = "./web img/" . $row['img'];
                                 }
                                 $l--;
                             }
@@ -92,7 +92,7 @@ ob_start();
                         <div class="main-title">
                             <h1><?php echo $title;?></h1>
                         </div>
-                        <p><?php echo $desc?></p><a href="../detail/detail.php?id=<?php echo $id?>&&tt=webpost">Read more</a>
+                        <p><?php echo $desc?></p><a href="./detail.php?id=<?php echo $id?>&&tt=webpost">Read more</a>
                     </div>
                 </div>
                 <?php
@@ -102,7 +102,7 @@ ob_start();
                             $title_ext = $row2['title'];
                             $desc_ext = $row2['descrition'];
                             $id = $row2['id'];
-                            $img = "../web img/" . $row2['img'];
+                            $img = "./web img/" . $row2['img'];
                         } else {
                             $title_ext = null;
                             $desc_ext = null;
@@ -118,7 +118,7 @@ ob_start();
                         <div class="main-title">
                             <h1><?php echo $title_ext?></h1>
                         </div>
-                        <p><?php echo $desc_ext?></p><a href="../detail/detail.php?id=<?php echo $id?>&&tt=webpost">Read more</a>
+                        <p><?php echo $desc_ext?></p><a href="./detail.php?id=<?php echo $id?>&&tt=webpost">Read more</a>
                     </div>
                     </div>`
                     var title = new String("<?php echo $title_ext?>")

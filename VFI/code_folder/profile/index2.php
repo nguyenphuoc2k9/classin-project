@@ -20,7 +20,7 @@
     <div class="header">
         <div class="header-box">
             <div class="head-logo">
-                <a  class ="logo-image" href="#"><img src="../VFI__3_-removebg-preview.png" alt="logo"></a>
+                <a  class ="logo-image" href="#"><img src="./VFI__3_-removebg-preview.png" alt="logo"></a>
                 <?php
                     if(isset($_POST['search-btn'])){
                         $_SESSION['k'] = $_POST['k'];
@@ -28,25 +28,25 @@
                         $_SESSION['k'] = null;
                     }
                 ?>
-                <form action = "../search_result/search.php?k=<?php echo $_SESSION['k']?>">
+                <form action = "./search.php?k=<?php echo $_SESSION['k']?>">
                     <input type="text" name = "k" placeholder="Enter the things that you want to search">
                     <button type="submit" name="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
                 <div class="userinfo">
-                    <h1><a href="../profile/profile.php?id=<?php echo $_SESSION['id'];?>"><img src="<?php echo $_SESSION['img'] ?>"></a> <?php echo $_SESSION['username']; ?></h1>
+                    <h1><a href="./profile.php?id=<?php echo $_SESSION['id'];?>"><img src="<?php echo $_SESSION['img'] ?>"></a> <?php echo $_SESSION['username']; ?></h1>
                     <div class="dropdown">
                         <i onclick="drop()"id='dropbtn'class="fa-solid fa-angle-down"></i>
                         <div class="dropdown-content" id="dropdown">
-                        <a href="../Login/logout.php">Sigh Out</a>
+                        <a href="./Login/logout.php">Sigh Out</a>
                     </div>
                 </div>
                 </div>
             </div>
             <div class="head-con">
-                <a class="head-text" href="../Home_/home.php"><i class="fa-solid fa-house"></i>Home</a>
-                <a class="head-text" href="../News/new.php"><i class="fa-solid fa-newspaper"></i>News</a>
-                <a href="../Create/create.php" class="head-text"><i class="fa-solid fa-plus"></i>Create</a>
-                <a href="../Virus Forecast/index.php" class="head-text"><i class="fa-solid fa-virus"></i>Covid-19 details</a>
+                <a class="head-text" href="./home.php"><i class="fa-solid fa-house"></i>Home</a>
+                <a class="head-text" href="./new.php" class="fa-solid fa-newspaper"></i>News</a>
+                <a href="./create.php" class="head-text"><i class="fa-solid fa-plus"></i>Create</a>
+                <a href="./virus.php" class="head-text"><i class="fa-solid fa-virus"></i>Covid-19 details</a>
             </div>
         </div>
     </div>
@@ -60,9 +60,9 @@
                         $pn = $row['Phone_number'];
                         $img;
                         if($row['img'] != "" || $row['img'] != null){
-                            $img = "../user upload/" . $row['img'];
+                            $img = "./user upload/" . $row['img'];
                         }else {
-                            $img = "../user upload/img.png";
+                            $img = "./user upload/img.png";
                         }
                         $_SESSION['user-id'] = $row['id'];
                         
@@ -100,7 +100,7 @@
                             $title = $row2['title'];
                             $desc = $row2['descritpion'];
                             $id = $row2['id'];
-                            $img2 = "../Create/uploads/" . $row2['imgid'];
+                            $img2 = "./Create/uploads/" . $row2['imgid'];
                         
                     ?>
                     <div class="news">
@@ -112,7 +112,7 @@
                             <h1><?php echo $title?></h1>
                             <p class="class_desc"><?php echo $desc?></p>
                             <div class="news-btn">
-                            <a href="../detail/detail.php?id=<?php echo $id?>&&tt=pe-post"><span></span><p class="text-read-more" >Read more</p></a>
+                            <a href="./detail.php?id=<?php echo $id?>&&tt=pe-post"><span></span><p class="text-read-more" >Read more</p></a>
                             </div>
                         </div>
                         <div class="img">
@@ -166,6 +166,5 @@
           </div>  
         </div>
     </div>
-    <script src="./app.js"></script>
 </body>
 </html>

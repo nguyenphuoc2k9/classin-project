@@ -2,7 +2,7 @@
 ob_start();
     session_start();
     if(!isset($_SESSION['username'])){
-        header("Location:../Login/login.php");
+        header("Location:./login.php");
     }
     if($_SESSION['username'] == null){
         echo "<script type='text/javascript'>";
@@ -10,9 +10,9 @@ ob_start();
         <button id='log-in'> <a href='../Login/Login.php'>Log In</a></button>`)";
         echo "</script>";
     }
-    include("./index.php");
-    include("./style.php");
-    include('./app.php');
+    include("./create/index.php");
+    include("./create/style.php");
+    include('./create/app.php');
     $con = mysqli_connect("localhost","root","","teen-project-database")or die("khong the ket noi toi database");
     if(isset($_POST['btn'])){
         $title = $_POST['title'];

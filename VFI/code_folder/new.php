@@ -14,7 +14,7 @@
         echo "</script>";
     }
         
-    include "./news.php";
-    include "./style.php";
-    include "./app.php";
+    include "./News/news.php";
+    include "./News/style.php";
+    include "./News/app.php";
 ?>
