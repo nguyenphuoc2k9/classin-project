@@ -334,6 +334,7 @@ body{
     transform: translate(-50%,-50%);
     background-color: rgba(119, 133, 255);
     width: 410px;
+    z-index: 999999;
     padding: 30px;
     box-shadow: 0 0 8px rgb(0, 0, 0,0.1);
 }
@@ -429,7 +430,7 @@ body{
 }
 .profile-img h1{
     color: #fff;
-    margin: 0 0 1% 10%;
+    margin: 0 0 1% 14%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .profile-class{

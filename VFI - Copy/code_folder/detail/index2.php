@@ -65,7 +65,7 @@ $query = mysqli_query($con, "SELECT * FROM post WHERE id ='$id'");
         while ($row2 = mysqli_fetch_assoc($query2)) {
             $username = $row2['username'];
             if ($row2['img'] == null) {
-                $userimg = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Fgray-user-management%2F512%2Frounded-512.png&f=1&nofb=1";
+                $userimg = "../user upload/img.png";
             } else {
                 $userimg = "../user upload/" . $row2['img'];
             }
