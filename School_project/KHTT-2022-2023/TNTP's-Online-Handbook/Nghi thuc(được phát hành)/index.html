@@ -30,20 +30,22 @@
 
 	<script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
 	<style>
-		#google_translate_element{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-#google_translate_element select{
-    border-radius: 10px;
-    border: #0236ca 2px solid;
-    background-color: #0094f4;
-    color: #fff;
-    width: 100%;
-    padding: 10px;
-}
+		#google_translate_element {
+			display: flex;
+			width: 100%;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#google_translate_element select {
+			border-radius: 10px;
+			border: #0236ca 2px solid;
+			background-color: #0094f4;
+			color: #fff;
+			width: 100%;
+			padding: 10px;
+		}
+
 		#playerView {
 			position: relative;
 			-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -289,7 +291,7 @@
 
 			</div>
 			<hr>
-            <div id="google_translate_element"></div>
+			<div id="google_translate_element"></div>
 		</div>
 		<div class="sidenav-btn">
 			<button id="btn"><i class="fa-solid fa-bars"></i></button>
@@ -340,19 +342,19 @@
 			var dropdown = parent.getElementsByClassName("dropdown")[0]
 			dropdown.classList.toggle("active")
 		}
-		function googleTranslateElementInit(){
-    new google.translate.TranslateElement(
-        {pageLanguage:"Vietnamese"},
-        "google_translate_element"
-    )
-    var translate = document.getElementById("google_translate_element")
-    translate.querySelector("span").style.display = "none"
-    console.log();
-    var child = translate.firstChild.removeChild(translate.firstChild.childNodes[1])
-    console.log();
-}
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement(
+				{ pageLanguage: "Vietnamese" },
+				"google_translate_element"
+			)
+			var translate = document.getElementById("google_translate_element")
+			translate.querySelector("span").style.display = "none"
+			console.log();
+			var child = translate.firstChild.removeChild(translate.firstChild.childNodes[1])
+			console.log();
+		}
 	</script>
-	    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>

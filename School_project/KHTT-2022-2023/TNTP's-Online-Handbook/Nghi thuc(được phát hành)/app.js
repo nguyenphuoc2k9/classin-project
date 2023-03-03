@@ -44,6 +44,7 @@ function change_page(index) {
     }
     if (infos[index] != currentpage) {
         lastpageindex = index
+        
         infos[index].classList.add("active")
         currentpage.classList.remove("active")
     }
@@ -51,17 +52,59 @@ function change_page(index) {
 function section_clicked(e) {
     console.log(e);
     var index = Number(e.querySelector("p").innerText) - 1
+    change_effect(index)
     change_page(index)
-    localStorage.setItem("page_index", index)
+    
 }
 
 document.getElementById("forward").addEventListener("click", function () {
     if (lastpageindex < infos.length - 1) {
+        change_effect(lastpageindex+1)
         change_page(lastpageindex + 1)
+        
     }
 })
 document.getElementById("backward").addEventListener("click", function () {
     if (lastpageindex > 0) {
+        change_effect(lastpageindex-1)
         change_page(lastpageindex - 1)
+        
     }
 })
+function change_effect(index){
+    btns[index].classList.add("active")
+    btns[lastpageindex].classList.remove("active")
+}
+var sidenav = document.getElementById("sidenav")
+		var btn = document.getElementById("btn")
+		var btn_div = document.getElementsByClassName("sidenav-btn")[0]
+		sidenav.style.left = "-100%"
+		btn_div.style.left = "3%"
+		btn.addEventListener("click", function () {
+			if (sidenav.style.left == "-100%") {
+				sidenav.style.left = "0"
+				btn_div.style.left = "27%"
+				btn.innerHTML = `<i id='btn'class="fa-solid fa-xmark"></i>`
+			} else {
+				btn_div.style.left = "3%"
+				sidenav.style.left = "-100%"
+				btn.innerHTML = `<i id = "btn"class="fa-solid fa-bars"></i>`
+			}
+		})
+		function dropdown(e) {
+			var parent = e.parentElement
+			e.classList.toggle("active")
+			var dropdown = parent.getElementsByClassName("dropdown")[0]
+			dropdown.classList.toggle("active")
+		}
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement(
+				{ pageLanguage: "Vietnamese" },
+				"google_translate_element"
+			)
+			var translate = document.getElementById("google_translate_element")
+			translate.querySelector("span").style.display = "none"
+			console.log();
+			var child = translate.firstChild.removeChild(translate.firstChild.childNodes[1])
+			console.log();
+		}
