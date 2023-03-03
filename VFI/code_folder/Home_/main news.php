@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $con = mysqli_connect("localhost","root","","teen-project-database");
+    include "./conn.php";
     $query = mysqli_query($con, "SELECT * FROM webpost");
     if(!isset($_SESSION['username'])){
         header("Location:../Login/login.php");

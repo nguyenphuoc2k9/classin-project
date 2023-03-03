@@ -1,7 +1,7 @@
 <?php
     session_start();
     $id = $_SESSION['id'];
-    $con = mysqli_connect("localhost","root","","teen-project-database") or die("khong the ket noi toi database");
+    include "./conn.php";
     $query = mysqli_query($con, "SELECT * FROM users WHERE id='$id'");
     if(!isset($_SESSION['username'])){
         header("Location:./login.php");

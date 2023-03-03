@@ -1,6 +1,6 @@
 <?php
 session_start();
-    $con =mysqli_connect("localhost","root","","teen-project-database") or die("khong the ket noi toi database");
+include "./conn.php";
     $check = false;
     $datauser;
     // if($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){

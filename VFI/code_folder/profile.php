@@ -12,7 +12,7 @@
         <button id='log-in'> <a href='../Login/Login.php'>Log In</a></button>`)";
         echo "</script>";
     }
-    $con = mysqli_connect("localhost","root","","teen-project-database") or die("khong the ket noi toi database");
+    include "./conn.php";
     $query = "SELECT * FROM users WHERE id = '$id'";
     $result = mysqli_query($con,$query);
     include("./profile/index.php");

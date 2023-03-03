@@ -1,7 +1,7 @@
 <?php
     ob_start();
     session_start();
-    $con = mysqli_connect("localhost","root","","teen-project-database");
+    include "./conn.php";
     if(isset($_POST['btn'])){
         $username = $_POST['login-name'];
         $password = $_POST['login-password'];

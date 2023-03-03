@@ -13,7 +13,7 @@ ob_start();
     include("./create/index.php");
     include("./create/style.php");
     include('./create/app.php');
-    $con = mysqli_connect("localhost","root","","teen-project-database")or die("khong the ket noi toi database");
+    include "./conn.php";
     if(isset($_POST['btn'])){
         $title = $_POST['title'];
         $desc = $_POST['desc'];
