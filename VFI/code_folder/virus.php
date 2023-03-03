@@ -2,7 +2,7 @@
     session_start();
     include "./Virus Forecast/style.php";
     $id = $_SESSION['id'];
-    $con = mysqli_connect("localhost","root","","teen-project-database") or die("khong the ket noi toi database");
+    include "./conn.php";
     $query = mysqli_query($con, "SELECT * FROM users WHERE id='$id'");
     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC)){
         $img = "../user upload/" . $row['img'];

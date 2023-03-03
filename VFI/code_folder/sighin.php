@@ -2,7 +2,7 @@
 session_start();
 include("./Sigh in/index.php");
 include("./Sigh in/style.php");
-    $con =mysqli_connect("localhost","root","","teen-project-database") or die("khong the ket noi toi database");
+include "./conn.php";
     $check = false;
     // if($row = mysqli_fetch_array($query,MYSQLI_ASSOC)){
 

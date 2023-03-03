@@ -1,5 +1,5 @@
 <?php
-    $con = mysqli_connect("localhost","root","","teen-project-database");
+    include "./conn.php";
     $query = mysqli_query($con, "SELECT * FROM webpost WHERE id ='$id'");
 ?>
 <!DOCTYPE html>

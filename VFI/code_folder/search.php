@@ -2,7 +2,7 @@
         include "./search_result/include.php";  
 ob_start();
     session_start();
-    $con = mysqli_connect("localhost","root","","teen-project-database");
+    include "./conn.php";
     $nums = " ";
     if(isset($_GET['k']) && !empty($_GET['k'])){
         $k = $_GET['k'];
