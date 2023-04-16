@@ -57,3 +57,5 @@ elif hinh == "CIRCLE" :
     s1 = circle(radius).result()
 else :
     print("please try again later !!")
+data = []
+data.extend([0])

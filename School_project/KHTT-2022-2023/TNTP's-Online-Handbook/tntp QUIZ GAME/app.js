@@ -99,10 +99,10 @@ next_btn.addEventListener("click",()=>{
 function showquestions(index){
     start_question.play()
     next_btn.style.display = "none"
-    let option_tag = `<div class='option' value = "${questions[index].options[0]}"> ${questions[index].options[0]}</div>
-    <div class='option' value = "${questions[index].options[1]}"> ${questions[index].options[1]}</div>
-    <div class='option'value = "${questions[index].options[2]}"> ${questions[index].options[2]}</div>
-    <div class='option'value = "${questions[index].options[3]}"> ${questions[index].options[3]}</div>`
+    let option_tag = `<div class='option' data-value = "${questions[index].options[0]}"> ${questions[index].options[0]}</div>
+    <div class='option' data-value = "${questions[index].options[1]}"> ${questions[index].options[1]}</div>
+    <div class='option'data-value = "${questions[index].options[2]}"> ${questions[index].options[2]}</div>
+    <div class='option'data-value = "${questions[index].options[3]}"> ${questions[index].options[3]}</div>`
     let que_tag = `<span>${questions[index].id}. ${questions[index].question}</span>` 
     que_text.innerHTML = que_tag;
     option_list.innerHTML = option_tag;
@@ -121,10 +121,11 @@ function getcouter(index){
 let tick = `<div class="icon tick"><i class="fa-solid fa-check"></i></div>`
 let cross = `<div class="icon cross"><i class="fa-solid fa-times"></i></div>`
 function optionselect(answer){
+    console.log(answer);
     next_btn.style.display = "block"
     clearInterval(counter)
     clearInterval(counterline)
-    let userans = answer.value
+    let userans = answer.getAttribute('data-value');
     let correct = questions[que_count].answer
     let alloption = option_list.children.length
     console.log(correct);
