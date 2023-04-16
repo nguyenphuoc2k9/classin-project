@@ -4,7 +4,7 @@ function drop(){
     document.getElementById("dropdown").classList.toggle("show");
 }
 var com_info = document.getElementById("com-info")
-com_info.style.height = document.getElementById("news").clientHeight*(9.95/100) + "px"
+com_info.style.height = document.getElementById("news").clientHeight*(12/100) + "px"
 window.onclick = function(event) {
     if (!event.target.matches('#dropbtn')) {
       var dropdowns = document.getElementsByClassName("dropdown-content");

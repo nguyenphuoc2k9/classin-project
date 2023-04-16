@@ -26,7 +26,5 @@ window.onclick = function(event) {
       }
     }
   }
-  if(document.getElementsByClassName("profile-box")[0].clientHeight <= 600.781){
-    document.getElementsByClassName("footer")[0].style.position = "absolute";
-}
+
 </script>

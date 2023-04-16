@@ -10,6 +10,64 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
+    <div class="sidenav">
+		<div class="sidenav-box" id="sidenav">
+			<div class="sidenav-desc">
+				<img src="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png" alt="logo">
+			</div>
+			<hr>
+			<div class="tags">
+				<a href="../home/index.html">
+					<h1>Home</h1>
+				</a>
+				<div class="dropdown-box">
+					<h1 onclick="dropdown(this)">Nghiên cứu về đội TNTP</h1>
+					<div class="dropdown">
+						<ul>
+							<li><a href="../Lich su(được phát hành)/index.html">
+									<h1>Lịch sử Đội TNTP</h1>
+								</a></li>
+							<li><a href="../Dieu le(được phát hành)/index.html">
+									<h1>Điều lệ Đội TNTP</h1>
+								</a></li>
+							<li><a href="../Nghi thuc(được phát hành)/index.html">
+									<h1>Nghi thức Đội TNTP</h1>
+								</a></li>
+							<li><a href="../ky nang(được phát hành)/index.html">
+									<h1>Kỹ năng Đội TNTP</h1>
+								</a></li>
+							<li><a href="../Guong anh hung(được phát hành)/index.html">
+									<h1>Gương sáng anh hùng</h1>
+								</a></li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="dropdown-box">
+					<h1 onclick="dropdown(this)">Các hoạt động của đội</h1>
+					<div class="dropdown">
+						<ul>
+							<li><a href="../tro choi(được phát hành)/index.html">
+									<h1>Trò chơi sinh hoạt Đội</h1>
+								</a></li>
+							<li><a href="../bai hat(được phát hành)/index.html">
+									<h1>Bài hát sinh hoạt Đội</h1>
+								</a></li>
+							<li><a href="../tntp QUIZ GAME/index.html">
+									<h1>Thử thách đội TNTP</h1>
+								</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+			<hr>
+            <div id="google_translate_element"></div>
+		</div>
+		<div class="sidenav-btn">
+			<button id="btn"><i class="fa-solid fa-bars"></i></button>
+		</div>
+	</div>
     <div class="container">
         <div class="body">
             <div class="title">
@@ -76,7 +134,7 @@
             </div>
             <div class="section">
                 <ul>
-                    <li class="page-item" onclick="section_clicked(this)"><p>1</p></li>
+                    <li class="page-item active" onclick="section_clicked(this)"><p>1</p></li>
                     <li class="page-item" onclick="section_clicked(this)"><p>2</p></li>
                     <li class="page-item" onclick="section_clicked(this)"><p>3</p></li>
                     <li class="page-item" onclick="section_clicked(this)"><p>4</p></li>
@@ -89,5 +147,6 @@
         </div>
     </div>
     <script src="./app.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
