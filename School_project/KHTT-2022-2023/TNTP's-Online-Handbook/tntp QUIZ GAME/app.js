@@ -212,7 +212,7 @@ btn_div.style.left = "3%"
 btn.addEventListener("click", function(){
     if( sidenav.style.left == "-100%"){
         sidenav.style.left = "0"
-        btn_div.style.left = "27%"
+        btn_div.style.left = "31%"
         btn.innerHTML = `<i id='btn'class="fa-solid fa-xmark"></i>`
     }else {
         btn_div.style.left = "3%"
@@ -225,6 +225,7 @@ function dropdown(e){
     e.classList.toggle("active")
     var dropdown = parent.getElementsByClassName("dropdown")[0]
     dropdown.classList.toggle("active")
+    e.querySelector("i").classList.toggle("active")
 }
 function googleTranslateElementInit(){
     new google.translate.TranslateElement(

@@ -1,13 +1,12 @@
 .sidenav{
     position: fixed;
     display: flex;
-    z-index: 99;
+    z-index: 99999999999;
 }
 .sidenav-box{
     position: fixed;
-    width: 300px;
+    width: 30%;
     height: 100%;
-    padding: 10px;
     overflow: hidden;
     left: 0%;
     display: flex;
@@ -23,11 +22,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
     justify-content: space-around;
 }
 .sidenav a{
     text-decoration: none;
     width: 100%;
+    border-radius: 10px;
     border: #fff;
 }
 .sidenav-desc{
@@ -66,7 +67,7 @@
     color: #Fff;
     border: none;
     cursor: pointer;
-    margin: 20px 0 0 10px;
+    margin: 20px;
     background-color: #0e509b;
     height: 50px;
 }
@@ -85,30 +86,59 @@
 .dropdown-box h1{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
     color: #fff;
-    margin-bottom: 1%;
     cursor: pointer;
 }
 .dropdown{
+    width: 100%;
+    font-size:medium;
+    background-color: #99dcf5;
     display: none;
-    background-color: #498d8d;
+}
+.dropdown-box i{
+    padding-right: 10px;
+    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: rotate(-180deg);
 }
 .dropdown.active{
-    display: block;
-
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.dropdown-box i.active{
+    padding-left: 10px;
+    transform: rotate(-360deg) !important;
+}
+.dropdown-box.active {
+    background-color: #41c0ee;
 }
 .dropdown ul{
     list-style: none;
     display: flex; 
     flex-direction: column;
-    align-items: flex-start;
+    gap: 10px;
+    padding: 5px 0;
+    align-items:center;
     justify-content:space-around;
 }
 .dropdown-box h1.active{
     background-color: rgb(48 176 219);
 }
-.dropdown li{
+.dropdown-box h2{
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
+    color: #fff;
+    
+}
+.dropdown-box li:hover{
+    background-color: #5bdfee;
+}
+.dropdown li{
     width: 100%;
+    transition: all .5s cubic-bezier(0.23, 1, 0.320, 1);
+    padding: 5px;
+    text-align: center;
+    font-size: large;
 }
 #playerView {
     position:relative;
