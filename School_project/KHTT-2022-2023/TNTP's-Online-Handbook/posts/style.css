@@ -184,109 +184,39 @@ body{
     outline: 5px solid #0088f5;
     outline-offset: 2px;
 }
-/* home */
-.home{
+/* post */
+.post-creator{
+    width: 80%;
+    margin: 10% auto 0 auto;
+    background-color: aliceblue;
+    border-radius:10px ;
+    padding: 10px;
     display: flex;
-    width: 100%;
-    overflow: hidden;
     flex-direction: column;
-}
-.home-img{
-    display: flex;
-    margin-top: 5%;
-    justify-content: center;
-}
-.home-img img{
-    border-radius: 30px;
-}
-.home-title{
-    display: flex;
-    justify-content: flex-start;
     align-items: center;
-    color : rgb(0, 0, 0);
-    font-family: 'Courier New', Courier, monospace;
+    justify-content: space-between;
 }
-.home-title h1{
-    padding: 10px 0;
+.post-title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #000;
+    padding: 10px;
 }
-.home-box{
+.post-form{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+.post-card{
+    display: flex;
     width: 80%;
     flex-direction: column;
-    margin: 10px auto 50px auto;
-    border-radius: 30px;
-    display: flex;
-   align-items: center;
-    background-color: #Fff;
 }
-.home-card{
-    padding: 3% 0;
+.post-form input{
     width: 100%;
-}
-.home-card h1{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding-left: 10px;
-}
-.home-card p{
-    padding-left: 20px;
-    font-size: larger;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.mem-card img{
-    width: 250px;
-    height: 250px;
-}
-.home-mem{
-    display: flex;
-    flex-direction: row;
-    padding:0 0 10px 0 ;
-    justify-content: center;
-    gap: 20px;
-}
-.mem-title{
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size:larger ;
-    padding: 20px 0;
-}
-.home hr{
-    background-color: #000;
-    width: 90%;
-    height: 10px;
-    border-radius: 10px;
-    text-align: center;
-}
-.mem-card{
-    display: flex;
-    padding: 0 20px;
-    background-color: #508bc6;
-    flex-direction: column;
-    align-items: center;
     border-radius: 40px;
-    gap: 20px;
-    overflow: hidden;
-    color: #fff;
-    padding: 0;
-    font-family:Arial, Helvetica, sans-serif;
-}
-.mem-card h1{
-    padding-top: 10px;
-    font-size: 20px;
-}
-.mem-card .img{
-    flex-basis: 48%;
-    text-align: center;
-}
-#google_translate_element{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-#google_translate_element select{
-    border-radius: 10px;
-    border: #0236ca 2px solid;
-    background-color: #0094f4;
-    color: #fff;
-    width: 100%;
     padding: 10px;
+    border: solid 1px rgb(63, 63, 63);
+    background-color: #b7b7b7;
 }
