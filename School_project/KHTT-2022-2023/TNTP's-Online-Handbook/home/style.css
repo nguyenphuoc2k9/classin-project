@@ -152,6 +152,9 @@ body{
     align-items: center;
     flex-direction: column;
 }
+.sidenav-user a{
+    width: 20%;
+}
 .sidenav-user img{
     border-radius: 50%;
     width: 50px;

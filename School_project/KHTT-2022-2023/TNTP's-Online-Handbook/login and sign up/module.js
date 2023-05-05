@@ -26,7 +26,6 @@ console.log(sign_up_google);
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const database = getDatabase(app)
-const db = getFirestore(app)
 const auth = getAuth()
 sigh_up_btn.addEventListener("click", function (e) {
   const sign_up_username = document.getElementById("sign-up-username").value
@@ -38,15 +37,16 @@ sigh_up_btn.addEventListener("click", function (e) {
     .then((userCredential) => {
       const user = userCredential.user;
       alert("Successfully created user")
-
       set(ref(database, 'users/' + user.uid), {
-        username: user.displayName,
+        username: sign_up_username,
         email: user.email,
-        avatar: pictureUrl,
+        avatar: 'none',
         gender: "chưa xác định",
         school: "chưa xác định",
         class: "chưa xác định",
-        archive: []
+        archive: ['thành viên']
+      }).then(()=>{
+        checkif()
       })
     })
 
@@ -55,7 +55,7 @@ sigh_up_btn.addEventListener("click", function (e) {
       const errorMessage = error.message;
       console.log(errorMessage);
     });
-  checkif()
+  
 })
 for (let i = 0; i < sign_up_google.length; i++) {
   sign_up_google[i].addEventListener("click", () => {
