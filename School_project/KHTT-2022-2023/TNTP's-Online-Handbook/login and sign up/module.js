@@ -37,6 +37,7 @@ sigh_up_btn.addEventListener("click", function (e) {
     .then((userCredential) => {
       const user = userCredential.user;
       alert("Successfully created user")
+      
       set(ref(database, 'users/' + user.uid), {
         username: sign_up_username,
         email: user.email,
@@ -72,16 +73,23 @@ for (let i = 0; i < sign_up_google.length; i++) {
             console.log(data);
             const pictureUrl = data.photos[0].url;
             console.log(pictureUrl);
-            set(ref(database, 'users/' + user.uid), {
-              username: user.displayName,
-              email: user.email,
-              avatar: pictureUrl,
-              gender: "chưa xác định",
-              school: "chưa xác định",
-              class: "chưa xác định",
-              archive: ['thành viên']
-            }).then(()=>{
-              checkif()
+            const starCountRef = ref(database, 'users/' +user.uid);
+            onValue(starCountRef, (snapshot) => {
+            if(snapshot.exists()){
+              window.location.replace("../home/index.html")
+            }else{
+              set(ref(database, 'users/' + user.uid), {
+                username: user.displayName,
+                email: user.email,
+                avatar: pictureUrl,
+                gender: "chưa xác định",
+                school: "chưa xác định",
+                class: "chưa xác định",
+                archive: ['thành viên']
+              }).then(()=>{
+                checkif()
+              })
+            }
             })
             
             
@@ -118,14 +126,23 @@ for (let i = 0; i < sign_up_facebook.length; i++) {
           .then((response) => {
             // The response contains a URL to the user's profile picture.
             const pictureUrl = response.url;
-            set(ref(database, 'users/' + user.uid), {
-              username: user.displayName,
-              email: user.email,
-              avatar: pictureUrl,
-              gender: "chưa xác định",
-              school: "chưa xác định",
-              class: "chưa xác định",
-              archive: []
+            const starCountRef = ref(database, 'users/' +user.uid);
+            onValue(starCountRef, (snapshot) => {
+            if(snapshot.exists()){
+              window.location.replace("../home/index.html")
+            }else{
+              set(ref(database, 'users/' + user.uid), {
+                username: user.displayName,
+                email: user.email,
+                avatar: pictureUrl,
+                gender: "chưa xác định",
+                school: "chưa xác định",
+                class: "chưa xác định",
+                archive: ['thành viên']
+              }).then(()=>{
+                checkif()
+              })
+            }
             })
             
             // Do something with the picture URL, such as display it on the page.
@@ -184,6 +201,7 @@ sign_in_btn.addEventListener("click", function (e) {
 
 
 function checkif() {
+  console.log('yes');
   onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
