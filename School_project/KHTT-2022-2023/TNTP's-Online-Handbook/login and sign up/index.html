@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Sign in & Sign up Form</title>
   </head>
@@ -18,26 +17,23 @@
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" id="sign-in-username" placeholder="Email" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" id = 'sign-in-password' placeholder="Password" />
             </div>
-            <input type="submit" value="Login" class="btn solid" />
+            <input type="submit" value="Login"  id ='sign-in-submit'class="btn solid" />
             <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
-              <a href="#" class="social-icon">
+              <a href="#"  id= '' class="social-icon sign-up-facebook">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="#" class="social-icon">
+              <a href="#" class="social-icon sign-up-twitter">
                 <i class="fab fa-twitter"></i>
               </a>
-              <a href="#" class="social-icon">
+              <a href="#"  class="social-icon sign-up-google">
                 <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
               </a>
             </div>
           </form>
@@ -45,30 +41,27 @@
             <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text"  id='sign-up-username'placeholder="Username" />
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" placeholder="Email" id = 'sign-up-email' />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" id="sign-up-password" />
             </div>
-            <input type="submit" class="btn" value="Sign up" />
+            <input type="submit" class="btn" id="sign-up-submit" value="Sign up" />
             <p class="social-text">Or Sign up with social platforms</p>
             <div class="social-media">
-              <a href="#" class="social-icon">
+              <a href="#"  class="social-icon sign-up-facebook">
                 <i class="fab fa-facebook-f"></i>
               </a>
-              <a href="#" class="social-icon">
+              <a href="#"class="social-icon sign-up-twitter">
                 <i class="fab fa-twitter"></i>
               </a>
-              <a href="#" class="social-icon">
+              <a href="#" class="social-icon sign-up-google">
                 <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
               </a>
             </div>
           </form>
@@ -104,7 +97,7 @@
         </div>
       </div>
     </div>
-
+    <script src="./module.js" type="module"></script>
     <script src="app.js"></script>
   </body>
 </html>
