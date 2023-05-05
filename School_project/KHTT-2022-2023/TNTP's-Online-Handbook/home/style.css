@@ -13,7 +13,8 @@ body{
     position: fixed;
     width: 30%;
     height: 100%;
-    overflow: hidden;
+    overflow-x:hidden;
+    overflow-y: scroll;
     left: 0%;
     display: flex;
     gap: 10px;
