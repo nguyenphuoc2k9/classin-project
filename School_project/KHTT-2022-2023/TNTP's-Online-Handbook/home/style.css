@@ -171,6 +171,16 @@ body{
     display: flex;
     align-items: center;
 }
+@media only screen and (max-width: 680px)  {
+    .dropdown-box h1{
+        font-size: medium;
+    }
+    .sidenav-user h2{
+        font-size: x-small;
+        padding-left: 30px;
+    }
+    
+}
 .sign-out-btn{
     border:none;
     width: 100%;

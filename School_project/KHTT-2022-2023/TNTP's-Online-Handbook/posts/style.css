@@ -344,6 +344,7 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .info h1,p{
+    word-break: break-all;
     width: 100%;
     margin-bottom: 20px;
 }
@@ -360,4 +361,19 @@ body{
     color: #fff;
     width: 100%;
     padding: 10px;
+}
+@media only screen and (max-width: 680px)  {
+    .dropdown-box h1{
+        font-size: medium;
+    }
+    .sidenav-user h2{
+        font-size: x-small;
+        padding-left: 30px;
+    }
+    .post-element{
+        width: 95% ;
+    }
+    .post-creator{
+        width: 80%; 
+    }
 }

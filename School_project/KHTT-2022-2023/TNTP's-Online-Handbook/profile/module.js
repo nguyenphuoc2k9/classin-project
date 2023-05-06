@@ -93,42 +93,42 @@ function print_data(data,uid) {
           <h1>Tên người dùng:</h1>
           <h2>${data.username}</h2>
       </div>
-      <button class ='edit' edit-value='username'>Chỉnh sửa <i class="fa-solid fa-pen-to-square"></i></button>
+      <button class ='edit' edit-value='username'><p>Chỉnh sửa</p> <i class="fa-solid fa-pen-to-square"></i></button>
   </div>
   <div class="info-card first">
       <div class="info">
           <h1>Email:</h1>
           <h2>${data.email}</h2>
       </div>
-      <button class="edit" edit-value='email'>Chỉnh sửa <i class="fa-solid fa-pen-to-square"></i></button>
+      <button class="edit" edit-value='email'><p>Chỉnh sửa</p> <i class="fa-solid fa-pen-to-square"></i></button>
   </div>
   <div class="info-card">
       <div class="info">
           <h1>Giới tính:</h1>
           <h2>${data.gender}</h2>
       </div>
-      <button class="edit" edit-value='gender'>Chỉnh sửa <i class="fa-solid fa-pen-to-square"></i></button>
+      <button class="edit" edit-value='gender'><p>Chỉnh sửa</p> <i class="fa-solid fa-pen-to-square"></i></button>
   </div>
   <div class="info-card">
       <div class="info">
           <h1>Trường:</h1>
           <h2>${data.school}</h2>
       </div>
-      <button class="edit" edit-value='school'>Chỉnh sửa <i class="fa-solid fa-pen-to-square"></i></button>
+      <button class="edit" edit-value='school'><p>Chỉnh sửa</p> <i class="fa-solid fa-pen-to-square"></i></button>
   </div>
   <div class="info-card">
       <div class="info">
           <h1>Lớp:</h1>
           <h2>${data.class}</h2>
       </div>
-      <button class="edit" edit-value='class'>Chỉnh sửa <i class="fa-solid fa-pen-to-square"></i></button>
+      <button class="edit" edit-value='class'><p>Chỉnh sửa</p> <i class="fa-solid fa-pen-to-square"></i></button>
   </div>
   <div class="info-card">
       <div class="info">
           <h1>Thành tựu:</h1>
           <h2>${data.archive}</h2>
       </div>
-      <button class="edit" edit-value='archive'>Chỉnh sửa <i class="fa-solid fa-pen-to-square"></i></button>
+      <button class="edit" edit-value='archive'><p>Chỉnh sửa</p> <i class="fa-solid fa-pen-to-square"></i></button>
     </div>
 </div>
   `

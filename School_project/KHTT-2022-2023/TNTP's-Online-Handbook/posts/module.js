@@ -160,7 +160,7 @@ function print_post(data_2){
   let photo;
   var str = new String(val.avatar)
     console.log(str.split(",")[0]);
-    if(val.avatar.includes('/')){
+    if(val.avatar.includes(',')){
     getDownloadURL(storageref(storage, 'avatar/'+ str.split(",")[0]))
     .then((url_2) => {
       print_post_element(data,val,url,url_2)
@@ -195,7 +195,7 @@ function print_post(data_2){
         </div>
         <div class="archive">
             <h3>Thành tựu</h3>
-            <h2>thành viên</h2>
+            <h2>${data.archive}</h2>
         </div>
     </div>
     

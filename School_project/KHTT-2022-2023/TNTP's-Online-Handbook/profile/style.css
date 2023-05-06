@@ -310,3 +310,37 @@ body{
     width: 100%;
     padding: 10px;
 }
+@media only screen and (max-width: 680px)  {
+    .dropdown-box h1{
+        font-size: medium;
+    }
+    .sidenav-user h2{
+        font-size: x-small;
+        padding-left: 30px;
+    }
+    .profile-img img{
+        position: relative;
+    }
+    .profile-img input{
+        position: relative;
+    }
+    .profile-box{
+        flex-direction: column;
+    }
+    .info-card.first{
+        width: 100% !important;
+        margin-left: 0;
+    }
+    .profile-img{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .info{
+        font-size: small;
+    }
+    .profile button p{
+        display: none;
+    }
+    
+}
