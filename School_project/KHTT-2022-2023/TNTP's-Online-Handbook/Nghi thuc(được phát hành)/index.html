@@ -30,6 +30,47 @@
 
 	<script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
 	<style>
+        .sidenav-user{
+    display: flex;
+    width: 50%;
+    align-items: center;
+    flex-direction: column;
+}
+.sidenav-user a{
+    width: 20% !important;
+}
+.sidenav-user img{
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+}
+.sidenav-user h2{
+     color: #fff;
+     padding-left: 20px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-size: larger;
+}
+.sidenav-user-info{
+    display: flex;
+    align-items: center;
+}
+.sign-out-btn{
+    border:none;
+    width: 100%;
+    color: #fff;
+    font-size: larger;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 50px;
+    border-radius: 20px;
+    background-color:#009ff0;
+    cursor: pointer;
+    transition:all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+.sign-out-btn:hover{
+    outline: 5px solid #0088f5;
+    outline-offset: 2px;
+}
 		#google_translate_element {
 			display: flex;
 			width: 100%;
@@ -258,9 +299,19 @@
             </div>
             <hr>
             <div class="tags">
-                <a href="../home/index.html">
-                    <h1>Home</h1>
-                </a>
+                <div class="dropdown-box">
+                    <h1 onclick="dropdown(this)">Chung<i class="fa-solid fa-caret-down"></i></h1>
+                    <div class="dropdown">
+                        <ul>
+                            <li><a href="../home/index.html">
+                                <h2>Trang chủ</h2>
+                            </a></li>
+                            <li><a href="../posts/index.html">
+                                <h2>Bài đăng</h2>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="dropdown-box">
                     <h1 onclick="dropdown(this)">Nghiên cứu về đội TNTP<i class="fa-solid fa-caret-down"></i></h1>
                     <div class="dropdown">
@@ -302,6 +353,13 @@
                 </div>
             </div>
             <hr>
+            <div class="sidenav-user">
+                <div class="sidenav-user-info">
+
+                </div>
+                <button id='sign-out'class="sign-out-btn">Sign Out</button>
+            </div>
+            <hr>
             <div id="google_translate_element"></div>
         </div>
 
@@ -314,6 +372,7 @@
 	<script src="data/player.js?92573E72"></script>
 	<div id="content"></div>
 	<div id="spr0_122966a"></div>
+    <script src="./module.js" type="module"></script>
 	<script>
 		(function (startup) {
 			function start(savedPresentationState) {

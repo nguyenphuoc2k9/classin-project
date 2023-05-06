@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-box">
+            <div class="head-card">
+                <a href="../dashboard/dashboard.html"><h1>Dashboard</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="../user-manage/user-manage.html"><h1>Users</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="../post-manage/post.html"><h1>Posts</h1></a>
+            </div>
+        </div>
+    </div>
+    <div class="user">
+        <div class="user-title">
+            <h1>Post manager</h1>
+        </div>
+        <div class="user-table" id="user-print">
+            <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                            <th>Archive</th>
+                            <th>Action</th>
+                            
+                        </tr>
+                    </thead>
+                    
+                <tbody id="user-manage">
+                    <tr>
+                        <td>Example</td>
+                        <td>Example</td>
+                        <td><img src="../user.png" alt=""></td>
+                        <td>Example </td>
+                        <td><button class="delete">Delete</button></td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+        <div class="user-title">
+            <h1>Pending Post</h1>
+        </div>
+        <div class="user-table">
+            <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    
+                <tbody id="pending-post">
+                    <tr>
+                        <td>Example</td>
+                        <td>Example</td>
+                        <td><img src="../user.png" alt=""></td>
+                        <td><button class="deny">Deny</button><button class="accept">Accept</button></td>
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+    </div>
+    <script src="./module.js" type="module"></script>
+</body>
+
+</html>

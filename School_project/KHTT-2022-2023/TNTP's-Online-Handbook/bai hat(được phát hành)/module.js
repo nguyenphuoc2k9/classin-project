@@ -34,6 +34,7 @@ onAuthStateChanged(auth, (user) => {
       const starCountRef = ref(database, 'users/' +uid);
       onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
+      console.log(data);
       print_user(data,uid)
 },{
   onlyOnce:true

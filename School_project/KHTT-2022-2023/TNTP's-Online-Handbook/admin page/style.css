@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comme&family=Montserrat:wght@100&family=MuseoModerno:ital,wght@0,500;1,400&family=Noto+Sans:wght@300&family=Nunito:wght@300&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -138,4 +141,75 @@ body{
     display: flex;
     gap: 10px;
     font-size: 20px;
+}
+/* user-manager */
+.user{
+    width: 90%;
+    margin: 10% auto 0  auto;
+    background-color: rgb(44, 148, 128);
+    border-radius: 10px;
+    border: 2px solid #2478ff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.user-title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+.user-table {
+    width: 100%;
+}
+.user-table table{
+    background-color: #286ff4;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    table-layout: fixed;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.user-table thead tr{
+    background-color: #42dff7;
+}
+.user-table tbody td{
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: bolder;
+}
+.user-table tbody{
+    padding: 0 20px;
+}
+.user-table th{
+    font-size: larger;
+    width: 20%;
+}
+.user-table tbody td button{
+    height: 50px;
+    width: 40%;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(231 0 0);
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+.user-table img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.edit{
+    margin-left: 10px;
+    background-color: #371193!important;
+    width:  130px !important;
+    font-size: medium !important;
+}
+.accept{
+    background-color: green !important;
+    margin-left:20px ;
 }

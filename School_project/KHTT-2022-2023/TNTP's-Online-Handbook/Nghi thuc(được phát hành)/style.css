@@ -302,3 +302,44 @@ body{background-image: linear-gradient(to right, rgb(41, 122, 244), rgb(0, 136, 
     width: 100%;
     padding: 10px;
 }
+.sidenav-user{
+    display: flex;
+    width: 50%;
+    align-items: center;
+    flex-direction: column;
+}
+.sidenav-user a{
+    width: 20% !important;
+}
+.sidenav-user img{
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+}
+.sidenav-user h2{
+     color: #fff;
+     padding-left: 20px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-size: larger;
+}
+.sidenav-user-info{
+    display: flex;
+    align-items: center;
+}
+.sign-out-btn{
+    border:none;
+    width: 100%;
+    color: #fff;
+    font-size: larger;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 50px;
+    border-radius: 20px;
+    background-color:#009ff0;
+    cursor: pointer;
+    transition:all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+.sign-out-btn:hover{
+    outline: 5px solid #0088f5;
+    outline-offset: 2px;
+}

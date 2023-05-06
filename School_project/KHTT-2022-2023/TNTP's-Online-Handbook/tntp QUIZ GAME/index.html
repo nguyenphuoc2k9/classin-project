@@ -22,9 +22,19 @@
             </div>
             <hr>
             <div class="tags">
-                <a href="../home/index.html">
-                    <h1>Home</h1>
-                </a>
+                <div class="dropdown-box">
+                    <h1 onclick="dropdown(this)">Chung<i class="fa-solid fa-caret-down"></i></h1>
+                    <div class="dropdown">
+                        <ul>
+                            <li><a href="../home/index.html">
+                                <h2>Trang chủ</h2>
+                            </a></li>
+                            <li><a href="../posts/index.html">
+                                <h2>Bài đăng</h2>
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="dropdown-box">
                     <h1 onclick="dropdown(this)">Nghiên cứu về đội TNTP<i class="fa-solid fa-caret-down"></i></h1>
                     <div class="dropdown">
@@ -64,6 +74,13 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+            <hr>
+            <div class="sidenav-user">
+                <div class="sidenav-user-info">
+
+                </div>
+                <button id='sign-out'class="sign-out-btn">Sign Out</button>
             </div>
             <hr>
             <div id="google_translate_element"></div>
@@ -155,6 +172,7 @@
         </div>
     </div>
     <!-- quizzy start btn -->
+    <script src="./module.js" type="module"></script>
     <script src="./data.js"></script>
     <script src="./app.js"></script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
