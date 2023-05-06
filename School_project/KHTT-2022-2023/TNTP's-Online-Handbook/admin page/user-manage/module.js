@@ -3,6 +3,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.21.0/firebase
 import { getAuth, onAuthStateChanged, signOut,deleteUser } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 import { getDatabase, set, ref, onValue,remove,onChildRemoved,update } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
 import { getStorage, ref as storageref, getDownloadURL, uploadBytes, } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-storage.js";
+
 //variable
 const sidenav_user = document.getElementsByClassName("sidenav-user-info")[0];
 const firebaseConfig = {
@@ -92,3 +93,36 @@ function start_delete(){
         })
     }
 }
+document.getElementById("dowload").addEventListener("click",()=>{
+    onValue(ref(database,'users/'),(snap)=>{
+        let data_2 = snap.val()
+        let data = data_2
+        let data_keys = Object.keys(data)
+        for(let i=0; i<data_keys.length; i++){
+            console.log('i',i );
+            data[data_keys[i]].archive = data[data_keys[i]].archive.toString()
+        }
+        console.log(data);
+        const dataArray = Object.entries(data || {}).map(([key, value]) => ({
+            key,
+            ...value,
+          }));
+  
+          const worksheet = XLSX.utils.json_to_sheet(dataArray);
+          const workbook = XLSX.utils.book_new();
+          XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+  
+          const wbout = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+  
+          const blob = new Blob([wbout], { type: 'application/octet-stream' });
+          const url = URL.createObjectURL(blob);
+  
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'Thành viên.xlsx';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+    })
+})

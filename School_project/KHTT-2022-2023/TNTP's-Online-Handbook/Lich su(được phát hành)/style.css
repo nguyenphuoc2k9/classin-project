@@ -236,5 +236,20 @@
     width: 100%;
     padding: 10px;
 }
+@media only screen and (max-width: 680px)  {
+    .dropdown-box h1{
+        font-size: medium;
+    }
+    .sidenav-user h2{
+        font-size: x-small;
+        padding-left: 30px;
+    }
+    .post-element{
+        width: 95% ;
+    }
+    .post-creator{
+        width: 80%; 
+    }
+}
 @keyframes preloader_spin { 0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);} }
 @-webkit-keyframes preloader_spin { 0% {-webkit-transform: rotate(0deg);} 100% {-webkit-transform: rotate(360deg);}}

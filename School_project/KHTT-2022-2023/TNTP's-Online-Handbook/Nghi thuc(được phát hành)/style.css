@@ -343,3 +343,12 @@ body{background-image: linear-gradient(to right, rgb(41, 122, 244), rgb(0, 136, 
     outline: 5px solid #0088f5;
     outline-offset: 2px;
 }
+@media only screen and (max-width: 680px)  {
+    .dropdown-box h1{
+        font-size: medium;
+    }
+    .sidenav-user h2{
+        font-size: x-small;
+        padding-left: 30px;
+    }
+}
