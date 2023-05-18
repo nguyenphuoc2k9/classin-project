@@ -15,7 +15,7 @@ const firebaseConfig = {
   appId: "1:699284847876:web:5d340338d3b559f880a451",
   measurementId: "G-531EMCZKBV"
 };
-let uid = new URLSearchParams(window.location.search).get('id')
+let uid_ = new URLSearchParams(window.location.search).get('id')
 let profile_ = new URLSearchParams(window.location.search).get('profile')
 console.log(profile_);
 const app = initializeApp(firebaseConfig);
@@ -27,8 +27,13 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    const starCountRef = ref(database, 'users/' + uid);
+    const uid = user.uid
+    const starCountRef = ref(database, 'users/' + uid_);
+    onValue(ref(database, 'users/' + uid),(snap)=>{
+      const data = snap.val()
+      print_user(data,uid)
+    })
+    console.log('sidenva');
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
       print_data(data,uid)
@@ -60,7 +65,7 @@ function print_data(data,uid) {
     // xhr.send();
     photo = url
     profile(photo)
-    sidenav(photo)
+    
     })
   }else{
     if (data.avatar == "none" || data.avatar == null) {
@@ -71,15 +76,9 @@ function print_data(data,uid) {
       
     }
     profile(photo)
-      sidenav(photo)
+      
   }
-  function sidenav(photo){
-    console.log(photo);
-    var html = `<a href="../profile/index.html?id=${uid}&&profile=true"><img src="${photo}" alt=""></a>
-    <h2>${data.username}</h2>`
   
-    sidenav_user.insertAdjacentHTML("afterbegin", html)
-  }
   function profile(photo){
     var html_2 =
     `
@@ -179,12 +178,13 @@ function print_data(data,uid) {
 if(profile_!='false'){
   
   profile_box.insertAdjacentHTML("afterbegin", html_2)
+  start_edit_file()
+start_edit()
 }else{
   profile_box.insertAdjacentHTML("afterbegin", html_3)
 
 }
-start_edit()
-start_edit_file()
+
   }
 }
 //sign-out
@@ -229,7 +229,7 @@ function start_edit_file(){
       var storageRef = storageref(storage,'avatar/' + file.name)
     uploadBytes(storageRef,file).then(()=>{
       console.log('Successfully');
-      update(ref(database,'users/'+uid),{
+      update(ref(database,'users/'+uid_),{
         avatar:file.name+',storage'
       }).then(()=>{
         console.log('done');
@@ -238,4 +238,38 @@ function start_edit_file(){
     })
     }
   })
+}
+function print_user(data,uid){
+
+  console.log(data);
+  let photo;
+  var str = new String(data.avatar)
+console.log(str.split(",")[0]);
+if(data.avatar.includes(',')){
+getDownloadURL(storageref(storage, 'avatar/'+ str.split(",")[0]))
+.then((url) => {
+  // `url` is the download URL for 'images/stars.jpg'
+
+  // This can be downloaded directly:
+  // const xhr = new XMLHttpRequest();
+  // xhr.responseType = 'blob';
+  // xhr.onload = (event) => {
+  //   const blob = xhr.response;
+  // };
+  // xhr.open('GET', url);
+  // xhr.send();
+  photo = url
+  sidenav(photo)
+  })
+}else if(data.avatar == "none" || data.avatar == null){
+    photo = '../user.png'
+    
+  }else{
+    photo = data.avatar
+  }
+  function sidenav(photo){
+    console.log(photo);
+    document.getElementById('img').src = photo
+    document.getElementById('href').href += `?id=${uid}&&profile=true`
+  }
 }

@@ -1,8 +1,8 @@
 var sidenav = document.getElementById("sidenav")
 var btn  =document.getElementById("btn")
 var btn_div = document.getElementsByClassName("sidenav-btn")[0]
-sidenav.style.left = "-100%"
-btn_div.style.left = "3%"
+sidenav.style.left = "0%"
+btn_div.style.left = "31%"
 btn.addEventListener("click", function(){
     if( sidenav.style.left == "-100%"){
         sidenav.style.left = "0"

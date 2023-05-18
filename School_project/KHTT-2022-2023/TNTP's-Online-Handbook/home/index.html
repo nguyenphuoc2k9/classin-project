@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,84 +11,61 @@
 </head>
 
 <body>
-    <div class="sidenav">
-        <div class="sidenav-box" id="sidenav">
-            <div class="sidenav-desc">
-                <img src="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png" alt="logo">
-            </div>
-            <hr>
-            <div class="tags">
-                <div class="dropdown-box">
-                    <h1 onclick="dropdown(this)">Chung<i class="fa-solid fa-caret-down"></i></h1>
-                    <div class="dropdown">
-                        <ul>
-                            <li><a href="../home/index.html">
-                                <h2>Trang chủ</h2>
-                            </a></li>
-                            <li><a href="../posts/index.html">
-                                <h2>Bài đăng</h2>
-                            </a></li>
-                        </ul>
+    <div class="header">
+        <div class="header-box">
+            <div class="section">
+                <img src="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png" alt="" srcset="">
+                <div class="dropdown">
+                    <h1 onclick="dropdown_navbar(this)">Chung <i class="fa-solid fa-circle-chevron-down"></i></h1>
+                    <div class="dropdown-box">
+                        <a href="../home/index.html">Trang Chủ</a>
+                        <a href="../posts/index.html">Bài đăng</a>
                     </div>
                 </div>
-                <div class="dropdown-box">
-                    <h1 onclick="dropdown(this)">Nghiên cứu về đội TNTP<i class="fa-solid fa-caret-down"></i></h1>
-                    <div class="dropdown">
-                        <ul>
-                            <li><a href="../Lich su(được phát hành)/index.html">
-                                <h2>Lịch sử Đội TNTP</h2>
-                            </a></li>
-                            <li><a href="../Dieu le(được phát hành)/index.html">
-                                <h2>Điều lệ Đội TNTP</h2>
-                            </a></li>
-                            <li><a href="../Nghi thuc(được phát hành)/index.html">
-                                <h2>Nghi thức Đội TNTP</h2>
-                            </a></li>
-                            <li><a href="../ky nang(được phát hành)/index.html">
-                                <h2>Kỹ năng Đội TNTP</h2>
-                            </a></li>
-                            <li><a href="../Guong anh hung(được phát hành)/index.html">
-                                <h2>Gương sáng anh hùng</h2>
-                            </a></li>
-
-                        </ul>
+                <div class="dropdown">
+                    <h1 onclick="dropdown_navbar(this)">Nghiên cứu về đội TNTP <i class="fa-solid fa-circle-chevron-down"></i></h1>
+                    <div class="dropdown-box">
+                        <a href="../Lich su(được phát hành)/index.html">Lịch sử đội TNTP </a>
+                        <a href="../Dieu le(được phát hành)/index.html">Điều lệ đội TNTP</a>
+                        <a href="../Nghi thuc(được phát hành)/index.html">Nghi thức đội TNTP</a>
+                        <a href="../ky nang(được phát hành)/index.html">Kỹ năng đội TNTP</a>
+                        <a href="../Guong anh hung(được phát hành)/index.html">Gương sáng anh hùng</a>
                     </div>
                 </div>
-                <div class="dropdown-box">
-                    <h1 onclick="dropdown(this)">Các hoạt động của đội<i class="fa-solid fa-caret-down"></i></h1>
-                    <div class="dropdown">
-                        <ul>
-                            <li><a href="../tro choi(được phát hành)/index.html">
-                                <h2>Trò chơi sinh hoạt Đội</h2>
-                            </a></li>
-                            <li><a href="../bai hat(được phát hành)/index.html">
-                                <h2>Bài hát sinh hoạt Đội</h2>
-                            </a></li>
-                            <li><a href="../tntp QUIZ GAME/index.html">
-                                <h2>Thử thách đội TNTP</h2>
-                            </a></li>
-                        </ul>
+                <div class="dropdown">
+                    <h1 onclick="dropdown_navbar(this)">Các hoạt động của đội TNTP <i class="fa-solid fa-circle-chevron-down"></i></h1>
+                    <div class="dropdown-box">
+                        <a href="../tro choi(được phát hành)/index.html">Trò chơi của đội TNTP</a>
+                        <a href="../bai hat(được phát hành)/index.html">Bài hát về đội TNTP</a>
+                        <a href="../tntp QUIZ GAME/index.html">Thử thách đội TNTP</a>
                     </div>
                 </div>
             </div>
-            <hr>
-            <div class="sidenav-user">
-                <div class="sidenav-user-info">
-
+            <div class="user">
+                <img src="../user.png" id='img'alt="" srcset="">
+                <i class="fa-solid fa-caret-down" onclick="user_dropdown(this)"></i>
+                <div class="user-dropdown" id="user-drop">
+                    <h3>Cài đặt</h3>
+                    <a href="../profile/index.html" id="href">Trang cá nhân <i class="fa-solid fa-address-card"></i></a>
+                    <button id="sign-out">Sign Out <i class="fa-solid fa-right-from-bracket"></i></button>
+                    <div id="google_translate_element"></div>
                 </div>
-                <button id='sign-out'class="sign-out-btn">Sign Out</button>
             </div>
-            <hr>
-            <div id="google_translate_element"></div>
-        </div>
-
-        <div class="sidenav-btn">
-            <button id="btn"><i class="fa-solid fa-bars"></i></button>
         </div>
     </div>
+
     <div class="home">
         <div class="home-img">
             <img src="../TTT.png" alt="">
+        </div>
+        <div class="home-search">
+            <div class="search-box">
+                <input type="text" id='search'placeholder="Search....">
+                <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div class="search-history">
+
+                </div>
+            </div>
         </div>
         <div class="home-box">
             <div class="home-title">
@@ -97,12 +73,24 @@
             </div>
             <div class="home-card">
                 <h1>Lý do</h1>
-                <p>Lí do chọn đề tài :Sống trong thời đại “4.0” việc tiếp cận những phần mềm để phục vụ cho đời sống là vô cùng qua trọng. Việc dạy và học qua môi trường internet đã tạo ra cho cả thầy và trò những nhân tố mới và mang lại những kết quả nhất định. Tuy nhiên, bên cạnh những nội dung học tập các môn học bắt buộc, Ở độ tuổi của chúng em, một nội dung khá quan trọng giúp chúng em hình thành phẩm chất và rèn luyện những kỹ năng để phát triển năng lực. Đó là nội dung sinh hoạt Đội theo chương trình phát triển đội viên do Hội Đồng Đội huyện phối hợp với Phòng Giáo Dục chỉ đạo, qua những nội dung đó, chúng em được đánh giá và công nhận các chuyên hiệu của từng năm học giúp chúng em hiểu biết và phát triển một cách toàn diện hơn. Thực trạng trên đã thôi thúc chúng em có ý tưởng là sáng tạo ra một sản phẩm đó là một phần mềm ứng dụng đơn giản được cấu trúc như những quyển sách điện tử mang những nội dung về kiến thức, về nghi thức, về kỹ năng Đội. </p>
+                <p>Lí do chọn đề tài :Sống trong thời đại “4.0” việc tiếp cận những phần mềm để phục vụ cho đời sống là
+                    vô cùng qua trọng. Việc dạy và học qua môi trường internet đã tạo ra cho cả thầy và trò những nhân
+                    tố mới và mang lại những kết quả nhất định. Tuy nhiên, bên cạnh những nội dung học tập các môn học
+                    bắt buộc, Ở độ tuổi của chúng em, một nội dung khá quan trọng giúp chúng em hình thành phẩm chất và
+                    rèn luyện những kỹ năng để phát triển năng lực. Đó là nội dung sinh hoạt Đội theo chương trình phát
+                    triển đội viên do Hội Đồng Đội huyện phối hợp với Phòng Giáo Dục chỉ đạo, qua những nội dung đó,
+                    chúng em được đánh giá và công nhận các chuyên hiệu của từng năm học giúp chúng em hiểu biết và phát
+                    triển một cách toàn diện hơn. Thực trạng trên đã thôi thúc chúng em có ý tưởng là sáng tạo ra một
+                    sản phẩm đó là một phần mềm ứng dụng đơn giản được cấu trúc như những quyển sách điện tử mang những
+                    nội dung về kiến thức, về nghi thức, về kỹ năng Đội. </p>
             </div>
             <div class="home-card">
                 <h1>Ý Nghĩa</h1>
-                <p>1.	Ý nghĩa khoa học: Chúng em muốn kết hợp sử dụng các thiết bị khác để nâng cao hiệu quả, tối ưu hóa sản phẩm nhất có thể để áp dụng vào thực tế đời sống. </p>
-                <p>2.	Ý nghĩa thực tiễn: Chúng em đề cao sự chủ động của học sinh nói riêng để các bạn có thể luôn sử dụng nếu cần để tra lại một số điều đã quên hay chưa biết về đội TNTP. Sản phẩm không chỉ mang ý nghĩa về mặt khoa học mà còn đề cao tính tích cực.</p>
+                <p>1. Ý nghĩa khoa học: Chúng em muốn kết hợp sử dụng các thiết bị khác để nâng cao hiệu quả, tối ưu hóa
+                    sản phẩm nhất có thể để áp dụng vào thực tế đời sống. </p>
+                <p>2. Ý nghĩa thực tiễn: Chúng em đề cao sự chủ động của học sinh nói riêng để các bạn có thể luôn sử
+                    dụng nếu cần để tra lại một số điều đã quên hay chưa biết về đội TNTP. Sản phẩm không chỉ mang ý
+                    nghĩa về mặt khoa học mà còn đề cao tính tích cực.</p>
             </div>
             <div class="home-card">
                 <h1>Mô tả</h1>
@@ -113,20 +101,35 @@
             </div>
             <div class="home-card">
                 <h1>Dự định tương lai</h1>
-                <p>     - Dự án này có thể áp dụng ở trường học. Chẳng hạn, một đơn vị trường học có 600 đội viên, trong một cấp học, giả sử mỗi đội viên phải trang bị ít nhất một đầu sách về kiến thức đội với giá 10.000đ/ 1 cuốn. Như vậy, nếu sử dụng tài liệu mềm thì khoản tiền tiết kiệm được là 600 x 10.000đ = 6.000.000đ.
-                    Việc có thể tự tạo ra sản phẩm này đồng nghĩa với việc các bạn học sinh sẽ không bị phụ thuộc vào nhà sản xuất trong trường hợp ngừng sản xuất,…
+                <p> - Dự án này có thể áp dụng ở trường học. Chẳng hạn, một đơn vị trường học có 600 đội viên, trong một
+                    cấp học, giả sử mỗi đội viên phải trang bị ít nhất một đầu sách về kiến thức đội với giá 10.000đ/ 1
+                    cuốn. Như vậy, nếu sử dụng tài liệu mềm thì khoản tiền tiết kiệm được là 600 x 10.000đ = 6.000.000đ.
+                    Việc có thể tự tạo ra sản phẩm này đồng nghĩa với việc các bạn học sinh sẽ không bị phụ thuộc vào
+                    nhà sản xuất trong trường hợp ngừng sản xuất,…
                     Tăng khả năng sáng tạo cho học sinh giúp các bạn có sự chủ động trong việc tìm tòi vừa học vừa chơi.
-                    Hàng năm, nước ta phải in ấn sản xuất các cuốn sổ về đội TNTP để phục vụ cho nền giáo dục và với giá cả không hề rẻ sẽ làm hao hụt phần nào đó ngân sách nước nhà. Vì vậy việc tạo ra sản phẩm này hoàn toàn miễn phí đã tiết kiệm, làm giàu cho đất nước.
-                    Không những thế, trong thâm tâm chúng em muốn các bạn học sinh trên khắp dải đất hình chữ S, từ Nam ra Bắc, từ vùng biển đến biên cương, từ miền núi đến đồng bằng, ai ai cũng có thể tra và tìm kiếm một số thông tin về đội TNTP. Ngoài ra, chỉ cần 1 cái nhấp chuột các bạn có thể vào đọc và tìm kiếm 1 số nội dung liên quan đến đội TNTP không cần phải mua các đầu sách… nên sản phẩm của chúng em cũng đã góp phần giảm thiểu được phần rác thải, giảm ô nhiễm môi trường từ những việc in ấn sản xuất các trang giấy.
-                     Tuy dự án đã hoàn thành và áp dụng khả thi tại đơn vị nhưng chắc chắn cũng còn những hạn chế. Chúng em rất mong tiếp tục nhận được những ý kiến đóng góp của các anh chị chuyên trách phong trào Đoàn, Đội, của quý thầy cô giáo cũng như ý kiến đóng góp của các bạn Đội viên để sản phẩm của chúng em hoàn thiện hơn, mang lại hiệu quả cao hơn. Chúng em xin chân thành cảm ơn.
-                    
-                    </p>
+                    Hàng năm, nước ta phải in ấn sản xuất các cuốn sổ về đội TNTP để phục vụ cho nền giáo dục và với giá
+                    cả không hề rẻ sẽ làm hao hụt phần nào đó ngân sách nước nhà. Vì vậy việc tạo ra sản phẩm này hoàn
+                    toàn miễn phí đã tiết kiệm, làm giàu cho đất nước.
+                    Không những thế, trong thâm tâm chúng em muốn các bạn học sinh trên khắp dải đất hình chữ S, từ Nam
+                    ra Bắc, từ vùng biển đến biên cương, từ miền núi đến đồng bằng, ai ai cũng có thể tra và tìm kiếm
+                    một số thông tin về đội TNTP. Ngoài ra, chỉ cần 1 cái nhấp chuột các bạn có thể vào đọc và tìm kiếm
+                    1 số nội dung liên quan đến đội TNTP không cần phải mua các đầu sách… nên sản phẩm của chúng em cũng
+                    đã góp phần giảm thiểu được phần rác thải, giảm ô nhiễm môi trường từ những việc in ấn sản xuất các
+                    trang giấy.
+                    Tuy dự án đã hoàn thành và áp dụng khả thi tại đơn vị nhưng chắc chắn cũng còn những hạn chế. Chúng
+                    em rất mong tiếp tục nhận được những ý kiến đóng góp của các anh chị chuyên trách phong trào Đoàn,
+                    Đội, của quý thầy cô giáo cũng như ý kiến đóng góp của các bạn Đội viên để sản phẩm của chúng em
+                    hoàn thiện hơn, mang lại hiệu quả cao hơn. Chúng em xin chân thành cảm ơn.
+
+                </p>
             </div>
         </div>
     </div>
-    <script src="module.js" type="module"></script>
-    <script src="./app.js"></script>
+    <!-- <script src="module.js" type="module"></script> -->
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script src="module.js" type="module"></script>
+        <script src="./app.js"></script>
 </body>
 
 </html>

@@ -45,7 +45,7 @@
 }
 .sidenav-user h2{
      color: #fff;
-     padding-left: 30px;
+     padding-left: 20px;
      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
      font-size: larger;
 }
@@ -264,7 +264,52 @@
     text-align: center;
     font-size: large;
 }
-
+.sidenav-user{
+    display: flex;
+    width: 50%;
+    align-items: center;
+    flex-direction: column;
+}
+.sidenav-user a{
+    width: 20% !important;
+}
+.sidenav-user img{
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+}
+.sidenav-user h2{
+     color: #fff;
+     padding-left: 20px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-size: larger;
+}
+.sidenav-user-info{
+    display: flex;
+    align-items: center;
+}
+.sidenva-user-info{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.sign-out-btn{
+    border:none;
+    width: 100%;
+    color: #fff;
+    font-size: larger;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 50px;
+    border-radius: 20px;
+    background-color:#009ff0;
+    cursor: pointer;
+    transition:all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+.sign-out-btn:hover{
+    outline: 5px solid #0088f5;
+    outline-offset: 2px;
+}
 		@keyframes preloader_spin {
 			0% {
 				transform: rotate(0deg);
@@ -365,6 +410,7 @@
             </div>
             <hr>
             <div class="sidenav-user">
+                <button id='sign-in'class="sign-out-btn" style="display: none;">Sign In</button>
                 <div class="sidenav-user-info">
 
                 </div>
@@ -375,7 +421,7 @@
         </div>
 
         <div class="sidenav-btn">
-            <button id="btn"><i class="fa-solid fa-bars"></i></button>
+            <button id="btn"><i id='btn'class="fa-solid fa-xmark"></i></button>
         </div>
     </div>
 	<div id="preloader"></div>
@@ -406,8 +452,8 @@
 		var sidenav = document.getElementById("sidenav")
 var btn  =document.getElementById("btn")
 var btn_div = document.getElementsByClassName("sidenav-btn")[0]
-sidenav.style.left = "-100%"
-btn_div.style.left = "3%"
+sidenav.style.left = "0%"
+btn_div.style.left = "31%"
 btn.addEventListener("click", function(){
     if( sidenav.style.left == "-100%"){
         sidenav.style.left = "0"

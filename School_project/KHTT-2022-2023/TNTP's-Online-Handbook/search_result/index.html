@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png">
+    <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="header-box">
+            <div class="section">
+                <img src="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png" alt="" srcset="">
+                <div class="dropdown">
+                    <h1 onclick="dropdown_navbar(this)">Chung <i class="fa-solid fa-circle-chevron-down"></i></h1>
+                    <div class="dropdown-box">
+                        <a href="../home/index.html">Trang Chủ</a>
+                        <a href="../posts/index.html">Bài đăng</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <h1 onclick="dropdown_navbar(this)">Nghiên cứu về đội TNTP <i class="fa-solid fa-circle-chevron-down"></i></h1>
+                    <div class="dropdown-box">
+                        <a href="../Lich su(được phát hành)/index.html">Lịch sử đội TNTP </a>
+                        <a href="../Dieu le(được phát hành)/index.html">Điều lệ đội TNTP</a>
+                        <a href="../Nghi thuc(được phát hành)/index.html">Nghi thức đội TNTP</a>
+                        <a href="../ky nang(được phát hành)/index.html">Kỹ năng đội TNTP</a>
+                        <a href="../Guong anh hung(được phát hành)/index.html">Gương sáng anh hùng</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <h1 onclick="dropdown_navbar(this)">Các hoạt động của đội TNTP <i class="fa-solid fa-circle-chevron-down"></i></h1>
+                    <div class="dropdown-box">
+                        <a href="../tro choi(được phát hành)/index.html">Trò chơi của đội TNTP</a>
+                        <a href="../bai hat(được phát hành)/index.html">Bài hát về đội TNTP</a>
+                        <a href="../tntp QUIZ GAME/index.html">Thử thách đội TNTP</a>
+                    </div>
+                </div>
+            </div>
+            <div class="user">
+                <img src="../user.png" id='img'alt="" srcset="">
+                <i class="fa-solid fa-caret-down" onclick="user_dropdown(this)"></i>
+                <div class="user-dropdown" id="user-drop">
+                    <h3>Cài đặt</h3>
+                    <a href="../profile/index.html" id="href">Trang cá nhân <i class="fa-solid fa-address-card"></i></a>
+                    <button id="sign-out">Sign Out <i class="fa-solid fa-right-from-bracket"></i></button>
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="search">
+        <div class="search-box">
+                <input type="text" id='search'placeholder="Search...." required>
+                <button type ='submit' id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            
+        </div>
+        <div class="no-result-img" style="display: none;">
+            <img src="https://www.clipartmax.com/png/full/153-1533013_tissue-clip-art.png" alt="Sorry No Results Found @clipartmax.com">
+        </div>
+        <div class="search-result">
+            <div class="user-result">
+                <div class="user-title">
+                    <h1 id="u-title">Found 1 results</h1>
+                </div>
+                <div class="user-container">
+                    <!-- <div class="user-card">
+                        <a href="#"><img src="../user.png" alt=""></a>
+                        <div class="user-info">
+                            <h1>Username</h1>
+                            <p>Username@gmail.com</p>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="post-result">
+                <div class="post-title">
+                    <h1 id="p-title">Found 1 results</h1>
+                </div>
+                <div class="post-container">
+                    <!-- <div class="post-element">
+                        <div class="header">
+                            <div class="owner">
+                                <a href="#"><img src="../user.png" alt="avatar"></a>
+                                <h3>Username</h3>
+                            </div>
+                            <div class="archive">
+                                <h3>Thành tựu</h3>
+                                <h2>thành viên</h2>
+                            </div>
+                        </div>
+                        
+                        <div class="info">
+                            <h1>Title</h1>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad provident reiciendis sit neque culpa quasi ipsam nihil aliquam eligendi, magnam, repudiandae quibusdam! Accusantium eligendi alias nesciunt soluta eos, nisi natus.</p>
+                            <img src="../Thumbnails25312011013150-removebg-preview.png" alt="">
+                        </div>
+                        <div class="comment-section">
+                            <div class="comment-form">
+                                <input type="text" placeholder="Bình luận" id="comment">
+                                <button id="comment-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                            <div class="comment-box">
+                                <div class="comment-card">
+                                    <div class="comment-info">
+                                        <a href="#"><img src="../user.png" alt="" srcset=""></a>
+                                        <h3>Username</h3>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, deserunt libero, ipsum numquam repellendus dolorum quaerat aliquam dignissimos ratione odit eveniet accusantium nemo quos reiciendis adipisci officia vero tenetur dicta?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="module.js" type="module"></script>
+    <script src="./app.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

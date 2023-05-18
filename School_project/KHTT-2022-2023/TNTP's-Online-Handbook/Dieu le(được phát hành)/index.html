@@ -26,6 +26,9 @@
 		#spr0_c277c2 {
 			display: none;
 		}
+        #sign-in-out{
+        width: 100% !important;
+    }
 	</style>
 	<script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
 
@@ -300,6 +303,7 @@
     .post-creator{
         width: 80%; 
     }
+    
 }
 	</style>
 </head>
@@ -367,6 +371,7 @@
             </div>
             <hr>
             <div class="sidenav-user">
+                <button id='sign-in'class="sign-out-btn" style="display: none;">Sign In</button>
                 <div class="sidenav-user-info">
 
                 </div>
@@ -377,7 +382,7 @@
         </div>
 
         <div class="sidenav-btn">
-            <button id="btn"><i class="fa-solid fa-bars"></i></button>
+            <button id="btn"><i id='btn'class="fa-solid fa-xmark"></i></button>
         </div>
     </div>
 	<div id="preloader"></div>
@@ -407,8 +412,8 @@
 		var sidenav = document.getElementById("sidenav")
 var btn  =document.getElementById("btn")
 var btn_div = document.getElementsByClassName("sidenav-btn")[0]
-sidenav.style.left = "-100%"
-btn_div.style.left = "3%"
+sidenav.style.left = "0%"
+btn_div.style.left = "31%"
 btn.addEventListener("click", function(){
     if( sidenav.style.left == "-100%"){
         sidenav.style.left = "0"

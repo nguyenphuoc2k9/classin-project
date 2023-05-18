@@ -6,6 +6,7 @@ import { getFirestore,setDoc,doc,collection } from "https://www.gstatic.com/fire
 import { getStorage,  ref as storageref,getDownloadURL,uploadBytes } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-storage.js";
 //variable
 const sidenav_user = document.getElementsByClassName("sidenav-user-info")[0];
+const sign_out_btn = document.getElementById("sign-out")
 const firebaseConfig = {
   apiKey: "AIzaSyDaLmLo0Z6BUd1wYpqTFgEks0liCL6kjlE",
   authDomain: "tntp-s-online-handb.firebaseapp.com",
@@ -39,7 +40,12 @@ onAuthStateChanged(auth, (user) => {
   onlyOnce:true
 }); 
     } else {
-      window.location.replace("../login and sign up/index.html")
+      sign_out_btn.remove()
+      var sign_in = document.getElementById('sign-in')
+      sign_in.style.display = 'block'
+      sign_in.addEventListener('click',function(){
+        window.location.replace('../login and sign up/index.html')
+      })
       // User is signed out
       // ...
     }
@@ -83,10 +89,9 @@ onAuthStateChanged(auth, (user) => {
     }
   }
   //sign-out
-  const sign_out_btn = document.getElementById("sign-out")
   sign_out_btn.addEventListener("click",()=>{
     signOut(auth).then(() => {
-      // Sign-out successful.
+      window.location.replace('../login and sign up/index.html')
     }).catch((error) => {
       console.log(error);
       // An error happened.
