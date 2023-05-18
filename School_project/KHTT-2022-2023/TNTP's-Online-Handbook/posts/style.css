@@ -162,7 +162,21 @@ body{
 .user-dropdown i{
     color: #000;
 }
-#google_translate_element{
+.sidenav-user a{
+    width: 20% !important;
+}
+.sidenav-user img{
+    border-radius: 50% !important;
+    width: 50px !important;
+    height: 50px !important;
+}
+.sidenav-user h2{
+     color: #fff;
+     padding-left: 20px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-size: larger;
+}
+.sidenav-user-info{
     display: flex;
     width: 100%;
     align-items: center;

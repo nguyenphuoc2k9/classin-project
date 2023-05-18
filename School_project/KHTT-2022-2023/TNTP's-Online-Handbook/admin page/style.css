@@ -175,6 +175,7 @@ body{
     background-color: #42dff7;
 }
 .user-table tbody td{
+    word-break: break-word;
     padding: 10px 0;
     text-align: center;
     font-family: 'Nunito', sans-serif !important;
@@ -206,7 +207,6 @@ body{
 .edit{
     margin-left: 10px;
     background-color: #371193!important;
-    width:  130px !important;
     font-size: medium !important;
 }
 .accept{
@@ -222,4 +222,8 @@ body{
     color: #fff;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     cursor: pointer;
+}
+.btn{
+    display: flex;
+    align-items: center;
 }

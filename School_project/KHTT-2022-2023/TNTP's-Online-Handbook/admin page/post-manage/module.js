@@ -34,9 +34,12 @@ onValue(post_ref, (value) => {
         <td>${current.title}</td>
         <td>${current.desc}</td>
         <td><img src="${url}" alt=""></td>
-        <td>${current.archive} <button class="edit" post-id='${data_keys[i]}'>Set archivement</button></td>
-        <td><button class="delete" post-id='${data_keys[i]}'>Delete</button></td>
-    </tr>`
+        <td>${current.archive}</td>
+        <td>
+        <div class='btn'>
+        <button class="delete" post-id='${data_keys[i]}'>Delete</button> <button class="edit" post-id='${data_keys[i]}'>Set archivement</button></div></td>
+    
+        </tr>`
             user_print.insertAdjacentHTML("beforeend",html)
             start_delete()  
             start_edit(current.author_uid)

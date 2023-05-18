@@ -121,8 +121,24 @@ body{
     height: 50px;
     border-radius: 50%;
 }
-.user i{
-    margin-left: 10px;
+.sidenav-user img{
+    border-radius: 50%  !important;
+    width: 50px !important;
+    height: 50px !important;
+}
+.sidenav-user h2{
+     color: #fff;
+     padding-left: 20px;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-size: larger;
+}
+.sidenav-user-info{
+    display: flex;
+    align-items: center;
+}
+.sign-out-btn{
+    border:none;
+    width: 100%;
     color: #fff;
     font-size: larger;
     cursor: pointer;
