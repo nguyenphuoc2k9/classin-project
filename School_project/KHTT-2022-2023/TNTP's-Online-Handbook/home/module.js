@@ -65,20 +65,25 @@ getDownloadURL(storageref(storage, 'avatar/'+ str.split(",")[0]))
   // xhr.send();
   photo = url
   sidenav(photo)
+  console.log(photo);
   })
-}else if(data.avatar == "none" || data.avatar == null){
+}else{
+  if(data.avatar == "none" || data.avatar == null){
     photo = '../user.png'
     
   }else{
     photo = data.avatar
   }
   sidenav(photo)
-  function sidenav(photo){
-    console.log(photo);
-    document.getElementById('img').src = photo
-    document.getElementById('href').href += `?id=${uid}`
-  }
 }
+function sidenav(photo){
+  console.log(photo);
+  document.getElementById('img').src = photo
+  document.getElementById('href').href += `?id=${uid}&&profile=true`
+}
+  
+}
+
 //sign-out
 const sign_out_btn = document.getElementById("sign-out")
 sign_out_btn.addEventListener("click",()=>{
