@@ -53,7 +53,7 @@ onAuthStateChanged(auth, (user) => {
   getDownloadURL(storageref(storage, 'avatar/'+ str.split(",")[0]))
   .then((url) => {
     // `url` is the download URL for 'images/stars.jpg'
-
+  
     // This can be downloaded directly:
     // const xhr = new XMLHttpRequest();
     // xhr.responseType = 'blob';
@@ -67,28 +67,14 @@ onAuthStateChanged(auth, (user) => {
     })
   }else if(data.avatar == "none" || data.avatar == null){
       photo = '../user.png'
-      sidenav(photo)
       
     }else{
       photo = data.avatar
-      sidenav(photo)
     }
-    
     function sidenav(photo){
       console.log(photo);
-      var html = `<a href="../profile/index.html?id=${uid}&&profile=true"><img src="${photo}" alt=""></a>
-      <h2>${data.username}</h2>`
-    
-      sidenav_user.insertAdjacentHTML("afterbegin", html)
+      document.getElementById('img').src = photo
+      document.getElementById('href').href += `?uid=${uid}`
+      start_searching()
     }
   }
-  //sign-out
-  const sign_out_btn = document.getElementById("sign-out")
-  sign_out_btn.addEventListener("click",()=>{
-    signOut(auth).then(() => {
-      // Sign-out successful.
-    }).catch((error) => {
-      console.log(error);
-      // An error happened.
-    });
-  })

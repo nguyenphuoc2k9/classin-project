@@ -204,29 +204,7 @@ function showresultbox(){
     document.getElementById("insert").innerHTML = tag
 }
 // sidenav
-var sidenav = document.getElementById("sidenav")
-var btn  =document.getElementById("btn")
-var btn_div = document.getElementsByClassName("sidenav-btn")[0]
-sidenav.style.left = "-100%"
-btn_div.style.left = "3%"
-btn.addEventListener("click", function(){
-    if( sidenav.style.left == "-100%"){
-        sidenav.style.left = "0"
-        btn_div.style.left = "31%"
-        btn.innerHTML = `<i id='btn'class="fa-solid fa-xmark"></i>`
-    }else {
-        btn_div.style.left = "3%"
-        sidenav.style.left = "-100%"
-        btn.innerHTML = `<i id = "btn"class="fa-solid fa-bars"></i>`
-    }
-})
-function dropdown(e){
-    var parent = e.parentElement
-    e.classList.toggle("active")
-    var dropdown = parent.getElementsByClassName("dropdown")[0]
-    dropdown.classList.toggle("active")
-    e.querySelector("i").classList.toggle("active")
-}
+
 function googleTranslateElementInit(){
     new google.translate.TranslateElement(
         {pageLanguage:"Vietnamese"},
@@ -237,4 +215,34 @@ function googleTranslateElementInit(){
     console.log();
     var child = translate.firstChild.removeChild(translate.firstChild.childNodes[1])
     console.log();
+}
+function dropdown_navbar(e){
+    var parent = e.parentElement
+    console.log(parent);
+    var child = parent.getElementsByClassName('dropdown-box')[0]
+    var i = parent.querySelector('i')
+    display = child.style.display
+    if(display == 'flex'){
+        child.style.display = 'none'
+        i.classList.remove("active")
+        e.classList.remove('active')
+        child.classList.remove('active')
+    }else{
+        child.style.display = 'flex'
+        i.classList.add('active')
+        e.classList.add("active")
+        child.classList.add('active')
+    }
+}
+function user_dropdown(e){
+    var parent = e.parentElement
+    console.log(parent);
+    var box = parent.getElementsByClassName('user-dropdown')[0]
+    var display = box.style.display
+    console.log(display);
+    if(display == 'none'){
+        box.style.display = 'flex'
+    }else{
+        box.style.display = 'none'
+    }
 }
