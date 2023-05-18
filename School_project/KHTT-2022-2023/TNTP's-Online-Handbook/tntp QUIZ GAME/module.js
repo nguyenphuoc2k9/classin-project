@@ -45,6 +45,7 @@ onAuthStateChanged(auth, (user) => {
     }
   });
   function print_user(data,uid){
+    console.log(uid);
     console.log(data);
     let photo;
     var str = new String(data.avatar)
@@ -64,17 +65,22 @@ onAuthStateChanged(auth, (user) => {
     // xhr.send();
     photo = url
     sidenav(photo)
+    console.log(photo);
     })
-  }else if(data.avatar == "none" || data.avatar == null){
+  }else{
+    if(data.avatar == "none" || data.avatar == null){
       photo = '../user.png'
       
     }else{
       photo = data.avatar
     }
-    function sidenav(photo){
-      console.log(photo);
-      document.getElementById('img').src = photo
-      document.getElementById('href').href += `?uid=${uid}`
-      start_searching()
-    }
+    sidenav(photo)
   }
+  function sidenav(photo){
+    console.log(photo);
+    document.getElementById('img').src = photo
+    document.getElementById('href').href += `?id=${uid}&&profile=true`
+  }
+    
+  }
+  

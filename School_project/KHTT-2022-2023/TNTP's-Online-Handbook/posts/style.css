@@ -360,11 +360,9 @@ body{
 }
 #google_translate_element select{
     border-radius: 10px;
-    border: #0236ca 2px solid;
-    background-color: #0094f4;
-    color: #fff;
     width: 100%;
     padding: 10px;
+    border: none;
 }
 .comment-section{
     width: 100%;
@@ -450,5 +448,34 @@ body{
     }
     .post-creator{
         width: 80%; 
+    }
+}
+@media only screen and (max-width:1024px) {
+    .post-creator{
+        width: 80% !important;
+    }
+    .post-element{
+        width: 80%;
+    }
+    .user-dropdown{
+        top: 0.1% !important;
+    }
+    .dropdown h1{
+        font-size: 13px;
+    }
+    @keyframes navbar{
+        0%{
+            transform: scaleY(0);
+            margin-top: 50px;
+            z-index: -99;
+        }
+        /* 80%{
+            transform: scaleY(0.1);
+            z-index: -888;
+        } */
+        100%{
+            transform: scaleY(1);
+            margin-top: 50px;
+        }
     }
 }

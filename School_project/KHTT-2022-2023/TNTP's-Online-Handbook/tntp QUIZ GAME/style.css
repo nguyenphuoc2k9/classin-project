@@ -586,3 +586,26 @@ footer .next-btn{
     }
     
 }
+@media only screen and (max-width:1024px) {
+    .user-dropdown{
+        top: 1% !important;
+    }
+    .dropdown h1{
+        font-size: 13px;
+    }
+    @keyframes navbar{
+        0%{
+            transform: scaleY(0);
+            margin-top: 50px;
+            z-index: -99;
+        }
+        /* 80%{
+            transform: scaleY(0.1);
+            z-index: -888;
+        } */
+        100%{
+            transform: scaleY(1);
+            margin-top: 50px;
+        }
+    }
+}

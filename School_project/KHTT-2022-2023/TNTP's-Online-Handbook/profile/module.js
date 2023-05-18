@@ -240,7 +240,7 @@ function start_edit_file(){
   })
 }
 function print_user(data,uid){
-
+  console.log(uid);
   console.log(data);
   let photo;
   var str = new String(data.avatar)
@@ -260,16 +260,21 @@ getDownloadURL(storageref(storage, 'avatar/'+ str.split(",")[0]))
   // xhr.send();
   photo = url
   sidenav(photo)
+  console.log(photo);
   })
-}else if(data.avatar == "none" || data.avatar == null){
+}else{
+  if(data.avatar == "none" || data.avatar == null){
     photo = '../user.png'
     
   }else{
     photo = data.avatar
   }
-  function sidenav(photo){
-    console.log(photo);
-    document.getElementById('img').src = photo
-    document.getElementById('href').href += `?id=${uid}&&profile=true`
-  }
+  sidenav(photo)
+}
+function sidenav(photo){
+  console.log(photo);
+  document.getElementById('img').src = photo
+  document.getElementById('href').href += `?id=${uid}&&profile=true`
+}
+  
 }
