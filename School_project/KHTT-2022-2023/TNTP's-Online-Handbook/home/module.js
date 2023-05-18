@@ -45,7 +45,7 @@ onlyOnce : true
 });
 
 function print_user(data,uid){
-
+  console.log(uid);
   console.log(data);
   let photo;
   var str = new String(data.avatar)
@@ -72,6 +72,7 @@ getDownloadURL(storageref(storage, 'avatar/'+ str.split(",")[0]))
   }else{
     photo = data.avatar
   }
+  sidenav(photo)
   function sidenav(photo){
     console.log(photo);
     document.getElementById('img').src = photo
