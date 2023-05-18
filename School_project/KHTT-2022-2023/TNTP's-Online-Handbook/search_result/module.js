@@ -45,6 +45,7 @@ onlyOnce : true
   }
 });
 function print_user(data,uid){
+  console.log(uid);
   console.log(data);
   let photo;
   var str = new String(data.avatar)
@@ -64,20 +65,26 @@ getDownloadURL(storageref(storage, 'avatar/'+ str.split(",")[0]))
   // xhr.send();
   photo = url
   sidenav(photo)
+  console.log(photo);
   })
-}else if(data.avatar == "none" || data.avatar == null){
+}else{
+  if(data.avatar == "none" || data.avatar == null){
     photo = '../user.png'
     
   }else{
     photo = data.avatar
   }
-  function sidenav(photo){
-    console.log(photo);
-    document.getElementById('img').src = photo
-    document.getElementById('href').href += `?uid=${uid}`
-    start_searching()
-  }
+  sidenav(photo)
 }
+function sidenav(photo){
+  console.log(photo);
+  document.getElementById('img').src = photo
+  document.getElementById('href').href += `?id=${uid}&&profile=true`
+  start_searching()
+}
+  
+}
+
 //sign-out
 const sign_out_btn = document.getElementById("sign-out")
 sign_out_btn.addEventListener("click",()=>{
@@ -149,7 +156,8 @@ function start_searching(){
                 post_box.parentElement.remove()
                 document.getElementsByClassName('no-result-img')[0].style ='block'
               }
-              if(user != []){
+              if(user.length != 0){
+                console.log(user);
                 for(let i =0;i<user.length;i++){
                   let current_data = user[i]
                   var str = new String(current_data[0].avatar)
@@ -181,9 +189,11 @@ function start_searching(){
                 user_box.insertAdjacentHTML('beforeend',html)
                 document.getElementById('u-title').innerText = `Found ${user.length} in users`
                 }
+              }else{
+                document.getElementsByClassName('user-result')[0].remove()
               }
               
-              if(post != []){
+              if(post.length != 0){
                 async function processLoop() {
                   var i = 0;
                   while (i < post.length) {
@@ -260,7 +270,7 @@ function start_searching(){
                               </div>
                 </div>`
                   post_box.insertAdjacentHTML("beforeend", html)
-                  document.getElementById('u-post').innerText = `Found ${post.length} in posts`
+                  document.getElementById('p-title').innerText = `Found ${post.length} in posts`
                   const comment_box = document.getElementsByClassName(post_key)[0].getElementsByClassName('comment-box')[0]
                   onValue(ref(database,'post/'+keys+'/comments/'),(value)=>{
                     const com = value.val()
@@ -307,6 +317,8 @@ function start_searching(){
                     start_create(uid_,len)
                   }
                 }
+              }else{
+                document.getElementsByClassName('post-result')[0].remove()
               }
               
             }

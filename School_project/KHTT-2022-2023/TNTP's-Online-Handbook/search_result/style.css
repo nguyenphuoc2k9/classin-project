@@ -304,6 +304,7 @@ body{
     border: 1px solid #a2a2a2;
     border-radius: 20px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    z-index: 99;
 }
 .user-dropdown h3{
     padding: 10px;
@@ -630,9 +631,9 @@ body{
     color: #000;
     font-family: 'Courier New', Courier, monospace;
 }
-@media only screen and (max-width:1024px) {
+@media only screen and (max-width:1280px) {
     .user-dropdown{
-        top: 21% !important;
+        top: -0.5% !important;
     }
     .dropdown h1{
         font-size: 13px;
