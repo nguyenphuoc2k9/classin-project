@@ -27,6 +27,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const database = getDatabase(app)
 const auth = getAuth()
+checkif()
 sigh_up_btn.addEventListener("click", function (e) {
   const sign_up_username = document.getElementById("sign-up-username").value
   const sign_up_password = document.getElementById("sign-up-password").value
@@ -185,19 +186,7 @@ sign_in_btn.addEventListener("click", function (e) {
     });
   checkif()
 })
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     // User is signed in, see docs for a list of available properties
-//     // https://firebase.google.com/docs/reference/js/firebase.User
-//     window.location.replace("../home/index.html")
-//     // ...
 
-//   } else {
-
-//     // User is signed out
-//     // ...
-//   }
-// });
 
 
 function checkif() {

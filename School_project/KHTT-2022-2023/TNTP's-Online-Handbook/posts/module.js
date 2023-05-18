@@ -120,7 +120,7 @@ if(title!= null && desc != null){
   }else{
     check = false
   }
-  if(desc.length > 10 && desc.length <100){
+  if(desc.length > 10 && desc.length <300){
     check = true
   }else {
     check = false
@@ -137,6 +137,8 @@ if(check == true){
     archive:'none',
     author_uid:uid_,
     img:file.name
+  }).then(()=>{
+    window.location.reload()
   })
   
 })

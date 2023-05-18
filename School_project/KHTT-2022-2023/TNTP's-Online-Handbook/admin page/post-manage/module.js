@@ -57,7 +57,7 @@ function start_delete(){
             let uid = del_btn[i].getAttribute("post-id")
             remove(ref(database,'post/'+uid)).then(()=>{
                 console.log('done');
-                // window.location.reload()
+                window.location.reload()
             })
         })
     }
