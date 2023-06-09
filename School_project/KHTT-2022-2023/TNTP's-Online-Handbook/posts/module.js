@@ -132,6 +132,33 @@ submit_btn.addEventListener("click", () => {
       p[2].innerText = 'Description must have at least more than 10 and less than 100 characters'
     }
   }
+
+  if(file != null){
+    check = true
+  }else{
+    check = false
+  }
+  if(desc.length > 10 && desc.length <300){
+    check = true
+  }else {
+    check = false
+    p[2].innerText = 'Description must have at least more than 10 and less than 100 characters'
+  }
+if(check == true){
+  uploadBytes(storageRef, file).then((snapshot) => {
+    console.log(snapshot);
+  console.log('Uploaded a blob or file!');
+  set(ref(database,'pending-post/'+generateRandomKey(10)),{
+    title:title,
+    desc:desc,
+    archive:'none',
+    author_uid:uid_,
+    img:file.name
+  }).then(()=>{
+    window.location.reload()
+  })
+  
+})
   if (check == true) {
     uploadBytes(storageRef, file).then((snapshot) => {
       set(ref(database, 'pending-post/' + generateRandomKey(10)), {
@@ -149,7 +176,8 @@ submit_btn.addEventListener("click", () => {
   }
 
 
-})
+}})
+
 //print_post
 const post_box = document.getElementsByClassName("post-box")[0]
 function print_post(value,data_2) {

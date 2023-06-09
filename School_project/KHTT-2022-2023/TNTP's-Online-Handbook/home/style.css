@@ -457,9 +457,9 @@ body {
     flex-basis: 48%;
     text-align: center;
 }
-@media only screen and (max-width:1024px) {
+@media only screen and (max-width:1280px) {
     .user-dropdown{
-        top: 21% !important;
+        top: -0.5% !important;
     }
     .dropdown h1{
         font-size: 13px;
