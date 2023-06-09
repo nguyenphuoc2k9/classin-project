@@ -19,8 +19,33 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const database = getDatabase(app)
 const storage = getStorage(app)
-
-
+//login
+const username = document.getElementById('username')
+const status = localStorage.getItem('status').split('"')[1]
+if(status =='active'){
+    const name = localStorage.getItem('name').split('"')[1]
+    console.log(name);
+    onValue(ref(database,'admin/'),(value)=>{
+        const val = value.val()
+        const keys = Object.keys(val)
+        for(let i =0;i<keys.length;i++){
+            if(keys[i] == name){
+                username.innerText = name
+            }
+        }
+    },{
+        onlyOnce:true,
+    })
+}else{
+    window.location.replace('../admin-login/index.html')
+}
+//sign out
+const sign_out = document.getElementById('sign-out-button')
+sign_out.addEventListener('click',()=>{
+    localStorage.removeItem('status')
+    localStorage.removeItem('name')
+    window.location.replace('../admin-login/index.html')
+})
 //dashboard
 const dashboard = document.getElementsByClassName("dash-box")[0]
 const star_Ref = ref(database,'users')

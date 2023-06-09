@@ -207,8 +207,8 @@ function start_edit() {
       var editvalue = new String(edit[i].getAttribute("edit-value"))
       var newvalue = prompt(`chỉnh sửa ${editvalue}:`)
       if (newvalue != null) {
-        const dataref = ref(database, 'users/' + uid)
-        onValue(ref(database, 'users/' + uid + '/' + editvalue), (snapshot) => {
+        const dataref = ref(database, 'users/' + uid_)
+        onValue(ref(database, 'users/' + uid_ + '/' + editvalue), (snapshot) => {
           const keyName = snapshot.key;
           const updatevalue = {}
           updatevalue[`${editvalue}`] = newvalue

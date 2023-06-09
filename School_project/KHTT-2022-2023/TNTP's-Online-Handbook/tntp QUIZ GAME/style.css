@@ -4,7 +4,7 @@
     padding: 0;
 }
 body{
-    background-color: #007bff;
+    background: linear-gradient(180deg, #96D1FB 0%, rgba(109, 188, 245, 0.804885) 30.21%, rgba(14, 141, 233, 0.354167) 99.99%, rgba(150, 209, 251, 0) 100%);
 }
 .header{
     width: 100%;
