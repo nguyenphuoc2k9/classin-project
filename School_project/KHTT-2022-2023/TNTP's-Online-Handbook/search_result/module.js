@@ -99,7 +99,8 @@ const user_box = document.getElementsByClassName('user-container')[0]
 const session_box = document.getElementsByClassName('session-container')[0]
 const post_box = document.getElementsByClassName('post-container')[0]
 function start_searching() {
-  btn.addEventListener('click', () => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault()
     var value_input = document.getElementById('search').value.toLowerCase()
     if (value_input != '') {
       window.location.replace(`../search_result/index.html?search_value=${value_input}`)
@@ -162,11 +163,14 @@ function start_searching() {
       result_print(user_result, post_result,session_result)
       function result_print(user, post,session) {
         //print user
-
+        if(post.length + session.length < 3 && user.length <= 0){
+          document.getElementsByTagName('footer')[0].classList.add('active')
+        }
         if ((user.length == 0 || user == null) && (post.length == 0 || post == null) && (session.length ==0 || session ==null)) {
           user_box.parentElement.remove()
           post_box.parentElement.remove()
           session_box.parentElement.remove()
+          document.getElementsByTagName('footer')[0].classList.remove('active')
           document.getElementsByClassName('no-result-img')[0].style = 'block'
         }
         if (user.length != 0) {

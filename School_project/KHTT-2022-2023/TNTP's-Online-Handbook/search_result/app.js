@@ -10,6 +10,19 @@ function googleTranslateElementInit(){
     var child = translate.firstChild.removeChild(translate.firstChild.childNodes[1])
     console.log();
 }
+const open_btn = document.getElementsByClassName('open')[0]
+const header = document.getElementsByTagName('header')[0]
+open_btn.addEventListener('click',()=>{
+    if(header.classList.contains('active')){
+        header.classList.remove('active')
+        open_btn.setAttribute('class','fa-solid fa-bars open')
+    }else{
+        header.classList.add('active')
+        open_btn.setAttribute('class','fa-solid fa-xmark open active')
+    }
+})
+
+//dropdown
 const doc_drop = document.getElementById('doc-dropdown')
 const dropdown_box = document.getElementsByClassName('dropdown-box')[0]
 doc_drop.addEventListener('click', function () {

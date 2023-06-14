@@ -184,7 +184,9 @@ header {
     justify-content: space-between;
     background: linear-gradient(90deg, #FF8A00 0%, #DFAE00 96.65%);
 }
-
+i.open{
+    display: none;
+}
 .header-logo {
     max-width: 70px;
     max-height: 70px;
@@ -400,6 +402,10 @@ footer{
     background-color: #002438;
     color: #fff;
     font-family: 'Inter', sans-serif;
+}
+footer.active{
+    position: absolute;
+    bottom: 0;
 }
 .contact{
     margin: 20px;
@@ -878,4 +884,165 @@ footer{
     font-size: larger;
     border-radius: 40px;
 
+}
+@media only screen and (max-width:400px){
+    header{
+        width: 100%;
+        height: 100vh;
+        right: -100vh;
+        z-index: 9999;
+        position: fixed;
+        flex-direction: column;
+        justify-content: unset;
+        overflow: auto;
+        transition:all .5s cubic-bezier(0.19, 1, 0.22, 1) ;
+    }
+    i.open{
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        z-index: 9999999;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0094f4;
+        color: #fff;
+        font-size: 8vw;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+        transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+    i.open.active{
+        background-color: #FF9900;
+    }
+    header.active{
+        right: 0;
+    }
+    header i.close{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        width: 50px;
+        cursor: pointer;
+        height: 50px;
+        color: #fff;
+        font-size: 8vw;
+    }
+    
+    .header-content{
+        width: 90%;
+        flex-direction: column;
+        padding-left: 0;
+    }
+    .header-content a{
+        width: 100% ;
+    }
+    .dropdown-box{
+        width: 100% !important;
+        z-index: 9999999 !important;
+    }
+    .header-user{
+        width: 90%;
+        margin-right: 0;
+        justify-content: space-between;
+        margin-top: 20px;
+        background-color: #fd8300;
+        padding: 5px;
+        border-radius: 50px;
+    }
+    .header-user i{
+        background-color: orange;
+        font-size: 6vw;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 50%;
+    }
+    .header-user-drop{
+        margin-top: 10px;
+        width: 99%;
+    }
+    .header-user-drop a{
+        width: 100%;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+    }
+    .header-user-drop h1{
+        display: none;
+    }
+    .training-card{
+        width: 98% !important;
+    }
+    .training-card button{
+        margin-left:0 ;
+    }
+    .card-info{
+        width: 70%;
+    }
+    .card-info h1{
+        font-size: medium;
+    }
+    .card-info p{
+        font-size: small;
+        word-break: break-all;
+    }
+    .more-info img{
+        width: 20px;
+        height: 20px;
+    }
+    .more-info{
+        width: unset !important;
+    }
+    .more-info p{
+        font-size: x-small;
+    }
+    .session-join{
+        border-radius: 50% !important;
+        font-size: 15px !important;
+    }
+    .leader-table table{
+        width: 90%;
+    }
+    .leader-table table th,.leader-table table td{
+        padding: 5px 10px;
+        font-size:small !important;
+    }
+    .leader-table .read-more.active{
+        width: 90%;
+    }
+    footer h1{
+        font-size: medium;
+    }
+    footer p{
+        font-size: small;
+    }
+    footer button{
+        width: fit-content !important;
+        padding: 5px;
+    }
+    .social-icon img{
+        width: 30px;
+        height: 30px;
+    }
+    nav form {
+        width: 90%;
+    }
+    .search-result{
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .no-result-img img{
+        width: 100% !important;
+    }
 }
