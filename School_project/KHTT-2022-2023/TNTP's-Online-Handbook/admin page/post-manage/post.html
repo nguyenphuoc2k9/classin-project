@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -20,6 +22,17 @@
             </div>
             <div class="head-card">
                 <a href="../post-manage/post.html"><h1>Posts</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="../session-manage/index.html"><h1>Session manage</h1></a>
+            </div>
+        </div>
+        <div class="header-user">
+            <img src="../user.png" alt="">
+            <h1 id="username">Username</h1>
+            <i class="fa-solid fa-caret-down" id="dropdown"></i>
+            <div class="dropdown-box" id="dropdown-box">
+                <button id="sign-out-button">Sign Out</button>
             </div>
         </div>
     </div>
@@ -68,6 +81,7 @@
         </div>
     </div>
     <script src="./module.js" type="module"></script>
+    <script src="../app.js"></script>
 </body>
 
 </html>

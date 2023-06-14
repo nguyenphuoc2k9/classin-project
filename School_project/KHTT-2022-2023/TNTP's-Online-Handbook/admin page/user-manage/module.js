@@ -21,7 +21,33 @@ const analytics = getAnalytics(app);
 const database = getDatabase(app)
 const storage = getStorage(app)
 const auth = getAuth(app)
-
+//account
+const username = document.getElementById('username')
+const status = localStorage.getItem('status').split('"')[1]
+if (status == 'active') {
+    const name = localStorage.getItem('name').split('"')[1]
+    console.log(name);
+    onValue(ref(database, 'admin/'), (value) => {
+        const val = value.val()
+        const keys = Object.keys(val)
+        for (let i = 0; i < keys.length; i++) {
+            if (keys[i] == name) {
+                username.innerText = name
+            }
+        }
+    }, {
+        onlyOnce: true,
+    })
+} else {
+    window.location.replace('../admin-login/index.html')
+}
+//sign out
+const sign_out = document.getElementById('sign-out-button')
+sign_out.addEventListener('click', () => {
+    localStorage.removeItem('status')
+    localStorage.removeItem('name')
+    window.location.replace('../admin-login/index.html')
+})
 //print_user
 const user_print = document.getElementById("user-manage")
 const user_ref = ref(database, 'users/')
@@ -43,15 +69,22 @@ onValue(user_ref, (value) => {
                     <td>${current.email}</td>
                     <td><img src="${url}" alt=""></td>
                     <td>${current.gender}</td>
-                    <td>${current.school}</td>
-                    <td>${current.class}</td>
+                    <td>${current.school}</td>          
+                    <td>${current.grade}</td>
+                    <td>${current.race}</td>
+                    <td>${current.religion}</td>
+                    <td>${current.home_town}</td>
+                    <td>${current.birthday}</td>
                     <td>${session_count}</td>
+                    <td class='health-edit-btn' user_uid='${data_keys[i]}'>${current.health_condition}</td>
                     <td>${current.archive}</td>
-                    <td><Button class="delete"  user-uid='${data_keys[i]}'>Delete</Button></td>
+                    <td><Button class="delete"  user-uid='${data_keys[i]}'>Delete</Button> <button class='profile' user_uid='${data_keys[i]}'>Profile dowload</button></td>
                 </tr>`
                         user_print.insertAdjacentHTML("beforeend", html)
 
                         start_delete()
+                        start_edit()
+                        start_profile()
                     })
                 } else {
                     let url;
@@ -61,18 +94,25 @@ onValue(user_ref, (value) => {
                         url = current.avatar
                     }
                     var html = `<tr>
-
-                    <td>${current.username}</td>
-                    <td>${current.email}</td>
+                    <td class='edit-btn' edit_value ='username' user_uid='${data_keys[i]}'>${current.username}</td>
+                    <td class='edit-btn' edit_value ='email' user_uid='${data_keys[i]}'>${current.email}</td>
                     <td><img src="${url}" alt=""></td>
-                    <td>${current.gender}</td>
-                    <td>${current.school}</td>
-                    <td>${current.class}</td>
+                    <td class='edit-btn' edit_value ='gender' user_uid='${data_keys[i]}'>${current.gender}</td>
+                    <td class='edit-btn' edit_value ='school' user_uid='${data_keys[i]}'>${current.school}</td>          
+                    <td class='edit-btn' edit_value ='grade' user_uid='${data_keys[i]}'>${current.grade}</td>
+                    <td class='edit-btn' edit_value ='race' user_uid='${data_keys[i]}'>${current.race}</td>
+                    <td class='edit-btn' edit_value ='religion' user_uid='${data_keys[i]}'>${current.religion}</td>
+                    <td class='edit-btn' edit_value ='home_town' user_uid='${data_keys[i]}'>${current.home_town}</td>
+                    <td class='edit-btn' edit_value ='birthday' user_uid='${data_keys[i]}'>${current.birthday}</td>
                     <td>${session_count}</td>
+                    <td class='edit-btn' edit_value ='health_condition' user_uid='${data_keys[i]}'>${current.health_condition}</td>
                     <td>${current.archive}</td>
-                    <td><Button class="delete"  user-uid='${data_keys[i]}'>Delete</Button></td>
+                    <td><Button class="delete"  user-uid='${data_keys[i]}'>Delete</Button><button class='profile' user_uid='${data_keys[i]}'>Profile dowload</button></td>
                 </tr>`
                     user_print.insertAdjacentHTML("beforeend", html)
+                    start_delete()
+                    start_edit()
+                    start_profile()
                 }
 
             })
@@ -147,3 +187,52 @@ document.getElementById("dowload").addEventListener("click", () => {
         URL.revokeObjectURL(url);
     })
 })
+//eidt health condition
+function start_edit() {
+    const health_btn = document.getElementsByClassName('edit-btn')
+    console.log(health_btn);
+    var edited = false
+    for (let i = 0; i < health_btn.length; i++) {
+
+        health_btn[i].addEventListener('click', () => {
+            var user_uid = health_btn[i].getAttribute('user_uid')
+                var edit_value = health_btn[i].getAttribute('edit_value')
+            var last_value = health_btn[i].innerText
+            popup(user_uid,last_value,edit_value)
+        })
+    }
+}
+function update_edit(user_uid, edit_data) {
+    update(ref(database, 'users/' + user_uid), edit_data).then(() => {
+        window.location.reload()
+    })
+}
+document.getElementsByClassName('popup')[0].style.display = 'none'
+function popup(user_uid,last_value,edit_value){
+    document.getElementById('popup-title').innerText = `Edit ${edit_value}`
+   document.getElementById('label').innerText = `Edit ${edit_value}`
+    document.getElementsByClassName('popup')[0].style.display = 'block'
+    document.getElementById('close-btn').addEventListener('click',()=>{
+        document.getElementsByClassName('popup')[0].style.display = 'none'
+    })
+    document.getElementById('popup-submit').addEventListener('click',()=>{
+        var popup_input = document.getElementById('popup_value')
+
+        if(popup_input.value !='' || popup_input.value != null){
+            var add_data = {}
+            add_data[`${edit_value}`] = popup_input.value
+            update(ref(database,'users/'+user_uid),add_data).then(()=>{
+                window.location.reload()
+            })
+        }
+    })
+}
+function start_profile(){
+    var profile_btn = document.getElementsByClassName('profile')
+    for(let i  =0;i<profile_btn.length;i++){
+        profile_btn[i].addEventListener('click',()=>{
+            var user_uid = profile_btn[i].getAttribute('user_uid')
+            window.location.replace(`./profile_user.html?uid=${user_uid}`)
+        })
+    }
+}

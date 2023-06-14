@@ -5,7 +5,7 @@ import { getDatabase, set, ref, onValue,update } from "https://www.gstatic.com/f
 import { getFirestore, setDoc, doc, collection } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 import { getStorage, ref as storageref, getDownloadURL, uploadBytes } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-storage.js";
 //variable
-const btn = document.getElementById('search')['submit-btn']
+const btn = document.getElementById('submit-btn')
 const firebaseConfig = {
   apiKey: "AIzaSyDaLmLo0Z6BUd1wYpqTFgEks0liCL6kjlE",
   authDomain: "tntp-s-online-handb.firebaseapp.com",
@@ -60,8 +60,10 @@ function print_user(data, uid) {
     let session_count = 0
     for(let i = 0 ;i<session_data_keys.length;i++){
       var current_session = session_data[session_data_keys[i]]
-      if(current_session.session_data[`${uid}`] != undefined && current_session.session_data != undefined && current_session.session_data[`${uid}`] != null){
-        session_count+=1
+      if(current_session.session_data != undefined){
+        if(current_session.session_data[`${uid}`] != undefined && current_session.session_data[`${uid}`] != null){
+          session_count+=1
+        }
       }
     }
     document.getElementById('session-joined').innerText = `${session_count} Sessions`
@@ -115,8 +117,9 @@ sign_out_btn.addEventListener("click", () => {
     // An error happened.
   });
 })
-btn.addEventListener('click', () => {
-  var value_input = document.getElementById('search').value.toLowerCase()
+btn.addEventListener('click', (e) => {
+  e.preventDefault()
+  var value_input = document.getElementById('search-value').value.toLowerCase()
   if (value_input == '' || value_input == 0) {
     alert('search input cannot be empty')
   } else {
@@ -131,7 +134,7 @@ function print_session(data,uid) {
   const see_more_btn = document.getElementById('see-more')
   const add_point = document.getElementsByClassName('see-more-btn')[0]
   const training_box = document.getElementsByClassName('training-box')[0]
-  if (training_session_keys.length >= 3) {
+  if (training_session_keys.length > 3) {
     print_training(3)
   } else {
     print_training(training_session_keys.length)
@@ -177,10 +180,10 @@ function print_session(data,uid) {
 
     }
     if (see_more_btn.innerText == 'Rút Ngắn') {
-      print_session(3)
+      print_training(3)
       see_more_btn.innerText = 'Thêm'
     } else {
-      print_session(training_session_keys.length)
+      print_training(training_session_keys.length)
       see_more_btn.innerText = 'Rút Ngắn'
     }
   })

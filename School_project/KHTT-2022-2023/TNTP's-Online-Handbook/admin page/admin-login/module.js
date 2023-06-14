@@ -53,7 +53,7 @@ function start_login(data){
             localStorage.setItem('status',JSON.stringify('active'))
             localStorage.setItem('name',JSON.stringify(admin_name))
             alert('done')
-            window.location.replace('../dashboard/index.html')
+            window.location.replace('../dashboard/dashboard.html')
         }
     })
 }

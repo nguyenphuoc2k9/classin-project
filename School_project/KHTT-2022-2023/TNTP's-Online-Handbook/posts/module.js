@@ -333,3 +333,14 @@ function start_create(uid,len) {
     })
   });
 }
+const btn = document.getElementById('submit-btn')
+btn.addEventListener('click', (e) => {
+  e.preventDefault()
+  var value_input = document.getElementById('search-value').value.toLowerCase()
+  if (value_input == '' || value_input == 0) {
+    alert('search input cannot be empty')
+  } else {
+    window.location.replace(`../search_result/index.html?search_value=${value_input}`)
+
+  }
+})

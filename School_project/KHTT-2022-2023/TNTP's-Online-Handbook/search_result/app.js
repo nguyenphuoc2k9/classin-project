@@ -10,33 +10,24 @@ function googleTranslateElementInit(){
     var child = translate.firstChild.removeChild(translate.firstChild.childNodes[1])
     console.log();
 }
-function dropdown_navbar(e){
-    var parent = e.parentElement
-    console.log(parent);
-    var child = parent.getElementsByClassName('dropdown-box')[0]
-    var i = parent.querySelector('i')
-    display = child.style.display
-    if(display == 'flex'){
-        child.style.display = 'none'
-        i.classList.remove("active")
-        e.classList.remove('active')
-        child.classList.remove('active')
-    }else{
-        child.style.display = 'flex'
-        i.classList.add('active')
-        e.classList.add("active")
-        child.classList.add('active')
+const doc_drop = document.getElementById('doc-dropdown')
+const dropdown_box = document.getElementsByClassName('dropdown-box')[0]
+doc_drop.addEventListener('click', function () {
+    if (dropdown_box.classList.contains('active')) {
+        dropdown_box.classList.remove('active')
+        dropdown_box.classList.add('refuse')
+    } else {
+        dropdown_box.classList.add('active')
+        dropdown_box.classList.remove('refuse')
     }
-}
-function user_dropdown(e){
-    var parent = e.parentElement
-    console.log(parent);
-    var box = parent.getElementsByClassName('user-dropdown')[0]
-    var display = box.style.display
-    console.log(display);
-    if(display == 'none'){
-        box.style.display = 'flex'
-    }else{
-        box.style.display = 'none'
+})
+const user_drop = document.getElementById('user-drop')
+const header_user_box = document.getElementsByClassName('header-user-drop')[0]
+header_user_box.style.display = 'none'
+user_drop.addEventListener('click', () => {
+    if (header_user_box.style.display == 'none') {
+        header_user_box.style.display = 'flex'
+    } else {
+        header_user_box.style.display = 'none'
     }
-}
+})

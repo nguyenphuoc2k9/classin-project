@@ -6,7 +6,7 @@ const quiz_box = document.querySelector(".quiz-box")
 const que_text = document.querySelector(".que-text")
     const option_list = document.querySelector(".option-list")
 const timecount = quiz_box.querySelector(".timer .timer-sec")
-const time_line = quiz_box.querySelector("header .time-line")
+const time_line = quiz_box.querySelector(".time-line")
 const cheersound  = new Audio("../cheering-sound-effect-free-copyright.mp3")
 const wrongsound = new Audio("../buzzer2-6109.mp3")
 const start_question  = new Audio("../mixkit-arcade-game-complete-or-approved-mission-205.wav")
@@ -216,33 +216,37 @@ function googleTranslateElementInit(){
     var child = translate.firstChild.removeChild(translate.firstChild.childNodes[1])
     console.log();
 }
-function dropdown_navbar(e){
-    var parent = e.parentElement
-    console.log(parent);
-    var child = parent.getElementsByClassName('dropdown-box')[0]
-    var i = parent.querySelector('i')
-    display = child.style.display
-    if(display == 'flex'){
-        child.style.display = 'none'
-        i.classList.remove("active")
-        e.classList.remove('active')
-        child.classList.remove('active')
+const open_btn = document.getElementsByClassName('open')[0]
+const header = document.getElementsByTagName('header')[0]
+open_btn.addEventListener('click',()=>{
+    if(header.classList.contains('active')){
+        header.classList.remove('active')
+        open_btn.setAttribute('class','fa-solid fa-bars open')
     }else{
-        child.style.display = 'flex'
-        i.classList.add('active')
-        e.classList.add("active")
-        child.classList.add('active')
+        header.classList.add('active')
+        open_btn.setAttribute('class','fa-solid fa-xmark open active')
     }
-}
-function user_dropdown(e){
-    var parent = e.parentElement
-    console.log(parent);
-    var box = parent.getElementsByClassName('user-dropdown')[0]
-    var display = box.style.display
-    console.log(display);
-    if(display == 'none'){
-        box.style.display = 'flex'
-    }else{
-        box.style.display = 'none'
+})
+
+//dropdown
+const doc_drop = document.getElementById('doc-dropdown')
+const dropdown_box = document.getElementsByClassName('dropdown-box')[0]
+doc_drop.addEventListener('click', function () {
+    if (dropdown_box.classList.contains('active')) {
+        dropdown_box.classList.remove('active')
+        dropdown_box.classList.add('refuse')
+    } else {
+        dropdown_box.classList.add('active')
+        dropdown_box.classList.remove('refuse')
     }
-}
+})
+const user_drop = document.getElementById('user-drop')
+const header_user_box = document.getElementsByClassName('header-user-drop')[0]
+header_user_box.style.display = 'none'
+user_drop.addEventListener('click', () => {
+    if (header_user_box.style.display == 'none') {
+        header_user_box.style.display = 'flex'
+    } else {
+        header_user_box.style.display = 'none'
+    }
+})

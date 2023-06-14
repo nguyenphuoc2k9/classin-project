@@ -486,6 +486,13 @@ header {
     background: linear-gradient(90deg, #FF8A00 0%, #DFAE00 96.65%);
 }
 
+header i.close{
+    display: none;
+}
+i.open{
+
+    display: none;
+}
 .header-logo {
     max-width: 70px;
     max-height: 70px;
@@ -776,13 +783,16 @@ nav form button {
     background: linear-gradient(90deg, #0A95E2 0%, #93D7EC 101.71%);
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: clamp(5px,2vw,20px);
     margin-left: 20px;
     border-radius: 40px 10px 40px 10px;
 }
-
+.welcome-title h1,.welcome-title h2{
+    font-family: 'Inter',sans-serif;
+    font-size: min(3vw,30px);
+}
 .welcome-title img {
-    width: 40%;
+    width: min(40%,40vw);
 }
 
 .welcome-desc {
@@ -791,7 +801,6 @@ nav form button {
     gap: 20px;
     color: #fff;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-bottom: 40px;
 }
 
 .user-figure {
@@ -806,8 +815,9 @@ nav form button {
 .user-figure h1 {
     width: 80%;
     border-radius: 20px;
-    padding: 30px;
+    padding: clamp(1vw,2vw,5vw);
     color: #000;
+    font-size: min(3vw,25px);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(35, 35, 35, 0.91);
@@ -826,7 +836,7 @@ nav form button {
 }
 
 .training-title {
-    width: 20%;
+    width: fit-content;
     margin-left: 20px;
     display: flex;
     gap: 10px;
@@ -839,7 +849,9 @@ nav form button {
     padding: 10px;
     margin-bottom: 10px;
 }
-
+.training-title h1{
+    font-size: clamp(2vw,4vw,5vw);
+}
 .training-title img {
     width: 50px;
     height: 50px;
@@ -853,7 +865,7 @@ nav form button {
 }
 
 .training-card {
-    width: 60%;
+    width: clamp(60vw,70vw,100vw);
     overflow: hidden;
     margin-left: 20px;
     background: #00498D;
@@ -861,10 +873,11 @@ nav form button {
     border-radius: 20px;
     display: flex;
     align-items: center;
+    padding: 5px;
 }
 .training-card img{
-    width: 100px;
-    height: 100px;
+    width: min(10vw,100px);
+    height: min(10vw,100px);
 }
 
 .card-info {
@@ -875,10 +888,12 @@ nav form button {
     width: 60%;
     font-family: 'Courier New', Courier, monospace;
 }
-
+.card-info h1{
+    font-size: clamp(2vw,3vw,12vw);
+}
 .more-info {
     background: #3492D7;
-    margin-top: 25px;
+    
     width: 80%;
     border-radius: 20px;
     display: flex;
@@ -912,7 +927,7 @@ nav form button {
     height: 20px;
     border-radius: 50%;
 }
-.status div.dis{
+.status div.deactive{
     background-color: red !important;
     width: 20px;
     height: 20px;
@@ -962,7 +977,7 @@ nav form button {
 }
 
 .leader-title {
-    width: 20%;
+    width: fit-content;
     color: #Fff;
     background: rgba(21, 178, 245, 0.96);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.54);
@@ -973,6 +988,9 @@ nav form button {
     margin-left: 20px;
     gap: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.leader-title h1{
+    font-size: clamp(2vw,4vw,5vw);
 }
 .leader-table{
     width:  100%;
@@ -1098,4 +1116,152 @@ footer{
     color: #fff;
     height: 50px;
 
+}
+@media only screen and (max-width:400px){
+    header{
+        width: 100%;
+        height: 100vh;
+        right: -100vh;
+        z-index: 9999;
+        position: fixed;
+        flex-direction: column;
+        justify-content: unset;
+        overflow: auto;
+        transition:all .5s cubic-bezier(0.19, 1, 0.22, 1) ;
+    }
+    i.open{
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        z-index: 9999999;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0094f4;
+        color: #fff;
+        font-size: 8vw;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+        transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+    i.open.active{
+        background-color: #FF9900;
+    }
+    header.active{
+        right: 0;
+    }
+    header i.close{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        width: 50px;
+        cursor: pointer;
+        height: 50px;
+        color: #fff;
+        font-size: 8vw;
+    }
+    .header-content{
+        width: 90%;
+        flex-direction: column;
+        padding-left: 0;
+    }
+    .header-content a{
+        width: 100% ;
+    }
+    .dropdown-box{
+        width: 100% !important;
+        z-index: 9999999 !important;
+    }
+    .header-user{
+        width: 90%;
+        margin-right: 0;
+        justify-content: space-between;
+        margin-top: 20px;
+        background-color: #fd8300;
+        padding: 5px;
+        border-radius: 50px;
+    }
+    .header-user i{
+        background-color: orange;
+        font-size: 6vw;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 50%;
+    }
+    .header-user-drop{
+        margin-top: 10px;
+        width: 99%;
+    }
+    .header-user-drop a{
+        width: 100%;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+    }
+    .header-user-drop h1{
+        display: none;
+    }
+    .training-card{
+        width: 90% !important;
+        margin-left: 10px;
+    }
+    .card-info h1{
+        font-size: medium;
+    }
+    .card-info p{
+        font-size: small;
+        word-break: break-all;
+    }
+    .more-info img{
+        width: 20px;
+        height: 20px;
+    }
+    .more-info{
+        width: unset !important;
+    }
+    .more-info p{
+        font-size: x-small;
+    }
+    .session-join{
+        border-radius: 50% !important;
+        font-size: 15px !important;
+    }
+    .leader-table table{
+        width: 90%;
+    }
+    .leader-table table th,.leader-table table td{
+        padding: 5px 10px;
+        font-size:small !important;
+    }
+    .leader-table .read-more.active{
+        width: 90%;
+    }
+    footer h1{
+        font-size: medium;
+    }
+    footer p{
+        font-size: small;
+    }
+    footer button{
+        width: fit-content !important;
+        padding: 5px;
+    }
+    .social-icon img{
+        width: 30px;
+        height: 30px;
+    }
+    nav form {
+        width: 90%;
+    }
 }

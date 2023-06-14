@@ -21,7 +21,7 @@ const firebaseConfig = {
 const sigh_up_btn = document.getElementById("sign-up-submit");
 const sign_up_facebook = document.getElementsByClassName("sign-up-facebook");
 const sign_up_google = document.getElementsByClassName("sign-up-google");
-console.log(sign_up_google);
+
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -48,7 +48,8 @@ sigh_up_btn.addEventListener("click", function (e) {
         class: "chưa xác định",
         archive: ['thành viên']
       }).then(()=>{
-        checkif()
+
+        window.location.replace(`./more-info.html?uid=${user.uid}`)
       })
     })
 
@@ -75,9 +76,11 @@ for (let i = 0; i < sign_up_google.length; i++) {
             const pictureUrl = data.photos[0].url;
             console.log(pictureUrl);
             const starCountRef = ref(database, 'users/' +user.uid);
+            var check = false
             onValue(starCountRef, (snapshot) => {
-            if(snapshot.exists()){
+            if(snapshot.exists()&&check ==false){
               window.location.replace("../home/index.html")
+              check = true;
             }else{
               set(ref(database, 'users/' + user.uid), {
                 username: user.displayName,
@@ -88,7 +91,7 @@ for (let i = 0; i < sign_up_google.length; i++) {
                 class: "chưa xác định",
                 archive: ['thành viên']
               }).then(()=>{
-                checkif()
+                window.location.replace(`./more-info.html?uid=${user.uid}`)
               })
             }
             })
@@ -128,9 +131,12 @@ for (let i = 0; i < sign_up_facebook.length; i++) {
             // The response contains a URL to the user's profile picture.
             const pictureUrl = response.url;
             const starCountRef = ref(database, 'users/' +user.uid);
+
+            var check = false
             onValue(starCountRef, (snapshot) => {
-            if(snapshot.exists()){
+            if(snapshot.exists()&&check ==false){
               window.location.replace("../home/index.html")
+              check = true;
             }else{
               set(ref(database, 'users/' + user.uid), {
                 username: user.displayName,
@@ -141,11 +147,10 @@ for (let i = 0; i < sign_up_facebook.length; i++) {
                 class: "chưa xác định",
                 archive: ['thành viên']
               }).then(()=>{
-                checkif()
+                window.location.replace(`./more-info.html?uid=${user.uid}`)
               })
             }
             })
-            
             // Do something with the picture URL, such as display it on the page.
           });
         
@@ -187,25 +192,42 @@ sign_in_btn.addEventListener("click", function (e) {
   checkif()
 })
 
-
-
+//check new user
+var check_count = 0
 function checkif() {
   console.log('yes');
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const starCountRef = ref(database, 'users/' +user.uid);
-      onValue(starCountRef, (snapshot) => {
-      const data = snapshot.val();
-      if(snapshot.exists()){
-        console.log(data.username);
-        window.location.replace("../home/index.html")
+  if(check_count > 0){
+    check_count+=1
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const starCountRef = ref(database, 'users/' +user.uid);
+        onValue(starCountRef, (snapshot) => {
+        const data = snapshot.val();
+        if(snapshot.exists()){
+          console.log(data.username);
+          window.location.replace("../home/index.html")
+        }
+        },{
+          onlyOnce:true,
+        })
+      } else {
+        // User is signed .
+        // ...
       }
-      })
-    } else {
-      // User is signed .
-      // ...
-    }
-  });
+    });
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -14,24 +14,24 @@
     <div class="header">
         <div class="header-box">
             <div class="head-card">
-                <a href="../dashboard/dashboard.html">
-                    <h1>Dashboard</h1>
-                </a>
+                <a href="../dashboard/dashboard.html"><h1>Dashboard</h1></a>
             </div>
             <div class="head-card">
-                <a href="../user-manage/user-manage.html">
-                    <h1>Users</h1>
-                </a>
+                <a href="../user-manage/user-manage.html"><h1>Users</h1></a>
             </div>
             <div class="head-card">
-                <a href="../post-manage/post.html">
-                    <h1>Posts</h1>
-                </a>
+                <a href="../post-manage/post.html"><h1>Posts</h1></a>
             </div>
             <div class="head-card">
-                <a href="../session-manage/index.html">
-                    <h1>Sessions</h1>
-                </a>
+                <a href="../session-manage/index.html"><h1>Session manage</h1></a>
+            </div>
+        </div>
+        <div class="header-user">
+            <img src="../user.png" alt="">
+            <h1 id="username">Username</h1>
+            <i class="fa-solid fa-caret-down" id="dropdown"></i>
+            <div class="dropdown-box" id="dropdown-box">
+                <button id="sign-out-button">Sign Out</button>
             </div>
         </div>
     </div>
@@ -94,10 +94,12 @@
         </div>
         <button id="close-session-form"><i class="fa-solid fa-circle-xmark"></i></button>
     </div>
+    
     <!--Pending_work-->
     <script src="./module.js" type="module"></script>
+    <script src="../app.js"></script>
     <script type="text/javascript">
-        function dropdown(e, index) {
+        function dropdown_2(e, index) {
             var parent = e.parentElement
             var dropdown = parent.getElementsByClassName('card-dropdown')[index]
             if (dropdown.classList.contains('active')) {

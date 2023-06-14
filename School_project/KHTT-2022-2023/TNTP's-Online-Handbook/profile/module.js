@@ -118,7 +118,7 @@ function print_data(data,uid) {
   <div class="info-card">
       <div class="info">
           <h1>Lớp:</h1>
-          <h2>${data.class}</h2>
+          <h2>${data.grade}</h2>
       </div>
       <button class="edit" edit-value='class'><p>Chỉnh sửa</p> <i class="fa-solid fa-pen-to-square"></i></button>
   </div>
@@ -164,7 +164,7 @@ function print_data(data,uid) {
 <div class="info-card">
     <div class="info">
         <h1>Lớp:</h1>
-        <h2>${data.class}</h2>
+        <h2>${data.grade}</h2>
     </div>
 </div>
 <div class="info-card">

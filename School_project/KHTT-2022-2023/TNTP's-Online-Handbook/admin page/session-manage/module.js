@@ -19,6 +19,33 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const database = getDatabase(app)
 const storage = getStorage(app)
+//account
+const username = document.getElementById('username')
+const status = localStorage.getItem('status').split('"')[1]
+if (status == 'active') {
+    const name = localStorage.getItem('name').split('"')[1]
+    console.log(name);
+    onValue(ref(database, 'admin/'), (value) => {
+        const val = value.val()
+        const keys = Object.keys(val)
+        for (let i = 0; i < keys.length; i++) {
+            if (keys[i] == name) {
+                username.innerText = name
+            }
+        }
+    }, {
+        onlyOnce: true,
+    })
+} else {
+    window.location.replace('../admin-login/index.html')
+}
+//sign out
+const sign_out = document.getElementById('sign-out-button')
+sign_out.addEventListener('click', () => {
+    localStorage.removeItem('status')
+    localStorage.removeItem('name')
+    window.location.replace('../admin-login/index.html')
+})
 //pop-up
 const pop_up = document.getElementsByClassName('session-create')[0]
 const close_pop_up = document.getElementById('close-session-form')
@@ -80,17 +107,19 @@ onValue(ref(database, 'session/'), (snapshot) => {
 
     }
 })
+var current_user_name = ''
 function print_session(data) {
     const keys = Object.keys(data)
     for (let i = 0; i < keys.length; i++) {
         let current_data = data[keys[i]]
         getDownloadURL(storageref(storage, 'images/' + current_data.session_img)).then((url) => {
+            var activity_key = generateRandomKey(10)
             var html = `
         <div class="session-card ${keys[i]}">
-        <h1 onclick="dropdown(this,0)"> <i class="fa-solid fa-caret-down"></i>${current_data.session_name}<i class="fa-solid fa-trash del delete-session" session_key='${keys[i]}'></i></h1>
+        <h1 onclick="dropdown_2(this,0)"> <i class="fa-solid fa-caret-down"></i>${current_data.session_name}<i class="fa-solid fa-trash del delete-session" session_key='${keys[i]}'></i></h1>
         <div class="card-dropdown">
             <div class="card">
-                <h1 onclick="dropdown(this,0)">Cài đặt</h1>
+                <h1 onclick="dropdown_2(this,0)">Cài đặt</h1>
                 <div class="card-dropdown second">
                     <h1>Thông tin</h1>
                     <div class='info'>
@@ -119,25 +148,10 @@ function print_session(data) {
                 </div>
             </div>
             <div class="card second">
-                <h1 onclick="dropdown(this,0)">Dữ Liệu</h1>
+                <h1 onclick="dropdown_2(this,0)">Dữ Liệu</h1>
                 <div class="card-dropdown">
-                    <div class="user-box">
-                        <h1 onclick="dropdown(this,0)">Username</h1>
-                        <div class="card-dropdown second">
-                            <h1>Thông tin về phiên hoạt động</h1>
-                            <div class="work-done">
-                                <h3>Hoạt động đã hoàn thành :</h3>
-                                <h4><i class="fa-solid fa-star"></i>Activity name</h4>
-                                <h4><i class="fa-solid fa-star"></i>Activity name</h4>
-                                <h4><i class="fa-solid fa-star"></i>Activity name</h4>
-                            </div>
-                            <div class="work">
-                                <h3>Hoạt động đã hoàn thành :</h3>
-                                <h4><i class="fa-regular fa-star"></i>Activity name</h4>
-                                <h4><i class="fa-regular fa-star"></i>Activity name</h4>
-                                <h4><i class="fa-regular fa-star"></i>Activity name</h4>
-                            </div>
-                        </div>
+                    <div class="user-box ${activity_key}">
+                        
                     </div>
                 </div>
             </div>
@@ -147,12 +161,71 @@ function print_session(data) {
             sesion_box.insertAdjacentHTML('beforeend', html)
             let element = document.getElementsByClassName(`${keys[i]}`)[0]
             element.getElementsByClassName('session-img')[0].src = url
+            let user_card = document.getElementsByClassName(activity_key)[0]
+
+            if (current_data.session_data != undefined && current_data.session_data != null) {
+                var session_data_keys = Object.keys(current_data.session_data)
+
+                for (let x = 0; x < session_data_keys.length; x++) {
+                    onValue(ref(database, 'users/' + session_data_keys[x]), (s) => {
+                        var username = s.val().username
+                        let key_2 = generateRandomKey(15)
+                        var html_2 = `
+                    <h1 onclick="dropdown_2(this,${x})">${username}</h1>
+                            <div class="card-dropdown second ${key_2}">
+                                <h1>Thông tin về phiên hoạt động</h1>
+                                <div class="work-done">
+                                    <h3 class='done-text'>Hoạt động đã hoàn thành :</h3>
+    
+                                </div>
+                                <div class="work">
+                                    <h3 class='not-done-text'>Hoạt động chưa hoàn thành :</h3>
+    
+                                </div>
+                            </div>`
+                        user_card.insertAdjacentHTML('beforeend', html_2)
+                        let current_user = current_data.session_data[session_data_keys[x]]
+                        let current_box = document.getElementsByClassName(key_2)[0]
+                        let current_user_keys = Object.keys(current_user)
+                        
+                        for (let y = 0; y < current_user_keys.length; y++) {
+                            var done_count = 0
+                            var not_done_count = 0
+                            if (current_user[current_user_keys[y]].status == 'done') {
+                                var act_html = `
+                            <h4><i class="fa-solid fa-star"></i>${current_user[current_user_keys[y]].name}</h4>`
+                                current_box.getElementsByClassName('work-done')[0].insertAdjacentHTML('beforeend', act_html)
+                                done_count+=1
+                            } else {
+                                var act_html = `
+                            <h4><i class="fa-regular fa-star"></i>${current_user[current_user_keys[y]].name}</h4>
+                            `
+                                not_done_count+=1
+                                current_box.getElementsByClassName('work')[0].insertAdjacentHTML('beforeend', act_html)
+                            }
+                            if(done_count == 0){
+                                current_box.getElementsByClassName('done-text')[0].remove()
+    
+                            }
+                            if(not_done_count == 0){
+                                current_box.getElementsByClassName('not-done-text')[0].remove()
+                            }
+                        }
+                    })
+                }
+            }
+            
             start_edit()
             print_activity(keys[i], current_data.session_name)
             start_create_activity()
         })
 
     }
+}
+function get_user_name(uid) {
+    onValue(ref(database, 'users/' + uid), (s) => {
+        current_user_name = s.val().username
+    })
 }
 function start_edit() {
     const edit_btn = document.getElementsByClassName('edit-btn')
@@ -269,7 +342,7 @@ function print_pending_session(data) {
         <td>${current_data.session_name}</td>
                               <td>${current_data.work_name}</td>
                               <td><img src="${url}" alt="" srcset=""></td>
-                              <td><Button pending_key ='${data_keys[i]}' class='remove-btn'>Xóa</Button> <button class='add-btn' session_name='${current_data.session_name}' pending_key = '${data_keys[i]}'work_name='${current_data.work_name}'user_uid='${current_data.user_uid}'>Duyệt</button></td>`
+                              <td><Button pending_key ='${data_keys[i]}' class='remove-btn'>Xóa</Button> <button class='add-btn' img='${current_data.img}'session_name='${current_data.session_name}' pending_key = '${data_keys[i]}'work_name='${current_data.work_name}'user_uid='${current_data.user_uid}'>Duyệt</button></td>`
             session_pending_box.insertAdjacentHTML('beforeend', html)
             start_del_add()
         })
@@ -287,23 +360,25 @@ function start_del_add() {
             })
         })
     }
-    const add_btn =document.getElementsByClassName('add-btn')
-    for(let i =0;i<add_btn.length;i++) {
-        add_btn[i].addEventListener('click',()=>{
+    const add_btn = document.getElementsByClassName('add-btn')
+    for (let i = 0; i < add_btn.length; i++) {
+        add_btn[i].addEventListener('click', () => {
             var session_name = add_btn[i].getAttribute('session_name')
             var user_uid = add_btn[i].getAttribute('user_uid')
             var work_name = add_btn[i].getAttribute('work_name')
             var pending_key = add_btn[i].getAttribute('pending_key')
-            onValue(ref(database,`session/${session_name}/session_data/${user_uid}`),(snap)=>{
+            var img = add_btn[i].getAttribute('img')
+            onValue(ref(database, `session/${session_name}/session_data/${user_uid}`), (snap) => {
                 const value = snap.val()
                 const value_key = Object.keys(value)
-                for(let x=0;x<value_key.length;x++){
+                for (let x = 0; x < value_key.length; x++) {
                     console.log(value_key);
-                    if(value[value_key[x]].name ==work_name){
-                        update(ref(database,`session/${session_name}/session_data/${user_uid}/${value_key[x]}/`),{
-                            status:'done'
-                        }).then(()=>{
-                            remove(ref(database,'pending_work/'+pending_key))
+                    if (value[value_key[x]].name == work_name) {
+                        update(ref(database, `session/${session_name}/session_data/${user_uid}/${value_key[x]}/`), {
+                            status: 'done',
+                            img:img
+                        }).then(() => {
+                            remove(ref(database, 'pending_work/' + pending_key))
                         })
                     }
                 }
@@ -312,8 +387,8 @@ function start_del_add() {
     }
 }
 //get date
-function get_date(date){
-    const [month,day,year] = date.split('/')
+function get_date(date) {
+    const [month, day, year] = date.split('/')
     return `${day}/${month}/${year}`
 }
 //random key

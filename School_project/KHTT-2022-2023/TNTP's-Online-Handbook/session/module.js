@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-analytics.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
-import { getDatabase, set, ref, onValue,update } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+import { getDatabase, set, ref, onValue, update } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
 import { getFirestore, setDoc, doc, collection } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 import { getStorage, ref as storageref, getDownloadURL, uploadBytes } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-storage.js";
 //variable
@@ -134,88 +134,115 @@ function print_session(data, uid) {
       status.setAttribute('class', 'deactive')
     }
 
-      const val_key = Object.keys(data.session_data)
-      for (let x = 0; x < val_key.length; x++) {
-        if (val_key[x] == uid) {
-          var ac_keys = Object.keys(data.session_data[`${val_key[x]}`])
-          console.log(data.session_data[`${val_key[x]}`][`${ac_keys[i]}`]);
-          if (data.session_data[`${val_key[x]}`][`${ac_keys[i]}`].status == 'not') {
-            html = `
+    const val_key = Object.keys(data.session_data)
+    for (let x = 0; x < val_key.length; x++) {
+      if (val_key[x] == uid) {
+        var ac_keys = Object.keys(data.session_data[`${val_key[x]}`])
+        console.log(data.session_data[`${val_key[x]}`][`${ac_keys[i]}`]);
+        if (data.session_data[`${val_key[x]}`][`${ac_keys[i]}`].status == 'not') {
+          html = `
                         <div class="work">
                                         <i class="fa-regular fa-star work-btn"  session_name = '${session_name}' work_name='${current_data.name}'></i>
                                         <h1>${current_data.name}</h1>
                 
                                     </div>`
-          } else if(data.session_data[`${val_key[x]}`][`${ac_keys[i]}`].status == 'done'){
-            html = `
+        } else if (data.session_data[`${val_key[x]}`][`${ac_keys[i]}`].status == 'done') {
+          html = `
                         <div class="work">
-                                        <i class="fa-solid fa-star done" ></i>
+                                        <i class="fa-solid fa-star done" file_name='${data.session_data[`${val_key[x]}`][`${ac_keys[i]}`].img}'></i>
                                         <h1>${current_data.name}</h1>
                                     </div>
                         `
-          }
         }
       }
-      session_box.insertAdjacentHTML('beforeend', html)
+    }
+    session_box.insertAdjacentHTML('beforeend', html)
   }
-  start_work(uid)
+  start_work(uid,data.session_status)
+  start_show_result()
 }
 
 //work_btn
-function start_work(uid) {
+function start_work(uid,status) {
   const work_btn = document.getElementsByClassName('work-btn')
   for (let i = 0; i < work_btn.length; i++) {
-    work_btn[i].addEventListener('click', () => {
-      let session_name = work_btn[i].getAttribute('session_name')
-      let work_name = work_btn[i].getAttribute('work_name')
-      pop_up.classList.add('active')
-      const close = document.getElementById('close')
-      close.addEventListener('click', () => {
-        pop_up.classList.remove('active')
-      })
-      const work_submit_btn = document.getElementById('work-submit')
-      console.log(work_submit_btn);
-      work_submit_btn.addEventListener('click',(e)=>{
-        console.log('lol');
-        e.preventDefault()
-          var file = document.getElementById('file').files[0]      
+    console.log(status);
+    if(status =='active'){
+      work_btn[i].addEventListener('click', () => {
+        let session_name = work_btn[i].getAttribute('session_name')
+        let work_name = work_btn[i].getAttribute('work_name')
+        pop_up.classList.add('active')
+        const close = document.getElementById('close')
+        close.addEventListener('click', () => {
+          pop_up.classList.remove('active')
+        })
+        const work_submit_btn = document.getElementById('work-submit')
+        console.log(work_submit_btn);
+        work_submit_btn.addEventListener('click', (e) => {
+          console.log('lol');
+          e.preventDefault()
+          var file = document.getElementById('file').files[0]
           var key = generateRandomKey(10)
-          uploadBytes(storageref(storage,'work_images/'+file.name),file).then(()=>{
-            set(ref(database,'pending_work/'+key),{
-              img:file.name,
-              work_name:work_name,
-              session_name:session_name,
-              user_uid:uid
-            }).then(()=>{
-
+          uploadBytes(storageref(storage, 'work_images/' + file.name), file).then(() => {
+            set(ref(database, 'pending_work/' + key), {
+              img: file.name,
+              work_name: work_name,
+              session_name: session_name,
+              user_uid: uid
+            }).then(() => {
               window.location.reload()
             })
-          })  
+          })
+        })
+      })
+    }
+    
+  }
+  achivement_giver(session_name, uid)
+}
+//show result
+const show_result = document.getElementById('show-result')
+function start_show_result() {
+  const done_btn = document.querySelectorAll('.done')
+  console.log(done_btn);
+  done_btn.forEach(element => {
+    element.addEventListener('click', () => {
+      let file_name = element.getAttribute('file_name')
+      console.log(file_name);
+      show_result.classList.add('active')
+      let overlay = document.getElementsByClassName('overlay')[1]
+      overlay.addEventListener('click', () => {
+        show_result.classList.remove('active')
+      })
+      console.log();
+      getDownloadURL(storageref(storage, 'work_images/' + file_name)).then((url) => {
+        show_result.querySelector('img').src = url
       })
     })
-  }
-  achivement_giver(session_name,uid)
+  });
+
+
 }
 //give achivement
-function achivement_giver(session_name,uid){
+function achivement_giver(session_name, uid) {
   console.log(session_name);
-  onValue(ref(database,'session/'+session_name+'/session_data/'+uid+'/'),(val)=>{
-    const data= val.val()
+  onValue(ref(database, 'session/' + session_name + '/session_data/' + uid + '/'), (val) => {
+    const data = val.val()
     const data_keys = Object.keys(data)
-    for(let i = 0;i<data_keys.length;i++){
+    for (let i = 0; i < data_keys.length; i++) {
       var current_data = data[data_keys[i]]
-      if(current_data.status =='done'){
-        onValue(ref(database,'users/'+uid+'/archive'),(user_val)=>{
+      if (current_data.status == 'done') {
+        onValue(ref(database, 'users/' + uid + '/archive'), (user_val) => {
           const user_data = user_val.val()
           let copy = user_data
-          if(copy.includes(session_name)){
+          if (copy.includes(session_name)) {
             copy.push(`${session_name}`)
-            update(ref(database,'users/'+uid),{
-              archive:copy
+            update(ref(database, 'users/' + uid), {
+              archive: copy
             })
           }
-        },{
-          onlyOnce:true,
+        }, {
+          onlyOnce: true,
         })
       }
     }
@@ -223,8 +250,8 @@ function achivement_giver(session_name,uid){
 }
 
 //get date
-function get_date(date){
-  const [month,day,year] = date.split('/')
+function get_date(date) {
+  const [month, day, year] = date.split('/')
   return `${day}/${month}/${year}`
 }
 //random_key

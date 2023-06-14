@@ -514,6 +514,17 @@ footer {
     opacity: 1;
     transition: all 300ms ease-in-out;
 }
+.popup.active img{
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    display: block;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.popup img{
+    display: none;
+}
 .popup.popup.active .popup-content{
     opacity: 1;
     transform: translate(-50%,-50%);
