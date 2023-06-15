@@ -475,3 +475,16 @@ form.sign-in-form {
 .more-box option{
   padding: 10px;
 }
+@media only screen and (max-width:400px){
+  .more-info{
+    width: 100% !important;
+    transform:  translate(-50%,2%);
+    margin-bottom: 0%;
+  }
+  body{
+    background-image: none !important;
+  }
+  .more-box button{
+    width: 100%;
+  }
+}

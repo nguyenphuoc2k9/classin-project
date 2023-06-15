@@ -17,58 +17,243 @@
 	<meta name="msapplication-tap-highlight" content="no" />
 	<title>Guong anh hung</title>
 	<link rel="icon" href="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png">
-	<style>
+    <style>
 		body {
 			background-image: linear-gradient(to right, #297af4, #0088f5, #0094f4, #009ff0, #12a9eb);
 		}
 
-		#spr0_156b0ce {
+		#spr0_c277c2 {
 			display: none;
 		}
+        #sign-in-out{
+        width: 100% !important;
+    }
 	</style>
 	<script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
 
 	<style>
-        .sidenav-user{
+        header {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #FF8A00 0%, #DFAE00 96.65%);
+}
+
+header i.close{
+    display: none;
+}
+i.open{
+
+    display: none;
+}
+.header-logo {
+    max-width: 70px;
+    max-height: 70px;
+    margin-left: 10px;
+    border-radius: 50%;
+}
+
+.header-logo img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+
+.header-content {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    padding-left: 10px;
+}
+
+.header-content a {
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    text-decoration: none;
+    width: 25%;
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    padding: 25px 0;
+    text-align: center;
+}
+
+.header-content i {
+    padding-right: 10px;
+}
+
+.header-content a:hover {
+    background-color: #00000033;
+}
+
+.header-content .dropdown-box {
+    position: absolute;
+    transform-origin: top;
+    top: 100%;
+    right: 0%;
+    padding: 20px 0;
+    background-color: #FF8A00;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transform: scaleY(0%);
+    transition: all .5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.dropdown-box.active {
+    animation: drop forwards .5s;
+}
+
+.dropdown-box.refuse {
+    animation: return .5s forwards;
+}
+
+@keyframes drop {
+    0% {
+        transform: scaleY(0%);
+        z-index: 99;
+    }
+
+    10% {
+        transform: scaleY(10%);
+    }
+
+    100% {
+        transform: scaleY(100%);
+        z-index: 99;
+    }
+}
+
+@keyframes return {
+    0% {
+        transform: scaleY(100%);
+        z-index: 99;
+    }
+
+    100% {
+        transform: scaleY(0%);
+        z-index: 99;
+    }
+}
+
+.dropdown-box a {
+    width: 90% !important;
+    padding: 10px 0;
+    padding-right: 10%;
+    text-align: right !important;
+}
+
+.header-user {
+    margin-right: 20px;
+    position: relative;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.header-user img {
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
+}
+
+.header-user i {
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.header-user-drop i {
+    color: #000;
+}
+
+.header-user-drop {
+    z-index: 99;
+    position: absolute;
+    display: flex;
+    top: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    width: 130%;
+    background-color: #fff;
+}
+
+.header-user-drop a {
+    color: #000;
+    padding: 10px 5px;
+    font-size: large;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header-user-drop h1 {
+    padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    border-bottom: 1px solid;
+}
+
+#google_translate_element {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#google_translate_element select {
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+}
+
+/* navbar */
+nav {
+    width: 100%;
+    position: relative;
+    background-color: #5fb8ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav form {
+    position: relative;
     display: flex;
     width: 50%;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
 }
-.sidenav-user a{
-    width: 20% !important;
-}
-.sidenav-user img{
-    border-radius: 50% !important;
-    width: 50px !important;
-    height: 50px !important;
-}
-.sidenav-user h2{
-     color: #fff;
-     padding-left: 20px;
-     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-     font-size: larger;
-}
-.sidenav-user-info{
-    display: flex;
-    align-items: center;
-}
-.sign-out-btn{
-    border:none;
+
+nav form input {
     width: 100%;
-    color: #fff;
-    font-size: larger;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 50px;
-    border-radius: 20px;
-    background-color:#009ff0;
-    cursor: pointer;
-    transition:all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+    border: none;
+    padding: 20px;
+    border-radius: 40px;
+    font-size: medium;
 }
-.sign-out-btn:hover{
-    outline: 5px solid #0088f5;
-    outline-offset: 2px;
+
+nav form button {
+    position: absolute;
+    border-radius: 50%;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    right: 1%;
+    cursor: pointer;
 }
 		#playerView {
 			position: relative;
@@ -78,20 +263,7 @@
 			-webkit-touch-callout: none;
 			-webkit-user-drag: none;
 		}
-		#google_translate_element{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-#google_translate_element select{
-    border-radius: 10px;
-    border: #0236ca 2px solid;
-    background-color: #0094f4;
-    color: #fff;
-    width: 100%;
-    padding: 10px;
-}
+
 		#playerView * {
 			position: absolute;
 		}
@@ -122,194 +294,6 @@
 			-webkit-animation: preloader_spin 1s infinite linear;
 		}
 
-		.sidenav{
-    position: fixed;
-	z-index: 99999999999;
-    display: flex;
-}
-.sidenav-box{
-    position: fixed;
-    width: 30%;
-    height: 100%;
-    overflow: hidden;
-    left: 0%;
-    display: flex;
-    gap: 10px;
-    transition: all .4s cubic-bezier(0.215, 0.610, 0.355, 1);
-    align-items: center;
-    flex-direction:column ;
-    background-color: #0e509b;
-    z-index: 999999;
-}
-.tags{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    justify-content: space-around;
-}
-.sidenav a{
-    text-decoration: none;
-    width: 100%;
-    border-radius: 10px;
-    border: #fff;
-}
-.sidenav-desc{
-    display: flex;
-    padding-bottom: 20px;
-}
-.sidenav hr{
-    width: 100%;
-    height: 20px;
-    border-radius: 10px;
-    border: solid 2px rgb(7, 151, 223);
-    background-color: #fff;
-}
-.sidenav h1 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #fff;
-    font-size: 25px;
-    padding: 5% 0;
-    text-align: center;
-}
-.sidenav h1:hover{
-    transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
-    background-color: rgb(48 176 219);
-}
-.sidenav-btn {
-    display: flex;
-    left: 17%;
-    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: fixed;
-    justify-content: center;
-    align-items: center;
-}
-.sidenav-btn button{
-    border-radius: 10px;
-    width: 50px;
-    color: #Fff;
-    border: none;
-    cursor: pointer;
-    margin: 20px;
-    background-color: #0e509b;
-    height: 50px;
-}
-.sidenav-btn i{
-    font-size: larger;
-}
-.sidenav img {
-    width: 100px;
-    height: 100px;
-}
-.dropdown-box{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-.dropdown-box h1{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    color: #fff;
-    cursor: pointer;
-}
-.dropdown{
-    width: 100%;
-    font-size:medium;
-    background-color: #99dcf5;
-    display: none;
-}
-.dropdown-box i{
-    padding-right: 10px;
-    transition: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform: rotate(-180deg);
-}
-.dropdown.active{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-}
-.dropdown-box i.active{
-    padding-left: 10px;
-    transform: rotate(-360deg) !important;
-}
-.dropdown-box.active {
-    background-color: #41c0ee;
-}
-.dropdown ul{
-    list-style: none;
-    display: flex; 
-    flex-direction: column;
-    gap: 10px;
-    padding: 5px 0;
-    align-items:center;
-    justify-content:space-around;
-}
-.dropdown-box h1.active{
-    background-color: rgb(48 176 219);
-}
-.dropdown-box h2{
-    text-decoration: none;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: medium;
-    color: #fff;
-    
-}
-.dropdown-box li:hover{
-    background-color: #5bdfee;
-}
-.dropdown li{
-    width: 100%;
-    transition: all .5s cubic-bezier(0.23, 1, 0.320, 1);
-    padding: 5px;
-    text-align: center;
-    font-size: large;
-}
-.sidenav-user{
-    display: flex;
-    width: 50%;
-    align-items: center;
-    flex-direction: column;
-}
-.sidenav-user a{
-    width: 20% !important;
-}
-.sidenav-user img{
-    width: 50px !important;
-    height: 50px !important;
-    border-radius: 50%;
-}
-.sidenav-user h2{
-     color: #fff;
-     padding-left: 20px;
-     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-     font-size: larger;
-}
-.sidenav-user-info{
-    display: flex;
-    align-items: center;
-}
-.sidenva-user-info{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-.sign-out-btn{
-    border:none;
-    width: 100%;
-    color: #fff;
-    font-size: larger;
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 50px;
-    border-radius: 20px;
-    background-color:#009ff0;
-    cursor: pointer;
-    transition:all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
-}
-.sign-out-btn:hover{
-    outline: 5px solid #0088f5;
-    outline-offset: 2px;
-}
 		@keyframes preloader_spin {
 			0% {
 				transform: rotate(0deg);
@@ -343,87 +327,278 @@
     .post-creator{
         width: 80%; 
     }
+    
+}
+header{
+        width: 30%;
+        height: 100vh;
+        z-index: 9999;
+        left: -100vw;
+        position: fixed;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: unset;
+        overflow: auto;
+        transition:all .5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    i.open{
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        z-index: 9999999;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0094f4;
+        color: #fff;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+        transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+    i.open.active{
+        background-color: #FF9900;
+    }
+    header.active{
+        display: flex;
+        left: 0;
+    }
+    .header-content{
+        width: 90%;
+        flex-direction: column;
+        padding-left: 0;
+    }
+    .header-content a{
+        width: 100% ;
+    }
+    .dropdown-box{
+        width: 100% !important;
+        z-index: 9999999 !important;
+    }
+    .header-user{
+        width: 90%;
+        margin-right: 0;
+        justify-content: space-between;
+        margin-top: 20px;
+        background-color: #fd8300;
+        padding: 5px;
+        border-radius: 50px;
+    }
+    .header-user i{
+        background-color: orange;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 50%;
+    }
+    .header-user-drop{
+        margin-top: 10px;
+        width: 99%;
+    }
+    .header-user-drop a{
+        width: 100%;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+    }
+    .header-user-drop h1{
+        display: none;
+    }
+    @media only screen and (max-width:400px){
+    header{
+        width: 100%;
+        height: 100vh;
+        right: -100vh;
+        z-index: 9999;
+        position: fixed;
+        flex-direction: column;
+        justify-content: unset;
+        overflow: auto;
+        transition:all .5s cubic-bezier(0.19, 1, 0.22, 1) ;
+    }
+    i.open{
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        z-index: 9999999;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0094f4;
+        color: #fff;
+        font-size: 8vw;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+        transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+    i.open.active{
+        background-color: #FF9900;
+    }
+    header.active{
+        right: 0;
+    }
+    header i.close{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        width: 50px;
+        cursor: pointer;
+        height: 50px;
+        color: #fff;
+        font-size: 8vw;
+    }
+    .header-content{
+        width: 90%;
+        flex-direction: column;
+        padding-left: 0;
+    }
+    .header-content a{
+        width: 100% ;
+    }
+    .dropdown-box{
+        width: 100% !important;
+        z-index: 9999999 !important;
+    }
+    .header-user{
+        width: 90%;
+        margin-right: 0;
+        justify-content: space-between;
+        margin-top: 20px;
+        background-color: #fd8300;
+        padding: 5px;
+        border-radius: 50px;
+    }
+    .header-user i{
+        background-color: orange;
+        font-size: 6vw;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 50%;
+    }
+    .header-user-drop{
+        margin-top: 10px;
+        width: 99%;
+    }
+    .header-user-drop a{
+        width: 100%;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+    }
+    .header-user-drop h1{
+        display: none;
+    }
+    .training-card{
+        width: 90% !important;
+        margin-left: 10px;
+    }
+    .card-info h1{
+        font-size: medium;
+    }
+    .card-info p{
+        font-size: small;
+        word-break: break-all;
+    }
+    .more-info img{
+        width: 20px;
+        height: 20px;
+    }
+    .more-info{
+        width: unset !important;
+    }
+    .more-info p{
+        font-size: x-small;
+    }
+    .session-join{
+        border-radius: 50% !important;
+        font-size: 15px !important;
+    }
+    .leader-table table{
+        width: 90%;
+    }
+    .leader-table table th,.leader-table table td{
+        padding: 5px 10px;
+        font-size:small !important;
+    }
+    .leader-table .read-more.active{
+        width: 90%;
+    }
+    footer h1{
+        font-size: medium;
+    }
+    footer p{
+        font-size: small;
+    }
+    footer button{
+        width: fit-content !important;
+        padding: 5px;
+    }
+    .social-icon img{
+        width: 30px;
+        height: 30px;
+    }
+    nav form {
+        width: 90%;
+    }
 }
 	</style>
 </head>
 
 <body>
-    <div class="sidenav">
-        <div class="sidenav-box" id="sidenav">
-            <div class="sidenav-desc">
-                <img src="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png" alt="logo">
+    <i class="fa-solid fa-bars open"></i>
+    <header>
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="../home/index.html"><img src="../Thumbnails25312011013150-removebg-preview.png" alt=""
+                        srcset=""></a>
             </div>
-            <hr>
-            <div class="tags">
-                <div class="dropdown-box">
-                    <h1 onclick="dropdown(this)">Chung<i class="fa-solid fa-caret-down"></i></h1>
-                    <div class="dropdown">
-                        <ul>
-                            <li><a href="../home/index.html">
-                                <h2>Trang chủ</h2>
-                            </a></li>
-                            <li><a href="../posts/index.html">
-                                <h2>Bài đăng</h2>
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="dropdown-box">
-                    <h1 onclick="dropdown(this)">Nghiên cứu về đội TNTP<i class="fa-solid fa-caret-down"></i></h1>
-                    <div class="dropdown">
-                        <ul>
-                            <li><a href="../Lich su(được phát hành)/index.html">
-                                <h2>Lịch sử Đội TNTP</h2>
-                            </a></li>
-                            <li><a href="../Dieu le(được phát hành)/index.html">
-                                <h2>Điều lệ Đội TNTP</h2>
-                            </a></li>
-                            <li><a href="../Nghi thuc(được phát hành)/index.html">
-                                <h2>Nghi thức Đội TNTP</h2>
-                            </a></li>
-                            <li><a href="../ky nang(được phát hành)/index.html">
-                                <h2>Kỹ năng Đội TNTP</h2>
-                            </a></li>
-                            <li><a href="../Guong anh hung(được phát hành)/index.html">
-                                <h2>Gương sáng anh hùng</h2>
-                            </a></li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="dropdown-box">
-                    <h1 onclick="dropdown(this)">Các hoạt động của đội<i class="fa-solid fa-caret-down"></i></h1>
-                    <div class="dropdown">
-                        <ul>
-                            <li><a href="../tro choi(được phát hành)/index.html">
-                                <h2>Trò chơi sinh hoạt Đội</h2>
-                            </a></li>
-                            <li><a href="../bai hat(được phát hành)/index.html">
-                                <h2>Bài hát sinh hoạt Đội</h2>
-                            </a></li>
-                            <li><a href="../tntp QUIZ GAME/index.html">
-                                <h2>Thử thách đội TNTP</h2>
-                            </a></li>
-                        </ul>
-                    </div>
-                </div>
+            <a href="../home/index.html"> <i class="fa-solid fa-house"></i>Home</a>
+            <a href="../posts/index.html"> <i class="fa-solid fa-newspaper"></i>Bài đăng</a>
+            <a href="../tntp QUIZ GAME/index.html"> <i class="fa-solid fa-gamepad"></i> Quiz</a>
+            <a href="#" id="doc-dropdown"><i class="fa-solid fa-folder"></i> Tài liệu về đội</a>
+            <div class="dropdown-box">
+                <a href="../Dieu le(được phát hành)/index.html">Điều lệ <i class="fa-solid fa-scale-balanced"></i></a>
+                <a href="../ky nang(được phát hành)/index.html">Kỹ năng <i
+                        class="fa-solid fa-person-circle-plus"></i></a>
+                <a href="../Lich su(được phát hành)/index.html">Lịch sử <i class="fa-solid fa-landmark"></i></a>
+                <a href="../Nghi thuc(được phát hành)/index.html">Nghi thức <i
+                        class="fa-solid fa-graduation-cap"></i></a>
+                <a href="../Guong anh hung(được phát hành)/index.html">Gương sáng anh hùng <i
+                        class="fa-solid fa-shield"></i></a>
+                <a href="../bai hat(được phát hành)/index.html">Bài hát <i class="fa-solid fa-music"></i></a>
+                <a href="../tro choi(được phát hành)/index.html">Trò chơi sinh hoạt <i
+                        class="fa-solid fa-puzzle-piece"></i></a>
             </div>
-            <hr>
-            <div class="sidenav-user">
-                <button id='sign-in'class="sign-out-btn" style="display: none;">Sign In</button>
-                <div class="sidenav-user-info">
-
-                </div>
-                <button id='sign-out'class="sign-out-btn">Sign Out</button>
-            </div>
-            <hr>
-            <div id="google_translate_element"></div>
         </div>
-
-        <div class="sidenav-btn">
-            <button id="btn"><i id='btn'class="fa-solid fa-xmark"></i></button>
+        <div class="header-user">
+            <img src="../user.png" alt="avatar" id="img">
+            <i class="fa-solid fa-caret-down" id="user-drop"></i>
+            <div class="header-user-drop">
+                <h1>Cài đặt</h1>
+                <a href="../profile/index.html" id="href">Trang cá nhân <i class="fa-solid fa-address-card"></i></a>
+                <a href="#" id="sign-out">Đăng xuất <i class="fa-solid fa-right-from-bracket"></i></a>
+                <div id="google_translate_element"></div>
+            </div>
         </div>
-    </div>
+    </header>
 	<div id="preloader"></div>
 	<script src="data/browsersupport.js?874D91B1"></script>
 	<script src="data/player.js?874D91B1"></script>
@@ -449,29 +624,6 @@
 			else
 				start();
 		})();
-		var sidenav = document.getElementById("sidenav")
-var btn  =document.getElementById("btn")
-var btn_div = document.getElementsByClassName("sidenav-btn")[0]
-sidenav.style.left = "0%"
-btn_div.style.left = "31%"
-btn.addEventListener("click", function(){
-    if( sidenav.style.left == "-100%"){
-        sidenav.style.left = "0"
-        btn_div.style.left = "31%"
-        btn.innerHTML = `<i id='btn'class="fa-solid fa-xmark"></i>`
-    }else {
-        btn_div.style.left = "3%"
-        sidenav.style.left = "-100%"
-        btn.innerHTML = `<i id = "btn"class="fa-solid fa-bars"></i>`
-    }
-})
-function dropdown(e){
-    var parent = e.parentElement
-    e.classList.toggle("active")
-    var dropdown = parent.getElementsByClassName("dropdown")[0]
-    dropdown.classList.toggle("active")
-    e.querySelector("i").classList.toggle("active")
-}
 function googleTranslateElementInit(){
     new google.translate.TranslateElement(
         {pageLanguage:"Vietnamese"},

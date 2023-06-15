@@ -22,6 +22,7 @@ const database = getDatabase(app)
 const storage = getStorage(app)
 const auth = getAuth()
 const session_name = new URLSearchParams(window.location.search).get('session_name')
+
 //user
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -103,7 +104,7 @@ sign_out_btn.addEventListener("click", () => {
   });
 })
 btn.addEventListener('click', () => {
-  var value_input = document.getElementById('search').value.toLowerCase()
+  var value_input = document.getElementById('search-value').value.toLowerCase()
   if (value_input == '' || value_input == 0) {
     alert('search input cannot be empty')
   } else {

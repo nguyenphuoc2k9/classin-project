@@ -6,7 +6,6 @@ import { getFirestore,setDoc,doc,collection } from "https://www.gstatic.com/fire
 import { getStorage,  ref as storageref,getDownloadURL,uploadBytes } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-storage.js";
 //variable
 const sidenav_user = document.getElementsByClassName("sidenav-user-info")[0];
-const sign_out_btn = document.getElementById("sign-out")
 const firebaseConfig = {
   apiKey: "AIzaSyDaLmLo0Z6BUd1wYpqTFgEks0liCL6kjlE",
   authDomain: "tntp-s-online-handb.firebaseapp.com",
@@ -23,77 +22,126 @@ const database = getDatabase(app)
 const storage = getStorage(app)
 const auth = getAuth()
 
-
+const header_user =document.getElementsByClassName('header-user')[0]
 onAuthStateChanged(auth, (user) => {
-    if (user) {
-      
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      console.log(uid);
-      // ...
-      const starCountRef = ref(database, 'users/' +uid);
-      onValue(starCountRef, (snapshot) => {
-      const data = snapshot.val();
-      print_user(data,uid)
-},{
-  onlyOnce:true
-}); 
-    } else {
-      sign_out_btn.remove()
-      var sign_in = document.getElementById('sign-in')
-      sign_in.style.display = 'block'
-      sign_in.addEventListener('click',function(){
-        window.location.replace('../login and sign up/index.html')
-      })
-      // User is signed out
-      // ...
-    }
-  });
-  function print_user(data,uid){
-    console.log(data);
-    let photo;
-    var str = new String(data.avatar)
-  console.log(str.split(",")[0]);
-  if(data.avatar.includes(',')){
-  getDownloadURL(storageref(storage, 'avatar/'+ str.split(",")[0]))
-  .then((url) => {
-    // `url` is the download URL for 'images/stars.jpg'
+  if (user) {
 
-    // This can be downloaded directly:
-    // const xhr = new XMLHttpRequest();
-    // xhr.responseType = 'blob';
-    // xhr.onload = (event) => {
-    //   const blob = xhr.response;
-    // };
-    // xhr.open('GET', url);
-    // xhr.send();
-    photo = url
-    sidenav(photo)
-    })
-  }else if(data.avatar == "none" || data.avatar == null){
-      photo = '../user.png'
-      sidenav(photo)
-      
-    }else{
-      photo = data.avatar
-      sidenav(photo)
-    }
-    
-    function sidenav(photo){
-      console.log(photo);
-      var html = `<a href="../profile/index.html?id=${uid}&&profile=true"><img src="${photo}" alt=""></a>
-      <h2>${data.username}</h2>`
-    
-      sidenav_user.insertAdjacentHTML("afterbegin", html)
-    }
-  }
-  //sign-out
-  sign_out_btn.addEventListener("click",()=>{
-    signOut(auth).then(() => {
-      window.location.replace('../login and sign up/index.html')
-    }).catch((error) => {
-      console.log(error);
-      // An error happened.
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    console.log(uid);
+    const starCountRef = ref(database, 'users/' + uid);
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      print_user(data, uid)
+    }, {
+      onlyOnce: true
     });
+  } else {
+    var html = `<button onclick="window.location.replace('../login and sign up/index.html')" style="width: 80%; padding: 20px; font-size: larger; cursor: pointer; ;background-image: linear-gradient(to right, #f4b629, #f2ac22, #f0a11c, #ee9716, #eb8c12); border-radius: 10px; border: none; color: #fff;">Sign in</button>`
+    header_user.style.display='none'
+    header_user.insertAdjacentHTML('beforebegin', html)
+    // User is signed out
+    // ...
+  }
+});
+
+function print_user(data, uid) {
+  console.log(uid);
+  console.log(data);
+
+  onValue(ref(database,'session/'),(session)=>{
+    const session_data = session.val()
+    const session_data_keys = Object.keys(session_data)
+    let session_count = 0
+    for(let i = 0 ;i<session_data_keys.length;i++){
+      var current_session = session_data[session_data_keys[i]]
+      if(current_session.session_data != undefined){
+        if(current_session.session_data[`${uid}`] != undefined && current_session.session_data[`${uid}`] != null){
+          session_count+=1
+        }
+      }
+    }
+    
   })
+  let photo;
+  var str = new String(data.avatar)
+  console.log(str.split(",")[0]);
+  if (data.avatar.includes(',')) {
+    getDownloadURL(storageref(storage, 'avatar/' + str.split(",")[0]))
+      .then((url) => {
+        // `url` is the download URL for 'images/stars.jpg'
+
+        // This can be downloaded directly:
+        // const xhr = new XMLHttpRequest();
+        // xhr.responseType = 'blob';
+        // xhr.onload = (event) => {
+        //   const blob = xhr.response;
+        // };
+        // xhr.open('GET', url);
+        // xhr.send();
+        photo = url
+        sidenav(photo)
+        console.log(photo);
+      })
+  } else {
+    if (data.avatar == "none" || data.avatar == null) {
+      photo = '../user.png'
+
+    } else {
+      photo = data.avatar
+    }
+    sidenav(photo)
+  }
+  function sidenav(photo) {
+    console.log(photo);
+    document.getElementById('img').src = photo
+    document.getElementById('href').href += `?id=${uid}&&profile=true`
+  }
+
+}
+
+//sign-out
+const sign_out_btn = document.getElementById("sign-out")
+sign_out_btn.addEventListener("click", () => {
+  signOut(auth).then(() => {
+    // Sign-out successful.
+  }).catch((error) => {
+    console.log(error);
+    // An error happened.
+  });
+})
+  const open_btn = document.getElementsByClassName('open')[0]
+const header = document.getElementsByTagName('header')[0]
+open_btn.addEventListener('click',()=>{
+    if(header.classList.contains('active')){
+        header.classList.remove('active')
+        open_btn.setAttribute('class','fa-solid fa-bars open')
+    }else{
+        header.classList.add('active')
+        open_btn.setAttribute('class','fa-solid fa-xmark open active')
+    }
+})
+
+//dropdown
+const doc_drop = document.getElementById('doc-dropdown')
+const dropdown_box = document.getElementsByClassName('dropdown-box')[0]
+doc_drop.addEventListener('click', function () {
+    if (dropdown_box.classList.contains('active')) {
+        dropdown_box.classList.remove('active')
+        dropdown_box.classList.add('refuse')
+    } else {
+        dropdown_box.classList.add('active')
+        dropdown_box.classList.remove('refuse')
+    }
+})
+const user_drop = document.getElementById('user-drop')
+const header_user_box = document.getElementsByClassName('header-user-drop')[0]
+header_user_box.style.display = 'none'
+user_drop.addEventListener('click', () => {
+    if (header_user_box.style.display == 'none') {
+        header_user_box.style.display = 'flex'
+    } else {
+        header_user_box.style.display = 'none'
+    }
+})

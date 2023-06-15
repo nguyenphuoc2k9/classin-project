@@ -245,7 +245,7 @@ onValue(ref(database,'session/'),(snap)=>{
     var today = Date.now()
     if(time_end.getTime()<today){
       console.log('ok');
-      update(ref(database,'session/'+current_data.session_name+'/'),{
+      update(ref(database,'session/'+data_keys[i]+'/'),{
         session_status:'deactive'
       })
     }else{
