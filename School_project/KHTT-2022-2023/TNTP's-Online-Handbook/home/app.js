@@ -50,20 +50,20 @@ user_drop.addEventListener('click', () => {
 //announcement
 let annouce_data = {
     1: {
-        img: '../TTT.png',
-        title: 'title_1',
-        desc: 'desc1'
+        img: 'https://scontent.xx.fbcdn.net/v/t1.15752-9/353112739_1242139226486851_8494773578746609406_n.jpg?stp=dst-jpg_s350x350&_nc_cat=111&ccb=1-7&_nc_sid=aee45a&_nc_ohc=5iOSpl4dlEMAX_wyWvO&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdRN2_tf-1iWCfycfkAsedLCD3M2jB1WNSxUkaKgSPIkSA&oe=64B1DBDE',
+        title: 'Thực hiện hiệu quả nhóm chính sách đối với thanh niên dân tộc thiểu số',
+        desc: 'ĐTN: Tại buổi làm việc với UBND tỉnh Hà Giang, đồng chí Y Thông- Thứ trưởng, Phó Chủ nhiệm Ủy ban Dân tộc, Thành viên UBQG về TNVN đề nghị tỉnh cần tiếp tục thực hiện có hiệu quả các nhóm chính sách đối với thanh niên là người dân tộc thiểu số, góp phần thu hẹp khoảng cách phát triển giữa các nhóm đối tượng thanh niên.'
     },
     2: {
-        img: '../TTT.png',
-        title: 'title_2',
-        desc: 'desc2'
+        img: 'https://scontent.xx.fbcdn.net/v/t1.15752-9/354519316_632557312252608_3585826514216401529_n.jpg?stp=dst-jpg_p206x206&_nc_cat=110&ccb=1-7&_nc_sid=aee45a&_nc_ohc=9Rq83O8zMI8AX8We1Ib&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTyTBEYHpdH894VeRypDmjung8pCjUQVn2IuE23Sy3Pww&oe=64B205A3',
+        title: 'Tặng học bổng cho sinh viên Đắk Lắk có hoàn cảnh khó khăn',
+        desc: 'ĐTN: Ngày 13/6, đồng chí Nguyễn Minh Triết - Bí thư Trung ương Đoàn, Chủ tịch Trung ương Hội Sinh viên Việt Nam đã có buổi làm việc với Hội Sinh viên Việt Nam tỉnh Đắk Lắk và trao tặng 20 suất học bổng cho sinh viên có hoàn cảnh khó khăn.'
     }
     ,
     3: {
-        img: '../TTT.png',
-        title: 'title_3',
-        desc: 'desc3'
+        img: 'https://scontent.xx.fbcdn.net/v/t1.15752-9/354110000_650562150311084_9041296509811751536_n.jpg?stp=dst-jpg_p206x206&_nc_cat=110&ccb=1-7&_nc_sid=aee45a&_nc_ohc=p0aZ0VUyagQAX8YY5sp&_nc_oc=AQlQXitCLC726GOhD2OLDSxTI6lfY0hraX3jNeobWUF-yeMEFsmS2F-Z_JLG_Q10vAju_hjjhgz0Z9_FLrhkuxG1&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSflF5vntiTiM1syw72pFewIZDPUAG5ku8zOYpZGtQEyw&oe=64B1FA36',
+        title: 'Hơn 297 nghìn lượt ĐVTN tham gia các hoạt động tình nguyện hè',
+        desc: 'ĐTN: Tuần đầu tiên của Chiến dịch Thanh niên tình nguyện Hè năm 2023 đã thu hút trên 297.600 lượt đoàn viên thanh niên tham gia hoạt động tình nguyện'
     }
 }
 const card_title = document.getElementById('announ-title')

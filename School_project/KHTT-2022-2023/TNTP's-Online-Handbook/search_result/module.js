@@ -120,7 +120,7 @@ function start_searching() {
       var session_result = []
       for (let i = 0; i < keys.length; i++) {
 
-        if (keys[i] == 'users' || keys[i] == 'post' || keys[i] =='session') {
+        if (keys[i] == 'users' || keys[i] == 'post' || keys[i] == 'session') {
           console.log('section_data', data[keys[i]]);
           var current_section = data[keys[i]]
           var current_keys = Object.keys(current_section)
@@ -128,28 +128,28 @@ function start_searching() {
 
           if (keys[i] == 'post') {
             search_target = ['title', 'desc', 'archive']
-          } else if(keys[i] =='users'){
+          } else if (keys[i] == 'users') {
             search_target = ['username', 'email', 'school', 'gender', 'class']
-          }else if(keys[i] =='session'){
-            search_target = ['session_name','session_desc']
+          } else if (keys[i] == 'session') {
+            search_target = ['session_name', 'session_desc']
           }
           for (let x = 0; x < current_keys.length; x++) {
             var current_data = current_section[current_keys[x]]
             // console.log('current_data',x);
             for (let y = 0; y < search_target.length; y++) {
               // console.log('in_search',y);
-              
+
               if (current_data[search_target[y]].toLowerCase().includes(value_input)) {
-                let companation = [current_data,current_keys[x]]
+                let companation = [current_data, current_keys[x]]
                 let compare_user = JSON.stringify(user_result).includes(JSON.stringify(companation))
                 let compare_post = JSON.stringify(post_result).includes(JSON.stringify(companation))
-                let compare_session  =JSON.stringify(session_result).includes(JSON.stringify(companation))
+                let compare_session = JSON.stringify(session_result).includes(JSON.stringify(companation))
                 console.log(compare_post);
-                if (keys[i] =='post' && compare_post == false) {
+                if (keys[i] == 'post' && compare_post == false) {
                   post_result.push(companation)
-                } else if(keys[i]=='users' && compare_user == false){
+                } else if (keys[i] == 'users' && compare_user == false) {
                   user_result.push(companation)
-                } else if(keys[i] == 'session' && compare_session == false){
+                } else if (keys[i] == 'session' && compare_session == false) {
                   session_result.push(companation)
                 }
               }
@@ -160,13 +160,13 @@ function start_searching() {
       }
       console.log(user_result);
       console.log(post_result);
-      result_print(user_result, post_result,session_result)
-      function result_print(user, post,session) {
+      result_print(user_result, post_result, session_result)
+      function result_print(user, post, session) {
         //print user
-        if(post.length + session.length < 3 && user.length <= 0){
+        if (post.length + session.length < 3 && user.length <= 0) {
           document.getElementsByTagName('footer')[0].classList.add('active')
         }
-        if ((user.length == 0 || user == null) && (post.length == 0 || post == null) && (session.length ==0 || session ==null)) {
+        if ((user.length == 0 || user == null) && (post.length == 0 || post == null) && (session.length == 0 || session == null)) {
           user_box.parentElement.remove()
           post_box.parentElement.remove()
           session_box.parentElement.remove()
@@ -204,6 +204,7 @@ function start_searching() {
                 </div>
                 `
             user_box.insertAdjacentHTML('beforeend', html)
+            footer_check()
             document.getElementById('u-title').innerText = `Found ${user.length} in users`
           }
         } else {
@@ -287,6 +288,7 @@ function start_searching() {
                               </div>
                 </div>`
             post_box.insertAdjacentHTML("beforeend", html)
+            footer_check()
             document.getElementById('p-title').innerText = `Found ${post.length} in posts`
             const comment_box = document.getElementsByClassName(post_key)[0].getElementsByClassName('comment-box')[0]
             onValue(ref(database, 'post/' + keys + '/comments/'), (value) => {
@@ -324,6 +326,7 @@ function start_searching() {
                                       </div>
                               `
                       comment_box.insertAdjacentHTML('beforeend', html)
+                      
 
                     }
                   })
@@ -337,11 +340,11 @@ function start_searching() {
         } else {
           document.getElementsByClassName('post-result')[0].remove()
         }
-        if(session.length != 0 ){
-          for(let i  =0;i<session.length;i++){
+        if (session.length != 0) {
+          for (let i = 0; i < session.length; i++) {
             var current_session = session[i][0]
             var time = `${get_date(current_session.session_time_start)} - ${get_date(current_session.session_time_end)}`
-            getDownloadURL(storageref(storage,'images/'+current_session.session_img)).then((url)=>{
+            getDownloadURL(storageref(storage, 'images/' + current_session.session_img)).then((url) => {
               var html = `
               <div class="training-card">
                         <img src="${url}" alt="">
@@ -361,14 +364,24 @@ function start_searching() {
                         </div>
                         <button onclick='window.location.replace("../session/index.html?session_name=${session[i][1]}")'>Tham gia</button>
                     </div>`
-                    console.log(session);
-                session_box.insertAdjacentHTML('beforeend',html)
+              console.log(session);
+              session_box.insertAdjacentHTML('beforeend', html)
+              footer_check()
             })
           }
-        }else{
+        } else {
           session_box.parentElement.remove()
         }
-        
+
+        function footer_check(){
+          if(document.getElementsByClassName('search')[0].clientHeight <= window.innerHeight*(50/100) ){
+            console.log(document.getElementsByClassName('search')[0].clientHeight,window.innerHeight*(1/2));
+            document.getElementsByTagName('footer')[0].classList.add('active')
+          }else{
+            console.log(document.getElementsByClassName('search')[0].clientHeight,window.innerHeight);
+          }
+        }
+
       }
     }, {
       onlyOnce: true
@@ -381,8 +394,8 @@ function start_searching() {
 
 }
 //get_date
-function get_date(time){
-  var [month,day,year] = time.split('/')
+function get_date(time) {
+  var [month, day, year] = time.split('/')
   return `${day}/${month}/${year}`
 }
 //random_key
@@ -414,33 +427,3 @@ function start_create(uid, len) {
     })
   });
 }
-var log1 =[
-  {
-      "archive": [
-          "thành viên"
-      ],
-      "avatar": "https://lh3.googleusercontent.com/a/AGNmyxZhkWXz3gypelP8cU9FE2lJz10WU-ZNqE9JNq0n=s100",
-      "class": "chưa xác định",
-      "email": "phuochuunguyen2009@gmail.com",
-      "gender": "chưa xác định",
-      "school": "chưa xác định",
-      "username": "huu phuoc nguyen"
-  },
-  "n9PfTUHVnyZfAjeJc4e8WcpQ9Kt2"
-]
-var log2 = [
-  {
-      "archive": [
-          "thành viên"
-      ],
-      "avatar": "https://lh3.googleusercontent.com/a/AGNmyxZhkWXz3gypelP8cU9FE2lJz10WU-ZNqE9JNq0n=s100",
-      "class": "chưa xác định",
-      "email": "phuochuunguyen2009@gmail.com",
-      "gender": "chưa xác định",
-      "school": "chưa xác định",
-      "username": "huu phuoc nguyen"
-  },
-  "n9PfTUHVnyZfAjeJc4e8WcpQ9Kt2"
-]
-var total_dat = [log1,log2]
-console.log(JSON.stringify(log1) === JSON.stringify(log2));

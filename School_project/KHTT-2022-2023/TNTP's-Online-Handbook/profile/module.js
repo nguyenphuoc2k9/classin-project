@@ -6,6 +6,7 @@ import { getStorage,  ref as storageref,getDownloadURL,uploadBytes } from "https
 //variable
 const sidenav_user = document.getElementsByClassName("sidenav-user-info")[0];
 const profile_box = document.getElementsByClassName("profile-box")[0]
+const btn = document.getElementById('submit-btn')
 const firebaseConfig = {
   apiKey: "AIzaSyDaLmLo0Z6BUd1wYpqTFgEks0liCL6kjlE",
   authDomain: "tntp-s-online-handb.firebaseapp.com",
@@ -278,3 +279,10 @@ function sidenav(photo){
 }
   
 }
+btn.addEventListener('click',(e)=>{
+  e.preventDefault()
+  let search_Value = document.getElementById('search-value').value
+  if(search_Value != ''){
+    window.location.replace(`../search_result/index.html?search_value="${search_Value}`)
+  }
+})

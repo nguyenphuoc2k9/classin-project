@@ -720,7 +720,7 @@ nav form button {
     margin-left: 10px;
     z-index: 999;
     color: #fff;
-    font-size: 30px;
+    font-size: min(4vw,4vh);
     cursor: pointer;
 }
 
@@ -743,14 +743,22 @@ nav form button {
     height: 100%;
     position: absolute;
     top: 0;
-    padding-top: 30px;
-    padding-left: 50px;
     background-color: #0000004a;
 }
-
+.info h3, .info h1{
+    padding: 0 50px 0 50px;
+}
+.info h1{
+    padding-top: max(10px,1vw);
+    font-size: max(2vw,2vh);
+}
+.info h3{
+    font-size: max(1.5vw,1.5vh);
+    word-break: break-all;
+}
 .container img {
     width: 100%;
-    height: 200px;
+    height: 30vw;
 }
 
 .count {
@@ -765,7 +773,7 @@ nav form button {
 }
 
 .count i {
-    font-size: 20px;
+    font-size: 10px;
 }
 
 /* welcome */
@@ -850,7 +858,7 @@ nav form button {
     margin-bottom: 10px;
 }
 .training-title h1{
-    font-size: clamp(2vw,4vw,5vw);
+    font-size: min(20px,20vw);
 }
 .training-title img {
     width: 50px;
@@ -889,7 +897,7 @@ nav form button {
     font-family: 'Courier New', Courier, monospace;
 }
 .card-info h1{
-    font-size: clamp(2vw,3vw,12vw);
+    font-size: clamp(2vw,4vh,5vh);
 }
 .more-info {
     background: #3492D7;
@@ -990,7 +998,7 @@ nav form button {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .leader-title h1{
-    font-size: clamp(2vw,4vw,5vw);
+    font-size: min(20px,20vw);
 }
 .leader-table{
     width:  100%;
