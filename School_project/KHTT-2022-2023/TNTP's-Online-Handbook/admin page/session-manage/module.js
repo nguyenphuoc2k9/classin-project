@@ -71,10 +71,8 @@ button_submit.addEventListener('click', () => {
     let date_ob_end = new Date(return_date(date_end))
     if (title == null && desc == null && file == null && date_start == null && date_end == null) {
         check = true;
-        console.log('lol');
     }
     if (date_ob_start.getTime() > date_ob_end.getTime()) {
-        console.log('error');
         check = true;
     }
     if (check == false) {
@@ -87,11 +85,9 @@ button_submit.addEventListener('click', () => {
                 session_status: 'active',
                 session_img: file.name
             }).then(() => {
-                console.log('Successfully');
             })
         })
     }
-    console.log(check);
 })
 function return_date(date) {
     var [year, month, day] = date.split('-')
@@ -165,13 +161,14 @@ function print_session(data) {
 
             if (current_data.session_data != undefined && current_data.session_data != null) {
                 var session_data_keys = Object.keys(current_data.session_data)
-
+                var count_index = 0
                 for (let x = 0; x < session_data_keys.length; x++) {
                     onValue(ref(database, 'users/' + session_data_keys[x]), (s) => {
+                        
                         var username = s.val().username
                         let key_2 = generateRandomKey(15)
                         var html_2 = `
-                    <h1 onclick="dropdown_2(this,${x})">${username}</h1>
+                    <h1 onclick="dropdown_2(this,${count_index})">${username}</h1>
                             <div class="card-dropdown second ${key_2}">
                                 <h1>Thông tin về phiên hoạt động</h1>
                                 <div class="work-done">
@@ -187,45 +184,43 @@ function print_session(data) {
                         let current_user = current_data.session_data[session_data_keys[x]]
                         let current_box = document.getElementsByClassName(key_2)[0]
                         let current_user_keys = Object.keys(current_user)
-                        
-                        for (let y = 0; y < current_user_keys.length; y++) {
+                        if (current_user != undefined) {
+
                             var done_count = 0
                             var not_done_count = 0
-                            if (current_user[current_user_keys[y]].status == 'done') {
-                                var act_html = `
+                            for (let y = 0; y < current_user_keys.length; y++) {
+                                if (current_user[current_user_keys[y]].status == 'done') {
+                                    var act_html = `
                             <h4><i class="fa-solid fa-star"></i>${current_user[current_user_keys[y]].name}</h4>`
-                                current_box.getElementsByClassName('work-done')[0].insertAdjacentHTML('beforeend', act_html)
-                                done_count+=1
-                            } else {
-                                var act_html = `
+                                    current_box.getElementsByClassName('work-done')[0].insertAdjacentHTML('beforeend', act_html)
+                                    done_count += 1
+                                } else {
+                                    var act_html = `
                             <h4><i class="fa-regular fa-star"></i>${current_user[current_user_keys[y]].name}</h4>
                             `
-                                not_done_count+=1
-                                current_box.getElementsByClassName('work')[0].insertAdjacentHTML('beforeend', act_html)
-                            }
-                            if(done_count == 0){
-                                current_box.getElementsByClassName('done-text')[0].remove()
-    
-                            }
-                            if(not_done_count == 0){
-                                current_box.getElementsByClassName('not-done-text')[0].remove()
+                                    not_done_count += 1
+                                    current_box.getElementsByClassName('work')[0].insertAdjacentHTML('beforeend', act_html)
+                                }
                             }
                         }
+                        
+                        if(current_box.getElementsByClassName('work-done')[0].childElementCount <= 1){
+                            current_box.getElementsByClassName('done-text')[0].remove()
+                        }
+                        if(current_box.getElementsByClassName('work')[0].childElementCount <= 1){
+                            current_box.getElementsByClassName('not-done-text')[0].remove()
+                        }
+                        count_index+=1
                     })
                 }
             }
-            
+
             start_edit()
-            print_activity(keys[i], current_data.session_name)
+            print_activity(keys[i], keys[i])
             start_create_activity()
         })
 
     }
-}
-function get_user_name(uid) {
-    onValue(ref(database, 'users/' + uid), (s) => {
-        current_user_name = s.val().username
-    })
 }
 function start_edit() {
     const edit_btn = document.getElementsByClassName('edit-btn')
@@ -236,14 +231,14 @@ function start_edit() {
             var edit_value = prompt(`Chỉnh sửa ${edit_session}:`)
             let change_data = {}
             change_data[`${edit_session}`] = edit_value
-            console.log(change_data);
+
             update(ref(database, 'session/' + edit_session_name), change_data).then(() => {
                 window.location.reload()
             })
         })
     }
     const img_edit = document.getElementsByClassName('image-edit')
-    console.log(img_edit);
+
     for (let i = 0; i < img_edit.length; i++) {
         img_edit[i].addEventListener('change', () => {
             var file = img_edit[i].files[0]
@@ -267,11 +262,11 @@ function start_create_activity() {
             onValue(ref(database, 'session/' + session_name + '/activity'), (snap) => {
                 const snapshot = snap.val()
                 var key = generateRandomKey(5)
-                console.log(snapshot);
+
                 set(ref(database, 'session/' + session_name + '/activity/' + key), {
                     name: activity
                 }).then(() => {
-                    console.log('done');
+                    chang_Data(session_name,'add',activity)
                 })
             }, {
                 onlyOnce: true,
@@ -284,15 +279,15 @@ function print_activity(key, name) {
     const box = document.getElementsByClassName(key)[0].getElementsByClassName('activity-box')[0]
     onValue(ref(database, 'session/' + name + '/activity/'), (snap) => {
         const value = snap.val()
-        console.log(value);
+
         if (value != null && value != []) {
             const value_key = Object.keys(value)
             for (let i = 0; i < value_key.length; i++) {
-                console.log(value[value_key[i]].name);
+
                 var html = `
                 <div class="activity-element">
                 <i class="fa-solid fa-briefcase"></i>
-                <h1>${value[value_key[i]].name}<i class="fa-solid fa-trash activity-delete" session_name = '${key}' ac_key='${value_key[i]}'></i></h1>
+                <h1>${value[value_key[i]].name}<i class="fa-solid fa-trash activity-delete" session_name = '${key}' ac_key='${value_key[i]}' work_name='${value[value_key[i]].name}'></i></h1>
             </div>
                 `
                 box.insertAdjacentHTML('beforeend', html)
@@ -308,14 +303,15 @@ function start_delete() {
     for (let i = 0; i < ac_del.length; i++) {
         ac_del[i].addEventListener('click', () => {
             var session_name = ac_del[i].getAttribute('session_name');
+            var work_name = ac_del[i].getAttribute('work_name')
             var ac_key = ac_del[i].getAttribute('ac_key')
             remove(ref(database, 'session/' + session_name + '/activity/' + ac_key)).then(() => {
-                window.location.reload()
+                chang_Data(session_name,'delete',work_name)
             })
         })
     }
     const session_del = document.getElementsByClassName('delete-session')
-    console.log(session_del);
+
     for (let i = 0; i < session_del.length; i++) {
         session_del[i].addEventListener('click', () => {
             var session_key = session_del[i].getAttribute('session_key')
@@ -372,17 +368,65 @@ function start_del_add() {
                 const value = snap.val()
                 const value_key = Object.keys(value)
                 for (let x = 0; x < value_key.length; x++) {
-                    console.log(value_key);
+
                     if (value[value_key[x]].name == work_name) {
                         update(ref(database, `session/${session_name}/session_data/${user_uid}/${value_key[x]}/`), {
                             status: 'done',
-                            img:img
+                            img: img
                         }).then(() => {
                             remove(ref(database, 'pending_work/' + pending_key))
                         })
                     }
                 }
             })
+        })
+    }
+}
+//change data
+function chang_Data(session_name,method,work_name){
+    if(method =='delete'){
+        onValue(ref(database,`session/${session_name}/session_data/`),(snap)=>{
+            const data = snap.val()
+            console.log(data);
+            const data_keys = Object.keys(data)
+            for(let  i =0;i<data_keys.length;i++){
+                const data_2 = data[data_keys[i]]
+                const data_2_keys = Object.keys(data_2)
+                for(let x = 0;x<data_2_keys.length;x++){
+                    var current_data = data_2[data_2_keys[x]]
+                    console.log(work_name);
+
+                    if(current_data.name == work_name){
+                        remove(ref(database,`session/${session_name}/session_data/${data_keys[i]}/${data_2_keys[x]}`)).then(()=>{
+                            window.location.reload()
+                        })
+                    }else{
+                        console.log(false);
+                    }
+                }
+            }
+        },{
+            onlyOnce:true,
+        })
+    }else if(method =='add'){
+        console.log(method);
+        onValue(ref(database,`session/${session_name}/session_data`),(snap)=>{
+            const data=snap.val()
+            console.log(data);
+            const data_keys = Object.keys(data)
+            for(let i =0;i<data_keys.length;i++){
+                var pk_key = generateRandomKey(10)
+                set(ref(database,`session/${session_name}/session_data/${data_keys[i]}/${pk_key}`),{
+                    name: work_name,
+                    img:'none',
+                    status:'not'
+                }).then(()=>{
+                    window.location.reload()
+                })
+
+            }
+        },{
+            onlyOnce:true,
         })
     }
 }

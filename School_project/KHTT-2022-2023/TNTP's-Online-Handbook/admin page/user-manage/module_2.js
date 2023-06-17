@@ -45,11 +45,11 @@ onValue(ref(database, 'users/' + uid), (smap) => {
                         }
                         console.log(current_session);
                         if (done_count == activity_keys.length) {
-                            string += `${current_session.session_name} hoàn thành xuất xắc, `
+                            string += `phiên hoạt động ${current_session.session_name} hoàn thành xuất xắc<br>`
                         } else if (done_count >= activity_keys.length / 2) {
-                            string += `${current_session.session_name} hoàn thành tốt, `
+                            string += ` phiên hoạt động ${current_session.session_name} hoàn thành tốt<br>`
                         } else {
-                            string += `${current_session.session_name} hoàn thành không tốt, `
+                            string += `phiên hoạt động ${current_session.session_name} hoàn thành không tốt<br>`
                         }
                     }
                 }

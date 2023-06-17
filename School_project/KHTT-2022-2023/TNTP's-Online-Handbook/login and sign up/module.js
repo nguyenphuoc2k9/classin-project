@@ -46,7 +46,7 @@ sigh_up_btn.addEventListener("click", function (e) {
         gender: "chưa xác định",
         school: "chưa xác định",
         class: "chưa xác định",
-        archive: ['thành viên']
+        archive: ''
       }).then(()=>{
 
         window.location.replace(`./more-info.html?uid=${user.uid}`)
@@ -79,17 +79,19 @@ for (let i = 0; i < sign_up_google.length; i++) {
             var check = false
             onValue(starCountRef, (snapshot) => {
             if(snapshot.exists()&&check ==false){
-              window.location.replace("../home/index.html")
               check = true;
+              window.location.replace("../home/index.html")
             }else{
+              check = true;
               set(ref(database, 'users/' + user.uid), {
+                
                 username: user.displayName,
                 email: user.email,
                 avatar: pictureUrl,
                 gender: "chưa xác định",
                 school: "chưa xác định",
                 class: "chưa xác định",
-                archive: ['thành viên']
+                archive: ''
               }).then(()=>{
                 window.location.replace(`./more-info.html?uid=${user.uid}`)
               })
@@ -145,7 +147,7 @@ for (let i = 0; i < sign_up_facebook.length; i++) {
                 gender: "chưa xác định",
                 school: "chưa xác định",
                 class: "chưa xác định",
-                archive: ['thành viên']
+                archive: ''
               }).then(()=>{
                 window.location.replace(`./more-info.html?uid=${user.uid}`)
               })
@@ -182,7 +184,7 @@ sign_in_btn.addEventListener("click", function (e) {
       // Signed in 
       const user = userCredential.user;
       alert("Logged in successfully")
-      // ...
+
     })
     .catch((error) => {
       const errorCode = error.code;

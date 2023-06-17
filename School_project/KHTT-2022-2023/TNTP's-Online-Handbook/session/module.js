@@ -129,13 +129,18 @@ function print_session(data, uid) {
     title.innerText = data.session_name
     time.innerText = `${get_date(data.session_time_start)} - ${get_date(data.session_time_end)}`
     const status = document.getElementById('status')
+    const day_left = calculate_day_left(data.session_time_start,data.session_time_end)
     if (data.session_status == 'active') {
       status.setAttribute('class', 'active')
+      document.getElementById('days-left').innerText  = `Còn ${day_left} ngày`
     } else {
       status.setAttribute('class', 'deactive')
+      document.getElementById('days-left').innerText = `đã kết thúc`
     }
 
+    
     const val_key = Object.keys(data.session_data)
+    document.getElementById('joined').innerHTML = `Số người đã tham gia: ${val_key.length}`
     for (let x = 0; x < val_key.length; x++) {
       if (val_key[x] == uid) {
         var ac_keys = Object.keys(data.session_data[`${val_key[x]}`])
@@ -147,6 +152,7 @@ function print_session(data, uid) {
                                         <h1>${current_data.name}</h1>
                 
                                     </div>`
+                                    session_box.insertAdjacentHTML('beforeend', html)
         } else if (data.session_data[`${val_key[x]}`][`${ac_keys[i]}`].status == 'done') {
           html = `
                         <div class="work">
@@ -154,10 +160,11 @@ function print_session(data, uid) {
                                         <h1>${current_data.name}</h1>
                                     </div>
                         `
+                        session_box.insertAdjacentHTML('beforeend', html)
         }
       }
     }
-    session_box.insertAdjacentHTML('beforeend', html)
+    
   }
   start_work(uid,data.session_status)
   start_show_result()
@@ -230,27 +237,46 @@ function achivement_giver(session_name, uid) {
   onValue(ref(database, 'session/' + session_name + '/session_data/' + uid + '/'), (val) => {
     const data = val.val()
     const data_keys = Object.keys(data)
+    var done_count = 0
     for (let i = 0; i < data_keys.length; i++) {
       var current_data = data[data_keys[i]]
       if (current_data.status == 'done') {
-        onValue(ref(database, 'users/' + uid + '/archive'), (user_val) => {
-          const user_data = user_val.val()
-          let copy = user_data
-          if (copy.includes(session_name)) {
-            copy.push(`${session_name}`)
-            update(ref(database, 'users/' + uid), {
-              archive: copy
-            })
-          }
-        }, {
-          onlyOnce: true,
-        })
+        done_count +=1
+        if(done_count == data_keys.length){
+          onValue(ref(database, 'users/' + uid + '/archive'), (user_val) => {
+            const user_data = user_val.val()
+            let copy = user_data
+            console.log(copy);
+            if(copy =='' || copy =="''"){
+              copy = [session_name]
+              update(ref(database,'users/'+uid+'/'),{
+                archive:copy
+              })
+            }else if(copy.includes(`hoàn thành ${session_name}`) == false){
+              copy.push(`hoàn thành ${session_name}`)
+              update(ref(database,'users/'+uid+'/'),{
+                archive:copy
+              })
+            }
+            
+            
+          }, {
+            onlyOnce: true,
+          })
+        }
+        
       }
     }
   })
 }
 
 //get date
+function calculate_day_left(date_1,date_2){
+  var time_1 =new Date(date_1)
+  var time_2 = new Date(date_2)
+  var day_left =time_2.getDate() - time_1.getDate()
+  return day_left
+}
 function get_date(date) {
   const [month, day, year] = date.split('/')
   return `${day}/${month}/${year}`

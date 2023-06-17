@@ -381,6 +381,22 @@ footer {
     height: 20px;
     border-radius: 50%;
 }
+.joined{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-family: 'Inter',sans-serif;
+    background-color: #087DE9;
+    font-size: medium;
+    width: 30%;
+    padding: 5px;
+    border-radius: 10px;
+}
+.joined img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%
+}
 .session-todo{
     display: flex;
     flex-direction: column;

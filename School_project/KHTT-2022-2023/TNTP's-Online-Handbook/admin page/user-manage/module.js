@@ -61,7 +61,6 @@ onValue(user_ref, (value) => {
             var str = new String(current.avatar)
             onValue(ref(database, 'session/'), (sesion_data) => {
                 var session_count = new String(session_check(sesion_data.val(), data_keys[i]))
-                console.log(session_count);
                 if (str.includes(",")) {
                     getDownloadURL(storageref(storage, 'avatar/' + str.split(",")[0])).then((url) => {
                         var html = `<tr>
@@ -126,17 +125,12 @@ onValue(user_ref, (value) => {
     onlyOnce: true
 })
 function start_delete() {
-    console.log('ready');
     var del_btn = document.getElementsByClassName("delete")
-    console.log(del_btn);
-    console.log(del_btn.length);
     for (let i = 0; i < del_btn.length; i++) {
         del_btn[i].addEventListener("click", () => {
             let uid = del_btn[i].getAttribute("user-uid")
-            console.log(uid);
             remove(ref(database, 'users/' + uid)).then(() => {
-                console.log('done');
-                window.location.reload();
+                window.location.reload()
             })
         })
     }
@@ -147,7 +141,6 @@ function session_check(session, uid) {
     const session_data_keys = Object.keys(sesion_data)
     for (let i = 0; i < session_data_keys.length; i++) {
         var current_session = sesion_data[session_data_keys[i]]
-        console.log(current_session.session_data);
         if (current_session.session_data != undefined && current_session.session_data[`${uid}`] != null && current_session.session_data[`${uid}`] != undefined) {
             session_joined += 1
         }
@@ -160,10 +153,8 @@ document.getElementById("dowload").addEventListener("click", () => {
         let data = data_2
         let data_keys = Object.keys(data)
         for (let i = 0; i < data_keys.length; i++) {
-            console.log('i', i);
             data[data_keys[i]].archive = data[data_keys[i]].archive.toString()
         }
-        console.log(data);
         const dataArray = Object.entries(data || {}).map(([key, value]) => ({
             key,
             ...value,
@@ -190,7 +181,6 @@ document.getElementById("dowload").addEventListener("click", () => {
 //eidt health condition
 function start_edit() {
     const health_btn = document.getElementsByClassName('edit-btn')
-    console.log(health_btn);
     var edited = false
     for (let i = 0; i < health_btn.length; i++) {
 
@@ -201,11 +191,6 @@ function start_edit() {
             popup(user_uid,last_value,edit_value)
         })
     }
-}
-function update_edit(user_uid, edit_data) {
-    update(ref(database, 'users/' + user_uid), edit_data).then(() => {
-        window.location.reload()
-    })
 }
 document.getElementsByClassName('popup')[0].style.display = 'none'
 function popup(user_uid,last_value,edit_value){

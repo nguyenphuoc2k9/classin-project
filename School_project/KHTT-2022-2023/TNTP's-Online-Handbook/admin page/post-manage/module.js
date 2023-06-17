@@ -103,12 +103,11 @@ function start_edit(author_uid){
                 onValue(ref(database,'users/'+ author_uid),(value)=>{
                     let data_val = value.val()
                     let data;
-                    if(data_val.archive == null){
+                    if(data_val.archive == ''||data_val.archive == "''"){
                         data = []
                     }else{
                         data = data_val.archive
                     }
-                    
                     let adddata = [editvalue]
                     let combine = adddata.concat(data)
                     let addresult;
@@ -121,7 +120,7 @@ function start_edit(author_uid){
                     update(ref(database,'users/'+author_uid),{
                         archive:addresult
                     }).then(()=>{
-                        console.log('sus');
+                        window.location.reload()
 
                     })
                 },{

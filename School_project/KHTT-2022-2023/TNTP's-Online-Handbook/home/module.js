@@ -259,16 +259,19 @@ const read_nore_btn = document.getElementById('read-more')
 const leader_board = document.getElementById('leader-board')
 let high_to_low = []
 function print_leaders(len){
+
   onValue(ref(database,'users/'),(snap)=>{
     const data = snap.val()
     const data_keys = Object.keys(data)
-
-    for(let i =0;i<data_keys.length;i++){
-      high_to_low.push(data[data_keys[i]])
+    if(len == 5){
+      for(let i =0;i<data_keys.length;i++){
+        high_to_low.push(data[data_keys[i]])
+      }
     }
     high_to_low.sort((a,b)=>{
       return b.archive.length - a.archive.length
     })
+    console.log(high_to_low);
       for (let i = 0; i < len; i++) {
         var current_data = high_to_low[i]
         var html = `
@@ -276,11 +279,12 @@ function print_leaders(len){
         <td>${i + 1}</td>
         <td>${current_data.username}</td>
         <td>${current_data.school}</td>
-        <td>${current_data.class}</td>
-        <td>${current_data.archive.length}</td>
+        <td>${current_data.grade}</td>
+        <td class='archive' achievement='${current_data.archive}'>${current_data.archive.length}</td>
     </tr>
         `
         leader_board.insertAdjacentHTML('beforeend', html)
+        start_show_achievemnt()
     }
   })
   if (len == 5) {
@@ -299,3 +303,19 @@ read_nore_btn.addEventListener('click', () => {
   
 })
 print_leaders(5)
+//show achievement
+function start_show_achievemnt(){
+  const show_archive_btn = document.getElementsByClassName('archive')
+  for(let i  =0;i<show_archive_btn.length;i++){
+    show_archive_btn[i].addEventListener('mouseover',()=>{
+      var archive = show_archive_btn[i].getAttribute('achievement')
+      
+      if(archive !=''){
+        show_archive_btn[i].innerText = archive
+        
+      }else{
+        show_archive_btn[i].innerText = 'không có'
+      }
+    })
+  }
+}

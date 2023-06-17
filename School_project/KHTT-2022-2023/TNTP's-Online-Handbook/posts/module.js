@@ -276,10 +276,10 @@ function print_post(value,data_2) {
             })
           }else{
             let photo;
-            if(user_val.avatar == 'none' || user_val.avatar == null){
+            if(user_value.avatar == 'none' || user_value.avatar == null){
               photo = '../user.png'
             }else{
-              photo = user_val.avatar
+              photo = user_value.avatar
             }
             print_comment(user_value,photo,current)
           }

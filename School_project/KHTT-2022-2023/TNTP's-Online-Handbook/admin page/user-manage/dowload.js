@@ -29,9 +29,9 @@ function Export2Word(element, filename){
         
         //triggering the function
         downloadLink.click();
-        setTimeout(()=>{
-            window.location.replace('./user-manage.html')
-        },500)
+        // setTimeout(()=>{
+        //     window.location.replace('./user-manage.html')
+        // },500)
     }
     
     document.body.removeChild(downloadLink);
