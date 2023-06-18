@@ -248,7 +248,7 @@ function achivement_giver(session_name, uid) {
             let copy = user_data
             console.log(copy);
             if(copy =='' || copy =="''"){
-              copy = [session_name]
+              copy = [`hoàn thành ${session_name}`]
               update(ref(database,'users/'+uid+'/'),{
                 archive:copy
               })

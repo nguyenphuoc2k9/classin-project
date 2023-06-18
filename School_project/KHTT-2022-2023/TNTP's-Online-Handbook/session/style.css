@@ -400,6 +400,7 @@ footer {
 .session-todo{
     display: flex;
     flex-direction: column;
+    min-height: 40vh;
     gap: 10px;
     align-items: flex-start;
     width: 100%

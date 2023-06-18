@@ -268,6 +268,7 @@ function print_leaders(len){
         high_to_low.push(data[data_keys[i]])
       }
     }
+    
     high_to_low.sort((a,b)=>{
       return b.archive.length - a.archive.length
     })
@@ -292,7 +293,9 @@ function print_leaders(len){
   } else {
     read_more.classList.remove('active')
   }
-  
+  if(high_to_low.length < 5){
+    read_more.classList.remove('active')
+  }
 }
 read_nore_btn.addEventListener('click', () => {
   var children = leader_board.querySelectorAll('tr')
