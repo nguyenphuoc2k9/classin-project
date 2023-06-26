@@ -374,7 +374,9 @@ function start_del_add() {
                             status: 'done',
                             img: img
                         }).then(() => {
-                            remove(ref(database, 'pending_work/' + pending_key))
+                            remove(ref(database, 'pending_work/' + pending_key)).then(()=>{
+                                window.location.reload()
+                            })
                         })
                     }
                 }

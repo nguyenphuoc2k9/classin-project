@@ -43,6 +43,7 @@ onAuthStateChanged(auth, (user) => {
     },{
       onlyOnce:true,
     })
+    start_feedback(uid)
   } else {
     window.location.replace("../login and sign up/index.html")
     // User is signed out
@@ -258,12 +259,12 @@ const read_more = document.getElementsByClassName('read-more')[0]
 const read_nore_btn = document.getElementById('read-more')
 const leader_board = document.getElementById('leader-board')
 let high_to_low = []
-function print_leaders(len){
-
+function print_leaders(len_num){
+  let len = len_num
   onValue(ref(database,'users/'),(snap)=>{
     const data = snap.val()
     const data_keys = Object.keys(data)
-    if(len == 5){
+    if(len_num== 5){
       for(let i =0;i<data_keys.length;i++){
         high_to_low.push(data[data_keys[i]])
       }
@@ -273,8 +274,13 @@ function print_leaders(len){
       return b.archive.length - a.archive.length
     })
     console.log(high_to_low);
+      if(high_to_low.length < len){
+        len=high_to_low.length
+      }
+      console.log(len);
       for (let i = 0; i < len; i++) {
         var current_data = high_to_low[i]
+        console.log(current_data);
         var html = `
         <tr>
         <td>${i + 1}</td>
@@ -321,4 +327,19 @@ function start_show_achievemnt(){
       }
     })
   }
+}
+//feedback
+var feedback_btn  = document.getElementById('feedback-btn')
+function start_feedback(uid){
+  feedback_btn.addEventListener('click',()=>{
+    var feed_back_value = document.getElementById('feedback').value
+    if(feed_back_value != '' || feed_back_value!=null){
+      set(ref(database,'feedback/'+ generateRandomKey(5)),{
+        feedback: feed_back_value,
+        uid:uid
+      }).then(()=>{
+        window.location.reload()
+      })
+    }
+  })
 }

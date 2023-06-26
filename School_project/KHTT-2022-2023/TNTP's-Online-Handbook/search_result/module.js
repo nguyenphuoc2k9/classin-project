@@ -427,3 +427,17 @@ function start_create(uid, len) {
     })
   });
 }
+var feedback_btn  = document.getElementById('feedback-btn')
+function start_feedback(uid){
+  feedback_btn.addEventListener('click',()=>{
+    var feed_back_value = document.getElementById('feedback').value
+    if(feed_back_value != '' || feed_back_value!=null){
+      set(ref(database,'feedback/'+ generateRandomKey(5)),{
+        feedback: feed_back_value,
+        uid:uid
+      }).then(()=>{
+        window.location.reload()
+      })
+    }
+  })
+}
