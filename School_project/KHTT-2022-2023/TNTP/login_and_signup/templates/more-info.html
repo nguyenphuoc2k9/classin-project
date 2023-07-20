@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We want to know more about you</title>
+    <link rel="stylesheet" href="{% static 'login/css/style.css'%}">
+    <script
+    src="https://kit.fontawesome.com/64d58efce2.js"
+    crossorigin="anonymous"></script>
+</head>
+<body style="background-image: linear-gradient(to right, #084baf, #1a5fc2, #2a73d4, #3a88e6, #4a9df8);">
+    <div class="more-info">
+        <div class="more-title">
+            <h1>Thông tin cá nhân</h1>
+        </div>
+        <div class="more-box">
+            <h2>Cho chúng tôi biết thêm về bạn</h2>
+            <form>
+                <div class="more-card">
+                    <label for="birthday">Năm sinh</label>
+                    <input type="date" id="birthday" required>
+                </div>
+                <div class="more-card">
+                    <label for="gender">Giới tính</label>
+                    <select id="gender">
+                        <option selected value="ko xác định">Không xác định</option>
+                        <option value="male">Nam</option>
+                        <option value="female">Nữ</option>
+                    </select>
+                </div>
+                <div class="more-card">
+                    <label for="race">Dân tộc</label>
+                    <input type="text" id="race" required>
+                </div>
+                <div class="more-card">
+                    <label for="religion">Tôn giáo</label>
+                    <input type="text" id="religion" required>
+                </div>
+                
+            </form>
+            <form>
+                <div class="more-card">
+                    <label for="home-town">Quê quán</label>
+                    <input type="text" id="home-town" required>
+                </div>
+                <div class="more-card">
+                    <label for="live-locate">Nơi ở (yêu cầu viết theo định dạng tỉnh/huyện/xã)</label>
+                    <input type="text" id="live-locate" required >
+                </div>
+                <div class="more-card">
+                    <label for="school">Trường</label>
+                    <input type="text" id="school" required>
+                </div>
+                <div class="more-card">
+                    <label for="grade">Lớp</label>
+                    <input type="text" id="grade" required>
+                </div>
+                <div class="more-card">
+                    <label for="political">Lý luận chính trị</label>
+                    <input type="text" id="political">
+                </div>
+                <div class="more-card">
+                    <label for="language">ngoại ngữ</label>
+                    <input type="text" id="language" required>
+                </div>
+                <div class="more-card">
+                    <label for="expertise">trình độ chuyên môn</label>
+                    <input type="text" id="expertise">
+                </div>
+                <div class="more-card">
+                    <label for="havegone">Đã đi nước ngoài, lý do</label>
+                    <input type="text" id="havegone">
+                </div>
+                <div class="more-card">
+                    <label for="relatives">Mối quan hệ</label>
+                    <textarea type="text" required id="relatives" style="height: 300px;"></textarea>
+                </div>
+                <h1>Các thành tích của bản thân:</h1>
+            </form>
+
+                <div class="function-btn">
+                    <button type="submit" id="submit-btn">Submit</button>
+                </div>
+        </div>
+    </div>
+    <script type="module" src="{% static 'login/js/more-info-module.js' %}"></script>
+</body>
+</html>
