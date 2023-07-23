@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang cá nhân</title>
+    <link rel="icon" href="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png">
+    <link rel="stylesheet" href="{% static 'user_profile/style.css' %}">
+    <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <i class="fa-solid fa-bars open"></i>
+    <header>
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="{% url 'home' %}"><img src="{% static 'image/Thumbnails25312011013150-removebg-preview.png' %}" alt=""
+                        srcset=""></a>
+            </div>
+            <a href="{% url 'home' %}"> <i class="fa-solid fa-house"></i>Home</a>
+            <a href="{% url 'post' %}"> <i class="fa-solid fa-newspaper"></i>Bài đăng</a>
+            <a href="{% url 'game' %}"> <i class="fa-solid fa-gamepad"></i> Quiz</a>
+            <a href="#" id="doc-dropdown"><i class="fa-solid fa-folder"></i> Tài liệu về đội</a>
+            <div class="dropdown-box">
+                <a href="/static/document/bai hat(được phát hành)/index.html">Điều lệ <i class="fa-solid fa-scale-balanced"></i></a>
+                <a href="/static/document/ky nang(được phát hành)/index.html">Kỹ năng <i
+                        class="fa-solid fa-person-circle-plus"></i></a>
+                <a href="/static/document/Lich su(được phát hành)/index.html">Lịch sử <i class="fa-solid fa-landmark"></i></a>
+                <a href="/static/document/Nghi thuc(được phát hành)/index.html">Nghi thức <i
+                        class="fa-solid fa-graduation-cap"></i></a>
+                <a href="/static/document/Guong anh hung(được phát hành)/index.html">Gương sáng anh hùng <i
+                        class="fa-solid fa-shield"></i></a>
+                <a href="/static/document/bai hat(được phát hành)/index.html">Bài hát <i class="fa-solid fa-music"></i></a>
+                <a href="/static/document/tro choi(được phát hành)/index.html">Trò chơi sinh hoạt <i
+                        class="fa-solid fa-puzzle-piece"></i></a>
+            </div>
+        </div>
+        <div class="header-user">
+            <img src="{% static 'image/user.png' %}" alt="avatar" id="img">
+            <i class="fa-solid fa-caret-down" id="user-drop"></i>
+            <div class="header-user-drop">
+                <h1>Cài đặt</h1>
+                <a href="{% url 'profile' %}" id="href">Trang cá nhân <i class="fa-solid fa-address-card"></i></a>
+                <a href="#" id="sign-out">Đăng xuất <i class="fa-solid fa-right-from-bracket"></i></a>
+                <div id="google_translate_element"></div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <form >
+            <input type="text"  id='search-value'placeholder="Tìm kiếm thông tin về đội.....">
+            <button id="submit-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </nav>
+
+    <div class="profile">
+        <div class="profile-box" id="profile-box">
+            
+        
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'user_profile/module.js' %}" type="module"></script>
+    <footer>
+        <div class="contact">
+         <div class="contact-info">
+             <h1>Liên hệ chúng tôi qua</h1>
+             <p>phuochuunguyen2009@gmail.com</p>
+             <p>0905332540</p>
+         </div>
+         <div class="social-icon">
+             <h1>Nền tảng mạng xã hội</h1>
+             <div class="icon">
+                <img src="{% static 'image/facebook.png' %}" alt="facebook">
+                <img src="{% static 'image/youtube.png' %}" alt="youtube">
+                <img src="{% static 'image/twitter.png' %}" alt="twitter">
+                <img src="{% static 'image/instagram.png' %}" alt="insta">
+            </div>
+         </div>
+        </div>
+        <div class="feedback">
+            <h1>Phản hồi</h1>
+            <input type="text" id="feedback">
+            <button id="feedback-btn">Submit</button>
+       </div> 
+     </footer>
+    <script src="{% static 'user_profile/app.js' %}"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

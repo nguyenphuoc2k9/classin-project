@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="{% static 'admin/style.css'%}">
+</head>
+<body style="background-image: linear-gradient(to right, #23acdc, #3dace0, #51abe3, #63aae6, #73a9e7, #6aabe8, #61aee8, #58b0e8, #2ab5e2, #00b9d6, #00bbc5, #00bcb0);">
+    <div class="login">
+        <div class="login-form">
+            <h1>Đăng nhập vào trang admin</h1>
+            <form id="login-form">
+                <div class="input-card">
+                    <label for="name">Tên</label>
+                    <input type="text" placeholder="Name..." id="name" required>
+                </div>
+                <div class="input-card">
+                    <label for="password">Mật khẩu :</label>
+                    <input type="password" placeholder="Password...." id="password" required>
+                </div>
+                <button type="submit" id="submit">Đăng nhập</button>
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'admin/admin_login/module.js' %}" type="module"></script>
+</body>
+</html>

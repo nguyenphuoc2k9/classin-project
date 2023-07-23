@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    <link rel="icon" href="{% static 'image/297509804_101449592676259_3343510981543503821_n-removebg-preview.png' %}">
+    <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+    
+    <!-- <div class="header">
+        <div class="header-box">
+            <div class="section">
+                <img src="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png" alt="" srcset="">
+                <div class="dropdown">
+                    <h1 onclick="dropdown_navbar(this)">Chung <i class="fa-solid fa-circle-chevron-down"></i></h1>
+                    <div class="dropdown-box">
+                        <a href="../home/index.html">Trang Chủ</a>
+                        <a href="../posts/index.html">Bài đăng</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <h1 onclick="dropdown_navbar(this)">Nghiên cứu về đội  <i class="fa-solid fa-circle-chevron-down"></i></h1>
+                    <div class="dropdown-box">
+                        <a href="../Lich su(được phát hành)/index.html">Lịch sử đội  </a>
+                        <a href="../Dieu le(được phát hành)/index.html">Điều lệ đội </a>
+                        <a href="../Nghi thuc(được phát hành)/index.html">Nghi thức đội </a>
+                        <a href="../ky nang(được phát hành)/index.html">Kỹ năng đội </a>
+                        <a href="../Guong anh hung(được phát hành)/index.html">Gương sáng anh hùng</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <h1 onclick="dropdown_navbar(this)">Các hoạt động của đội  <i class="fa-solid fa-circle-chevron-down"></i></h1>
+                    <div class="dropdown-box">
+                        <a href="../tro choi(được phát hành)/index.html">Trò chơi của đội </a>
+                        <a href="../bai hat(được phát hành)/index.html">Bài hát về đội </a>
+                        <a href="../tntp QUIZ GAME/index.html">Thử thách đội </a>
+                    </div>
+                </div>
+            </div>
+            <div class="user">
+                <img src="../user.png" id='img'alt="" srcset="">
+                <i class="fa-solid fa-caret-down" onclick="user_dropdown(this)"></i>
+                <div class="user-dropdown" id="user-drop">
+                    <h3>Cài đặt</h3>
+                    <a href="../profile/index.html" id="href">Trang cá nhân <i class="fa-solid fa-address-card"></i></a>
+                    <button id="sign-out">Sign Out <i class="fa-solid fa-right-from-bracket"></i></button>
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="home">
+        <div class="home-img">
+            <img src="../TTT.png" alt="">
+        </div>
+        <div class="home-search">
+            <div class="search-box">
+                <input type="text" id='search'placeholder="Search....">
+                <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div class="search-history">
+
+                </div>
+            </div>
+        </div>
+        <div class="home-box">
+            <div class="home-title">
+                <h1>Giới thiệu</h1>
+            </div>
+            <div class="home-card">
+                <h1>Lý do</h1>
+                <p>Lí do chọn đề tài :Sống trong thời đại “4.0” việc tiếp cận những phần mềm để phục vụ cho đời sống là
+                    vô cùng qua trọng. Việc dạy và học qua môi trường internet đã tạo ra cho cả thầy và trò những nhân
+                    tố mới và mang lại những kết quả nhất định. Tuy nhiên, bên cạnh những nội dung học tập các môn học
+                    bắt buộc, Ở độ tuổi của chúng em, một nội dung khá quan trọng giúp chúng em hình thành phẩm chất và
+                    rèn luyện những kỹ năng để phát triển năng lực. Đó là nội dung sinh hoạt Đội theo chương trình phát
+                    triển đội viên do Hội Đồng Đội huyện phối hợp với Phòng Giáo Dục chỉ đạo, qua những nội dung đó,
+                    chúng em được đánh giá và công nhận các chuyên hiệu của từng năm học giúp chúng em hiểu biết và phát
+                    triển một cách toàn diện hơn. Thực trạng trên đã thôi thúc chúng em có ý tưởng là sáng tạo ra một
+                    sản phẩm đó là một phần mềm ứng dụng đơn giản được cấu trúc như những quyển sách điện tử mang những
+                    nội dung về kiến thức, về nghi thức, về kỹ năng Đội. </p>
+            </div>
+            <div class="home-card">
+                <h1>Ý Nghĩa</h1>
+                <p>1. Ý nghĩa khoa học: Chúng em muốn kết hợp sử dụng các thiết bị khác để nâng cao hiệu quả, tối ưu hóa
+                    sản phẩm nhất có thể để áp dụng vào thực tế đời sống. </p>
+                <p>2. Ý nghĩa thực tiễn: Chúng em đề cao sự chủ động của học sinh nói riêng để các bạn có thể luôn sử
+                    dụng nếu cần để tra lại một số điều đã quên hay chưa biết về đội TNTP. Sản phẩm không chỉ mang ý
+                    nghĩa về mặt khoa học mà còn đề cao tính tích cực.</p>
+            </div>
+            <div class="home-card">
+                <h1>Mô tả</h1>
+                <p>- Nghiên cứu kỹ thuật tạo Github (không gian lưu trữ) để khởi chạy phần mềm chuẩn HTML5. </p>
+                <p>- Nghiên cứu phần mềm Ispring 9.1 để thiết kế sách điện tử và đóng gói đúng
+                    chuẩn Scorm 2004 và HTML5. </p>
+                <p>- Nghiên cứu nội dung kiến thức của Đội TNTP Hồ Chí Minh và chương trình phát triển đội viên. </p>
+            </div>
+            <div class="home-card">
+                <h1>Dự định tương lai</h1>
+                <p> - Dự án này có thể áp dụng ở trường học. Chẳng hạn, một đơn vị trường học có 600 đội viên, trong một
+                    cấp học, giả sử mỗi đội viên phải trang bị ít nhất một đầu sách về kiến thức đội với giá 10.000đ/ 1
+                    cuốn. Như vậy, nếu sử dụng tài liệu mềm thì khoản tiền tiết kiệm được là 600 x 10.000đ = 6.000.000đ.
+                    Việc có thể tự tạo ra sản phẩm này đồng nghĩa với việc các bạn học sinh sẽ không bị phụ thuộc vào
+                    nhà sản xuất trong trường hợp ngừng sản xuất,…
+                    Tăng khả năng sáng tạo cho học sinh giúp các bạn có sự chủ động trong việc tìm tòi vừa học vừa chơi.
+                    Hàng năm, nước ta phải in ấn sản xuất các cuốn sổ về đội TNTP để phục vụ cho nền giáo dục và với giá
+                    cả không hề rẻ sẽ làm hao hụt phần nào đó ngân sách nước nhà. Vì vậy việc tạo ra sản phẩm này hoàn
+                    toàn miễn phí đã tiết kiệm, làm giàu cho đất nước.
+                    Không những thế, trong thâm tâm chúng em muốn các bạn học sinh trên khắp dải đất hình chữ S, từ Nam
+                    ra Bắc, từ vùng biển đến biên cương, từ miền núi đến đồng bằng, ai ai cũng có thể tra và tìm kiếm
+                    một số thông tin về đội TNTP. Ngoài ra, chỉ cần 1 cái nhấp chuột các bạn có thể vào đọc và tìm kiếm
+                    1 số nội dung liên quan đến đội TNTP không cần phải mua các đầu sách… nên sản phẩm của chúng em cũng
+                    đã góp phần giảm thiểu được phần rác thải, giảm ô nhiễm môi trường từ những việc in ấn sản xuất các
+                    trang giấy.
+                    Tuy dự án đã hoàn thành và áp dụng khả thi tại đơn vị nhưng chắc chắn cũng còn những hạn chế. Chúng
+                    em rất mong tiếp tục nhận được những ý kiến đóng góp của các anh chị chuyên trách phong trào Đoàn,
+                    Đội, của quý thầy cô giáo cũng như ý kiến đóng góp của các bạn Đội viên để sản phẩm của chúng em
+                    hoàn thiện hơn, mang lại hiệu quả cao hơn. Chúng em xin chân thành cảm ơn.
+
+                </p>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- header -->
+    <i class="fa-solid fa-bars open"></i>
+    <header>
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="../home/index.html"><img src="{% static 'image/Thumbnails25312011013150-removebg-preview.png' %}" alt=""
+                        srcset=""></a>
+            </div>
+            <a href="{% url 'home' %}"> <i class="fa-solid fa-house"></i>Home</a>
+            <a href="{% url 'post' %}"> <i class="fa-solid fa-newspaper"></i>Bài đăng</a>
+            <a href="{% url 'game' %}"> <i class="fa-solid fa-gamepad"></i> Quiz</a>
+            <a href="#" id="doc-dropdown"><i class="fa-solid fa-folder"></i> Tài liệu về đội</a>
+            <div class="dropdown-box">
+                <a href="/static/document/bai hat(được phát hành)/index.html">Điều lệ <i class="fa-solid fa-scale-balanced"></i></a>
+                <a href="/static/document/ky nang(được phát hành)/index.html">Kỹ năng <i
+                        class="fa-solid fa-person-circle-plus"></i></a>
+                <a href="/static/document/Lich su(được phát hành)/index.html">Lịch sử <i class="fa-solid fa-landmark"></i></a>
+                <a href="/static/document/Nghi thuc(được phát hành)/index.html">Nghi thức <i
+                        class="fa-solid fa-graduation-cap"></i></a>
+                <a href="/static/document/Guong anh hung(được phát hành)/index.html">Gương sáng anh hùng <i
+                        class="fa-solid fa-shield"></i></a>
+                <a href="/static/document/bai hat(được phát hành)/index.html">Bài hát <i class="fa-solid fa-music"></i></a>
+                <a href="/static/document/tro choi(được phát hành)/index.html">Trò chơi sinh hoạt <i
+                        class="fa-solid fa-puzzle-piece"></i></a>
+            </div>
+        </div>
+        <div class="header-user">
+            <img src="{% static 'image/user.png' %}" alt="avatar" id="img">
+            <i class="fa-solid fa-caret-down" id="user-drop"></i>
+            <div class="header-user-drop">
+                <h1>Cài đặt</h1>
+                <a href="{% url 'profile' %}" id="href">Trang cá nhân <i class="fa-solid fa-address-card"></i></a>
+                <a href="#" id="sign-out">Đăng xuất <i class="fa-solid fa-right-from-bracket"></i></a>
+                <div id="google_translate_element"></div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <form id="search">
+            <input type="text"  id='search-value'placeholder="Tìm kiếm thông tin về đội.....">
+            <button id="submit-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </nav>
+
+    <!-- announcement -->
+    
+    <div class="announcement">
+        <div class="container">
+            <i class="fa-solid fa-circle-chevron-down" id="right"></i>
+            <div class="cards-container">
+                <img id='announ-img' src="" alt="">
+                <div class="info">
+                    <h1 id="announ-title">Tieu</h1>
+                    <h3 id="announ-desc">Description</h3>
+                </div>
+            </div>
+            <i class="fa-solid fa-circle-chevron-down" id="left"></i>
+        </div>
+        <div class="count">
+            <!-- <i class="fa-solid fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i>
+            <i class="fa-regular fa-circle"></i> -->
+        </div>
+    </div>
+    
+    <!-- welcome -->
+
+    <div class="welcome">
+        <div class="welcome-title">
+            <img src="{% static 'image/undraw_hello_re_3evm.svg' %}" alt="" srcset="">
+            <div class="welcome-desc">
+                <h1 id="welcome-title">chào User</h1>
+                <h2>sẵn sàng hoạt động chưa ?</h2>
+            </div>
+        </div>
+        <div class="user-figure">
+            <h1 id="session-joined">11 phiên hoạt động</h1>
+            <h1 id="achievement">5 thành tựu</h1>
+        </div>
+    </div>
+    
+    <!-- training -->
+    
+    <div class="trainning">
+        <div class="training-title">
+            <img src="{% static 'image/icons8-training-94.png' %}" alt="">
+            <h1>Phiên hoạt động</h1>
+        </div>
+        <div class="training-box">
+            <!-- <div class="training-card">
+                <img src="../tải xuống (1).jpg" alt="">
+                <div class="card-info">
+                    <h1>Phiên rèn luyện</h1>
+                    <p>Mô tả của phiên</p>
+                    <div class="more-info">
+                        <div class="time">
+                            <img src="../icons8-timer-64.png" alt="">
+                            <p>00/00/2020 - 00/00/2020</p>
+                        </div>
+                        <div class="status">
+                            <p>Trạng thái :</p>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <button>Tham gia</button>
+            </div>
+            <div class="training-card">
+                <img src="../tải xuống (1).jpg" alt="">
+                <div class="card-info">
+                    <h1>Phiên rèn luyện</h1>
+                    <p>Mô tả của phiên</p>
+                    <div class="more-info">
+                        <div class="time">
+                            <img src="../icons8-timer-64.png" alt="">
+                            <p>00/00/2020 - 00/00/2020</p>
+                        </div>
+                        <div class="status">
+                            <p>Trạng thái :</p>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <button>Tham gia</button>
+            </div>
+            <div class="training-card">
+                <img src="../tải xuống (1).jpg" alt="">
+                <div class="card-info">
+                    <h1>Phiên rèn luyện</h1>
+                    <p>Mô tả của phiên</p>
+                    <div class="more-info">
+                        <div class="time">
+                            <img src="../icons8-timer-64.png" alt="">
+                            <p>00/00/2020 - 00/00/2020</p>
+                        </div>
+                        <div class="status">
+                            <p>Trạng thái :</p>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <button>Tham gia</button>
+            </div> -->
+            <div class="see-more-btn">
+                <button id="see-more">Thêm</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- leaderboard -->
+
+    <div class="leader-board">
+        <div class="leader-title">
+            <img src="{% static 'image/icons8-leaderboard-40.png' %}" alt="">
+            <h1>Bảng xếp hạng</h1>
+        </div>
+        <div class="leader-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tên đội viên</th>
+                        <th>Trường</th>
+                        <th>Lớp</th>
+                        <th>Số thành tựu</th>
+                    </tr>
+                </thead>
+                <tbody id="leader-board">
+                    <!-- <tr>
+                        <td>1</td>
+                        <td>Nguyen huu phuoc</td>
+                        <td>THCS Tan hiep</td>
+                        <td>8</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Nguyen huu phuoc</td>
+                        <td>THCS Tan hiep</td>
+                        <td>8</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Nguyen huu phuoc</td>
+                        <td>THCS Tan hiep</td>
+                        <td>8</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Nguyen huu phuoc</td>
+                        <td>THCS Tan hiep</td>
+                        <td>8</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Nguyen huu phuoc</td>
+                        <td>THCS Tan hiep</td>
+                        <td>8</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Nguyen huu phuoc</td>
+                        <td>THCS Tan hiep</td>
+                        <td>8</td>
+                        <td>8</td>
+                    </tr> -->
+                    
+                </tbody>
+            </table>
+            <div class="read-more">
+                <button id="read-more">Thêm</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+       <div class="contact">
+        <div class="contact-info">
+            <h1>Liên hệ chúng tôi qua</h1>
+            <p>phuochuunguyen2009@gmail.com</p>
+            <p>0905332540</p>
+        </div>
+        <div class="social-icon">
+            <h1>Nền tảng mạng xã hội</h1>
+            <div class="icon">
+                <img src="{% static 'image/facebook.png' %}" alt="facebook">
+                <img src="{% static 'image/youtube.png' %}" alt="youtube">
+                <img src="{% static 'image/twitter.png' %}" alt="twitter">
+                <img src="{% static 'image/instagram.png' %}" alt="insta">
+            </div>
+        </div>
+       </div>
+       <div class="feedback">
+            <h1>Phản hồi</h1>
+            <input type="text" id="feedback">
+            <button id="feedback-btn">Submit</button>
+       </div> 
+    </footer>
+    <script src="{% static 'home/module.js' %}" type="module"></script>
+    <script src="{% static 'home/app.js' %}"></script>
+</body>
+
+</html>

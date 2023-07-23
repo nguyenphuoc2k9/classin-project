@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{% static 'admin/style.css' %}">
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-box">
+            <div class="head-card">
+                <a href="{% url 'dashboard' %}"><h1>Tổng quan</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="{% url 'user_manage' %}"><h1>Thành viên</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="{% url 'post_manage' %}"><h1>Bài đăng</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="{% url 'session_manage' %}"><h1>phiên hoạt động</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="{% url 'feedback' %}"><h1>phản hồi</h1></a>
+            </div>
+        </div>
+        <div class="header-user">
+            <img src="{% static 'image/user.png' %}" alt="">
+            <h1 id="username"></h1>
+            <i class="fa-solid fa-caret-down" id="dropdown"></i>
+            <div class="dropdown-box" id="dropdown-box">
+                <button id="sign-out-button">Đăng xuất</button>
+            </div>
+        </div>
+    </div>
+    <div class="user">
+        <div class="user-title">
+            <h1>Users-Manager</h1>
+        </div>
+        <div class="user-table" id="user-print">
+            <table>
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Email</th>
+                            <th>Avatar</th>
+                            <th>Giới tính</th>
+                            <th>Trường học</th>
+                            <th>Lớp</th>
+                            <th>Dân tộc</th>
+                            <th>Tôn giáo</th>
+                            <th>Quê quán</th>
+                            <th>Ngày sinh</th>
+                            <th>Phiên hoạt động</th>
+                            <th>Điều kiện sức khỏe</th>
+                            <th>Thành tựu</th>
+                            <th>Action button</th>
+                        </tr>
+                    </thead>
+                    
+                <tbody id="user-manage">
+                    
+                </tbody>
+                
+            </table>
+            
+        </div>
+        <button id="dowload">Tải về danh sách thành viên</button>
+    </div>
+    <div class="popup">
+        <h1 id="popup-title">Edit edit value</h1>
+        <i class="fa-solid fa-xmark" id="close-btn"></i>
+        <div class="popup-box">
+            <label id='label'for="popup_value">Edit value:</label>
+            <input type="text" id="popup_value">
+            <button id="popup-submit">Submit</button>
+        </div>
+    </div>
+    
+    <script src="{% static 'admin/user_manage/module.js' %}" type="module"></script>
+    <script src="{% static 'admin/app.js' %}"></script>
+
+</body>
+</html>

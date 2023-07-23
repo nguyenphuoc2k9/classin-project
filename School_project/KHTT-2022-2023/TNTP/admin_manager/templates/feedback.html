@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{% static 'admin/style.css'%}">
+    <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-box">
+            <div class="head-card">
+                <a href="{% url 'dashboard' %}"><h1>Tổng quan</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="{% url 'user_manage' %}"><h1>Thành viên</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="{% url 'post_manage' %}"><h1>Bài đăng</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="{% url 'session_manage' %}"><h1>phiên hoạt động</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="{% url 'feedback' %}"><h1>phản hồi</h1></a>
+            </div>
+        </div>
+        <div class="header-user">
+            <img src="{% static 'image/user.png' %}" alt="">
+            <h1 id="username"></h1>
+            <i class="fa-solid fa-caret-down" id="dropdown"></i>
+            <div class="dropdown-box" id="dropdown-box">
+                <button id="sign-out-button">Đăng xuất</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Session-->
+    <div class="session">
+        <div class="session-pending">
+            <div class="session-title">
+                <h1>Các phẩn hồi từ người dùng</h1>
+            </div>
+            <div class="session-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>UID người dùng</th>
+                            <th>Nội dung</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="feedback">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--Pending_work-->
+    <script src="{% static 'admin/feedbackmodule.js' %}" type="module"></script>
+    <script src="{% static 'admin/app.js' %}"></script>
+    
+</body>
+
+</html>

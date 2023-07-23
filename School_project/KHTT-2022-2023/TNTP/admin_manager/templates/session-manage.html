@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{% static 'admin/style.css' %}">
+    <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-box">
+            <div class="head-card">
+                <a href="{% url 'dashboard' %}"><h1>Tổng quan</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="{% url 'user_manage' %}"><h1>Thành viên</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="{% url 'post_manage' %}"><h1>Bài đăng</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="{% url 'session_manage' %}"><h1>phiên hoạt động</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="{% url 'feedback' %}"><h1>phản hồi</h1></a>
+            </div>
+        </div>
+        <div class="header-user">
+            <img src="{% static 'image/user.png' %}" alt="">
+            <h1 id="username"></h1>
+            <i class="fa-solid fa-caret-down" id="dropdown"></i>
+            <div class="dropdown-box" id="dropdown-box">
+                <button id="sign-out-button">Đăng xuất</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Session-->
+    <div class="session">
+        <div class="session-pending">
+            <div class="session-title">
+                <h1>Duyệt các hoạt động</h1>
+            </div>
+            <div class="session-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tên phiên hoạt động</th>
+                            <th>Tên hoạt động</th>
+                            <th>Hình ảnh</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="session-pending">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="session-manage">
+            <div class="session-box">
+                <div class="session-title">
+                    <h1>Quản lý các phiên hoạt động</h1>
+                </div>
+                <div class="session-container">
+
+                </div>
+                <button id="session-create">Tạo phiên hoạt động</button>
+            </div>
+        </div>
+    </div>
+    <div class="session-create">
+        <div class="session-title">
+            <h1>Tạo phiên hoạt động</h1>
+        </div>
+        <div class="session-form">
+            <label for="session-title">Tên phiên</label>
+            <input type="text" id="session-title">
+            <label for="session-desc">Mô tả về phiên</label>
+            <input type="text" id="session-desc">
+            <label for="file"><i class="fa-solid fa-image"></i> Hình ảnh</label>
+            <input type="file" id="file" accept="image/*">
+            <label for="date-start">Ngày bắt đầu</label>
+            <input type="date" id="date-start">
+            <label for="date-end">Ngày kết thúc</label>
+            <input type="date" name="" id="date-end">
+            <button id="session-submit">Tạo</button>
+        </div>
+        <button id="close-session-form"><i class="fa-solid fa-circle-xmark"></i></button>
+    </div>
+    
+    <!--Pending_work-->
+    <script src="{% static 'admin/session_managemodule.js' %}" type="module"></script>
+    <script src="{% static 'admin/app.js' %}"></script>
+    <script type="text/javascript">
+        function dropdown_2(e, index) {
+            var parent = e.parentElement
+            var dropdown = parent.getElementsByClassName('card-dropdown')[index]
+            if (dropdown.classList.contains('active')) {
+                dropdown.classList.remove('active')
+            } else {
+                dropdown.classList.add('active')
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="{% static 'session/style.css' %}">
+    <link rel="icon" href="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png">
+    <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+
+    <!-- header -->
+    <i class="fa-solid fa-bars open"></i>
+    <header>
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="{% url 'home' %}"><img src="{% static 'image/Thumbnails25312011013150-removebg-preview.png' %}" alt=""
+                        srcset=""></a>
+            </div>
+            <a href="{% url 'home' %}"> <i class="fa-solid fa-house"></i>Home</a>
+            <a href="{% url 'post' %}"> <i class="fa-solid fa-newspaper"></i>Bài đăng</a>
+            <a href="{% url 'game' %}"> <i class="fa-solid fa-gamepad"></i> Quiz</a>
+            <a href="#" id="doc-dropdown"><i class="fa-solid fa-folder"></i> Tài liệu về đội</a>
+            <div class="dropdown-box">
+                <a href="/static/document/bai hat(được phát hành)/index.html">Điều lệ <i class="fa-solid fa-scale-balanced"></i></a>
+                <a href="/static/document/ky nang(được phát hành)/index.html">Kỹ năng <i
+                        class="fa-solid fa-person-circle-plus"></i></a>
+                <a href="/static/document/Lich su(được phát hành)/index.html">Lịch sử <i class="fa-solid fa-landmark"></i></a>
+                <a href="/static/document/Nghi thuc(được phát hành)/index.html">Nghi thức <i
+                        class="fa-solid fa-graduation-cap"></i></a>
+                <a href="/static/document/Guong anh hung(được phát hành)/index.html">Gương sáng anh hùng <i
+                        class="fa-solid fa-shield"></i></a>
+                <a href="/static/document/bai hat(được phát hành)/index.html">Bài hát <i class="fa-solid fa-music"></i></a>
+                <a href="/static/document/tro choi(được phát hành)/index.html">Trò chơi sinh hoạt <i
+                        class="fa-solid fa-puzzle-piece"></i></a>
+            </div>
+        </div>
+        <div class="header-user">
+            <img src="{% static 'image/user.png' %}" alt="avatar" id="img">
+            <i class="fa-solid fa-caret-down" id="user-drop"></i>
+            <div class="header-user-drop">
+                <h1>Cài đặt</h1>
+                <a href="{% url 'profile' %}" id="href">Trang cá nhân <i class="fa-solid fa-address-card"></i></a>
+                <a href="#" id="sign-out">Đăng xuất <i class="fa-solid fa-right-from-bracket"></i></a>
+                <div id="google_translate_element"></div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <form id="search">
+            <input type="text"  id='search-value'placeholder="Tìm kiếm thông tin về đội.....">
+            <button id="submit-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </nav>
+
+    <!--Navbar-->
+
+
+    <!-- Session details-->
+
+    <div class="session-detail">
+        <div class="session-title">
+            <h1 id="title">Session name</h1>
+        </div>
+        <div class="session-box">
+            <div class="session-info">
+                <div class="time">
+                    <img src="{% static 'image/icons8-timer-64.png' %}" alt="timer">
+                    <h1 id="time">00/00/2020 - 00/00/2020</h1>
+                    <h1 id="days-left">3 days left</h1>
+                </div>
+                <div class="status">
+                    <h1>Trạng thái</h1>
+                    <div class="active" id="status"></div>
+                </div>
+                <div class="joined">
+                    <img src="{% static 'image/icons8-join-64.png' %}" alt="">
+                    <h1 id="joined">Số người tham gia: 5</h1>
+                </div>
+                <div class="days-left">
+
+                </div>
+            </div>
+            <div class="session-todo">
+                <div class="session-todo-title">
+                    <img src="{% static 'image/icons8-task-48.png' %}" alt="">
+                    <h1>Hoạt động</h1>
+                </div>
+                <div class="session-todo-box" id="session-box">
+                    <!-- <div class="work">
+                        <i class="fa-solid fa-star done" ></i>
+                        <h1>Activity name</h1>
+
+                    </div>
+                    <div class="work">
+                        <i class="fa-regular fa-star"></i>
+                        <h1>Activity name</h1>
+                        <button onclick="popup()">Làm</button>
+                    </div>
+                    <div class="work">
+                        <i class="fa-regular fa-star"></i>
+                        <h1>Activity name</h1>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup">
+        <div class="overlay"></div>
+        <div class="popup-content">
+            <div class="popup-title">
+                <h1>Nộp hình ảnh chứng minh</h1>
+            </div>
+            <div class="pop-up-form">
+                <form>
+                    <label for="file"><i class="fa-solid fa-image"></i> Tải hình ảnh</label>
+                    <input type="file" id='file' placeholder="Upload file">
+                    <button type="submit" id="work-submit">Nộp</button>
+                </form>
+            </div>
+            <button id="close">Đóng</button>
+        </div>
+    </div>
+    <div class="popup" id="show-result">
+        <div class="overlay"></div>
+        <img src="{% static 'image/user.png' %}" alt="">
+    </div>
+
+    <!--Footer-->
+
+    <footer>
+        <div class="contact">
+         <div class="contact-info">
+             <h1>Liên hệ chúng tôi qua</h1>
+             <p>phuochuunguyen2009@gmail.com</p>
+             <p>0905332540</p>
+         </div>
+         <div class="social-icon">
+             <h1>Nền tảng mạng xã hội</h1>
+             <div class="icon">
+                <img src="{% static 'image/facebook.png' %}" alt="facebook">
+                <img src="{% static 'image/youtube.png' %}" alt="youtube">
+                <img src="{% static 'image/twitter.png' %}" alt="twitter">
+                <img src="{% static 'image/instagram.png' %}" alt="insta">
+            </div>
+         </div>
+        </div>
+        <div class="feedback">
+            <h1>Phản hồi</h1>
+            <input type="text" id="feedback">
+            <button id="feedback-btn">Submit</button>
+       </div> 
+     </footer>
+    <!-- <script src="module.js" type="module"></script> -->
+    <script src="{% static 'session/app.js' %}"></script>
+    <script src="{% static 'session/module.js' %}" type="module"></script>
+</body>
+
+</html>

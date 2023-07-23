@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .info{
+            width: 80%;
+            display: flex;
+            margin: auto;
+            flex-direction: column;
+            text-align: center;
+        }
+        .info-card{
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="info" id="info">
+        
+    </div>
+    <button onclick="Export2Word('info','profile')" >dowload</button>
+    <script src="{% static 'admin/user_manage/dowload.js' %}"></script>
+    <script src="{% static 'admin/user_manage/module_2.js' %}" type="module"></script>
+</body>
+</html>

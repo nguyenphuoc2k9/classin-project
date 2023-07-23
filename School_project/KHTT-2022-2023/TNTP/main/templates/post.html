@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài đăng</title>
+    <link rel="icon" href="{% static 'image/297509804_101449592676259_3343510981543503821_n-removebg-preview.png' %}">
+    <link rel="stylesheet" href="{% static 'post/style.css' %}">
+    <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <i class="fa-solid fa-bars open"></i>
+    <header>
+        <div class="header-content">
+            <div class="header-logo">
+                <a href="../home/index.html"><img src="{% static 'image/Thumbnails25312011013150-removebg-preview.png' %}" alt=""
+                        srcset=""></a>
+            </div>
+            <a href="{% url 'home' %}"> <i class="fa-solid fa-house"></i>Home</a>
+            <a href="{% url 'post' %}"> <i class="fa-solid fa-newspaper"></i>Bài đăng</a>
+            <a href="{% url 'game' %}"> <i class="fa-solid fa-gamepad"></i> Quiz</a>
+            <a href="#" id="doc-dropdown"><i class="fa-solid fa-folder"></i> Tài liệu về đội</a>
+            <div class="dropdown-box">
+                <a href="/static/document/bai hat(được phát hành)/index.html">Điều lệ <i class="fa-solid fa-scale-balanced"></i></a>
+                <a href="/static/document/ky nang(được phát hành)/index.html">Kỹ năng <i
+                        class="fa-solid fa-person-circle-plus"></i></a>
+                <a href="/static/document/Lich su(được phát hành)/index.html">Lịch sử <i class="fa-solid fa-landmark"></i></a>
+                <a href="/static/document/Nghi thuc(được phát hành)/index.html">Nghi thức <i
+                        class="fa-solid fa-graduation-cap"></i></a>
+                <a href="/static/document/Guong anh hung(được phát hành)/index.html">Gương sáng anh hùng <i
+                        class="fa-solid fa-shield"></i></a>
+                <a href="/static/document/bai hat(được phát hành)/index.html">Bài hát <i class="fa-solid fa-music"></i></a>
+                <a href="/static/document/tro choi(được phát hành)/index.html">Trò chơi sinh hoạt <i
+                        class="fa-solid fa-puzzle-piece"></i></a>
+            </div>
+        </div>
+        <div class="header-user">
+            <img src="{% static 'image/user.png' %}" alt="avatar" id="img">
+            <i class="fa-solid fa-caret-down" id="user-drop"></i>
+            <div class="header-user-drop">
+                <h1>Cài đặt</h1>
+                <a href="{% url 'profile' %}" id="href">Trang cá nhân <i class="fa-solid fa-address-card"></i></a>
+                <a href="#" id="sign-out">Đăng xuất <i class="fa-solid fa-right-from-bracket"></i></a>
+                <div id="google_translate_element"></div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <form id="search">
+            <input type="text"  id='search-value'placeholder="Tìm kiếm thông tin về đội.....">
+            <button id="submit-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </nav>
+    <div class="post-creator">
+        <div class="post-title">
+            <h1>Tạo bài đăng của riêng bạn</h1>
+        </div>
+        <div class="post-form">
+            <div class="post-card">
+                <label for="title">Tiêu đề</label>
+                <input type="text" id="title"  required placeholder="Your title....">
+                <p class="error-text"></p>
+            </div>
+            <div class="post-card file">
+                <label for="file">Hình ảnh</label>
+                <input type="file" id="file" required>
+                <p class="error-text"></p>
+            </div>
+            <div class="post-card">
+                <label for="desc">Chi tiết</label>
+                <textarea required name="desc" id="desc" cols="40" rows="10" placeholder="Your description...."></textarea>
+                <p class="error-text"></p>
+            </div>
+            <button class="submit-btn" id="submit">Submit</button>
+            <img src="" id='test-img'alt="">
+        </div>
+    </div>
+    <div class="posts">
+        <div class="post-title">
+            <h1>Bài đăng</h1>
+            <h3>Hãy xem thử các bài đăng khác nhé</h3>
+        </div>
+        <div class="post-box">
+
+            <!-- <div class="post-element">
+                <div class="header">
+                    <div class="owner">
+                        <a href="#"><img src="../user.png" alt="avatar"></a>
+                        <h3>Username</h3>
+                    </div>
+                    <div class="archive">
+                        <h3>Thành tựu</h3>
+                        <h2>thành viên</h2>
+                    </div>
+                </div>
+                
+                <div class="info">
+                    <h1>Title</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad provident reiciendis sit neque culpa quasi ipsam nihil aliquam eligendi, magnam, repudiandae quibusdam! Accusantium eligendi alias nesciunt soluta eos, nisi natus.</p>
+                    <img src="../Thumbnails25312011013150-removebg-preview.png" alt="">
+                </div>
+                <div class="comment-section">
+                    <div class="comment-form">
+                        <input type="text" placeholder="Bình luận" id="comment">
+                        <button id="comment-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div class="comment-box">
+                        <div class="comment-card">
+                            <div class="comment-info">
+                                <a href="#"><img src="../user.png" alt="" srcset=""></a>
+                                <h3>Username</h3>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, deserunt libero, ipsum numquam repellendus dolorum quaerat aliquam dignissimos ratione odit eveniet accusantium nemo quos reiciendis adipisci officia vero tenetur dicta?</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+    </div>
+    <footer>
+        <div class="contact">
+         <div class="contact-info">
+             <h1>Liên hệ chúng tôi qua</h1>
+             <p>phuochuunguyen2009@gmail.com</p>
+             <p>0905332540</p>
+         </div>
+         <div class="social-icon">
+             <h1>Nền tảng mạng xã hội</h1>
+             <div class="icon">
+                <img src="{% static 'image/facebook.png' %}" alt="facebook">
+                <img src="{% static 'image/youtube.png' %}" alt="youtube">
+                <img src="{% static 'image/twitter.png' %}" alt="twitter">
+                <img src="{% static 'image/instagram.png' %}" alt="insta">
+            </div>
+         </div>
+        </div>
+        <div class="feedback">
+            <h1>Phản hồi</h1>
+            <input type="text" id="feedback">
+            <button id="feedback-btn">Submit</button>
+       </div> 
+     </footer>
+    <script src="{% static 'post/module.js'%}" type="module"></script>
+    <script src="{% static 'post/app.js' %}"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>
