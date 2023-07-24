@@ -35,7 +35,7 @@ document.getElementById('submit-btn').onclick = (e)=>{
     var home_town = document.getElementById('home-town').value
     var race = document.getElementById('race').value
     var religion = document.getElementById('religion').value
-    var political = document.getElementById('polititcal').value
+    var political = document.getElementById('political').value
     var havegone = document.getElementById('havegone').value
     var language = document.getElementById('language').value
   //award
