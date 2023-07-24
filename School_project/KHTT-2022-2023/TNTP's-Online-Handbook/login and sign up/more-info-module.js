@@ -25,6 +25,7 @@ const uid = new URLSearchParams(window.location.search).get('uid')
 
 document.getElementById('submit-btn').onclick = (e)=>{
   e.preventDefault()
+  //personal info
     var gender = document.getElementById('gender').value
     var grade = document.getElementById('grade').value
     var live_location = document.getElementById('live-locate').value
@@ -37,7 +38,11 @@ document.getElementById('submit-btn').onclick = (e)=>{
     var political = document.getElementById('polititcal').value
     var havegone = document.getElementById('havegone').value
     var language = document.getElementById('language').value
-
+  //award
+    var award = document.getElementById('award').value
+    var discipline = document.getElementById('discipline').value
+    var talent = document.getElementById('talent').value
+    var qualifi = document.getElementById('qualification').value
     var now_date = new Date()
     var date_str = `${now_date.getDate()}/${now_date.getMonth()+1}/${now_date.getFullYear()}`
     if(havegone =='' || havegone == null){
@@ -60,7 +65,11 @@ document.getElementById('submit-btn').onclick = (e)=>{
             join_time: date_str,
             political:political,
             havegone :havegone,
-            language:language
+            language:language,
+            award:award,
+            discipline:discipline,
+            talent:talent,
+            qualification:qualifi,
         }).then(()=>{
             window.location.replace('../home/index.html')
         })

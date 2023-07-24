@@ -23,11 +23,15 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   .more-box{
-    margin-top: 20px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 100%;
+  }
+  .more-box h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
   }
   .more-box form{
     display: flex;
@@ -38,12 +42,13 @@
     gap: 10px;
   }
   .more-box input,.more-box textarea{
-    width: 100%;
     padding: 10px;
     border: #4481eb 2px solid;
     border-radius: 20px;
   }
-  
+  .more-box input,.more-box textarea{
+    max-width: 100%;
+  }
   .more-box input:focus-visible{
     outline: none;
   }

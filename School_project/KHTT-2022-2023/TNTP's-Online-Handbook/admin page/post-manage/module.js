@@ -56,7 +56,7 @@ onValue(post_ref, (value) => {
         let current = data[data_keys[i]]
         getDownloadURL(storageref(storage,'images/'+current.img)).then((url)=>{
             var html = `
-        <tr>
+        <tr data-key='${data_keys[i]}'>
         <td>${current.title}</td>
         <td>${current.desc}</td>
         <td><img src="${url}" alt=""></td>
@@ -64,7 +64,7 @@ onValue(post_ref, (value) => {
         <td>
         <div class='btn'>
         <button class="delete" post-id='${data_keys[i]}'>Delete</button> <button class="edit" post-id='${data_keys[i]}'>Set archivement</button></div></td>
-    
+        
         </tr>`
             user_print.insertAdjacentHTML("beforeend",html)
             start_delete()  
@@ -136,22 +136,28 @@ const pending_print = document.getElementById("pending-post")
 const pending_ref = ref(database, 'pending-post/')
 onValue(pending_ref, (value) => {
     const data = value.val()
-    const data_keys = Object.keys(data)
-    for(let i=0; i<data_keys.length; i++) {
-        let current = data[data_keys[i]]
-        getDownloadURL(storageref(storage,'images/'+current.img)).then((url)=>{
-            var html = `
-        <tr>
-        <td>${current.title}</td>
-        <td>${current.desc}</td>
-        <td><img src="${url}" alt=""></td>
-        <td><button class="deny" post-id='${data_keys[i]}'>Deny</button><button class="accept" post-id='${data_keys[i]}'>Accept</button></td>
-    </tr>`
-            pending_print.insertAdjacentHTML("beforeend",html)
-            start_deny()
-            start_app(current)
-        })
+    
+    if(data !=null){
+        const data_keys = Object.keys(data)
+        for(let i=0; i<data_keys.length; i++) {
+            let current = data[data_keys[i]]
+            getDownloadURL(storageref(storage,'images/'+current.img)).then((url)=>{
+                var html = `
+            <tr data-key='${data_keys[i]}'>
+            <td>${current.title}</td>
+            <td>${current.desc}</td>
+            <td><img src="${url}" alt=""></td>
+            <td><button class="deny" post-id='${data_keys[i]}'>Deny</button><button class="accept" post-id='${data_keys[i]}'>Accept</button></td>
+        </tr>`
+                pending_print.insertAdjacentHTML("beforeend",html)
+                start_deny()
+                start_app(current)
+            })
+        }
+    }else{
+        pending_print.parentElement.parentElement.parentElement.remove()
     }
+    
 },{
     onlyOnce:true
 })
@@ -183,6 +189,113 @@ function start_app(current){
                     window.location.reload()
                 })
             })
+        })
+    }
+}
+//select post
+const select = document.getElementsByClassName('select')
+for(let i =0;i<select.length;i++){
+    select[i].addEventListener('click',()=>{
+        var parent = select[i].parentElement
+        
+        var table = select[i].getAttribute('table')
+        select[i].remove()
+        var html;
+        if(table =='post'){
+            html = `
+        <button class="select-all" table='post'>Chọn tất cả</button> <button class="delete-select">Xóa đã chọn</button>
+        `
+        }else{
+            html =`<button class="select-all" table="pending">Chọn tất cả</button> <button class="delete-select">Xóa đã chọn</button> <button class="add-select">Thêm đã chọn</button>`
+        }
+        parent.insertAdjacentHTML('beforeend',html)
+        
+        start_select(table)
+        if(table =='post'){
+            start_action(user_print)
+            create_select(user_print,table)
+        }else{
+            create_select(pending_print,table)
+            start_action(pending_print)
+        }
+        
+    })
+}
+function create_select(table,section){
+    for(let i =0;i<table.childElementCount;i++){
+        if(section =='post'){
+            table.children[i].insertAdjacentHTML('beforeend',`<td class='last'><input type='checkbox' class='post'></td>`)
+        }else{
+            table.children[i].insertAdjacentHTML('beforeend',`<td class='last'><input type='checkbox' class='pending'></td>`)
+        }
+    }
+}
+function start_select(table){
+    const select_all = document.getElementsByClassName('select-all')
+    for(let i =0;i<select_all.length;i++){
+        select_all[i].addEventListener('click',()=>{
+            for(let x = 0;x<user_print.childElementCount;x++){
+                if(table == 'post'){
+
+                    user_print.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0].checked = true;
+                }else{
+                    pending_print.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0].checked = true;
+                }
+            }
+        })
+    }
+}
+function start_action(table){
+    const delete_all = document.getElementsByClassName('delete-select')
+    for(let i =0;i<delete_all.length;i++){
+        delete_all[i].addEventListener('click',()=>{
+            
+            for(let x=0;x<table.childElementCount;x++){
+                console.log(table.children);
+                var direct;
+                var data_key =table.children[x].getAttribute('data-key')
+                var child = table.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0]
+                if(child.getAttribute('class').includes('post') == true){
+                    direct = ref(database,`post/${data_key}/`)
+                }else{
+                    direct =ref(database,'pending-post/'+data_key+'/')
+                }
+                var element = table.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0]
+                if(element.checked == true){
+                    remove(direct).then(()=>{
+                        window.location.reload()
+                    })
+                }
+            }
+        })
+    }
+    const add_select = document.getElementsByClassName('add-select')
+    for(let i =0;i<add_select.length;i++){
+        add_select[i].addEventListener('click',()=>{
+            for(let x=0;x<table.childElementCount;x++){
+                var direct;
+                var data_key =table.children[x].getAttribute('data-key')
+                var child = table.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0]
+                if(child.getAttribute('class').includes('post') == true){
+                    direct = ref(database,`post/${data_key}/`)
+                }else{
+                    direct = ref(database,`pending-post/${data_key}/`)
+                }
+                var element = table.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0]
+
+                if(element.checked == true){
+                    
+                    onValue(direct,(snap)=>{
+                        const value = snap.val()
+                        set(ref(database,`post/${data_key}/`),value).then(()=>{
+                            remove(direct).then(()=>{
+                                window.location.reload()
+                            })
+                        })
+                        
+                    })
+                }
+            }
         })
     }
 }
