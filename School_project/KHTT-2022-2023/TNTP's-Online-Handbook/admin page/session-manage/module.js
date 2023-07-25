@@ -21,24 +21,28 @@ const database = getDatabase(app)
 const storage = getStorage(app)
 //account
 const username = document.getElementById('username')
-const status = localStorage.getItem('status').split('"')[1]
-if (status == 'active') {
-    const name = localStorage.getItem('name').split('"')[1]
-    console.log(name);
-    onValue(ref(database, 'admin/'), (value) => {
-        const val = value.val()
-        const keys = Object.keys(val)
-        for (let i = 0; i < keys.length; i++) {
-            if (keys[i] == name) {
-                username.innerText = name
+const status = localStorage.getItem('status')
+console.log(status);
+if (status != null || status != undefined) {
+    if (status.split('"')[1] == 'active') {
+        const name = localStorage.getItem('name').split('"')[1]
+        console.log(name);
+        onValue(ref(database, 'admin/'), (value) => {
+            const val = value.val()
+            const keys = Object.keys(val)
+            for (let i = 0; i < keys.length; i++) {
+                if (keys[i] == name) {
+                    username.innerText = name
+                }
             }
-        }
-    }, {
-        onlyOnce: true,
-    })
+        }, {
+            onlyOnce: true,
+        })
+}
 } else {
     window.location.replace('../admin-login/index.html')
 }
+
 //sign out
 const sign_out = document.getElementById('sign-out-button')
 sign_out.addEventListener('click', () => {

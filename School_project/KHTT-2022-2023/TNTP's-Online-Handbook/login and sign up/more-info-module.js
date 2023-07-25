@@ -38,6 +38,7 @@ document.getElementById('submit-btn').onclick = (e)=>{
     var political = document.getElementById('political').value
     var havegone = document.getElementById('havegone').value
     var language = document.getElementById('language').value
+    var team = document.getElementById('team').value
   //award
     var award = document.getElementById('award').value
     var discipline = document.getElementById('discipline').value
@@ -48,7 +49,7 @@ document.getElementById('submit-btn').onclick = (e)=>{
     if(havegone =='' || havegone == null){
       havegone == 'chưa '
     }
-    if(political ==''&& language =='' &&live_location== '' && grade == ''&& school == ''&& birthday == ''&& relatives == ''&& religion == ''&& home_town == ''&& race == ''){
+    if(team==''&&political ==''&& language =='' &&live_location== '' && grade == ''&& school == ''&& birthday == ''&& relatives == ''&& religion == ''&& home_town == ''&& race == ''){
         alert('Không được bỏ trống các ô')
     }else{
         update(ref(database,`users/${uid}/`),{
@@ -70,6 +71,7 @@ document.getElementById('submit-btn').onclick = (e)=>{
             discipline:discipline,
             talent:talent,
             qualification:qualifi,
+            team:team,
         }).then(()=>{
             window.location.replace('../home/index.html')
         })

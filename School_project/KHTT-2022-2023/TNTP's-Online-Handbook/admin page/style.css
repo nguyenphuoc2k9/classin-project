@@ -807,3 +807,12 @@ body{
     cursor: pointer;
     border: none;
 }
+/*filter*/
+#filter{
+    max-width: 100%;
+    width: 100%;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    font-family: sans-serif;
+    font-size: large;
+}

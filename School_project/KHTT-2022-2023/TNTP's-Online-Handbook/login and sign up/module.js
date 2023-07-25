@@ -17,6 +17,8 @@ const firebaseConfig = {
   appId: "1:699284847876:web:5d340338d3b559f880a451",
   measurementId: "G-531EMCZKBV"
 };
+
+
 //sign_up
 const sigh_up_btn = document.getElementById("sign-up-submit");
 const sign_up_facebook = document.getElementsByClassName("sign-up-facebook");
@@ -119,7 +121,8 @@ for (let i = 0; i < sign_up_google.length; i++) {
 for (let i = 0; i < sign_up_facebook.length; i++) {
   sign_up_facebook[i].addEventListener("click", function () {
     const provider = new FacebookAuthProvider();
-
+    provider.addScope('public_profile');
+    provider.addScope('email');
     signInWithPopup(auth, provider)
       .then((result) => {
         // The signed-in user info.
@@ -128,33 +131,33 @@ for (let i = 0; i < sign_up_facebook.length; i++) {
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
         const credential = FacebookAuthProvider.credentialFromResult(result);
         const accessToken = credential.accessToken;
-        fetch(`https://graph.facebook.com/me/picture?access_token=${accessToken}&type=large`)
-          .then((response) => {
-            // The response contains a URL to the user's profile picture.
-            const pictureUrl = response.url;
-            const starCountRef = ref(database, 'users/' +user.uid);
+        // fetch(`https://graph.facebook.com/me/picture?access_token=${accessToken}&type=large`)
+        //   .then((response) => {
+        //     // The response contains a URL to the user's profile picture.
+        //     const pictureUrl = response.url;
+        //     const starCountRef = ref(database, 'users/' +user.uid);
 
-            var check = false
-            onValue(starCountRef, (snapshot) => {
-            if(snapshot.exists()&&check ==false){
-              window.location.href = '../home/index.html'
-              check = true;
-            }else{
-              set(ref(database, 'users/' + user.uid), {
-                username: user.displayName,
-                email: user.email,
-                avatar: pictureUrl,
-                gender: "chưa xác định",
-                school: "chưa xác định",
-                class: "chưa xác định",
-                archive: ''
-              }).then(()=>{
-                window.location.replace(`./more-info.html?uid=${user.uid}`)
-              })
-            }
-            })
-            // Do something with the picture URL, such as display it on the page.
-          });
+        //     var check = false
+        //     onValue(starCountRef, (snapshot) => {
+        //     if(snapshot.exists()&&check ==false){
+        //       window.location.href = '../home/index.html'
+        //       check = true;
+        //     }else{
+        //       set(ref(database, 'users/' + user.uid), {
+        //         username: user.displayName,
+        //         email: user.email,
+        //         avatar: pictureUrl,
+        //         gender: "chưa xác định",
+        //         school: "chưa xác định",
+        //         class: "chưa xác định",
+        //         archive: ''
+        //       }).then(()=>{
+        //         window.location.replace(`./more-info.html?uid=${user.uid}`)
+        //       })
+        //     }
+        //     })
+        //     // Do something with the picture URL, such as display it on the page.
+        //   });
         
         // IdP data available using getAdditionalUserInfo(result)
         // ...
@@ -167,7 +170,8 @@ for (let i = 0; i < sign_up_facebook.length; i++) {
         const email = error.customData.email;
         // The AuthCredential type that was used.
         const credential = FacebookAuthProvider.credentialFromError(error);
-        alert("A error occured", errorMessage)
+        alert("A error occured", errorMessage,credential,errorCode)
+        console.log(errorMessage,credential,errorCode);
         // ...
       });
       

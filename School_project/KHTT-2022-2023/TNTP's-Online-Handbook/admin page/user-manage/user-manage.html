@@ -43,11 +43,19 @@
     <div class="user">
         <div class="user-title">
             <h1>Users-Manager</h1>
+            <div class="filter">
+                <select  id="filter">
+                    <option value="all" selected>Tất cả</option>
+                    <option value="đội_TNTP">đội TNTP</option>
+                    <option value="đoàn_thanh_niên">đoàn thanh niên</option>
+                </select>
+            </div>
         </div>
         <div class="user-table" id="user-print">
             <table>
                     <thead>
                         <tr>
+                            <th>thuộc</th>
                             <th>Tên</th>
                             <th>Email</th>
                             <th>Avatar</th>
@@ -60,6 +68,13 @@
                             <th>Ngày sinh</th>
                             <th>Phiên hoạt động</th>
                             <th>Điều kiện sức khỏe</th>
+                            <th>lý luận chính trị</th>
+                            <th>ngoại ngữ</th>
+                            <th>đã đi nước ngoài, lý do</th>
+                            <th>khen thưởng</th>
+                            <th>kỷ luật</th>
+                            <th>năng khiếu</th>
+                            <th>sở trường</th>
                             <th>Thành tựu</th>
                             <th>Action button</th>
                         </tr>
@@ -70,8 +85,9 @@
                 </tbody>
                 
             </table>
-            
+           
         </div>
+        
         <button id="dowload">Tải về danh sách thành viên</button>
     </div>
     <div class="popup">

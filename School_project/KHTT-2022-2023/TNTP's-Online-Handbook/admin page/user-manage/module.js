@@ -23,24 +23,28 @@ const storage = getStorage(app)
 const auth = getAuth(app)
 //account
 const username = document.getElementById('username')
-const status = localStorage.getItem('status').split('"')[1]
-if (status == 'active') {
-    const name = localStorage.getItem('name').split('"')[1]
-    console.log(name);
-    onValue(ref(database, 'admin/'), (value) => {
-        const val = value.val()
-        const keys = Object.keys(val)
-        for (let i = 0; i < keys.length; i++) {
-            if (keys[i] == name) {
-                username.innerText = name
+const status = localStorage.getItem('status')
+console.log(status);
+if (status != null || status != undefined) {
+    if (status.split('"')[1] == 'active') {
+        const name = localStorage.getItem('name').split('"')[1]
+        console.log(name);
+        onValue(ref(database, 'admin/'), (value) => {
+            const val = value.val()
+            const keys = Object.keys(val)
+            for (let i = 0; i < keys.length; i++) {
+                if (keys[i] == name) {
+                    username.innerText = name
+                }
             }
-        }
-    }, {
-        onlyOnce: true,
-    })
+        }, {
+            onlyOnce: true,
+        })
+}
 } else {
     window.location.replace('../admin-login/index.html')
 }
+
 //sign out
 const sign_out = document.getElementById('sign-out-button')
 sign_out.addEventListener('click', () => {
@@ -51,78 +55,132 @@ sign_out.addEventListener('click', () => {
 //print_user
 const user_print = document.getElementById("user-manage")
 const user_ref = ref(database, 'users/')
-onValue(user_ref, (value) => {
-    const data = value.val()
-    const data_keys = Object.keys(data)
+const filter = document.getElementById('filter')
+const filter_value = new URLSearchParams(window.location.search).get('filter')
 
-    for (let i = 0; i < data_keys.length; i++) {
-        onValue(ref(database, 'users/' + data_keys[i]), (snap) => {
-            var current = snap.val()
-            var str = new String(current.avatar)
-            onValue(ref(database, 'session/'), (sesion_data) => {
-                var session_count = new String(session_check(sesion_data.val(), data_keys[i]))
-                if (str.includes(",")) {
-                    getDownloadURL(storageref(storage, 'avatar/' + str.split(",")[0])).then((url) => {
-                        var html = `<tr>
-                    <td>${current.username}</td>
-                    <td>${current.email}</td>
-                    <td><img src="${url}" alt=""></td>
-                    <td>${current.gender}</td>
-                    <td>${current.school}</td>          
-                    <td>${current.grade}</td>
-                    <td>${current.race}</td>
-                    <td>${current.religion}</td>
-                    <td>${current.home_town}</td>
-                    <td>${current.birthday}</td>
-                    <td>${session_count}</td>
-                    <td class='health-edit-btn' user_uid='${data_keys[i]}'>${current.health_condition}</td>
-                    <td>${current.archive}</td>
-                    <td><Button class="delete"  user-uid='${data_keys[i]}'>Delete</Button> <button class='profile' user_uid='${data_keys[i]}'>Profile dowload</button></td>
-                </tr>`
+function print_user(){
+    onValue(user_ref, (value) => {
+        var data = value.val()
+        var data_keys = Object.keys(data)
+        if(filter_value.toLowerCase() =='đội_TNTP'.toLowerCase()){
+            filter.value='đội_TNTP'
+            let copy = data
+            data = {}
+            for(let i =0;i<data_keys.length;i++){
+                if(copy[data_keys[i]].team.toLowerCase() == 'đội TNTP'.toLowerCase()){
+                    data[`${data_keys[i]}`] = copy[data_keys[i]]
+                }
+            }
+        }else if(filter_value.toLowerCase()=='đoàn_thanh_niên'.toLowerCase()){
+            filter.value='đoàn_thanh_niên'
+            let copy = data
+            data = {}
+            for(let i =0;i<data_keys.length;i++){
+                if(copy[data_keys[i]].team.toLowerCase() == 'đoàn thanh niên'.toLowerCase()){
+                    data[`${data_keys[i]}`] = copy[data_keys[i]]
+                }
+            }
+        }
+        
+        
+        data_keys = Object.keys(data)
+        console.log(data_keys.length);
+        for (let i = 0; i < data_keys.length; i++) {
+            
+            onValue(ref(database, 'users/' + data_keys[i]), (snap) => {
+                var current = snap.val()
+                var str = new String(current.avatar)
+                onValue(ref(database, 'session/'), (sesion_data) => {
+                    var session_count = new String(session_check(sesion_data.val(), data_keys[i]))
+                    if (str.includes(",")) {
+                        
+                        getDownloadURL(storageref(storage, 'avatar/' + str.split(",")[0])).then((url) => {
+                        console.log(url);
+                            var html = `<tr status='ready'>
+                            <td class='edit-btn' edit_value ='team' user_uid='${data_keys[i]}'>${current.team}</td>
+                            <td class='edit-btn' edit_value ='username' user_uid='${data_keys[i]}'>${current.username}</td>
+                            <td class='edit-btn' edit_value ='email' user_uid='${data_keys[i]}'>${current.email}</td>
+                            <td><img src="${url}" alt=""></td>
+                            <td class='edit-btn' edit_value ='gender' user_uid='${data_keys[i]}'>${current.gender}</td>
+                            <td class='edit-btn' edit_value ='school' user_uid='${data_keys[i]}'>${current.school}</td>          
+                            <td class='edit-btn' edit_value ='grade' user_uid='${data_keys[i]}'>${current.grade}</td>
+                            <td class='edit-btn' edit_value ='race' user_uid='${data_keys[i]}'>${current.race}</td>
+                            <td class='edit-btn' edit_value ='religion' user_uid='${data_keys[i]}'>${current.religion}</td>
+                            <td class='edit-btn' edit_value ='home_town' user_uid='${data_keys[i]}'>${current.home_town}</td>
+                            <td class='edit-btn' edit_value ='birthday' user_uid='${data_keys[i]}'>${current.birthday}</td>
+                            <td>${session_count}</td>
+                            <td class='edit-btn' edit_value ='health_condition' user_uid='${data_keys[i]}'>${current.health_condition}</td>
+                            <td class='edit-btn' edit_value ='political' user_uid='${data_keys[i]}'>${current.political}</td>
+                            <td class='edit-btn' edit_value ='language' user_uid='${data_keys[i]}'>${current.language}</td>
+                            <td class='edit-btn' edit_value ='havegone' user_uid='${data_keys[i]}'>${current.havegone}</td>
+                            <td class='edit-btn' edit_value ='award' user_uid='${data_keys[i]}'>${current.award}</td>
+                            <td class='edit-btn' edit_value ='discipline' user_uid='${data_keys[i]}'>${current.discipline}</td>
+                            <td class='edit-btn' edit_value ='talent' user_uid='${data_keys[i]}'>${current.talent}</td>
+                            <td class='edit-btn' edit_value ='qualification' user_uid='${data_keys[i]}'>${current.qualification}</td>
+                            <td>${current.archive}</td>
+                            <td><Button class="delete"  user-uid='${data_keys[i]}'>Delete</Button><button class='profile' user_uid='${data_keys[i]}'>Profile dowload</button></td>
+                    </tr>`
+                            user_print.insertAdjacentHTML("beforeend", html)
+    
+                            start_delete()
+                            start_edit()
+                            start_profile()
+                            
+                        })
+                    } else {
+                        let url;
+                        if (current.avatar == 'none' || current.avatar == null) {
+                            url = '../user.png'
+                        } else {
+                            url = current.avatar
+                        }
+                        var html = `<tr status='ready'>
+                        <td class='edit-btn' edit_value ='team' user_uid='${data_keys[i]}'>${current.team}</td>
+                        <td class='edit-btn' edit_value ='username' user_uid='${data_keys[i]}'>${current.username}</td>
+                            <td class='edit-btn' edit_value ='email' user_uid='${data_keys[i]}'>${current.email}</td>
+                            <td><img src="${url}" alt=""></td>
+                            <td class='edit-btn' edit_value ='gender' user_uid='${data_keys[i]}'>${current.gender}</td>
+                            <td class='edit-btn' edit_value ='school' user_uid='${data_keys[i]}'>${current.school}</td>          
+                            <td class='edit-btn' edit_value ='grade' user_uid='${data_keys[i]}'>${current.grade}</td>
+                            <td class='edit-btn' edit_value ='race' user_uid='${data_keys[i]}'>${current.race}</td>
+                            <td class='edit-btn' edit_value ='religion' user_uid='${data_keys[i]}'>${current.religion}</td>
+                            <td class='edit-btn' edit_value ='home_town' user_uid='${data_keys[i]}'>${current.home_town}</td>
+                            <td class='edit-btn' edit_value ='birthday' user_uid='${data_keys[i]}'>${current.birthday}</td>
+                            <td>${session_count}</td>
+                            <td class='edit-btn' edit_value ='health_condition' user_uid='${data_keys[i]}'>${current.health_condition}</td>
+                            <td class='edit-btn' edit_value ='political' user_uid='${data_keys[i]}'>${current.political}</td>
+                            <td class='edit-btn' edit_value ='language' user_uid='${data_keys[i]}'>${current.language}</td>
+                            <td class='edit-btn' edit_value ='havegone' user_uid='${data_keys[i]}'>${current.havegone}</td>
+                            <td class='edit-btn' edit_value ='award' user_uid='${data_keys[i]}'>${current.award}</td>
+                            <td class='edit-btn' edit_value ='discipline' user_uid='${data_keys[i]}'>${current.discipline}</td>
+                            <td class='edit-btn' edit_value ='talent' user_uid='${data_keys[i]}'>${current.talent}</td>
+                            <td class='edit-btn' edit_value ='qualification' user_uid='${data_keys[i]}'>${current.qualification}</td>
+                            <td>${current.archive}</td>
+                            <td><Button class="delete"  user-uid='${data_keys[i]}'>Delete</Button><button class='profile' user_uid='${data_keys[i]}'>Profile dowload</button></td>
+                    </tr>`
                         user_print.insertAdjacentHTML("beforeend", html)
-
                         start_delete()
                         start_edit()
                         start_profile()
-                    })
-                } else {
-                    let url;
-                    if (current.avatar == 'none' || current.avatar == null) {
-                        url = '../user.png'
-                    } else {
-                        url = current.avatar
+                        
                     }
-                    var html = `<tr>
-                    <td class='edit-btn' edit_value ='username' user_uid='${data_keys[i]}'>${current.username}</td>
-                    <td class='edit-btn' edit_value ='email' user_uid='${data_keys[i]}'>${current.email}</td>
-                    <td><img src="${url}" alt=""></td>
-                    <td class='edit-btn' edit_value ='gender' user_uid='${data_keys[i]}'>${current.gender}</td>
-                    <td class='edit-btn' edit_value ='school' user_uid='${data_keys[i]}'>${current.school}</td>          
-                    <td class='edit-btn' edit_value ='grade' user_uid='${data_keys[i]}'>${current.grade}</td>
-                    <td class='edit-btn' edit_value ='race' user_uid='${data_keys[i]}'>${current.race}</td>
-                    <td class='edit-btn' edit_value ='religion' user_uid='${data_keys[i]}'>${current.religion}</td>
-                    <td class='edit-btn' edit_value ='home_town' user_uid='${data_keys[i]}'>${current.home_town}</td>
-                    <td class='edit-btn' edit_value ='birthday' user_uid='${data_keys[i]}'>${current.birthday}</td>
-                    <td>${session_count}</td>
-                    <td class='edit-btn' edit_value ='health_condition' user_uid='${data_keys[i]}'>${current.health_condition}</td>
-                    <td>${current.archive}</td>
-                    <td><Button class="delete"  user-uid='${data_keys[i]}'>Delete</Button><button class='profile' user_uid='${data_keys[i]}'>Profile dowload</button></td>
-                </tr>`
-                    user_print.insertAdjacentHTML("beforeend", html)
-                    start_delete()
-                    start_edit()
-                    start_profile()
-                }
-
+    
+                })
             })
-        })
-        if (document.getElementsByClassName("delete") == undefined) {
-            start_delete()
+            if (document.getElementsByClassName("delete") == undefined) {
+                start_delete()
+            }
+            
         }
-    }
-
-}, {
-    onlyOnce: true
+        
+    }, {
+        onlyOnce: true
+    })
+}
+print_user('none')
+//filter
+filter.addEventListener('change',()=>{
+    window.location.replace('./user-manage.html'+`?filter=${filter.value}`)
 })
 function start_delete() {
     var del_btn = document.getElementsByClassName("delete")
@@ -221,3 +279,7 @@ function start_profile(){
         })
     }
 }
+
+
+//filter
+
