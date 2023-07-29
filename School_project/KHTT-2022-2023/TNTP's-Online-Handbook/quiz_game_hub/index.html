@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang cá nhân</title>
-    <link rel="icon" href="../297509804_101449592676259_3343510981543503821_n-removebg-preview.png">
-    <link rel="stylesheet" href="style.css">
+    <title>game hub</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="../Thumbnails25312011013150-removebg-preview.png">
     <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
-
 <body>
+    <!--header-->
     <i class="fa-solid fa-bars open"></i>
     <header>
-        <div class="header-content">
+        <div class="header-content" >
             <div class="header-logo">
-                <a href="../home/index.html"><img src="../Thumbnails25312011013150-removebg-preview.png" alt=""
-                        srcset=""></a>
+                <a href="#"><img src="../Thumbnails25312011013150-removebg-preview.png" alt="" srcset=""></a>
             </div>
-            <a href="../home/index.html"> <i class="fa-solid fa-house"></i>Home</a>
+            <a href="#"> <i class="fa-solid fa-house"></i>Home</a>
             <a href="../posts/index.html"> <i class="fa-solid fa-newspaper"></i>Bài đăng</a>
             <a href="../tntp QUIZ GAME/index.html"> <i class="fa-solid fa-gamepad"></i> Quiz</a>
             <a href="#" class="doc-dropdown"><i class="fa-solid fa-folder"></i> Tài liệu</a>
@@ -50,7 +48,7 @@
             </div>
         </div>
         <div class="header-user">
-            <img src="../user.png" alt="avatar" id="img">
+            <img src="" alt="avatar" id="img">
             <i class="fa-solid fa-caret-down" id="user-drop"></i>
             <div class="header-user-drop">
                 <h1>Cài đặt</h1>
@@ -61,45 +59,61 @@
         </div>
     </header>
     <nav>
-        <form >
+        <form id="search">
             <input type="text"  id='search-value'placeholder="Tìm kiếm thông tin về đội.....">
             <button id="submit-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </nav>
 
-    <div class="profile">
-        <div class="profile-box" id="profile-box">
-            
-        
+
+
+    <!--game hub-->
+    <div class="game-hub">
+        <div class="user-section">
+            <div class="search-quiz">
+                <input type="text" placeholder="Tìm kiếm Quiz...." id="quiz-search">
+                <button id="quiz-search-submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="create-quiz">
+                
+                <div class="user-quiz">
+                    <h5>Các bài đã tạo gần đây</h5>
+                    <div class="container">
+                        <div class="card">
+                            <img src="../logo.PNG" alt="">
+                            <p>trắc nghiệm lịch sử</p>
+                        </div>
+                    </div>
+                    <button>tạo quiz</button>
+                </div>
             </div>
         </div>
-    </div>
-    <script src="./module.js" type="module"></script>
-    <footer>
-        <div class="contact">
-         <div class="contact-info">
-             <h1>Liên hệ chúng tôi qua</h1>
-             <p>phuochuunguyen2009@gmail.com</p>
-             <p>0905332540</p>
-         </div>
-         <div class="social-icon">
-             <h1>Nền tảng mạng xã hội</h1>
-             <div class="icon">
-                 <img src="../facebook.png" alt="facebook">
-                 <img src="../youtube.png" alt="youtube">
-                 <img src="../twitter.png" alt="twitter">
-                 <img src="../instagram.png" alt="insta">
-             </div>
-         </div>
+        <div class="quiz-section">
+            <div class="quiz-topic">
+                <h1><i class="fa-solid fa-star"></i> lịch sử</h1>
+                <div class="quiz-container">
+                    <div class="card">
+                        <div class="img">
+                            <img src="../logo.png" alt="image">
+                        </div>
+                        <div class="info">
+                            <p>Quiz</p>
+                            <h3>Trắc nghiệm lịch sử</h3>
+                            <div class="detail">
+                                <p class="question"><img src="../question.png" alt="">10 cảu hỏi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="feedback">
-            <h1>Phản hồi</h1>
-            <input type="text" id="feedback">
-            <button id="feedback-btn">Submit</button>
-       </div> 
-     </footer>
-    <script src="app.js"></script>
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-</body>
+        
+    </div>
 
+
+
+    
+    <script type="module" src="./module.js"></script>
+    <script src="./app.js"></script>
+</body>
 </html>

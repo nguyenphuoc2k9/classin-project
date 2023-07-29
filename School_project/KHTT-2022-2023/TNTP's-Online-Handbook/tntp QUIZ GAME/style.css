@@ -4,6 +4,7 @@
     padding: 0;
 }
 body{
+    overflow: hidden;
     background: linear-gradient(180deg, #96D1FB 0%, rgba(109, 188, 245, 0.804885) 30.21%, rgba(14, 141, 233, 0.354167) 99.99%, rgba(150, 209, 251, 0) 100%);
 }
 header {
@@ -80,8 +81,23 @@ i.open{
     transition: all .5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
+.dropdown-box hr{
+    width: 100%;
+    height: 10px;
+    border: none;
+    background-color: #fff;
+}
+.dropdown-box.e{
+    padding-top: 0;
+    position: relative;
+    display: none;
+    opacity: 0;
+    width: 100% !important;
+}
 .dropdown-box.active {
+    display: flex;
     animation: drop forwards .5s;
+
 }
 
 .dropdown-box.refuse {
@@ -92,15 +108,18 @@ i.open{
     0% {
         transform: scaleY(0%);
         z-index: 99;
+        opacity: 0.1;
     }
 
     10% {
         transform: scaleY(10%);
+        opacity: 0.2;
     }
 
     100% {
         transform: scaleY(100%);
         z-index: 99;
+        opacity: 1;
     }
 }
 
@@ -108,11 +127,13 @@ i.open{
     0% {
         transform: scaleY(100%);
         z-index: 99;
+        opacity: 0.7;
     }
 
     100% {
         transform: scaleY(0%);
         z-index: 99;
+        opacity: 0;
     }
 }
 
@@ -847,17 +868,21 @@ footer .next-btn{
     .info-box{
         width: 100vw;
         height: 100vh;
-        transform: translate(-50%,-34%) !important;
+        top: unset;
+        transform: translate(-50%,0%) !important;
     }
     .result-box{
         width: 100vw;
         height: 100vh;
         padding: 0;
-        transform: translate(-50%,-34%) !important; 
+        justify-content: flex-start !important;
+        top: unset;
+        transform: translate(-50%,0%) !important; 
     }
     .quiz-box{
-        transform:  translate(-50%,-20%) scale(1);
+        transform:  translate(-50%,-40%) scale(1);
         width: 100%;
+        height: 100%;
         max-height: unset;
     }
     .title{
@@ -869,5 +894,16 @@ footer .next-btn{
     }
     .quiz-box footer{
         width: unset !important;
+    }
+    .option{
+        height: 10vh;
+    }
+    .que-text{
+        min-height: 19vh;
+    }
+}
+@media only screen and (max-height:830px){
+    .quiz-box{
+        transform: translate(-50%,-30%);
     }
 }

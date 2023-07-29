@@ -124,17 +124,22 @@ open_btn.addEventListener('click',()=>{
 })
 
 //dropdown
-const doc_drop = document.getElementById('doc-dropdown')
-const dropdown_box = document.getElementsByClassName('dropdown-box')[0]
-doc_drop.addEventListener('click', function () {
-    if (dropdown_box.classList.contains('active')) {
-        dropdown_box.classList.remove('active')
-        dropdown_box.classList.add('refuse')
-    } else {
-        dropdown_box.classList.add('active')
-        dropdown_box.classList.remove('refuse')
-    }
-})
+const doc_drop = document.getElementsByClassName('doc-dropdown')
+const dropdown_box = document.getElementsByClassName('dropdown-box')
+for(let i =0;i<doc_drop.length;i++){
+    doc_drop[i].addEventListener('click', function () {
+    
+        if (dropdown_box[i].classList.contains('active')) {
+            dropdown_box[i].classList.remove('active')
+            dropdown_box[i].classList.add('refuse')
+        } else {
+            dropdown_box[i].classList.add('active')
+            dropdown_box[i].classList.remove('refuse')
+        }
+        
+    })
+}
+
 const user_drop = document.getElementById('user-drop')
 const header_user_box = document.getElementsByClassName('header-user-drop')[0]
 header_user_box.style.display = 'none'
