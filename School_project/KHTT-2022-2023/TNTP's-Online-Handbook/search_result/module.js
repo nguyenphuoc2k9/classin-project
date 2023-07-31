@@ -98,6 +98,7 @@ sign_out_btn.addEventListener("click", () => {
 const user_box = document.getElementsByClassName('user-container')[0]
 const session_box = document.getElementsByClassName('session-container')[0]
 const post_box = document.getElementsByClassName('post-container')[0]
+const document_box = document.getElementsByClassName('document-container')[0]
 function start_searching() {
   btn.addEventListener('click', (e) => {
     e.preventDefault()
@@ -108,19 +109,22 @@ function start_searching() {
       alert('Search input cannot be empty')
     }
   })
-  var value_input = new URLSearchParams(window.location.search).get('search_value')
+  var value_input = new URLSearchParams(window.location.search).get('search_value').toLowerCase()
   if (value_input != '') {
     console.log('XD');
     document.getElementById('search').value = value_input
     onValue(ref(database), (snapshot) => {
       var data = snapshot.val()
+      data['document'] = document_data
+      console.log(data);
       var keys = Object.keys(data)
       var user_result = []
       var post_result = []
       var session_result = []
+      var document_result = []
       for (let i = 0; i < keys.length; i++) {
 
-        if (keys[i] == 'users' || keys[i] == 'post' || keys[i] == 'session') {
+        if (keys[i] == 'users' || keys[i] == 'post' || keys[i] == 'session' || keys[i] =='document') {
           console.log('section_data', data[keys[i]]);
           var current_section = data[keys[i]]
           var current_keys = Object.keys(current_section)
@@ -132,6 +136,8 @@ function start_searching() {
             search_target = ['username', 'email', 'school', 'gender', 'class']
           } else if (keys[i] == 'session') {
             search_target = ['session_name', 'session_desc']
+          } else if (keys[i] =='document'){
+            search_target = ['name']
           }
           for (let x = 0; x < current_keys.length; x++) {
             var current_data = current_section[current_keys[x]]
@@ -144,6 +150,7 @@ function start_searching() {
                 let compare_user = JSON.stringify(user_result).includes(JSON.stringify(companation))
                 let compare_post = JSON.stringify(post_result).includes(JSON.stringify(companation))
                 let compare_session = JSON.stringify(session_result).includes(JSON.stringify(companation))
+                let compare_document = JSON.stringify(document_result).includes(JSON.stringify(companation))
                 console.log(compare_post);
                 if (keys[i] == 'post' && compare_post == false) {
                   post_result.push(companation)
@@ -151,6 +158,8 @@ function start_searching() {
                   user_result.push(companation)
                 } else if (keys[i] == 'session' && compare_session == false) {
                   session_result.push(companation)
+                } else if (keys[i] == 'document' && compare_document == false){
+                  document_result.push(companation)
                 }
               }
             }
@@ -158,19 +167,16 @@ function start_searching() {
           }
         }
       }
-      console.log(user_result);
-      console.log(post_result);
-      result_print(user_result, post_result, session_result)
-      function result_print(user, post, session) {
+      console.log(document_result);
+      result_print(user_result, post_result, session_result,document_result)
+      function result_print(user, post, session,document_) {
         //print user
-        if (post.length + session.length < 3 && user.length <= 0) {
-          document.getElementsByTagName('footer')[0].classList.add('active')
-        }
-        if ((user.length == 0 || user == null) && (post.length == 0 || post == null) && (session.length == 0 || session == null)) {
+        
+        if ((document_.length == 0 || document_ == null) && (user.length == 0 || user == null) && (post.length == 0 || post == null) && (session.length == 0 || session == null)) {
           user_box.parentElement.remove()
           post_box.parentElement.remove()
           session_box.parentElement.remove()
-          document.getElementsByTagName('footer')[0].classList.remove('active')
+          document_box.parentElement.remove()
           document.getElementsByClassName('no-result-img')[0].style = 'block'
         }
         if (user.length != 0) {
@@ -204,7 +210,7 @@ function start_searching() {
                 </div>
                 `
             user_box.insertAdjacentHTML('beforeend', html)
-            footer_check()
+            
             document.getElementById('u-title').innerText = `Found ${user.length} in users`
           }
         } else {
@@ -288,7 +294,7 @@ function start_searching() {
                               </div>
                 </div>`
             post_box.insertAdjacentHTML("beforeend", html)
-            footer_check()
+            
             document.getElementById('p-title').innerText = `Found ${post.length} in posts`
             const comment_box = document.getElementsByClassName(post_key)[0].getElementsByClassName('comment-box')[0]
             onValue(ref(database, 'post/' + keys + '/comments/'), (value) => {
@@ -366,21 +372,22 @@ function start_searching() {
                     </div>`
               console.log(session);
               session_box.insertAdjacentHTML('beforeend', html)
-              footer_check()
+              
             })
           }
         } else {
           session_box.parentElement.remove()
         }
-
-        function footer_check(){
-          if(document.getElementsByClassName('search')[0].clientHeight <= window.innerHeight*(50/100) ){
-            console.log(document.getElementsByClassName('search')[0].clientHeight,window.innerHeight*(1/2));
-            document.getElementsByTagName('footer')[0].classList.add('active')
-          }else{
-            console.log(document.getElementsByClassName('search')[0].clientHeight,window.innerHeight);
+        if(document_.length != 0){
+          for(let i =0;i<document_.length;i++){
+            var current_item = document_[i][0]
+            document_box.insertAdjacentHTML('beforeend',`<a href="${current_item.href}">${current_item.name}</a>`)
+            
           }
+        }else{
+          document_box.parentElement.remove()
         }
+        
 
       }
     }, {

@@ -111,7 +111,6 @@ submit_btn.addEventListener("click", () => {
   // Create a reference to 'mountains.jpg'
   const storageRef = storageref(storage, 'images/' + file.name);
   const starCountRef = ref(database, 'users/');
-
   let check = false;
   if (title != null && desc != null) {
     if (title.length > 5 && title.length < 30) {
@@ -159,23 +158,6 @@ if(check == true){
   })
   
 })
-  if (check == true) {
-    uploadBytes(storageRef, file).then((snapshot) => {
-      set(ref(database, 'pending-post/' + generateRandomKey(10)), {
-        title: title,
-        desc: desc,
-        archive: 'none',
-        author_uid: uid_,
-        img: file.name
-      }).then(()=>{
-        window.location.reload();
-      })
-
-    })
-
-  }
-
-
 }})
 
 //print_post
