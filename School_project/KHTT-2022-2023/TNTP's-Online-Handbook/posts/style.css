@@ -406,7 +406,7 @@ nav form button {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .info h1,p{
-    word-break: break-all;
+    word-break: break-word;
     width: 100%;
     margin-bottom: 20px;
     font-family: 'Roboto', sans-serif;
@@ -765,4 +765,106 @@ footer{
     .info h1{
         font-size: medium !important;
     }
+}
+.popup{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: -100vh;
+    opacity: 1;
+}
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    transition: opacity 100ms ease-in-out 200ms;
+}
+.popup-content{
+    opacity: 0;
+    position: absolute;
+    width: 40%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f8f8f8;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 2px 2px 5px rgba(0,0,0,0.05);
+    transition: all 300ms ease-in-out;
+}
+.popup-title h1{
+    font-family: 'Inter',sans-serif;
+    text-align: center;
+}
+.pop-up-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pop-up-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 60%;
+    overflow: hidden;
+
+}
+.pop-up-form input[type='file']{
+    display: none;
+}
+.pop-up-form label{
+    width: 100%;
+    padding: 20px;
+    background-color: #F2821A;
+    border: 1px solid #fff;
+    color: #Fff;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.pop-up-form button{
+    padding:10px;
+    border: 1px solid #fff;
+    background-color: #1a91f2;
+    color: #fff;
+    font-size: larger;
+    cursor: pointer;
+}
+.popup #close{
+    background:none;
+    text-decoration: underline;
+    border: none;
+    font-size: larger;
+    color: #0088f5;
+    cursor: pointer;
+}
+.popup.active{
+    top: 0px;
+    transition: top 0ms ease-in-out 0ms;
+}
+.popup.active .overlay{
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+}
+.popup.active img{
+    position: absolute;
+    top: 50%;
+    max-width: 90%;
+    max-height: 90%;
+    min-width: 50%;
+    min-height: 50%;
+    display: block;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.popup img{
+    display: none;
+}
+.popup.popup.active .popup-content{
+    opacity: 1;
+    transform: translate(-50%,-50%);
 }

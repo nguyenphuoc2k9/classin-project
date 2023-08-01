@@ -213,6 +213,7 @@ function print_post(value,data_2) {
   processLoop();
   function print_post_element(data, val, url, url_2, keys,len,i) {
     var post_key = generateRandomKey(15)
+    var class_key = generateRandomKey(10)
     var html = `<div class="post-element ${post_key}">
     <div class="header">
         <div class="owner" id='owner'>
@@ -228,7 +229,7 @@ function print_post(value,data_2) {
     <div class="info">
         <h1>${data.title}</h1>
         <p>${data.desc}</p>
-        <img src="${url}" alt="">
+        <img src="${url}" img_name='${data.img}' class='zoom-image' alt="">
     </div>
     <div class="comment-section">
                     <div class="comment-form">
@@ -283,8 +284,10 @@ function print_post(value,data_2) {
       }
       }
     })
+    
     if(i == len){
       start_create(uid_,len)
+      start_zoom_image()
     }
   }
 }
@@ -339,4 +342,28 @@ function start_feedback(uid){
       })
     }
   })
+}
+//zoom_image
+const popup = document.getElementById('show-result')
+const overlay = document.getElementsByClassName('overlay')[0]
+const zoom_tag =document.getElementById('zoom-tag')
+function start_zoom_image(){
+  console.log('zooming');
+  
+  var zoom_image = document.querySelectorAll('.zoom-image')
+  zoom_image.forEach((element)=>{
+    element.addEventListener('click',()=>{
+    popup.classList.add('active')
+    var file_name = element.getAttribute('img_name')
+    overlay.addEventListener('click',()=>{
+      popup.classList.remove('active')
+      zoom_tag.src =''
+    })
+    getDownloadURL(storageref(storage,'images/'+file_name)).then((url)=>{
+      zoom_tag.src=url
+    })
+    })
+  })
+    
+  
 }
