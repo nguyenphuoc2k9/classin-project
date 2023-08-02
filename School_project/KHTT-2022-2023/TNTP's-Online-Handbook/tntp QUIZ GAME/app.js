@@ -245,7 +245,6 @@ for(let i =0;i<doc_drop.length;i++){
     })
 }
 
-
 const user_drop = document.getElementById('user-drop')
 const header_user_box = document.getElementsByClassName('header-user-drop')[0]
 header_user_box.style.display = 'none'

@@ -38,7 +38,7 @@ if (status != null || status != undefined) {
         }, {
             onlyOnce: true,
         })
-}
+    }
 } else {
     window.location.replace('../admin-login/index.html')
 }
@@ -89,6 +89,7 @@ button_submit.addEventListener('click', () => {
                 session_status: 'active',
                 session_img: file.name
             }).then(() => {
+                window.location.reload()
             })
         })
     }
@@ -168,7 +169,7 @@ function print_session(data) {
                 var count_index = 0
                 for (let x = 0; x < session_data_keys.length; x++) {
                     onValue(ref(database, 'users/' + session_data_keys[x]), (s) => {
-                        
+
                         var username = s.val().username
                         let key_2 = generateRandomKey(15)
                         var html_2 = `
@@ -207,14 +208,14 @@ function print_session(data) {
                                 }
                             }
                         }
-                        
-                        if(current_box.getElementsByClassName('work-done')[0].childElementCount <= 1){
+
+                        if (current_box.getElementsByClassName('work-done')[0].childElementCount <= 1) {
                             current_box.getElementsByClassName('done-text')[0].remove()
                         }
-                        if(current_box.getElementsByClassName('work')[0].childElementCount <= 1){
+                        if (current_box.getElementsByClassName('work')[0].childElementCount <= 1) {
                             current_box.getElementsByClassName('not-done-text')[0].remove()
                         }
-                        count_index+=1
+                        count_index += 1
                     })
                 }
             }
@@ -270,7 +271,7 @@ function start_create_activity() {
                 set(ref(database, 'session/' + session_name + '/activity/' + key), {
                     name: activity
                 }).then(() => {
-                    chang_Data(session_name,'add',activity)
+                    chang_Data(session_name, 'add', activity)
                 })
             }, {
                 onlyOnce: true,
@@ -310,7 +311,7 @@ function start_delete() {
             var work_name = ac_del[i].getAttribute('work_name')
             var ac_key = ac_del[i].getAttribute('ac_key')
             remove(ref(database, 'session/' + session_name + '/activity/' + ac_key)).then(() => {
-                chang_Data(session_name,'delete',work_name)
+                chang_Data(session_name, 'delete', work_name)
             })
         })
     }
@@ -331,7 +332,7 @@ onValue(ref(database, 'pending_work/'), (snap) => {
     const data = snap.val()
     if (data != null) {
         print_pending_session(data)
-    }else if(data == null){
+    } else if (data == null) {
         document.getElementsByClassName('session-pending')[0].remove()
     }
 })
@@ -380,7 +381,7 @@ function start_del_add() {
                             status: 'done',
                             img: img
                         }).then(() => {
-                            remove(ref(database, 'pending_work/' + pending_key)).then(()=>{
+                            remove(ref(database, 'pending_work/' + pending_key)).then(() => {
                                 window.location.reload()
                             })
                         })
@@ -391,50 +392,60 @@ function start_del_add() {
     }
 }
 //change data
-function chang_Data(session_name,method,work_name){
-    if(method =='delete'){
-        onValue(ref(database,`session/${session_name}/session_data/`),(snap)=>{
+function chang_Data(session_name, method, work_name) {
+    if (method == 'delete') {
+        onValue(ref(database, `session/${session_name}/session_data/`), (snap) => {
             const data = snap.val()
-            console.log(data);
-            const data_keys = Object.keys(data)
-            for(let  i =0;i<data_keys.length;i++){
-                const data_2 = data[data_keys[i]]
-                const data_2_keys = Object.keys(data_2)
-                for(let x = 0;x<data_2_keys.length;x++){
-                    var current_data = data_2[data_2_keys[x]]
-                    console.log(work_name);
+            if (data != undefined && data != null) {
+                console.log(data);
+                const data_keys = Object.keys(data)
+                for (let i = 0; i < data_keys.length; i++) {
+                    const data_2 = data[data_keys[i]]
+                    const data_2_keys = Object.keys(data_2)
+                    for (let x = 0; x < data_2_keys.length; x++) {
+                        var current_data = data_2[data_2_keys[x]]
+                        console.log(work_name);
 
-                    if(current_data.name == work_name){
-                        remove(ref(database,`session/${session_name}/session_data/${data_keys[i]}/${data_2_keys[x]}`)).then(()=>{
-                            window.location.reload()
-                        })
-                    }else{
-                        console.log(false);
+                        if (current_data.name == work_name) {
+                            remove(ref(database, `session/${session_name}/session_data/${data_keys[i]}/${data_2_keys[x]}`)).then(() => {
+                                window.location.reload()
+                            })
+                        } else {
+                            console.log(false);
+                        }
                     }
                 }
+            }else{
+                window.location.reload()
             }
-        },{
-            onlyOnce:true,
+
+        }, {
+            onlyOnce: true,
         })
-    }else if(method =='add'){
+    } else if (method == 'add') {
         console.log(method);
-        onValue(ref(database,`session/${session_name}/session_data`),(snap)=>{
-            const data=snap.val()
+        onValue(ref(database, `session/${session_name}/session_data`), (snap) => {
+            const data = snap.val()
             console.log(data);
-            const data_keys = Object.keys(data)
-            for(let i =0;i<data_keys.length;i++){
+            if(data != undefined && data != null){
+                const data_keys = Object.keys(data)
+            for (let i = 0; i < data_keys.length; i++) {
                 var pk_key = generateRandomKey(10)
-                set(ref(database,`session/${session_name}/session_data/${data_keys[i]}/${pk_key}`),{
+                set(ref(database, `session/${session_name}/session_data/${data_keys[i]}/${pk_key}`), {
                     name: work_name,
-                    img:'none',
-                    status:'not'
-                }).then(()=>{
+                    img: 'none',
+                    status: 'not'
+                }).then(() => {
                     window.location.reload()
                 })
 
             }
-        },{
-            onlyOnce:true,
+            }else{
+                window.location.reload()
+            }
+            
+        }, {
+            onlyOnce: true,
         })
     }
 }

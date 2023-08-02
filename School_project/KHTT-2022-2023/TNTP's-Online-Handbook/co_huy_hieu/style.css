@@ -26,6 +26,9 @@ body{
     text-align: center;
     gap: 5px;
 }
+.content-card .header.spec{
+    flex-direction: column;
+}
 .content-card h3{
     padding: 10px 0;
 }
