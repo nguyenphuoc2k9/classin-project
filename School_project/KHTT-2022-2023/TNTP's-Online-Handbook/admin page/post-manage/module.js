@@ -214,11 +214,13 @@ for(let i =0;i<select.length;i++){
         }
         parent.insertAdjacentHTML('beforeend',html)
         
-        start_select(table)
+        
         if(table =='post'){
             start_action(user_print)
             create_select(user_print,table)
+            start_select(user_print)
         }else{
+            start_select(pending_print)
             create_select(pending_print,table)
             start_action(pending_print)
         }
@@ -237,14 +239,10 @@ function create_select(table,section){
 function start_select(table){
     const select_all = document.getElementsByClassName('select-all')
     for(let i =0;i<select_all.length;i++){
+        
         select_all[i].addEventListener('click',()=>{
-            for(let x = 0;x<user_print.childElementCount;x++){
-                if(table == 'post'){
-
-                    user_print.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0].checked = true;
-                }else{
-                    pending_print.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0].checked = true;
-                }
+            for(let x = 0;x<table.childElementCount;x++){
+                    table.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0].checked = true;
             }
         })
     }
@@ -267,39 +265,54 @@ function start_action(table){
                 var element = table.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0]
                 if(element.checked == true){
                     remove(direct).then(()=>{
-                        window.location.reload()
-                    })
-                }
-            }
-        })
-    }
-    const add_select = document.getElementsByClassName('add-select')
-    for(let i =0;i<add_select.length;i++){
-        add_select[i].addEventListener('click',()=>{
-            for(let x=0;x<table.childElementCount;x++){
-                var direct;
-                var data_key =table.children[x].getAttribute('data-key')
-                var child = table.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0]
-                if(child.getAttribute('class').includes('post') == true){
-                    direct = ref(database,`post/${data_key}/`)
-                }else{
-                    direct = ref(database,`pending-post/${data_key}/`)
-                }
-                var element = table.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0]
-
-                if(element.checked == true){
-                    
-                    onValue(direct,(snap)=>{
-                        const value = snap.val()
-                        set(ref(database,`post/${data_key}/`),value).then(()=>{
-                            remove(direct).then(()=>{
-                                window.location.reload()
-                            })
-                        })
                         
                     })
                 }
             }
         })
     }
+    const add_select = document.getElementsByClassName('add-select')
+    var added = false
+    for (let i = 0; i < add_select.length; i++) {
+        add_select[i].addEventListener('click', () => {
+          if (!added) {
+            console.log(i);
+            const promises = [];
+      
+            for (let x = 0; x < table.childElementCount; x++) {
+              const data_key = table.children[x].getAttribute('data-key');
+              const child = table.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0];
+              const direct = ref(database, `pending-post/${data_key}/`);
+              const element = table.children[x].getElementsByClassName('last')[0].getElementsByTagName('input')[0];
+      
+              if (element.checked) {
+                const promise = new Promise((resolve, reject) => {
+                  onValue(direct, (snap) => {
+                    const value = snap.val();
+                    console.log(value);
+                    set(ref(database, `post/${data_key}/`), value)
+                      .then(() => remove(direct))
+                      .then(() => {
+                        added = true;
+                        resolve();
+                      })
+                      .catch((error) => reject(error));
+                  },{
+                    onlyOnce:true
+                  });
+                });
+                promises.push(promise);
+              }
+            }
+      
+            Promise.all(promises)
+              .then(() => {
+               window.location.reload()
+              })
+              .catch((error) => {
+                console.error('An error occurred:', error);
+              });
+          }
+        });
+      }
 }

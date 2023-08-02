@@ -102,7 +102,29 @@ onValue(ref(database, 'users/' + uid), (smap) => {
         </div>
         <div class="info-card">
             <h3>Các thành tựu:${data.archive}</h3
-        </div>`
+        </div>
+        <div class='info-card'>
+            <h3>đã đi nước ngoài, lý do: ${data.havegone}</h3>
+        </div>
+        <div class='info-card'>
+            <h3>Ngôn ngữ :${data.language}</h3>
+        </div>
+        <div class='info-card'>
+            <h3> lý luận chính trị :${data.havegone}</h3>
+        </div>
+        <div class='info-card'>
+            <h3>Khen thưởng : ${data.award}</h3>
+        </div>
+        <div class='info-card'>
+            <h3>Kỷ luật: ${data.discipline}</h3>
+        </div>
+        <div class='info-card'>
+            <h3>năng khiếu : ${data.talent}</h3>
+        </div>
+        <div class='info-card'>
+            <h3>sở trường: ${data.qualification}</h3>
+        </div>
+        `
         info_box.insertAdjacentHTML('beforeend',html)
         console.log(string);
         var session_result = document.getElementsByClassName('session')[0]

@@ -538,7 +538,7 @@ footer.active{
 .no-result-img img{
     width: 50%;
 }
-.user-result{
+.user-result,.session-result,.post-result,.document-result{
     width: 100%;
     border: none;
     border-radius:10px ;
@@ -547,6 +547,7 @@ footer.active{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
 .user-title{
     color: #000;
@@ -560,17 +561,7 @@ footer.active{
     gap: 10px;
     width: 100%;
 }
-.post-result{
-    width: 100%;
-    border: none;
-    border-radius:10px ;
-    padding: 10px;
-    background-color: #cccccc;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
+
 .post-title{
     color: #000;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -804,17 +795,7 @@ footer.active{
     }
 }
 /*session*/
-.session-result{
-    width: 100%;
-    border: none;
-    border-radius:10px ;
-    padding: 10px;
-    background-color: #cccccc;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
+
 .session-container{
     width: 100%;
     align-items: center;
@@ -1065,4 +1046,17 @@ footer.active{
     .no-result-img img{
         width: 100% !important;
     }
+}
+/*document*/
+.document-container{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+#d-title{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.document-container a{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: larger
 }

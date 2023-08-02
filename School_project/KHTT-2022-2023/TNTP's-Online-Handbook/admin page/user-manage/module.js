@@ -62,28 +62,28 @@ function print_user(){
     onValue(user_ref, (value) => {
         var data = value.val()
         var data_keys = Object.keys(data)
-        if(filter_value ==null || filter_value.length == undefined){
-            filter_value = 'all'
-        }
-        if(filter_value.toLowerCase() =='đội_TNTP'.toLowerCase()){
-            filter.value='đội_TNTP'
-            let copy = data
-            data = {}
-            for(let i =0;i<data_keys.length;i++){
-                if(copy[data_keys[i]].team.toLowerCase() == 'đội TNTP'.toLowerCase()){
-                    data[`${data_keys[i]}`] = copy[data_keys[i]]
+        if( filter_value != undefined){
+            if(filter_value.toLowerCase() =='đội_TNTP'.toLowerCase()){
+                filter.value='đội_TNTP'
+                let copy = data
+                data = {}
+                for(let i =0;i<data_keys.length;i++){
+                    if(copy[data_keys[i]].team.toLowerCase() == 'đội TNTP'.toLowerCase()){
+                        data[`${data_keys[i]}`] = copy[data_keys[i]]
+                    }
+                }
+            }else if(filter_value.toLowerCase()=='đoàn_thanh_niên'.toLowerCase()){
+                filter.value='đoàn_thanh_niên'
+                let copy = data
+                data = {}
+                for(let i =0;i<data_keys.length;i++){
+                    if(copy[data_keys[i]].team.toLowerCase() == 'đoàn thanh niên'.toLowerCase()){
+                        data[`${data_keys[i]}`] = copy[data_keys[i]]
+                    }
                 }
             }
-        }else if(filter_value.toLowerCase()=='đoàn_thanh_niên'.toLowerCase()){
-            filter.value='đoàn_thanh_niên'
-            let copy = data
-            data = {}
-            for(let i =0;i<data_keys.length;i++){
-                if(copy[data_keys[i]].team.toLowerCase() == 'đoàn thanh niên'.toLowerCase()){
-                    data[`${data_keys[i]}`] = copy[data_keys[i]]
-                }
-            }
         }
+        
         
         
         data_keys = Object.keys(data)
