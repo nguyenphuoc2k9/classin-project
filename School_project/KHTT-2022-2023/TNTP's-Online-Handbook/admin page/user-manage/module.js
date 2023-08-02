@@ -56,12 +56,15 @@ sign_out.addEventListener('click', () => {
 const user_print = document.getElementById("user-manage")
 const user_ref = ref(database, 'users/')
 const filter = document.getElementById('filter')
-const filter_value = new URLSearchParams(window.location.search).get('filter')
+var filter_value = new URLSearchParams(window.location.search).get('filter')
 
 function print_user(){
     onValue(user_ref, (value) => {
         var data = value.val()
         var data_keys = Object.keys(data)
+        if(filter_value ==null || filter_value.length == undefined){
+            filter_value = 'all'
+        }
         if(filter_value.toLowerCase() =='đội_TNTP'.toLowerCase()){
             filter.value='đội_TNTP'
             let copy = data
