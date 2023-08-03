@@ -26,7 +26,7 @@ body{
 .header-box a{
     text-decoration: none;
     color: #fff;
-    font-size: larger;
+    font-size: large;
 }
 .header-box a::before{
     content: '';
