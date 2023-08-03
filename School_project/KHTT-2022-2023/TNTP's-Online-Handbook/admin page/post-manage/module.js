@@ -64,7 +64,9 @@ onValue(post_ref, (value) => {
         <td>${current.title}</td>
         <td>${current.desc}</td>
         <td><img src="${url}" alt=""></td>
+        
         <td>${current.archive}</td>
+        <td>${current.topic}</td>
         <td>
         <div class='btn'>
         <button class="delete" post-id='${data_keys[i]}'>Delete</button> <button class="edit" post-id='${data_keys[i]}'>Set archivement</button></div></td>
@@ -150,6 +152,7 @@ onValue(pending_ref, (value) => {
             <tr data-key='${data_keys[i]}'>
             <td>${current.title}</td>
             <td>${current.desc}</td>
+            <td>${current.topic}</td>
             <td><img src="${url}" alt=""></td>
             <td><button class="deny" post-id='${data_keys[i]}'>Deny</button><button class="accept" post-id='${data_keys[i]}'>Accept</button></td>
         </tr>`
@@ -160,8 +163,7 @@ onValue(pending_ref, (value) => {
         }
     }else{
         pending_print.parentElement.parentElement.parentElement.remove()
-    }
-    
+    } 
 },{
     onlyOnce:true
 })
@@ -177,6 +179,7 @@ function start_deny(){
         })
     }
 }
+
 function start_app(current){
     const app_btn = document.getElementsByClassName("accept")
     for(let i=0;i<app_btn.length;i++){
@@ -188,7 +191,8 @@ function start_app(current){
                     title:current.title,
                     desc:current.desc,
                     img:current.img,
-                    archive:'none'
+                    archive:'none',
+                    topic:current.topic
                 }).then(()=>{
                     window.location.reload()
                 })

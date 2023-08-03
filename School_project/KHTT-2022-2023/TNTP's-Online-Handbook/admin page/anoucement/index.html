@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/1410425ca1.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="header">
+        <div class="header-box">
+            <div class="head-card">
+                <a href="../dashboard/dashboard.html"><h1>Tổng quan</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="../user-manage/user-manage.html"><h1>Thành viên</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="../post-manage/post.html"><h1>Bài đăng</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="../session-manage/index.html"><h1>phiên hoạt động</h1></a>
+            </div>
+            <div class="head-card">
+                <a href="../feedback_manage/index.html"><h1>phản hồi</h1></a>
+            </div>
+        </div>
+        <div class="header-user">
+            <img src="../user.png" alt="">
+            <h1 id="username"></h1>
+            <i class="fa-solid fa-caret-down" id="dropdown"></i>
+            <div class="dropdown-box" id="dropdown-box">
+                <button id="sign-out-button">Đăng xuất</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="session">
+        <div class="session-pending">
+            <div class="session-title">
+                <h1>Thông báo</h1>
+            </div>
+            <div class="session-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>image</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="anouce">
+                        
+                    </tbody>
+                </table>
+            </div>
+            <button id="session-create">Tạo phiên hoạt động</button>
+        </div>
+    </div>
+    <div class="session-create">
+        <div class="session-title">
+            <h1>Tạo phiên hoạt động</h1>
+        </div>
+        <div class="session-form">
+            <label for="session-title">tiêu đề thông báo</label>
+            <input type="text" class='input'id="anouce-title">
+            <label for="session-desc">Chi tiết</label>
+            <input type="text" id="anouce-desc" class='input'>
+            <label for="file"><i class="fa-solid fa-image"></i> Hình ảnh</label>
+            <input type="file" id="file" accept="image/*" class='input'>
+            <button id="session-submit">Tạo</button>
+        </div>
+        <button id="close-session-form"><i class="fa-solid fa-circle-xmark"></i></button>
+    </div>
+    <script type="module" src="module.js"></script>
+    <script src="../app.js"></script>
+    <script type="text/javascript">
+        function dropdown_2(e, index) {
+            var parent = e.parentElement
+            var dropdown = parent.getElementsByClassName('card-dropdown')[index]
+            if (dropdown.classList.contains('active')) {
+                dropdown.classList.remove('active')
+            } else {
+                dropdown.classList.add('active')
+            }
+        }
+    </script>
+</body>
+</html>

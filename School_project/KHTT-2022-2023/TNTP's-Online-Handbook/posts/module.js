@@ -37,7 +37,10 @@ onAuthStateChanged(auth, (user) => {
       print_user(data, uid)
       onValue(ref(database, 'post/'), (value) => {
         const data = value.val()
-        print_post(snapshot,data)
+        if(data != null){
+          print_post(snapshot,data)
+
+        }
       }, {
         onlyOnce: true
       })
@@ -106,13 +109,14 @@ const submit_btn = document.getElementById('submit')
 submit_btn.addEventListener("click", () => {
   let title = document.getElementById("title").value
   let desc = document.getElementById("desc").value
+  let topic =document.getElementById('topic').value
   let file = document.getElementById("file").files[0]
   const p = document.getElementsByClassName("error-text")
   // Create a reference to 'mountains.jpg'
   const storageRef = storageref(storage, 'images/' + file.name);
   const starCountRef = ref(database, 'users/');
   let check = false;
-  if (title != null && desc != null) {
+  if (title != null && desc != null && topic != null) {
     if (title.length > 5 && title.length < 30) {
       check = true
     } else {
@@ -152,7 +156,8 @@ if(check == true){
     desc:desc,
     archive:'none',
     author_uid:uid_,
-    img:file.name
+    img:file.name,
+    topic:topic
   }).then(()=>{
     window.location.reload()
   })
