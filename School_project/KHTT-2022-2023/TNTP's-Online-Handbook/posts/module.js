@@ -232,7 +232,7 @@ function print_post(value,data_2) {
     </div>
     
     <div class="info">
-        <h1>${data.title}</h1>
+        <h1>${data.title} chủ đề ${data.topic}</h1>
         <p>${data.desc}</p>
         <img src="${url}" img_name='${data.img}' class='zoom-image' alt="">
     </div>

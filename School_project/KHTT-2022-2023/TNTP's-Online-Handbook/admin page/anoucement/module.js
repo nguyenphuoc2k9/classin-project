@@ -47,17 +47,18 @@ button_submit.addEventListener('click', () => {
     let title = document.getElementById('anouce-title').value
     let desc = document.getElementById('anouce-desc').value
     let file = document.getElementById('file').files[0]
-    if(document.getElementById('file').getAttribute('file_name') == file.name){
-        
-    }
+    let key = generateRandomKey(10)
+    
     var check = false
 
     if (title == null && desc == null && file == null) {
         check = true;
     }
     if (check == false) {
+        
+        
         uploadBytes(storageref(storage, 'images/' + file.name), file).then(() => {
-            set(ref(database, 'anouce/' + title), {
+            set(ref(database, 'anouce/' + key), {
                 title:title,
                 desc:desc,
                 file:file.name
@@ -128,7 +129,7 @@ function start_action(){
                 input[1].value = data.desc
                 input[0].value = data.title
                 input[2].setAttribute('file_name',data.file)
-                
+                input[2].setAttribute('key',key)
             })
             
         })
