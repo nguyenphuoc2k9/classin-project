@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //1
+function allLongestString(arr){
+    var max = 0
+    for(let i =0;i<arr.length;i++){
+        if(arr[i].length > max){
+            max = arr[i].length
+        }
+    }
+    var new_arr =[]
+    for(let i =0;i<arr.length;i++){
+        if(arr[i].length == max){
+            new_arr.push(arr[i])
+        }
+    }
+    return new_arr
+}
+console.log(allLongestString(['BINH', 'HUNG', "PHUOC", 'CAO', 'KHANH']))
+//2
+function alternativesums(arr){
+    var sums = [0,0]
+    for(let i = 0;i<arr.length;i++){
+        if (i % 2 ==0){
+            sums[0] += arr[i]
+        }else{
+            sums[1]+=arr[i]
+        }
+    }
+    return sums
+}
+console.log(alternativesums([60,40,55,75,64]))
+    </script>
+</body>
+</html>

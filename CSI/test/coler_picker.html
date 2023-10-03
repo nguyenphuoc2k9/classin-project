@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color picker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="random-btn">
+        <div class="color-hex">
+            <h1>Color hex code</h1>
+            <h3>#fffff</h3>
+            <button id="color-random">Random</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const btn = document.getElementById('color-random')
+        
+        btn.addEventListener("click",()=>{
+            console.log(btn)
+            var x = Math.round(0xffffff*Math.random()).toString(16)
+            var y = 6-x.length;
+            var z = '000000'
+            var zl = z.substring(0,y)
+            var color = '#' + zl + x
+            console.log(color)
+            btn.style.backgroundColor = color
+            document.getElementsByTagName('h3')[0].innerText = color
+            document.body.style.backgroundColor = color
+        })
+    </script>
+</body>
+</html>

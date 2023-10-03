@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #fff;
+    width: 100%;
+    height: 100vh;
+    z-index: 99;
+}
+.random-btn{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.color-hex{
+    width: 30%;
+    height: 40%;
+    border: 1px solid #000;
+    border-radius:10px ;
+    background-color: rgb(43, 122, 226);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.color-hex h3,.color-hex h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.color-hex h3{
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    background-color: rgb(90, 154, 238);
+}
+.random-btn button{
+    width:100%;
+    border: 5px;
+    height: 50px;
+    cursor: pointer;
+    background-color: rgb(5, 80, 177);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
