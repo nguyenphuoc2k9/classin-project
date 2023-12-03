@@ -173,7 +173,7 @@
         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 		transition: all .5s cubic-bezier(0.215, 0.610, 0.355, 1);
         display: flex;
-		opacity: 0;
+		opacity: 1;
 		position: relative;
         align-items: center;
         justify-content: center;
@@ -222,21 +222,9 @@
 <BODY>
 	<div class="box">
 		<canvas id="pinkboard"></canvas>
-		<div class="center-text">I Love you too</div>
+		<div class="center-text">Chúc cô 20/11 vui vẻ</div>
 	</div>
-	<div class="text">
-		<div class="text-box">
-			<div class="text-main">
-				<h1 class="text-before">HEY🤫</h1>
-				<h1 class="text-before">Um😅</h1>
-				<h1 class="text-before">Do you love me ?🥰</h1>
-			</div>
-			<div class="btn" id="btn">
-				<button id="yes"><p>YES!!😍</p><span></span></button>
-				<button id = "no"><p>NO!!😥</p><span></span></button>
-			</div>
-		</div>
-	</div>
+	
 	<script>
 		/*
 	   * Settings
@@ -253,39 +241,7 @@
 		/*
 		 * RequestAnimationFrame polyfill by Erik Möller
 		 */
-		var ex = false;
-		const text = document.getElementsByClassName("text-before")
-		for(let i =0;i<text.length;i++){
-			mul = 3000*i
-			setTimeout(function(){
-				text[i].classList.add("active")
-					if(i <2){
-						setTimeout(function(){
-						text[i].classList.remove("active")
-					},3000)
-				}
-				else{
-					ex = true
-					console.log(ex);
-				}
-			}, 3000+mul)
-		}
-		setTimeout(function(){
-			if(ex === true){
-				console.log(ex);
-				document.getElementById("btn").style.opacity = "1";
-				document.getElementById("yes").addEventListener("click", function(){
-					text[2].classList.remove("active")
-					document.getElementById("btn").style.opacity = "0"
-					document.getElementsByClassName("center-text")[0].style.opacity = "1";
-					trueorfalse()
-				})
-				document.getElementById("no").addEventListener("click",function(){
-					alert("bye then😭")
-					window.close()
-				})
-			}
-		},9000)
+		trueorfalse()
 		function trueorfalse() {
 			(function () { var b = 0; var c = ["ms", "moz", "webkit", "o"]; for (var a = 0; a < c.length && !window.requestAnimationFrame; ++a){ window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"]; window.cancelAnimationFrame = window[c[a] + "CancelAnimationFrame"] || window[c[a] + "CancelRequestAnimationFrame"] } if (!window.requestAnimationFrame) { window.requestAnimationFrame = function (h, e) { var d = new Date().getTime(); var f = Math.max(0, 16 - (d - b)); var g = window.setTimeout(function () { h(d + f) }, f); b = d + f; return g } } if (!window.cancelAnimationFrame) { window.cancelAnimationFrame = function (d) { clearTimeout(d) } } }());
 			/*
