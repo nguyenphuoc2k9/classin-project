@@ -1,0 +1,40 @@
+.layout {
+    min-height: 100vh;
+    width: 100vw;
+    border: 1px;
+
+    .header {
+        height: 30px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        background-color: rgb(49, 113, 250);
+    }
+
+    .body-content {
+        margin: 30px auto;
+        min-height: 300px;
+        width: 80%;
+
+        .content {
+            min-height: 113px;
+            background-color: #1b1b1b;
+            display: flex;
+
+            .store-infor {
+                background-position: center;
+                background-repeat: no-repeat;
+                padding: 10px;
+                width: 100%;
+                background-size: contain;
+                background-color: #fff;
+                background-image: url(https://maytinhhoangha.com/uploads/logo/12.jpg);
+            }
+        }
+    }
+
+    .footer {
+        min-height: 530px;
+        background-color: rgb(0, 115, 209);
+    }
+}
