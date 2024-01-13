@@ -2,14 +2,34 @@ import { useTheme } from "@mui/material";
 import { ResponsiveChoropleth } from "@nivo/geo";
 import { geoFeatures } from "../data/mockGeoFeatures";
 import { tokens } from "../theme";
-import { mockGeographyData as data } from "../data/mockData";
-
+import { mockGeographyData } from "../data/mockData";
+import { useState } from "react";
+import deepEqual from "../deepEqual.js"
 const GeographyChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [data,setData] = useState(JSON.parse(localStorage.getItem("geoData")))
+  if(!localStorage.getItem("geoData")){
+    localStorage.setItem("geoData",JSON.stringify(mockGeographyData))
+  }
+  const handleclick=(bar,event)=>{
+    console.log(bar);
+    const newdata = [...data]
+    const dataindex = newdata.findIndex(d=> deepEqual(d,bar.data))
+    const replacedata = Number(prompt("Enter replace data"))
+  
+    if(replacedata){
+      newdata[dataindex].value = replacedata
+      setData(newdata)
+      localStorage.setItem("geoData",JSON.stringify(newdata))
+    }else{
+      console.log(replacedata);
+    }
+  }
   return (
     <ResponsiveChoropleth
       data={data}
+      onClick={handleclick}
       theme={{
         axis: {
           domain: {

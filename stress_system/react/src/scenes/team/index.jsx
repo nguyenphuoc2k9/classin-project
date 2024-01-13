@@ -1,15 +1,26 @@
-import React from 'react'
-import {Box,Typography,useTheme} from "@mui/material"
-import { DataGrid } from '@mui/x-data-grid'
+import React, { useState } from 'react'
+import {Box,Typography,useTheme,Button} from "@mui/material"
+import { DataGrid,GridActionsCellItem } from '@mui/x-data-grid'
 import { tokens } from '../../theme'
 import {mockDataTeam} from "../../data/mockData"
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
+import DeleteIcon from '@mui/icons-material/DeleteOutlined';
+
 import Header from '../../components/Header'
 const Team = () => {
     const theme = useTheme()
+    const [row,setRow] = useState(JSON.parse(localStorage.getItem("team")))
     const colors = tokens(theme.palette.mode)
+    if(!localStorage.getItem("team")){
+      localStorage.setItem("team",JSON.stringify(mockDataTeam))
+    }
+    const handleDelete = (id)=>{
+      const newdata = row.filter(data=> data.id != id)
+      setRow(newdata)
+      localStorage.setItem('team',JSON.stringify(newdata))
+    }
     const columns = [
         { field: "id", headerName: "ID" },
         {
@@ -17,6 +28,8 @@ const Team = () => {
           headerName: "Name",
           flex: 1,
           cellClassName: "name-column--cell",
+          editable:true
+
         },
         {
           field: "age",
@@ -24,16 +37,22 @@ const Team = () => {
           type: "number",
           headerAlign: "left",
           align: "left",
+          editable:true
+
         },
         {
           field: "phone",
           headerName: "Phone Number",
           flex: 1,
+          editable:true
+
         },
         {
           field: "email",
           headerName: "Email",
           flex: 1,
+          editable:true
+
         },
         {
           field: "accessLevel",
@@ -66,7 +85,33 @@ const Team = () => {
             );
           },
         },
-      ];
+        {
+          field:"action",
+          headerName:"Action",
+          flex:1,
+          type:"action",
+          width:100,
+          cellClassName:"action",
+          renderCell: ({row:{id}})=>{
+            return (
+              <Button startIcon={<DeleteIcon/>} sx={{
+                "&:hover":{
+                  backgroundColor:`${colors.redAccent[700]} !important`
+                },
+                backgroundColor:colors.redAccent[500],color:colors.grey[100],padding:"5px" ,margin:"0 auto",display:"flex",justifyContent:"center",width:"60%"}} onClick={()=>handleDelete(id)} >
+                Delete
+              </Button>
+            )
+          }
+        }
+      ]
+  const processRowUpdate = (newrow)=>{
+    const updateRow = {...newrow,isNew:false}
+    const newdata = row.map((row)=> (row.id===newrow.id ? updateRow:row))
+    setRow(newdata)
+    localStorage.setItem("team",JSON.stringify(newdata))
+    return updateRow
+  }
   return (
     <Box m="20px">
         <Header title="TEAM" subtitle="Managing the Team Members"/>
@@ -97,8 +142,10 @@ const Team = () => {
             }}
         >
             <DataGrid 
-                rows={mockDataTeam}
+                rows={row}
                 columns={columns}
+                editMode="row"
+                processRowUpdate={processRowUpdate}
             />
         </Box>
     </Box>

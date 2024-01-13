@@ -1,16 +1,20 @@
 import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { tokens } from "../theme";
-import { mockLineData as data } from "../data/mockData";
-
+import { mockLineData } from "../data/mockData";
+import deepEqual from "../deepEqual.js"
+import { useState } from "react";
 const LineChart = ({ isCustomLineColors = false, isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
+  const [data,setData]= useState(JSON.parse(localStorage.getItem("lineData")))
+  if(!localStorage.getItem("lineData")){
+    localStorage.setItem("lineData",JSON.stringify(mockLineData))
+  }
+  
   return (
     <ResponsiveLine
       data={data}
-      
       theme={{
         axis: {
           domain: {

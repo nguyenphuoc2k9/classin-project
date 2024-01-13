@@ -8,8 +8,10 @@ const initialValues = {
     firstName:"",
     lastName:"",
     email:"",
-    contact: "",
-    address:""
+    phone: "",
+    address:"",
+    age:"",
+    access:"user"
 }
 
 const phoneRegExp =   /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
@@ -17,13 +19,19 @@ const userScheme = yup.object().shape({
     firstName: yup.string().required("required"),
     lastName: yup.string().required("required"),
     email: yup.string().email("Invalid Email").required("required"),
-    contact: yup.string().matches(phoneRegExp,"Phone number is not valid").required("required"),
-    address: yup.string().required("required")
+    phone: yup.string().matches(phoneRegExp,"Phone number is not valid").required("required"),
+    address: yup.string().required("required"),
+    age:yup.string().required("required"),
 })
 const Form = () => {
     const isNonMobile = useMediaQuery("(min-width:600px)")
     const handleFormSubmit = (values)=>{
-        console.log(values);
+        let newvar = {...values}
+        newvar["name"]= `${values.firstName} ${values.lastName}`
+        newvar["age"] = new Number(values.age)
+        const storageval = JSON.parse(localStorage.getItem("team"))
+        newvar["id"] = storageval[storageval.length-1].id +1
+        localStorage.setItem("team",JSON.stringify([...storageval,newvar]))
     }
     
     return (
@@ -94,15 +102,30 @@ const Form = () => {
                         />
                         <TextField 
                             fullWidth 
-                            variant="filled"
-                            name="contact" 
+                            variant="filled" 
+                            name="age"
                             type="text" 
-                            label="Contact Number" 
+                            label="Age" 
                             onChange={handleChange} 
                             onBlur={handleBlur} 
-                            value={values.contact} 
-                            error={!!touched.contact && !!errors.contact}
-                            helperText={touched.contact && errors.contact}
+                            value={values.age} 
+                            error={!!touched.age && !!errors.age}
+                            helperText={touched.age && errors.age}
+                            sx={{
+                                gridColumn:"span 4"
+                            }} 
+                        />
+                        <TextField 
+                            fullWidth 
+                            variant="filled"
+                            name="phone" 
+                            type="text" 
+                            label="phone Number" 
+                            onChange={handleChange} 
+                            onBlur={handleBlur} 
+                            value={values.phone} 
+                            error={!!touched.phone && !!errors.phone}
+                            helperText={touched.phone && errors.phone}
                             sx={{
                                 gridColumn:"span 4"
                             }} 

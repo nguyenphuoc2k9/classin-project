@@ -1,14 +1,34 @@
 import { ResponsivePie } from "@nivo/pie";
 import { tokens } from "../theme";
 import { useTheme } from "@mui/material";
-import { mockPieData as data } from "../data/mockData";
-
+import { mockPieData } from "../data/mockData";
+import deepEqual from "../deepEqual.js"
+import { useState } from "react";
 const PieChart = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [data,setData] = useState(JSON.parse(localStorage.getItem("pieData")))
+  if(!localStorage.getItem("pieData")){
+    localStorage.setItem("pieData",JSON.stringify(mockPieData))
+  }
+  const handleclick=(bar,event)=>{
+    console.log(bar);
+    const newdata = [...data]
+    const dataindex = newdata.findIndex(d=> deepEqual(d,bar.data))
+    const replacedata = Number(prompt("Enter replace data"))
+  
+    if(replacedata){
+      newdata[dataindex].value = replacedata
+      setData(newdata)
+      localStorage.setItem("pieData",JSON.stringify(newdata))
+    }else{
+      console.log(replacedata);
+    }
+  }
   return (
     <ResponsivePie
       data={data}
+      onClick={handleclick}
       theme={{
         axis: {
           domain: {

@@ -1,15 +1,35 @@
 import { useTheme } from "@mui/material";
 import { ResponsiveBar } from "@nivo/bar";
 import { tokens } from "../theme";
-import { mockBarData as data } from "../data/mockData";
-
+import { mockBarData } from "../data/mockData";
+import { useState } from "react";
+import { replace } from "formik";
+import deepEqual from "../deepEqual.js"
 const BarChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
+  const [data,setData]=useState(JSON.parse(localStorage.getItem("barData")))
+  if(!localStorage.getItem("barData")){
+    localStorage.setItem("barData",JSON.stringify(mockBarData))
+  }
+  const handleclick=(bar,event)=>{
+    console.log(bar);
+    const newdata = [...data]
+    const dataindex = newdata.findIndex(d=> deepEqual(d,bar.data))
+    const replacedata = Number(prompt("Enter replace data"))
+  
+    if(replacedata){
+      newdata[dataindex][`${bar.id}`] = replacedata
+      setData(newdata)
+      localStorage.setItem("barData",JSON.stringify(newdata))
+    }else{
+      console.log(replacedata);
+    }
+  }
   return (
     <ResponsiveBar
       data={data}
+      onClick={handleclick}
       theme={{
         axis: {
           domain: {
@@ -112,6 +132,7 @@ const BarChart = ({ isDashboard = false }) => {
             {
               on: "hover",
               style: {
+                itemTextColor:"#000",
                 itemOpacity: 1,
               },
             },
