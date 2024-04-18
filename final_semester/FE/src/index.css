@@ -1,0 +1,7 @@
+
+#root{
+  background-image: linear-gradient(to right top, #e39e34, #e79534, #ea8c36, #ec8338, #ee7a3c);
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}

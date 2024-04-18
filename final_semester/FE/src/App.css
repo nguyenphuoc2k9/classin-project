@@ -1,0 +1,193 @@
+*{
+    margin: 0;
+    padding:0
+}
+/* home */
+.home{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home-box{
+    max-width: 60vw;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+    margin:  20vh auto 5vw auto;
+}
+/* header */
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.header svg{
+    font-size: 40px;
+    color: #000;
+    cursor: pointer;
+}
+.header h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:x-large;
+    letter-spacing: 2px;
+    color: #000;
+}
+.header h1:after{
+    content: "UI";
+    padding: 5px;
+    border-radius:50%;
+    color: #fff;
+    background-color: orange;
+}
+/* movie */
+.movie-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding:10px ;
+}
+.movie-header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+    
+}
+.movie-header .title h1{
+    font-family: sans-serif;
+    font-size: larger;
+    letter-spacing: 3px;
+    font-weight: 100;
+}
+.movie-header .icons {
+    display: flex;
+    gap: 10px;
+}
+.movie-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.more-button {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+/* card */
+.card{
+    width:24%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+.card img{
+    border-radius: 5px;
+    width: 25vh;
+    height: 35vh;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.card h1{
+    font-family: sans-serif;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+.card .desc{
+    display: flex;
+    gap: 5px;
+}
+.card .desc p{
+    font-family: sans-serif;
+    color: #bdbdbd;
+}
+/* detail */
+.detail{
+    width: 60vw;
+    min-height: 60vh;
+}
+.detail-box{
+    padding: 10px;
+    display: flex;
+    gap: 5px;
+    position: relative;
+}
+.detail-box .close-button{
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    right: 0;
+    font-size: 30px;
+    color: #000;
+}
+.detail-box .content{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10vh;
+    justify-content: space-around;
+    width: 80%;
+}
+.detail-box .content .content-card{
+    display: flex;
+    width: 100%;
+    gap: 5px;
+}
+.inside h1{
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.content-card.inside{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 5px;
+}
+.inside{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.inside p{
+    color: #bdbdbd;
+    font-family: sans-serif;
+    width: 100%;
+}
+.content-card h2{
+    font-family: sans-serif;
+    font-weight: lighter;
+    line-height: 30px;
+
+}
+
+.detail-box .image{
+    width: 20%;
+    height: 100%;
+    position: relative;
+}
+.detail-box img{
+    width: 180%;
+    position: absolute;
+    top: -5vh;
+    left: -10vw;
+    
+    border-radius: 10px;
+}
+.content-card .play-button{
+    width: 40%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-image: linear-gradient(to right top, #d3bf42, #daaf2f, #e09f1e, #e68d13, #eb7912);
+    color: #fff;
+    font-size: larger;
+    border: none;
+    border-radius: 20px;
+}
