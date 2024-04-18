@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
-const userSchema = mongoose.Schema({
-    _id:false,
-    id:String,
+const userSchema = new mongoose.Schema({
     name:String
 })
 const userModel= mongoose.model("users",userSchema)

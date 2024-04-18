@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
-const postSchema = mongoose.Schema({
-    _id:false,
-    id:String,
+const postSchema = new mongoose.Schema({
     authorId:String,
     content:String,
 })

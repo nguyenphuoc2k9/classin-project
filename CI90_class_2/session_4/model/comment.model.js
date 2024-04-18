@@ -1,7 +1,5 @@
 import mongoose from "mongoose";
-const commentScheme = mongoose.Schema({
-    _id:false,
-    id:String,
+const commentScheme = new mongoose.Schema({
     postId:String,
     authorId:String,
     content:String,
