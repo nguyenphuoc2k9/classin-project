@@ -16,12 +16,12 @@ AxiosInstance.interceptors.request.use(function(config){
     }
     return config
 })
-// AxiosInstance.interceptors.response.use(function(res){
-//     return res
-// },async function(error){
-//     if(error.code = 401 && error.url.includes("/movie")){
-//         const access_token = localStorage.removeItem("access_token")
-//         store.dispatch(logout())
-//     }
-//     return Promise.reject(error)
-// })
+AxiosInstance.interceptors.response.use(function(res){
+    return res
+},async function(error){
+    if(error.code = 401 && error.url.includes("/movie")){
+        const access_token = localStorage.removeItem("access_token")
+        store.dispatch(logout())
+    }
+    return Promise.reject(error)
+})
