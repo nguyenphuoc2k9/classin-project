@@ -22,7 +22,7 @@ const UserWidget = ({ userId, picturePath ,handleClickOpen}) => {
   const dark = palette.neutral.dark;
   const medium = palette.neutral.medium;
   const main = palette.neutral.main;
-
+  const {_id} = useSelector((state)=>state.user)
   const getUser = async () => {
     const response = await AxiosInstance.get(`/users/${userId}`)
     setUser(response.data);
@@ -44,7 +44,9 @@ const UserWidget = ({ userId, picturePath ,handleClickOpen}) => {
     viewedProfile,
     impressions,
     friends,
+    
   } = user;
+  const currentUser = userId === _id
   return (
     <WidgetWrapper>
       {/* FIRST ROW */}
@@ -72,9 +74,10 @@ const UserWidget = ({ userId, picturePath ,handleClickOpen}) => {
             <Typography color={medium}>{friends.length} friends</Typography>
           </Box>
         </FlexBetween>
-          <IconButton onClick={()=> handleClickOpen("user")}>
+        {currentUser ?<IconButton onClick={()=> handleClickOpen("user")}>
              <ManageAccountsOutlined/>
-          </IconButton>
+          </IconButton> :""}
+          
       </FlexBetween>
 
       <Divider />

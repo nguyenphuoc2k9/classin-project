@@ -14,19 +14,20 @@ import FormDialog from "../../components/EditForm.jsx";
 const ProfilePage = () => {
   const [user, setUser] = useState(null);
   const { userId } = useParams();
-  const [type,setType] = useState({})
-  const token = useSelector((state) => state.token);
+  const { _id } = useSelector((state) => state.user)
+  const IsCurrentUser = userId === _id
+  const [type, setType] = useState({})
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
   const [open, setOpen] = useState(false);
   const handleClickOpen = (e) => {
     setOpen(true);
-    if(e =="user"){
-      setType({...type,type:e})
-    }else{
-      setType({postId:e.postId,type:e.type})
+    if (e == "user") {
+      setType({ ...type, type: e })
+    } else {
+      setType({ postId: e.postId, type: e.type })
     }
   };
-  
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -38,14 +39,14 @@ const ProfilePage = () => {
 
   useEffect(() => {
     getUser();
-    
+
   }, [])
 
   if (!user) return null;
 
   return (
     <Box>
-      <FormDialog open={open} type={type} setUser={setUser} user={user}handleClose={handleClose}/>
+      <FormDialog open={open} type={type} setUser={setUser} user={user} handleClose={handleClose} />
       <Navbar />
       <Box
         width="100%"
@@ -55,7 +56,7 @@ const ProfilePage = () => {
         justifyContent="center"
       >
         <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
-          <UserWidget  userId={userId} picturePath={user.picturePath} handleClickOpen={handleClickOpen}/>
+          <UserWidget userId={userId} picturePath={user.picturePath} handleClickOpen={handleClickOpen} />
           <Box m="2rem 0" />
           <FriendListWidget userId={userId} />
         </Box>
@@ -63,7 +64,8 @@ const ProfilePage = () => {
           flexBasis={isNonMobileScreens ? "42%" : undefined}
           mt={isNonMobileScreens ? undefined : "2rem"}
         >
-          <MyPostWidget picturePath={user.picturePath} />
+          {IsCurrentUser ? <MyPostWidget picturePath={user.picturePath} />
+            : ""}
           <Box m="2rem 0" />
           <PostsWidget handleClickOpen={handleClickOpen} userId={userId} isProfile />
         </Box>
